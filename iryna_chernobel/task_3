@@ -1,0 +1,26 @@
+##Створила користувача. Перевірила, чи можна зайти під створеним користувачем. Створила директорію та файл в директорії.
+## Перевірила права на директорію та файл.
+
+iryna@ubuntu:~$ sudo su
+[sudo] password for iryna:
+root@ubuntu:/home/iryna# useradd -m -G root -s /bin/bash irena
+root@ubuntu:/home/iryna# passwd irena
+New password:
+Retype new password:
+passwd: password updated successfully
+root@ubuntu:/home/iryna# sudo irena
+sudo: irena: command not found
+root@ubuntu:/home/iryna# exit
+exit
+iryna@ubuntu:~$ su irena
+Password:
+irena@ubuntu:/home/iryna$ cd ~
+irena@ubuntu:~$ pwd
+/home/irena
+irena@ubuntu:~$ mkdir irena_task
+irena@ubuntu:~$ touch /home/irena/irena_task/chernobel
+irena@ubuntu:~$ cd irena_task/
+irena@ubuntu:~/irena_task$ ls -l
+total 0
+-rw-r--r-- 1 irena irena 0 Feb 13 08:40 chernobel
+irena@ubuntu:~/irena_task$
