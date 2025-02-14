@@ -1,0 +1,31 @@
+#add the group
+sudo groupadd developers
+
+#add users
+sudo useradd dev
+sudo useradd test
+
+#set passwords - 123
+sudo passwd dev
+sudo passwd test
+
+#add users to the group
+sudo usermod -aG developers dev
+sudo usermod -aG developers test
+
+#check groups
+groups dev
+
+#check users
+sudo id dev
+sudo id test
+
+#work with shared folder
+sudo mkdir /home/dir1
+sudo chgrp -R developers /home/dir1
+ls -la /home
+sudo chmod 770 /home/dir1
+sudo chmod g+s /home/dir1
+ls -la /home
+sudo chmod g+t /home/dir1
+ls -la /home
