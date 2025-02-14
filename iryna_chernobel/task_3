@@ -121,3 +121,32 @@ drwxr-x--- 3 irena irena 4096 Feb 13 08:52  ..
 -rw-r--r-- 1 root  root  3943 Feb 13 09:23  chernobel.tar.gz
 
 root@ubuntu:/home/irena/irena_task#
+
+##Вивела інформацію про розмір файлів.
+## Вивела 5 файлів з найбільшим розміром. відсортувала файли по змінах за останні 7 днів.
+
+root@ubuntu:/home/irena# du
+12	./irena_task
+28	.
+
+root@ubuntu:/home/irena# du -ah
+4.0K	./.profile
+4.0K	./irena_task/chernobel.tar.gz
+4.0K	./irena_task/chernobel
+12K	./irena_task
+0	./chernobel_link
+4.0K	./.bashrc
+4.0K	./.bash_logout
+28K	.
+
+root@ubuntu:/home/irena# du -ah | sort -rh | head -5
+28K	.
+12K	./irena_task
+4.0K	./.profile
+4.0K	./irena_task/chernobel.tar.gz
+4.0K	./irena_task/chernobel
+
+root@ubuntu:/home/irena# find -type f -mtime -7
+./irena_task/chernobel.tar.gz
+./irena_task/chernobel
+
