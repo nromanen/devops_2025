@@ -37,6 +37,6 @@ root@ubuntu:/home/iryna#
 
 ```
 
-[Скріншоти за посиланням](https://drive.google.com/drive/folders/16tNWzylZ0FDx_mMfYGpNazFsPbQQAXoH)
+Скріншоти за посиланням: (https://drive.google.com/drive/folders/16tNWzylZOFDx_mMfYGpNazFsPbQQAXoH?usp=sharing)
 
 ```
