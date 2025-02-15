@@ -12,7 +12,7 @@ New password:
 Retype new password:
 passwd: password updated successfully
 ```
-## Добавила користувачам груп як другорядну.
+## Додала користувачам груп як другорядну.
 ```
 root@ubuntu:/home/iryna# sudo usermod -aG developers2 dev2
 root@ubuntu:/home/iryna# sudo usermod -aG developers2 test2
@@ -33,4 +33,8 @@ drwxrwsr-x 2 root developers2 4096 Feb 15 10:43 /home/shared_folder/
 root@ubuntu:/home/iryna# ls -ld /home/public_folder
 drwxr-xr-x 2 root root 4096 Feb 15 10:53 /home/public_folder
 root@ubuntu:/home/iryna#
+```
+
+```
+[Скріншоти за посиланням](https://drive.google.com/drive/folders/16tNWzylZOFDx_mMfYGpNazFsPbQQAXoH?usp=drive_link)
 ```
