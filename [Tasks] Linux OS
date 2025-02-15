@@ -1,0 +1,31 @@
+osboxes@osboxes:~$ sudo useradd -m misha-huda2808
+[sudo] password for osboxes: 
+useradd: user 'misha-huda2808' already exists
+osboxes@osboxes:~$ sudo usermod -aG sudo misha-huda2808
+osboxes@osboxes:~$ su - misha-huda2808
+Password: 
+$ mkdir ~/Misha
+$ touch ~/Misha/Huda
+$ ln -s ~/Misha/Huda ~/HudaLink
+$ sudo cp ~/Misha/Huda /Huda
+[sudo] password for misha-huda2808: 
+$ sudo chown root:root /Huda
+sudo chmod 644 /Huda
+$ $ sudo groupadd students
+sudo usermod -aG students misha-huda2808
+groupadd: group 'students' already exists
+$ $ tar -cvf ~/Huda_backup.tar ~/Misha/Huda
+tar: Removing leading `/' from member names
+/home/misha-huda2808/Misha/Huda
+$ du -sh ~
+32K	/home/misha-huda2808
+$ du -ah ~ | sort -rh | head -n 5
+32K	/home/misha-huda2808
+12K	/home/misha-huda2808/Huda_backup.tar
+4.0K	/home/misha-huda2808/.profile
+4.0K	/home/misha-huda2808/Misha
+4.0K	/home/misha-huda2808/.bashrc
+$ find ~ -type f -mtime -7
+/home/misha-huda2808/Misha/Huda
+/home/misha-huda2808/.sudo_as_admin_successful
+/home/misha-huda2808/Huda_backup.tar
