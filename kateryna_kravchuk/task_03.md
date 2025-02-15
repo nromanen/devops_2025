@@ -7,16 +7,17 @@
 
 I will use the previously created virtual machine with Linux - Oracle Linux 9 via Vagrant:
 `vagrant status`  
- 
-```
+
+```bash
 Current machine states:
 default                   poweroff (virtualbox)
 The VM is powered off. To restart the VM, simply run `vagrant up`
 ```
 
 To power it on:  
-`vagrant up`    
-```
+`vagrant up`  
+
+```bash
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Checking if box 'oraclelinux/9' version '9.5.649' is up to date...
 ==> default: Clearing any previously set forwarded ports...
@@ -46,8 +47,9 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ```
 
 To access it:  
-`vagrant ssh`   
-```
+`vagrant ssh`  
+
+```bash
 Welcome to Oracle Linux Server release 9.5 (GNU/Linux 5.15.0-206.153.7.el8uek.x86_64)
 The Oracle Linux End-User License Agreement can be viewed here:
   * /usr/share/eula/eula.en_US
@@ -57,11 +59,12 @@ For additional packages, updates, documentation and community help, see:
 
 ---
 
-#### 1. Add a user with your name to the operating system.
+#### 1. Add a user with your name to the operating system
 
 `sudo useradd -m kate_kr`  
 `sudo passwd kate_kr`  
-```
+
+```bash
 Changing password for user kate_kr.
 New password: 
 Retype new password:
@@ -70,7 +73,7 @@ passwd: all authentication tokens updated successfully.
 
 ---
 
-#### 2. Assign the user to the root group to provide administrative privileges.
+#### 2. Assign the user to the root group to provide administrative privileges
 
 `sudo usermod -aG wheel kate_kr`  
 
@@ -78,121 +81,134 @@ Note: *wheel* is root group in hat-like linux distros.
 
 ---
 
-#### 3. Re-login to the system with the new user account to ensure changes take effect.
+#### 3. Re-login to the system with the new user account to ensure changes take effect
 
 `su - kate_kr`  
 
-Checking if the user is in the root group:  
-`groups kate_kr`  
-```
+Checking if the user is in the root group: `groups kate_kr`  
+
+```bash
 kate_kr: kate_kr wheel
 ```  
 
 ---
 
-#### 4. Create a folder named after your first name within your home directory.
+#### 4. Create a folder named after your first name within your home directory
 
 `mkdir kate`  
 `cd kate`  
-`pwd`   
-```
+`pwd`  
+
+```bash
 /home/kate_kr/kate
 ```
 
 ---
 
-#### 5. Inside this folder, create a file named after your last name.
+#### 5. Inside this folder, create a file named after your last name
 
 `touch kr.txt`  
+Checking out: `ls -l`  
 
-Checking out:  
-`ls -l`   
-```
-drwxr-xr-x. 2 kate_kr kate_kr 34 Feb 14 20:17 kate
+```bash
+-rw-r--r--. 1 kate_kr kate_kr   0 Feb 14 20:17 kr.txt/
 ```
 
 ---
 
-#### 6. Create a symbolic link pointing to your last name file.
+#### 6. Create a symbolic link pointing to your last name file
 
 `ln -s kr.txt kr.lnk`  
 
 Checking out:  
 `ls -l`  
-```
+
+```bash
 lrwxrwxrwx. 1 kate_kr kate_kr 6 Feb 14 20:17 kr.lnk -> kr.txt
 -rw-r--r--. 1 kate_kr kate_kr 0 Feb 14 20:17 kr.txt
 ```  
 
 ---
 
-#### 7. Copy your last name file to the top-level directory (root) to demonstrate file access across directories.
+#### 7. Copy your last name file to the top-level directory (root) to demonstrate file access across directories
 
 `sudo cp kr.txt /`  
-```
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
 
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
-
+```bash
 [sudo] password for kate_kr: 
 ```  
-Note: I should confirm any action I want to do in the root directory by providing a root password.
+
+Note: I should confirm any action I want to do in the root directory by providing a root password.  
 
 ---
 
-#### 8. Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately.
+#### 8. Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately
 
-`sudo chown root:root /kr.txt`  
+`sudo chown root:root kr.txt`  
+Checking out: `ls -l kr.txt`  
 
-Changing mode:  
-`sudo chmod 664 /kr.txt`  
+```bash
+-rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
+```  
 
-Checking out:  
-`ls -l ~`   
-```
-total 0
-drwxr-xr-x. 2 kate_kr kate_kr 34 Feb 14 20:17 kate
+Changing mode: `sudo chmod 664 kr.txt`  
+Checking out: `ls -l kr.txt`  
+
+```bash
+-rw-rw-r--. 1 root root 0 Feb 14 20:18 kr.txt
 ```  
 
 ---
 
-#### 9. Use the command line to create a new user group with the name students and add your user to this group.
+#### 9. Use the command line to create a new user group with the name students and add your user to this group
 
 `sudo groupadd students`  
 `sudo usermod -aG students kate_kr`  
 
-Checking out:  
-`groups kate_kr`  
-```
+Checking out: `groups kate_kr`  
+
+```bash
 kate_kr : kate_kr wheel students
 ```  
 
 ---
 
-#### 10. Create a compressed backup of your last name file using the tar command and store it in your home directory.
+#### 10. Create a compressed backup of your last name file using the tar command and store it in your home directory
 
-`tar -czf kr.tar.gz kr.txt`  
-`ls -l`   
-```
+Run from *kate* directory: `tar -czf ~/kr.tar.gz kr.txt`  
+Change to *home* directory: `cd ..`  
+Ensure the archive creation: `ls -l`  
+
+```bash
 total 4
-lrwxrwxrwx. 1 kate_kr kate_kr   6 Feb 14 20:17 kr.lnk -> kr.txt
--rw-r--r--. 1 kate_kr kate_kr 116 Feb 14 20:23 kr.tar.gz
--rw-r--r--. 1 kate_kr kate_kr   0 Feb 14 20:17 kr.txt
+drwxr-xr-x. 2 kate_kr kate_kr  34 Feb 14 20:17 kate
+-rw-r--r--. 1 kate_kr kate_kr 115 Feb 14 20:23 kr.tar.gz
 ```  
 
 ---
 
-#### 11. Use the du command to analyze the disk usage of your home directory, then display the top 5 largest files or directories.
+#### 11. Use the du command to analyze the disk usage of your home directory, then display the top 5 largest files or directories
 
-`du -ah ~ | sort -rh s| head -5`  
+Show disk usage (*-a* for all files, *-h* for human-readable sizes) of home directore (*~*): `du -ah ~`  
 
-```
-16K     /home/kate_kr
-4.0K    /home/kate_kr/kate/kr.tar.gz
-4.0K    /home/kate_kr/kate
+```bash
+4.0K    /home/kate_kr/.bash_logout
+4.0K    /home/kate_kr/.bash_profile
+4.0K    /home/kate_kr/.bashrc
+0       /home/kate_kr/kate/kr.txt
+0       /home/kate_kr/kate/kr.lnk
+0       /home/kate_kr/kate
+8.0K    /home/kate_kr/.bash_history
+4.0K    /home/kate_kr/kr.tar.gz
+24K     /home/kate_kr
+```  
+
+Sort (*-r* for descending, *-h* for human-readable sizes) and show top 5 largest files: `du -ah ~ | sort -rh | head -5`  
+
+```bash
+24K     /home/kate_kr
+8.0K    /home/kate_kr/.bash_history
+4.0K    /home/kate_kr/kr.tar.gz
 4.0K    /home/kate_kr/.bashrc
 4.0K    /home/kate_kr/.bash_profile
 ```  
@@ -201,17 +217,19 @@ lrwxrwxrwx. 1 kate_kr kate_kr   6 Feb 14 20:17 kr.lnk -> kr.txt
 
 #### 12. Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
 
-`find ~/ -type f -mtime -7`  
-```
+`find ~ -type f -mtime -7`  
+
+```bash
 /home/kate_kr/kate/kr.txt
-/home/kate_kr/kate/kr.tar.gz
+/home/kate_kr/.bash_history
+/home/kate_kr/kr.tar.gz
 ```
 
 ---
 
 ### **Summary**
 
-*What I learned while completing these task:*
+*What I learned while completing these tasks:*
 
 #### 1. User & group management
 
@@ -233,11 +251,10 @@ lrwxrwxrwx. 1 kate_kr kate_kr   6 Feb 14 20:17 kr.lnk -> kr.txt
 
 #### 4. System & disk management
 
-- analyze disk usage: `du -ah ~ `  
+- analyze disk usage: `du -ah ~`  
 - applying filters to search: `sort -rh` and `head -5`  
 - find files modified recently: `find ~/ -type f -mtime -7`  
 
 #### 5. Compression
 
 - compress a file: `tar -czf <filename>.tar.gz <filename>`  
-
