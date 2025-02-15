@@ -1,0 +1,5 @@
+# Ignore all
+*
+
+# But not this directory
+!dmytryi_bondar/
