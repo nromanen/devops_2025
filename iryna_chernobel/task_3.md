@@ -1,6 +1,6 @@
 ##Створила користувача. Перевірила, чи можна зайти під створеним користувачем. Створила директорію та файл в директорії.
 ## Перевірила права на директорію та файл.
-
+\'''
 iryna@ubuntu:~$ sudo su
 [sudo] password for iryna:
 root@ubuntu:/home/iryna# useradd -m -G root -s /bin/bash irena
@@ -24,7 +24,7 @@ irena@ubuntu:~/irena_task$ ls -l
 total 0
 -rw-r--r-- 1 irena irena 0 Feb 13 08:40 chernobel
 irena@ubuntu:~/irena_task$
-
+\'''
 ##Створила символічне посилання на директорію.
 ## Перевірила, чи воно створене. Перейшла в директорію, створила файл та перевірила, чи він створений.
 
