@@ -1,0 +1,21 @@
+Створення нового користувача: sudo useradd -m -s /bin/bash dima1
+Встановлення пароля для нового користувача: sudo passwd dima1
+Додавання користувача до кореневої групи: sudo usermod -aG whhel dima1
+Перевірка: groups dima1
+Створення папки:mkdir ~/dima1
+Створення файлу:touch ~/dima1/markovich
+Перевірка:ls ~/dima1
+Створення символічного посилання на файл прізвища:ln -s ~/dima1/markovich ~/markovich_link
+Копіювання файлу до каталогу верхнього рівня (кореневого):sudo cp ~/dima1/markovich /markovich
+Перевірка:ls -l ~/markovich_link
+Зміна власника файлу на root:sudo chown root:root /markovich
+Налаштування прав доступу на 644:sudo chmod 644 /markovich
+Перевірка змін:ls -l /markovich
+Створення нової групи:sudo groupadd students
+Додавання користувача до групи:sudo usermod -aG students dima1
+Перевірка:groups dima1
+Використання команди tar для створення резервної копії:tar -czf ~/markovich_backup.tar.gz ~/dima1/markovich
+Перевірка створеного архіву:ls ~/
+Використання команди du для аналізу домашнього каталогу:du -ah ~ | sort -rh | head -n 5
+Команда для пошуку файлів, змінених протягом останніх 7 днів:find ~ -type f -mtime -7
+
