@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .env
 .idea
 .bin
@@ -5,3 +6,6 @@
 .png
 
 .DS_Store
+=======
+# Ignore all
+*
