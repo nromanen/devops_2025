@@ -35,8 +35,6 @@ drwxr-xr-x 2 root root 4096 Feb 15 10:53 /home/public_folder
 root@ubuntu:/home/iryna#
 ```
 
-```
+[Скріншоти за посиланням] [def]
 
-[Скріншоти за посиланням](https://drive.google.com/drive/folders/16tNWzylZOFDx_mMfYGpNazFsPbQQAXoH?usp=sharing)
-
-```
+[def]: https://drive.google.com/drive/folders/16tNWzylZOFDx_mMfYGpNazFsPbQQAXoH?usp=sharing
