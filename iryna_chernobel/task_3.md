@@ -1,4 +1,4 @@
-##Створила користувача. Перевірила, чи можна зайти під створеним користувачем. Створила директорію та файл в директорії.
+## Створила користувача. Перевірила, чи можна зайти під створеним користувачем. Створила директорію та файл в директорії.
 ## Перевірила права на директорію та файл.
 ```
 iryna@ubuntu:~$ sudo su
@@ -25,9 +25,9 @@ total 0
 -rw-r--r-- 1 irena irena 0 Feb 13 08:40 chernobel
 irena@ubuntu:~/irena_task$
 ```
-##Створила символічне посилання на директорію.
+## Створила символічне посилання на директорію.
 ## Перевірила, чи воно створене. Перейшла в директорію, створила файл та перевірила, чи він створений.
-
+```
 irena@ubuntu:~$ ln -s /home/irena/irena_task/chernobel /home/irena/chernobel_link
 irena@ubuntu:~$ ls -la
 
@@ -59,9 +59,9 @@ irena irena 3771 Mar 31 2024 .bashrc
 lrwxrwxrwx 1 irena irena 82 Feb 13 08:52 chernobel_link -> /home/irena/irena_task/chernobel
 drwxr-xr-x 2 irena irena 4096 Feb 13 08:54 irena_task
 -rw-r--r-- 1 irena irena 807 Mar 31 2024 .profile
-
-##Спробувала скопіювати файл в кореневу директорію. Помилка, оскільки немає прав на запис в кореневу директорію.
-
+```
+## Спробувала скопіювати файл в кореневу директорію. Помилка, оскільки немає прав на запис в кореневу директорію.
+```
 irena@ubuntu:~/irena_task$ ls -la
 total 8
 drwxr-xr-x 2 irena irena 4096 Feb 13 08:54 .
@@ -79,8 +79,9 @@ drwxr-xr-x 2 irena irena 4096 Feb 13 08:54 irena_task
 -rw-r--r-- 1 irena irena 807 Mar 31 2024 .profile
 irena@ubuntu:~$ cp irena_task/chernobel /
 cp: cannot create regular file '/chernobel': Permission denied
-
-##Змінила власника та групу файлу та директорії. Перевірила зміни.
+```
+## Змінила власника та групу файлу та директорії. Перевірила зміни.
+```
 irena@ubuntu:/home/irena$ sudo su
 [sudo] password for iryna:
 root@ubuntu:/home/irena# chown root:root /home/irena/irena_task/chernobel
@@ -92,15 +93,17 @@ drwxr-xr-x 2 irena irena 4096 Feb 13 08:54 .
 drwxr-x--- 3 irena irena 4096 Feb 13 08:52 ..
 -rw-r--r-- 1 root root 0 Feb 13 08:54 chernobel
 root@ubuntu:/home/irena/irena_task#
-
-##Створила групу students. Додала користувача irena до групи students.
+```
+## Створила групу students. Додала користувача irena до групи students.
 ## Перевірила, чи користувач належить до групи students.
+```
 root@ubuntu:/home/irena/irena_task# sudo groupadd students
 root@ubuntu:/home/irena/irena_task# usermod -aG students irena
 root@ubuntu:/home/irena/irena_task# groups irena
 irena : irena root students
-
-##Створила архів з директорії chernobel. Перевірила, чи архів створений.
+```
+## Створила архів з директорії chernobel. Перевірила, чи архів створений.
+```
 root@ubuntu:/home# tar -czvf /home/irena/irena_task/chernobel.tar.gz /home/irena/irena_task/chernobel
 tar: Removing leading `/' from member names
 home/irena/irena_task/chernobel
@@ -121,10 +124,10 @@ drwxr-x--- 3 irena irena 4096 Feb 13 08:52  ..
 -rw-r--r-- 1 root  root  3943 Feb 13 09:23  chernobel.tar.gz
 
 root@ubuntu:/home/irena/irena_task#
-
-##Вивела інформацію про розмір файлів.
+```
+## Вивела інформацію про розмір файлів.
 ## Вивела 5 файлів з найбільшим розміром. відсортувала файли по змінах за останні 7 днів.
-
+```
 root@ubuntu:/home/irena# du
 12	./irena_task
 28	.
@@ -149,4 +152,4 @@ root@ubuntu:/home/irena# du -ah | sort -rh | head -5
 root@ubuntu:/home/irena# find -type f -mtime -7
 ./irena_task/chernobel.tar.gz
 ./irena_task/chernobel
-
+```
