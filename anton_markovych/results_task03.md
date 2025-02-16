@@ -33,7 +33,7 @@ drwxrwxr-x 2 anton anton 4096 лют 15 14:55 anton
 
 ls -al anton/
 -rw-rw-r-- 1 anton anton 0 лют 15 14:53 markovych
-lrwxrwxrwx 1 anton anton 27 лют 15 14:55 markovych -> /home/anton/anton/markovych
+lrwxrwxrwx 1 anton anton 27 лют 15 14:55 markovych_link -> /home/anton/anton/markovych
 ```
 ## **4. Copying a file and changing permissions**
 ### Input
@@ -59,7 +59,7 @@ groups anton
 ```
 anton: anton root sudo users students
 ```
-### **6. Creating a compressed backup of last name file using the tar command and store it in home directory.**
+## **6. Creating a compressed backup of last name file using the tar command and store it in home directory.**
 ### Input
 ```bash
 tar -cvf ~/markovych_backup.tar ~/anton/markovych
