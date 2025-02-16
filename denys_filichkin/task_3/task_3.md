@@ -1,10 +1,9 @@
-## Працюю на віртуальной машині по OS Oracle Linux Server release 9.5
+## Працюю на віртуальной машині на OS Oracle Linux Server release 9.5
 ### Посилання на гугл диск https://drive.google.com/drive/folders/1DgAIP_C0xyBoQcYH2Ktu2YDeWXgqXzdf?usp=sharing
 
 - Додаємо користувача з вашим ім'ям до операційної системи
 ```useradd -m denysfv```
-
-- перевиряемо чи додався користувач
+> перевиряемо чи додався користувач
 ```id denysfv```
 
 - Призначити користувача до кореневої групи (з наданням адміністративних привілеїв)
@@ -33,7 +32,7 @@
 - Змінюємо власника скопійованого файлу на root і змініть його права доступу 
 ```sudo chown root:root /filichkin_cp```
 ```sudo chmod 644 /filichkin_cp```
-> Перевірюю зміни
+> перевиремо зміни
 ```ls -l /filichkin_cp```
 
 - Створю нову групу з назвою students і додайю до неї мого користувача
