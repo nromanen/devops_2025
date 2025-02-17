@@ -104,7 +104,7 @@ drwxr-xr-x  13 root root  4096 Feb  7 20:43 var
 $
 
 #Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately.
-$ sudo chown -R andriy:andriy /leshchuk
+$ sudo chown -R root:root /leshchuk
 $ ls -la /leshchuk
 -rw-r--r-- 1 andriy andriy 0 Feb 17 11:55 /leshchuk
 $ chmod 644 /leshchuk
