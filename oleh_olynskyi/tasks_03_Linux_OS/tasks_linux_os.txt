@@ -1,0 +1,137 @@
+[Tasks] Linux OS
+-Створюємо usera:
+osboxes@osboxes: ~$ sudo adduser oleh_olynskyi
+[sudol password for osboxes:
+info: Adding user 'oleh_olynskyi' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group 'olen olynskyi' (1001) ...
+info: Adding new user 'oleh_olynskyi' (1001) with group 'oleh_olynskyi (1001)' 
+..
+warn: The home directory '/home/oleh_olynskyi' already exists. Not touching thi
+s directory.
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for oleh olynskyi
+Enter the new value, or press ENTER for the default
+Full Name []: Oleh Olynskyi
+Room Number [] :
+Work Phone 1:
+Home Phone N]:
+Other 0：
+Is the information correct? [Y/n] y
+info: Adding new user 'oleh_olynskyi' to supplemental / extra groups 'users' ... 
+info: Adding user 'oleh_olynskyi' to group 'users' ...
+-Додаємо його до групи root(sudo), щоб він мав всі root права:
+osboxes osboxes: ~$ sudo usermod -aG sudo oleh olynskyi 
+-Перевіряємо чи він є доданий до групи;
+osboxes@osboxes: ~$ groups oleh_olynskyi 
+oleh_olynskyi : olen_olynskyi sudo users
+osboxes@osboxes: ~$
+
+Скріншот доступний за посиланням: https://drive.google.com/file/d/1BujCTo8ccS-rBaQ9Pg-Q_p3F7uoBXx8a/view?usp=sharing
+
+-Заходим як user oleh_olynskyi:
+login as: oleh_olynskyi
+oleh_olynskyi@osboxes: ~$ cd ~ 
+-Створюємо папку з назвою oleh:
+oleh_olynskyi@osboxes: ~$ mkdir oleh
+oleh_olynskyi@osboxes: ~$ cd oleh
+-Створюємо файл з назвою olynskyi в папці oleh:
+oleh_olynskyi@osboxes: ~/oleh$ touch olynskyi 
+-Перевірки
+oleh_olynskyi@osboxes: ~/oleh$ 1s -1
+total o
+-rw-rw-r-- 1 oleh_olynskyi oleh_olynskyi 0 Feb 16 13:00 olynskyi
+oleh_olynskyi@osboxes: ~/olen$ ls -l ~
+total 4
+-rwxrwxr-x 2 oleh_olynskyi oleh_olynskyi 4096 Feb 16 13:00 oleh
+oleh_olynskyi@osboxes: ~/oleh$ 1s -1 ~/oleh
+total 0
+-rw-rw-r-- 1 oleh_olynskyi oleh_olynskyi 0 Feb 16 13:00 olynskyi
+oleh_olynskyi$osboxes: ~/oleh$
+
+Скріншоти доступні за посиланням: https://drive.google.com/file/d/1CT_09H08BxHa7lW1ZBpDxpCZU0HRgZU5/view?usp=sharing і https://drive.google.com/file/d/10lOnpS9C3hvipo5f4Q0N3lmu_gD0IEBS/view?usp=sharing
+
+-Перевірка доступності до файлу;
+oleh_olynskyi@osboxes:~/olehs ln -s ~/oleh/olynskyi ~/olynskyi_link 
+oleh_olynskyi@osboxes: ~/oleh$ ls -1~
+total 4
+drwxrwxr-x 2 oleh_olynskyi oleh_olynskyi 4096 Feb 16 13:00 oleh
+Irwxrwxrwx 1 oleh_olynskyi oleh_olynskyi 33 Feb 16 13:16 olynskyi_link -> /home/oleh _olynskyi/oleh/olynskyi
+oleh_olynskyi@osboxes:~/oleh$ sudo cp ~/oleh/olynskyi /olynskyi_copy 
+[sudo] password for oleh_olynskyi: 
+oleh_olynskyi@osboxes: ~/oleh$ 1s -1 /
+total 4194372
+lrwxrwxrwx 1 root root 7 Oct 7 08:35 bin -> usr/bin
+drwxr-xr-x 4 root root 4096 Feb 9 18:32 boot
+dr-xr-xr-x 2 root root 4096 Oct 7 21:18 cdrom
+drwxr-xr-x 20 root root 4140 Feb 16 12:56 dev
+drwxr-xr-x 108 root root 4096 Feb 16 12:48 etc
+drwxr-xr-x 5 root root 4096 Feb 16 12:39 home
+lrwxrwxrwx 1 root root 7 Oct 08:35 lib -> usr/lib
+lrwxrwxrwx 1 root root 9 Oct 7 08:35 lib64 -> usr/1ib64
+drwx------ 2 root root 16384 Oct 27 03:34 lost+found
+drwxr-xr-x 2 root root 4096 Oct 7 17:08 media
+drwxr-xr-x 2 root root 4096 Oct 7 17:08 mnt
+-rw-r--r-- 1 root root 0 Feb 16 13:18 olynslyi_copy
+drwxr-xr-x 2 root root 4096 Oct 7 17:08 opt
+dr-xr-xr-x 166 root root Feb 16 12:56 proc
+drwx------- 3 root root 4096 Oct 7 17:16 root
+drwxr-xr-x 28 root root 860 Feb 16 12:58 run
+1rwxrwxrwx 1 root root 8 Oct 7 08:35 sbin -> usr/sbin
+drwxr-xr-x 2 root root 4096 Oct 27 03:57 snap
+drwxr-xr-x 2 root root 4096 Oct 7 17:08 srv
+-rw------- 1 root root 4294967296 Oct 27 03:38 swap.img
+dr-xr-xr-x 13 root root Feb 16 12:56 sys
+drwxrwxrwt 12 root root 240 Feb 16 12:57 tmp
+drwxr-xr-x 12 root root 4096 Oct 7 17:08 usr
+drwxr-xr-X 14 root root 4096 Feb 9 18:35 var
+oleh olynskyi@osboxes: ~/oleh$ cat /olynskyi_copy
+oleh_olynskyi@osboxes: ~/ oleh$
+
+Скріншот доступний за посиланням: https://drive.google.com/file/d/1TE4qjvypLMj3UrdXvyOqgtClrUHIdfZk/view?usp=sharing
+
+
+-Змінюємо доступ до скопійваного файла на 644 права;
+oleh_olynskyi@osboxes:~/oleh$ sudo chown root:root /olynskyi_copy 
+oleh_olynskyi@osboxes: ~/oleh$ sudo chmod 644 /olynskyi_copy 
+-Перевірка:
+oleh_olynskyilosboxes: ~/oleh$ 1s -1 /olynskyi_copy
+-rw-r--r-- 1 root root 0 Feb 16 13:18 /olynskyi_copy 
+oleh_olynskyi@osboxes:~/oleh$ 
+
+Скріншот доступний за посиланням: https://drive.google.com/file/d/1KvanQ7h6cvB1Jf0KzBtjovatEXqeN3Cw/view
+
+-Створюємо резервну стиснути копію:
+oleh olynskyi@osboxes:~/oleh$ tar -czvf ~/olynskyi_backup.tar.gz ~/oleh/olynskyi
+tar: Removing leading '/' from member names 
+/home/oleh_olynskyi/oleh/olynskyi
+-Перевіряємо чи створилась;
+oleh_olynskyi@osboxes:~/oleh$ ls -1 ~/olynskyi_backup.tar.gz
+-rw-rw-r-- 1 oleh_olynskyi students 129 Feb 16 14:02 /home/oleh_olynskyi/olynskyi_backup-tar.gz
+
+-Перевіряємо, що вона містить:
+oleh_olynskyi@osboxes:~/oleh$ tar -tzvf ~/olynskyi_backup.tar.gz
+-rw-rw-r-- oleh_olynskyi 0 2025-02-16 13:00 home/oleh_olynskyi/oleh/olynskyi
+
+-Анлізуємо використання диску за допомогоюкоманди du і виводимо 5 найбільших файлів:
+oleh_olynskyi@osboxes:~/oleh$ du -ah ~ | sort -rh | head -n 5
+28K /home/oleh_olynskyi
+4.0K /home/oleh_olynskyi/.profile
+4.0K /home/oleh_olynskyi/olynskyi_backup.tar.gz
+4.0K /home/olen_olynskyi/oleh
+4.0K /home/oleh_olynskyi/.cache
+
+-За допомогою команди find виводимо файли, які змінювались протягом 7 днів:
+oleh_olynskyi@osboxes: ~/oleh$ find ~ -type f -mtime -7
+/home/oleh_olynskyi/olynskyi_backup.tar.gz
+/home/oleh_olynskyi/.bashrc
+/home/oleh_olynskyi/oleh/olynskyi
+/home/oleh_olynskyi/.profile
+/home/oleh_olynskyi/.bash_logout
+/home/oleh_olynskyi/.cache/motd.legal-displayed
+/home/oleh_olynskyi/.sudo_as_admin_successful
+oleh_olynskyi@osboxes: ~/oleh$
+
+Скріншот доступний за посиланням: https://drive.google.com/file/d/1GqDw-zWILRm-zfgUcvtM8HW1cbWQlbpz/view
