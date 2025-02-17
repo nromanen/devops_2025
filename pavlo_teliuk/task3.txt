@@ -1,1 +1,98 @@
 Task 3. Linux OS
+## Task 3. Linux OS.
+## Створення нового юзера та додаємо до root групи.
+
+[pavloteliuk@localhost ~]$ sudo useradd -m pt_midwary
+[sudo] password for pavloteliuk:
+[pavloteliuk@localhost ~]$ -su
+Password:
+[root@localhost ~]# usermod -aG wheel pt_midwary
+[root@localhost ~]# groups pt_midwary
+pt_midwary : pt_midwary root wheel
+
+
+## Додаємо новий пароль користувачу
+
+[pavloteliuk@localhost ~]$ sudo passwd pt_midwary
+Changing password for user pt_midwary.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+
+##Перелогінюємось на нового користувача
+
+login as: pt_midwary
+pt_midwary@192.168.50.37's password:
+Last failed login: Mon Feb 17 17:00:33 EET 2025 from 192.168.50.174 on ssh:notty
+There were 3 failed login attempts since the last successful login.
+[pt_midwary@localhost ~]$
+
+
+##Створюємо папку в домашній дерикторії та файл в ній
+
+[pt_midwary@localhost ~]$ mkdir ~/pavlo
+[pt_midwary@localhost ~]$ touch ~/pavlo/teliuk
+
+
+##Створюємо символічне посилання
+
+[pt_midwary@localhost ~]$ ln -s ~/pavlo/teliuk ~/pavlo/teliuk_link
+
+
+##Копіюємо файл у кореневий каталог 
+
+[pt_midwary@localhost ~]$ sudo cp ~/pavlo/teliuk /teliuk
+
+
+##Змінюємо власника файлу на root та налаштовуємо права доступу
+
+[pt_midwary@localhost ~]$ sudo chown root:root /teliuk
+[sudo] password for pt_midwary:
+[pt_midwary@localhost ~]$ sudo chmod 644 /teliuk
+
+
+##Створюємо групу students та додаємо користувача до неї
+
+[pt_midwary@localhost ~]$ sudo groupadd students
+[sudo] password for pt_midwary:
+[pt_midwary@localhost ~]$ sudo usermod -aG students pt_midwary
+[pt_midwary@localhost ~]$ groups pt_midwary
+pt_midwary : pt_midwary root wheel students
+
+
+##Створюємо архів з файлу teliuk
+
+[pt_midwary@localhost ~]$ tar -cvf ~/teliuk.tar ~/pavlo/teliuk
+tar: Removing leading `/' from member names
+/home/pt_midwary/pavlo/teliuk
+
+
+##Перевіряємо чи архів створився
+
+[pt_midwary@localhost ~]$ ll
+total 12
+drwxr-xr-x. 2 pt_midwary pt_midwary    39 Feb 17 18:36 pavlo
+-rw-r--r--. 1 pt_midwary pt_midwary 10240 Feb 17 19:20 teliuk.tar
+
+
+##Застосування команди du, перевіряємо використання диску та відображаємо 5 найбільших файлів
+
+[pt_midwary@localhost ~]$ du
+0       ./pavlo
+32      .
+[pt_midwary@localhost ~]$ du -ah ~ | sort -rh | head -n 5
+32K     /home/pt_midwary
+12K     /home/pt_midwary/teliuk.tar
+4.0K    /home/pt_midwary/.zshrc
+4.0K    /home/pt_midwary/.bashrc
+4.0K    /home/pt_midwary/.bash_profile
+
+
+##Використовуємо find для пошуку файлів змінених за останні 7 днів
+
+[pt_midwary@localhost ~]$ find ~ -type f -mtime -7
+/home/pt_midwary/pavlo/teliuk
+/home/pt_midwary/.bash_history
+/home/pt_midwary/teliuk.tar
