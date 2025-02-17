@@ -14,7 +14,7 @@ fi
 
 #checking if URL is valid
 if [[ $1 =~ ^https:// ]]; then
-    echo $1
+    echo "$1"
 else
     echo "Error"
 fi
