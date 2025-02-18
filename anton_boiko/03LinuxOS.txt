@@ -1,0 +1,71 @@
+//Add a user with your name to the operating system.
+//Assign the user to the root group to provide administrative privileges.
+
+sudo useradd
+sudo passwd Anton
+sudo usermod -aG root Anton
+
+//screenshot
+//https://drive.google.com/file/d/12d3OVwtUmAKDxnxLhKCa82oOYYJbvzdW/view?usp=sharing
+
+
+
+
+//Re-login to the system with the new user account to ensure changes take effect.
+//Create a folder named after your first name within your home directory.
+//Inside this folder, create a file named after your last name.
+
+cd ~
+mkdir Anton
+touch Anton/Boiko.txt
+
+//screenshot
+//https://drive.google.com/file/d/1ZfH2oFxEwzrFMXIYgwQIw4aQEUBm53vM/view?usp=sharing
+
+
+
+
+//Create a symbolic link pointing to your last name file.
+//Copy your last name file to the top-level directory (root) to demonstrate file access across directorie
+
+cd ~
+ln -s Anton/Boiko.txt sym_link_Boiko
+sudo cp Anton/Boiko.txt /copy_of_Boiko.txt
+
+//screenshot
+//https://drive.google.com/file/d/1IEtpdX7O0kETX16ppBJYOrkTkv03KWb5/view?usp=sharing
+
+
+
+
+//Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately
+
+sudo chown root copy_of_Boiko.txt
+sudo chmod 644 copy_of_Boiko.txt
+
+//screenshot
+//https://drive.google.com/file/d/1YU5-fIK67vpOwKI3O07iBZjFBmMrUWKO/view?usp=sharing
+
+
+
+
+//Use the command line to create a new user group with the name students and add your user to this group.
+//Create a compressed backup of your last name file using the tar command and store it in your home directory.
+//Use the du command to analyze the disk usage of your home directory, then display the top 5 largest files or directories.
+//Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
+//Provide screenshots and ensure they include the following crucial elements:
+//The creation of the user account and group assignments.
+//The contents of your home directory, displaying the folder and file you created.
+//The symbolic link demonstrating access to your last name file.
+//The output showing the permission and ownership changes made to the copied file.
+//The output from the disk usage analysis and file search commands.
+
+sudo groupadd students
+sudo usermod -a -G students Anton
+tar -czvf Boiko_backup.tar.gz --absolute-names ~/Anton/Boiko.txt
+du -ah ~
+du -ah ~ | sort -rh | head -n 5
+find ~ -type f -mtime -7
+
+//screenshot
+//https://drive.google.com/file/d/166dvlSpPTMzLMkQeZgou58EfVSp5t173/view?usp=sharing
