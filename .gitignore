@@ -1,4 +1,5 @@
-.gitignore
+.env
+.idea
 .bin
 .img
 .png
