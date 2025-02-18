@@ -1,0 +1,627 @@
+ubuntu $ uname -a
+Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+ubuntu $ uname --all
+Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+ubuntu $ ls /etc
+ModemManager       bindresvport.blacklist         cron.daily            dhcp          groff        init.d           ldap            lvm             multipath.conf          passwd                   rc0.d         security  sudoers           update-motd.d
+NetworkManager     binfmt.d                       cron.hourly           dkms          group        initramfs-tools  legal           machine-id      nanorc                  passwd-                  rc1.d         selinux   sudoers.d         update-notifier
+PackageKit         byobu                          cron.monthly          dnsmasq.d     group-       inputrc          libaudit.conf   magic           netplan                 perl                     rc2.d         services  sysctl.conf       usb_modeswitch.conf
+X11                ca-certificates                cron.weekly           docker        grub.d       iproute2         libblockdev     magic.mime      network                 php                      rc3.d         shadow    sysctl.d          usb_modeswitch.d
+adduser.conf       ca-certificates.conf           crontab               dpkg          gshadow      iscsi            libnl-3         mailcap         networkd-dispatcher     pki                      rc4.d         shadow-   systemd           vim
+alternatives       ca-certificates.conf.dpkg-old  cryptsetup-initramfs  e2scrub.conf  gshadow-     issue            locale.alias    mailcap.order   networks                pm                       rc5.d         shells    terminfo          vmware-tools
+apparmor           calendar                       crypttab              ec2_version   gss          issue.net        locale.gen      manpath.config  newt                    polkit-1                 rc6.d         skel      timezone          vtrgb
+apparmor.d         cloud                          dbus-1                environment   hdparm.conf  kernel           localtime       mdadm           nsswitch.conf           pollinate                rcS.d         sos       tmpfiles.d        wgetrc
+apport             cni                            dconf                 ethertypes    host.conf    kernel-img.conf  logcheck        mime.types      opt                     popularity-contest.conf  resolv.conf   ssh       ubuntu-advantage  xattr.conf
+apt                console-setup                  debconf.conf          fonts         hostname     killercoda       login.defs      mke2fs.conf     os-release              profile                  rmt           ssl       ucf.conf          xdg
+at.deny            containerd                     debian_version        fstab         hosts        landscape        logrotate.conf  modprobe.d      overlayroot.conf        profile.d                rpc           subgid    udev              zsh_command_not_found
+bash.bashrc        containers                     default               fuse.conf     hosts.allow  ld.so.cache      logrotate.d     modules         overlayroot.local.conf  protocols                rsyslog.conf  subgid-   udisks2
+bash_completion    crictl.yaml                    deluser.conf          fwupd         hosts.deny   ld.so.conf       lsb-release     modules-load.d  pam.conf                python3                  rsyslog.d     subuid    ufw
+bash_completion.d  cron.d                         depmod.d              gai.conf      init         ld.so.conf.d     ltrace.conf     mtab            pam.d                   python3.8                screenrc      subuid-   update-manager
+ubuntu $ ls -d /etc 
+/etc
+ubuntu $ ls -al
+total 36
+drwx------  5 root root 4096 Feb 17 14:56 .
+drwxr-xr-x 19 root root 4096 Feb 11 16:42 ..
+-rw-------  1 root root   20 Nov 13  2022 .bash_history
+-rw-r--r--  1 root root 3208 Feb 11 16:42 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  2 root root 4096 Feb 11 16:40 .ssh
+drwxr-xr-x  4 root root 4096 Feb 17 14:59 .theia
+-rw-r--r--  1 root root  109 Feb 11 16:42 .vimrc
+lrwxrwxrwx  1 root root    1 Feb 11 16:42 filesystem -> /
+drwx------  3 root root 4096 Feb 17 14:56 snap
+ubuntu $ 
+ubuntu $ cat /etc/*release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.5 LTS"
+NAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+ubuntu $ 
+ubuntu $ cat /proc/cpuinfo
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 42
+model name      : Intel Xeon E312xx (Sandy Bridge, IBRS update)
+stepping        : 1
+microcode       : 0x1
+cpu MHz         : 3312.000
+cache size      : 16384 KB
+physical id     : 0
+siblings        : 1
+core id         : 0
+cpu cores       : 1
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx hypervisor lahf_lm cpuid_fault pti ssbd ibrs ibpb stibp tsc_adjust xsaveopt arat md_clear
+bugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit
+bogomips        : 6624.00
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 39 bits physical, 48 bits virtual
+power management:
+
+ubuntu $ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0     7:0    0 63.2M  1 loop /snap/core20/1634
+loop1     7:1    0 67.8M  1 loop /snap/lxd/22753
+loop2     7:2    0   48M  1 loop /snap/snapd/17336
+loop3     7:3    0 91.9M  1 loop /snap/lxd/29619
+vda     252:0    0   20G  0 disk 
+|-vda1  252:1    0 19.9G  0 part /
+|-vda14 252:14   0    4M  0 part 
+`-vda15 252:15   0  106M  0 part /boot/efi
+
+ubuntu $ uname -i
+x86_64
+
+ubuntu $ touch file1.txt
+
+ubuntu $ echo "Some text" > file2.txt
+
+ubuntu $ ls
+file1.txt  file2.txt  filesystem  snap
+
+ubuntu $ ls -A
+.bash_history  .bashrc  .profile  .ssh  .theia  .vimrc  file1.txt  file2.txt  filesystem  snap
+
+ubuntu $ ls -a
+.  ..  .bash_history  .bashrc  .profile  .ssh  .theia  .vimrc  file1.txt  file2.txt  filesystem  snap
+
+ubuntu $ ls -l
+total 8
+-rw-r--r-- 1 root root    0 Feb 17 15:02 file1.txt
+-rw-r--r-- 1 root root   10 Feb 17 15:02 file2.txt
+lrwxrwxrwx 1 root root    1 Feb 11 16:42 filesystem -> /
+drwx------ 3 root root 4096 Feb 17 14:56 snap
+
+ubuntu $ ls -Al 
+total 32
+-rw------- 1 root root   20 Nov 13  2022 .bash_history
+-rw-r--r-- 1 root root 3208 Feb 11 16:42 .bashrc
+-rw-r--r-- 1 root root  161 Dec  5  2019 .profile
+drwx------ 2 root root 4096 Feb 11 16:40 .ssh
+drwxr-xr-x 4 root root 4096 Feb 17 14:59 .theia
+-rw-r--r-- 1 root root  109 Feb 11 16:42 .vimrc
+-rw-r--r-- 1 root root    0 Feb 17 15:02 file1.txt
+-rw-r--r-- 1 root root   10 Feb 17 15:02 file2.txt
+lrwxrwxrwx 1 root root    1 Feb 11 16:42 filesystem -> /
+drwx------ 3 root root 4096 Feb 17 14:56 snap
+
+ubuntu $ ls -al
+total 40
+drwx------  5 root root 4096 Feb 17 15:02 .
+drwxr-xr-x 19 root root 4096 Feb 11 16:42 ..
+-rw-------  1 root root   20 Nov 13  2022 .bash_history
+-rw-r--r--  1 root root 3208 Feb 11 16:42 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  2 root root 4096 Feb 11 16:40 .ssh
+drwxr-xr-x  4 root root 4096 Feb 17 14:59 .theia
+-rw-r--r--  1 root root  109 Feb 11 16:42 .vimrc
+-rw-r--r--  1 root root    0 Feb 17 15:02 file1.txt
+-rw-r--r--  1 root root   10 Feb 17 15:02 file2.txt
+lrwxrwxrwx  1 root root    1 Feb 11 16:42 filesystem -> /
+drwx------  3 root root 4096 Feb 17 14:56 snap
+
+ubuntu $ ll
+total 40
+drwx------  5 root root 4096 Feb 17 15:02 ./
+drwxr-xr-x 19 root root 4096 Feb 11 16:42 ../
+-rw-------  1 root root   20 Nov 13  2022 .bash_history
+-rw-r--r--  1 root root 3208 Feb 11 16:42 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  2 root root 4096 Feb 11 16:40 .ssh/
+drwxr-xr-x  4 root root 4096 Feb 17 14:59 .theia/
+-rw-r--r--  1 root root  109 Feb 11 16:42 .vimrc
+-rw-r--r--  1 root root    0 Feb 17 15:02 file1.txt
+-rw-r--r--  1 root root   10 Feb 17 15:02 file2.txt
+lrwxrwxrwx  1 root root    1 Feb 11 16:42 filesystem -> //
+drwx------  3 root root 4096 Feb 17 14:56 snap/
+
+ubuntu $ ls -c
+file2.txt  file1.txt  snap  filesystem
+
+ubuntu $ ls -h
+file1.txt  file2.txt  filesystem  snap
+
+ubuntu $ ls -i
+  4614 file1.txt   71450 file2.txt    4612 filesystem  786827 snap
+
+ubuntu $ ls -r
+snap  filesystem  file2.txt  file1.txt
+
+ubuntu $ pwd
+/root
+
+ubuntu $ mkdir softserve dir3 
+
+ubuntu $ ls
+dir3  file1.txt  file2.txt  filesystem  snap  softserve
+
+ubuntu $ cd softserve
+
+ubuntu $ pwd
+/root/softserve
+
+ubuntu $ cd
+ubuntu $ pwd
+/root
+
+ubuntu $ cd ~
+ubuntu $ pwd
+/root
+
+ubuntu $ cd /
+ubuntu $ pwd
+/
+
+ubuntu $ cp file1.txt pages.txt
+ubuntu $ ls
+dir3  file1.txt  file2.txt  filesystem  pages.txt  snap  softserve
+ubuntu $ mv file2.txt note2.txt
+ubuntu $ ls
+dir3  file1.txt  filesystem  note2.txt  pages.txt  snap  softserve
+ubuntu $ mv note2.txt NOTE.txt
+ubuntu $ ls
+NOTE.txt  dir3  file1.txt  filesystem  pages.txt  snap  softserve
+ubuntu $ ls
+NOTE.txt  dir3  file1.txt  filesystem  pages.txt  snap  softserve
+ubuntu $ 
+
+ubuntu $ touch delfile.txt delfile2.txt delfile3.txt
+ubuntu $ ls
+NOTE.txt  delfile.txt  delfile2.txt  delfile3.txt  dir3  file1.txt  filesystem  pages.txt  snap  softserve
+ubuntu $ rm delfile.txt
+ubuntu $ ls
+NOTE.txt  delfile2.txt  delfile3.txt  dir3  file1.txt  filesystem  pages.txt  snap  softserve
+ubuntu $ rm -f file1.txt
+ubuntu $ ls
+NOTE.txt  delfile2.txt  delfile3.txt  dir3  filesystem  pages.txt  snap  softserve
+ubuntu $ 
+
+ubuntu $ cp -r softserve dir2
+ubuntu $ mv dir2 DIR2
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  dir3  filesystem  pages.txt  snap  softserve
+ubuntu $ mkdir DIR3  dir4
+ubuntu $ ls
+DIR2  DIR3  NOTE.txt  delfile2.txt  delfile3.txt  dir3  dir4  filesystem  pages.txt  snap  softserve
+ubuntu $ rm -rf DIR3
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  dir3  dir4  filesystem  pages.txt  snap  softserve
+ubuntu $ rm -rf dir4
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  dir3  filesystem  pages.txt  snap  softserve
+ubuntu $ rmdir dir3
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  filesystem  pages.txt  snap  softserve
+
+ubuntu $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:111:1::/var/cache/pollinate:/bin/false
+fwupd-refresh:x:112:116:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+kc-internal:x:0:0::/root:/bin/bash
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+ubuntu $ cat -n /etc/passwd
+     1  root:x:0:0:root:/root:/bin/bash
+     2  daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+     3  bin:x:2:2:bin:/bin:/usr/sbin/nologin
+     4  sys:x:3:3:sys:/dev:/usr/sbin/nologin
+     5  sync:x:4:65534:sync:/bin:/bin/sync
+     6  games:x:5:60:games:/usr/games:/usr/sbin/nologin
+     7  man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+     8  lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+     9  mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+    10  news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+    11  uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+    12  proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+    13  www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+    14  backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+    15  list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+    16  irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+    17  gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+    18  nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+    19  systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+    20  systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+    21  systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+    22  messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+    23  syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+    24  _apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+    25  tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+    26  uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+    27  tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+    28  sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+    29  landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+    30  pollinate:x:111:1::/var/cache/pollinate:/bin/false
+    31  fwupd-refresh:x:112:116:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+    32  systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+    33  ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+    34  lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+    35  kc-internal:x:0:0::/root:/bin/bash
+    36  dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+ubuntu $ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+ubuntu $ head -n 5 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+
+ubuntu $ tail /etc/passwd
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:111:1::/var/cache/pollinate:/bin/false
+fwupd-refresh:x:112:116:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+kc-internal:x:0:0::/root:/bin/bash
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+ubuntu $ tail -n 5 /etc/passwd
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+kc-internal:x:0:0::/root:/bin/bash
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+ubuntu $ grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+kc-internal:x:0:0::/root:/bin/bash
+
+ubuntu $ awk -F : '{print $1}' /etc/passwd
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+systemd-network
+systemd-resolve
+systemd-timesync
+messagebus
+syslog
+_apt
+tss
+uuidd
+tcpdump
+sshd
+landscape
+pollinate
+fwupd-refresh
+systemd-coredump
+ubuntu
+lxd
+kc-internal
+dnsmasq
+
+ubuntu $ awk -F : '{print $1}' /etc/passwd
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+systemd-network
+systemd-resolve
+systemd-timesync
+messagebus
+syslog
+_apt
+tss
+uuidd
+tcpdump
+sshd
+landscape
+pollinate
+fwupd-refresh
+systemd-coredump
+ubuntu
+lxd
+kc-internal
+dnsmasq
+ubuntu $ awk -F : '{print $1,$2}' /etc/passwd
+root x
+daemon x
+bin x
+sys x
+sync x
+games x
+man x
+lp x
+mail x
+news x
+uucp x
+proxy x
+www-data x
+backup x
+list x
+irc x
+gnats x
+nobody x
+systemd-network x
+systemd-resolve x
+systemd-timesync x
+messagebus x
+syslog x
+_apt x
+tss x
+uuidd x
+tcpdump x
+sshd x
+landscape x
+pollinate x
+fwupd-refresh x
+systemd-coredump x
+ubuntu x
+lxd x
+kc-internal x
+dnsmasq x
+
+ubuntu $ echo "My Vi editor" > videmo.txt
+ubuntu $ vi videmo.txt 
+:wq!
+
+ubuntu $ find / -name passwd
+/snap/core20/1634/etc/pam.d/passwd
+/snap/core20/1634/etc/passwd
+/snap/core20/1634/usr/bin/passwd
+/snap/core20/1634/usr/share/bash-completion/completions/passwd
+/snap/core20/1634/usr/share/doc/passwd
+/snap/core20/1634/usr/share/lintian/overrides/passwd
+/snap/core20/1634/var/lib/extrausers/passwd
+/etc/passwd
+/etc/pam.d/passwd
+/usr/bin/passwd
+/usr/share/lintian/overrides/passwd
+/usr/share/doc/passwd
+/usr/share/bash-completion/completions/passwd
+
+ubuntu $ find /etc -name passwd
+/etc/passwd
+/etc/pam.d/passwd
+
+ubuntu $ curl www.google.com
+<!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="de"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"><title>Google</title><script nonce="QWYqH5ZZqqMGc9TI2QsNOQ">(function(){var _g={kEI:'SVKzZ6fwLaKL7NYPo66CyQs',kEXPI:'0,4240045,2872,2891,8348,64702,360901,212051,35269,11813,30911,5241521,165,36812638,25228681,123103,15165,8182,5927,65177,6748,23880,9139,4598,328,6226,34311,19898,9956,1341,13708,48,8156,7430,21302,33,26708,10665,5,10900,1,10439,4487,3854,41,3915,1686,8038,1,2619,4122,4106,7736,11087,6279,950,2150,2830,1784,5774,1201,3109,2326,1308,2,738,6346,2971,6948,2662,835,90,823,2,1920,3594,7225,350,1685,3261,43,415,1639,892,25,953,572,580,978,348,215,499,1403,365,1275,55,1027,1,515,2,311,218,1,3863,448,4,3282,569,2250,540,1,1455,7,358,875,2031,48,654,570,523,2,1231,639,354,304,352,388,139,3,2755,3,465,720,644,7,3281,166,651,198,294,48,12,363,1037,3,2,2,2,2,2,2,783,205,189,266,215,182,129,136,328,286,602,1040,889,9,2,1136,1882,55,492,59,104,342,576,211,251,216,4,73,438,2,2,5,41,327,259,2,252,1193,291,239,350,2070,71,1055,138,266,233,156,46,216,2,256,234,9,8,53,6,402,192,36,733,65,51,470,583,91,320,950,587,17,8,168,99,430,219,213,50,22,548,246,406,317,9,321,405,275,402,177,163,878,2401,277,81,244,931,401,2,382,21324414,4,28852,18,2010,43,528,1959,8,3873,12,532,6',kBL:'S-uB',kOPI:89978449};(function(){var a;((a=window.google)==null?0:a.stvsc)?google.kEI=_g.kEI:window.google=_g;}).call(this);})();(function(){google.sn='webhp';google.kHL='de';})();(function(){
+
+ubuntu $ curl https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.0-RC1/bin/apache-tomcat-8.0.0-RC1-deployer.tar.gz -o apache-tomcat-8.0.0-RC1-deployer.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2114k  100 2114k    0     0   298k      0  0:00:07  0:00:07 --:--:--  310k
+ubuntu $ curl -O https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.0-RC1/bin/apache-tomcat-8.0.0-RC1-deployer.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2114k  100 2114k    0     0   299k      0  0:00:07  0:00:07 --:--:--  315k
+
+ubuntu $ cat /etc/passwd | grep root
+root:x:0:0:root:/root:/bin/bash
+kc-internal:x:0:0::/root:/bin/bash
+
+ubuntu $ touch sample.txt
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  filesystem  pages.txt  sample.txt  snap  softserve  videmo.txt
+ubuntu $ echo sample.txt | rm -f
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  filesystem  pages.txt  sample.txt  snap  softserve  videmo.txt
+ubuntu $ echo sample.txt | xargs rm -f
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  filesystem  pages.txt  snap  softserve  videmo.txt
+ubuntu $ 
+
+ubuntu $ ls -i
+786858 DIR2   71450 NOTE.txt   71490 delfile2.txt   71496 delfile3.txt    4612 filesystem   71363 pages.txt  786827 snap  786818 softserve    4614 videmo.txt
+ubuntu $ touch linksample.txt
+ubuntu $ ls
+DIR2  NOTE.txt  delfile2.txt  delfile3.txt  filesystem  linksample.txt  pages.txt  snap  softserve  videmo.txt
+ubuntu $ ls -i
+786858 DIR2   71450 NOTE.txt   71490 delfile2.txt   71496 delfile3.txt    4612 filesystem   71479 linksample.txt   71363 pages.txt  786827 snap  786818 softserve    4614 videmo.txt
+ubuntu $ ln linksample.txt hard_linksample.txt
+ubuntu $ ls -iAl
+total 48
+ 64433 -rw------- 1 root root   20 Nov 13  2022 .bash_history
+  1541 -rw-r--r-- 1 root root 3208 Feb 11 16:42 .bashrc
+  1540 -rw-r--r-- 1 root root  161 Dec  5  2019 .profile
+258055 drwx------ 2 root root 4096 Feb 11 16:40 .ssh
+538588 drwxr-xr-x 4 root root 4096 Feb 17 14:59 .theia
+ 71498 -rw------- 1 root root  716 Feb 17 15:13 .viminfo
+  1611 -rw-r--r-- 1 root root  109 Feb 11 16:42 .vimrc
+786858 drwxr-xr-x 2 root root 4096 Feb 17 15:09 DIR2
+ 71450 -rw-r--r-- 1 root root   10 Feb 17 15:02 NOTE.txt
+ 71490 -rw-r--r-- 1 root root    0 Feb 17 15:08 delfile2.txt
+ 71496 -rw-r--r-- 1 root root    0 Feb 17 15:08 delfile3.txt
+  4612 lrwxrwxrwx 1 root root    1 Feb 11 16:42 filesystem -> /
+ 71479 -rw-r--r-- 2 root root    0 Feb 17 15:15 hard_linksample.txt
+ 71479 -rw-r--r-- 2 root root    0 Feb 17 15:15 linksample.txt
+ 71363 -rw-r--r-- 1 root root    0 Feb 17 15:07 pages.txt
+786827 drwx------ 3 root root 4096 Feb 17 14:56 snap
+786818 drwxr-xr-x 2 root root 4096 Feb 17 15:05 softserve
+  4614 -rw-r--r-- 1 root root   13 Feb 17 15:12 videmo.txt
+
+ubuntu $ ln -s linksample.txt soft_linksample.txt
+ubuntu $ ls -iAl
+total 48
+ 64433 -rw------- 1 root root   20 Nov 13  2022 .bash_history
+  1541 -rw-r--r-- 1 root root 3208 Feb 11 16:42 .bashrc
+  1540 -rw-r--r-- 1 root root  161 Dec  5  2019 .profile
+258055 drwx------ 2 root root 4096 Feb 11 16:40 .ssh
+538588 drwxr-xr-x 4 root root 4096 Feb 17 14:59 .theia
+ 71498 -rw------- 1 root root  716 Feb 17 15:13 .viminfo
+  1611 -rw-r--r-- 1 root root  109 Feb 11 16:42 .vimrc
+786858 drwxr-xr-x 2 root root 4096 Feb 17 15:09 DIR2
+ 71450 -rw-r--r-- 1 root root   10 Feb 17 15:02 NOTE.txt
+ 71490 -rw-r--r-- 1 root root    0 Feb 17 15:08 delfile2.txt
+ 71496 -rw-r--r-- 1 root root    0 Feb 17 15:08 delfile3.txt
+  4612 lrwxrwxrwx 1 root root    1 Feb 11 16:42 filesystem -> /
+ 71479 -rw-r--r-- 2 root root    0 Feb 17 15:15 hard_linksample.txt
+ 71479 -rw-r--r-- 2 root root    0 Feb 17 15:15 linksample.txt
+ 71363 -rw-r--r-- 1 root root    0 Feb 17 15:07 pages.txt
+786827 drwx------ 3 root root 4096 Feb 17 14:56 snap
+ 72443 lrwxrwxrwx 1 root root   14 Feb 17 15:15 soft_linksample.txt -> linksample.txt
+786818 drwxr-xr-x 2 root root 4096 Feb 17 15:05 softserve
+  4614 -rw-r--r-- 1 root root   13 Feb 17 15:12 videmo.txt
+
+
+ubuntu $ tar -xf apache-tomcat-8.0.0-RC1-deployer.tar.gz
+ubuntu $ curl -L -o shipping.zip https://github.com/roboshop-devops-project/shipping/archive/refs/heads/main.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 11656    0 11656    0     0  18649      0 --:--:-- --:--:-- --:--:-- 18649
+ubuntu $ unzip shipping.zip 
+Archive:  shipping.zip
+36461c8be0056496241faf13c683609419f04b5b
+   creating: shipping-main/
+  inflating: shipping-main/README.md  
+  inflating: shipping-main/pom.xml   
+   creating: shipping-main/src/
+   creating: shipping-main/src/main/
+   creating: shipping-main/src/main/java/
+   creating: shipping-main/src/main/java/com/
+   creating: shipping-main/src/main/java/com/instana/
+   creating: shipping-main/src/main/java/com/instana/robotshop/
+   creating: shipping-main/src/main/java/com/instana/robotshop/shipping/
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Calculator.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/CartHelper.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/City.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/CityRepository.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Code.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/CodeRepository.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Controller.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/JpaConfig.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/RetryableDataSource.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Ship.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/ShippingServiceApplication.java  
+   creating: shipping-main/src/main/resources/
+  inflating: shipping-main/src/main/resources/application.properties  
+  inflating: shipping-main/systemd.service  
+ubuntu $ ls -Al
+total 2184
+-rw------- 1 root root      20 Nov 13  2022 .bash_history
+-rw-r--r-- 1 root root    3208 Feb 11 16:42 .bashrc
+-rw-r--r-- 1 root root     161 Dec  5  2019 .profile
+drwx------ 2 root root    4096 Feb 11 16:40 .ssh
+drwxr-xr-x 4 root root    4096 Feb 17 14:59 .theia
+-rw------- 1 root root     716 Feb 17 15:13 .viminfo
+-rw-r--r-- 1 root root     109 Feb 11 16:42 .vimrc
+drwxr-xr-x 2 root root    4096 Feb 17 15:09 DIR2
+-rw-r--r-- 1 root root      10 Feb 17 15:02 NOTE.txt
+drwxr-xr-x 4 root root    4096 Feb 17 15:17 apache-tomcat-8.0.0-RC1-deployer
+-rw-r--r-- 1 root root 2165252 Feb 17 15:16 apache-tomcat-8.0.0-RC1-deployer.tar.gz
+-rw-r--r-- 1 root root       0 Feb 17 15:08 delfile2.txt
+-rw-r--r-- 1 root root       0 Feb 17 15:08 delfile3.txt
+lrwxrwxrwx 1 root root       1 Feb 11 16:42 filesystem -> /
+-rw-r--r-- 2 root root       0 Feb 17 15:15 hard_linksample.txt
+-rw-r--r-- 2 root root       0 Feb 17 15:15 linksample.txt
+-rw-r--r-- 1 root root       0 Feb 17 15:07 pages.txt
+drwxr-xr-x 3 root root    4096 Apr  8  2021 shipping-main
+-rw-r--r-- 1 root root   11656 Feb 17 15:18 shipping.zip
+drwx------ 3 root root    4096 Feb 17 14:56 snap
+lrwxrwxrwx 1 root root      14 Feb 17 15:15 soft_linksample.txt -> linksample.txt
+drwxr-xr-x 2 root root    4096 Feb 17 15:05 softserve
+-rw-r--r-- 1 root root      13 Feb 17 15:12 videmo.txt

@@ -1,0 +1,841 @@
+ubuntu $ ps
+    PID TTY          TIME CMD
+   2067 pts/0    00:00:00 bash
+   2123 pts/0    00:00:00 ps
+ubuntu $ ps -u
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         585  0.0  0.1   7352  2244 ttyS0    Ss+  15:02   0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+root         587  0.0  0.0   5828  1848 tty1     Ss+  15:02   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root        2067  0.0  0.1   4240  3584 pts/0    Ss   15:19   0:00 bash
+root        2099  6.0  0.1   4244  3472 pts/1    SNs+ 15:19   0:00 /bin/bash
+root        2124  0.0  0.1   5892  2992 pts/0    R+   15:19   0:00 ps -u
+ubuntu $ ps -e
+    PID TTY          TIME CMD
+      1 ?        00:00:02 systemd
+      2 ?        00:00:00 kthreadd
+      3 ?        00:00:00 rcu_gp
+      4 ?        00:00:00 rcu_par_gp
+      6 ?        00:00:00 kworker/0:0H-events_highpri
+      8 ?        00:00:00 mm_percpu_wq
+      9 ?        00:00:00 ksoftirqd/0
+     10 ?        00:00:00 rcu_sched
+     11 ?        00:00:00 migration/0
+     12 ?        00:00:00 idle_inject/0
+     14 ?        00:00:00 cpuhp/0
+     15 ?        00:00:00 kdevtmpfs
+     16 ?        00:00:00 netns
+     17 ?        00:00:00 rcu_tasks_kthre
+     18 ?        00:00:00 kauditd
+     19 ?        00:00:00 khungtaskd
+     20 ?        00:00:00 oom_reaper
+     21 ?        00:00:00 writeback
+     22 ?        00:00:00 kcompactd0
+     23 ?        00:00:00 ksmd
+     24 ?        00:00:00 khugepaged
+     70 ?        00:00:00 kintegrityd
+     71 ?        00:00:00 kblockd
+     72 ?        00:00:00 blkcg_punt_bio
+     73 ?        00:00:00 tpm_dev_wq
+     74 ?        00:00:00 ata_sff
+     75 ?        00:00:00 md
+     76 ?        00:00:00 edac-poller
+     77 ?        00:00:00 devfreq_wq
+     78 ?        00:00:00 watchdogd
+     81 ?        00:00:00 kswapd0
+     82 ?        00:00:00 ecryptfs-kthrea
+     84 ?        00:00:00 kthrotld
+     85 ?        00:00:00 irq/24-aerdrv
+     86 ?        00:00:00 irq/25-aerdrv
+     87 ?        00:00:00 irq/26-aerdrv
+     88 ?        00:00:00 irq/27-aerdrv
+     89 ?        00:00:00 irq/28-aerdrv
+     90 ?        00:00:00 irq/29-aerdrv
+     91 ?        00:00:00 acpi_thermal_pm
+     92 ?        00:00:00 kworker/0:1H-kblockd
+     93 ?        00:00:00 vfio-irqfd-clea
+     94 ?        00:00:00 ipv6_addrconf
+    103 ?        00:00:00 kstrp
+    106 ?        00:00:00 kworker/u3:0
+    119 ?        00:00:00 charger_manager
+    158 ?        00:00:00 scsi_eh_0
+    159 ?        00:00:00 scsi_tmf_0
+    160 ?        00:00:00 cryptd
+    177 ?        00:00:00 scsi_eh_1
+    179 ?        00:00:00 scsi_tmf_1
+    181 ?        00:00:00 scsi_eh_2
+    183 ?        00:00:00 scsi_tmf_2
+    185 ?        00:00:00 scsi_eh_3
+    187 ?        00:00:00 scsi_tmf_3
+    189 ?        00:00:00 scsi_eh_4
+    190 ?        00:00:00 scsi_tmf_4
+    193 ?        00:00:00 scsi_eh_5
+    194 ?        00:00:00 scsi_tmf_5
+    197 ?        00:00:00 scsi_eh_6
+    198 ?        00:00:00 scsi_tmf_6
+    205 ?        00:00:00 kworker/u2:4-events_power_efficient
+    206 ?        00:00:00 kworker/u2:5-events_power_efficient
+    210 ?        00:00:00 ttm_swap
+    239 ?        00:00:00 raid5wq
+    282 ?        00:00:00 jbd2/vda1-8
+    283 ?        00:00:00 ext4-rsv-conver
+    353 ?        00:00:00 systemd-journal
+    377 ?        00:00:00 kworker/0:4-cgroup_destroy
+    382 ?        00:00:00 systemd-udevd
+    386 ?        00:00:00 systemd-network
+    471 ?        00:00:00 kaluad
+    472 ?        00:00:00 kmpath_rdacd
+    473 ?        00:00:00 kmpathd
+    474 ?        00:00:00 kmpath_handlerd
+    475 ?        00:00:00 multipathd
+    485 ?        00:00:00 loop0
+    487 ?        00:00:00 loop1
+    490 ?        00:00:00 loop2
+    542 ?        00:00:00 accounts-daemon
+    545 ?        00:00:00 cron
+    546 ?        00:00:00 dbus-daemon
+    554 ?        00:00:00 networkd-dispat
+    556 ?        00:00:00 polkitd
+    557 ?        00:00:00 rsyslogd
+    561 ?        00:00:00 systemd-logind
+    564 ?        00:00:00 udisksd
+    571 ?        00:00:00 atd
+    572 ?        00:00:00 containerd
+    585 ttyS0    00:00:00 agetty
+    587 tty1     00:00:00 agetty
+    638 ?        00:00:00 ModemManager
+    642 ?        00:00:02 snapd
+    653 ?        00:00:00 dhclient
+    660 ?        00:00:00 sshd
+    716 ?        00:00:00 unattended-upgr
+    752 ?        00:00:00 dockerd
+    799 ?        00:00:00 dhclient
+    831 ?        00:00:00 dhclient
+    838 ?        00:00:00 none
+    883 ?        00:00:00 systemd-timesyn
+    968 ?        00:00:00 systemd-resolve
+   1097 ?        00:00:00 bash
+   1100 ?        00:00:00 runtime-scenari
+   1113 ?        00:00:00 bash
+   1131 ?        00:00:01 node
+   1236 ?        00:00:00 loop3
+   1306 ?        00:00:01 runtime-info-se
+   1327 ?        00:00:00 bash
+   1329 ?        00:00:00 kc-terminal
+   2022 ?        00:00:00 kworker/0:0-events
+   2044 ?        00:00:00 kworker/u2:0-events_unbound
+   2049 ?        00:00:00 kworker/0:1-events
+   2067 pts/0    00:00:00 bash
+   2075 ?        00:00:00 node
+   2099 pts/1    00:00:00 bash
+   2125 ?        00:00:00 systemd-udevd
+   2126 pts/0    00:00:00 ps
+
+ubuntu $ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 15:02 ?        00:00:02 /sbin/init
+root           2       0  0 15:02 ?        00:00:00 [kthreadd]
+root           3       2  0 15:02 ?        00:00:00 [rcu_gp]
+root           4       2  0 15:02 ?        00:00:00 [rcu_par_gp]
+root           6       2  0 15:02 ?        00:00:00 [kworker/0:0H-events_highpri]
+root           8       2  0 15:02 ?        00:00:00 [mm_percpu_wq]
+root           9       2  0 15:02 ?        00:00:00 [ksoftirqd/0]
+root          10       2  0 15:02 ?        00:00:00 [rcu_sched]
+root          11       2  0 15:02 ?        00:00:00 [migration/0]
+root          12       2  0 15:02 ?        00:00:00 [idle_inject/0]
+root          14       2  0 15:02 ?        00:00:00 [cpuhp/0]
+root          15       2  0 15:02 ?        00:00:00 [kdevtmpfs]
+root          16       2  0 15:02 ?        00:00:00 [netns]
+root          17       2  0 15:02 ?        00:00:00 [rcu_tasks_kthre]
+root          18       2  0 15:02 ?        00:00:00 [kauditd]
+root          19       2  0 15:02 ?        00:00:00 [khungtaskd]
+root          20       2  0 15:02 ?        00:00:00 [oom_reaper]
+root          21       2  0 15:02 ?        00:00:00 [writeback]
+root          22       2  0 15:02 ?        00:00:00 [kcompactd0]
+root          23       2  0 15:02 ?        00:00:00 [ksmd]
+root          24       2  0 15:02 ?        00:00:00 [khugepaged]
+root          70       2  0 15:02 ?        00:00:00 [kintegrityd]
+root          71       2  0 15:02 ?        00:00:00 [kblockd]
+root          72       2  0 15:02 ?        00:00:00 [blkcg_punt_bio]
+root          73       2  0 15:02 ?        00:00:00 [tpm_dev_wq]
+root          74       2  0 15:02 ?        00:00:00 [ata_sff]
+root          75       2  0 15:02 ?        00:00:00 [md]
+root          76       2  0 15:02 ?        00:00:00 [edac-poller]
+root          77       2  0 15:02 ?        00:00:00 [devfreq_wq]
+root          78       2  0 15:02 ?        00:00:00 [watchdogd]
+root          81       2  0 15:02 ?        00:00:00 [kswapd0]
+root          82       2  0 15:02 ?        00:00:00 [ecryptfs-kthrea]
+root          84       2  0 15:02 ?        00:00:00 [kthrotld]
+root          85       2  0 15:02 ?        00:00:00 [irq/24-aerdrv]
+root          86       2  0 15:02 ?        00:00:00 [irq/25-aerdrv]
+root          87       2  0 15:02 ?        00:00:00 [irq/26-aerdrv]
+root          88       2  0 15:02 ?        00:00:00 [irq/27-aerdrv]
+root          89       2  0 15:02 ?        00:00:00 [irq/28-aerdrv]
+root          90       2  0 15:02 ?        00:00:00 [irq/29-aerdrv]
+root          91       2  0 15:02 ?        00:00:00 [acpi_thermal_pm]
+root          92       2  0 15:02 ?        00:00:00 [kworker/0:1H-events_highpri]
+root          93       2  0 15:02 ?        00:00:00 [vfio-irqfd-clea]
+root          94       2  0 15:02 ?        00:00:00 [ipv6_addrconf]
+root         103       2  0 15:02 ?        00:00:00 [kstrp]
+root         106       2  0 15:02 ?        00:00:00 [kworker/u3:0]
+root         119       2  0 15:02 ?        00:00:00 [charger_manager]
+root         158       2  0 15:02 ?        00:00:00 [scsi_eh_0]
+root         159       2  0 15:02 ?        00:00:00 [scsi_tmf_0]
+root         160       2  0 15:02 ?        00:00:00 [cryptd]
+root         177       2  0 15:02 ?        00:00:00 [scsi_eh_1]
+root         179       2  0 15:02 ?        00:00:00 [scsi_tmf_1]
+root         181       2  0 15:02 ?        00:00:00 [scsi_eh_2]
+root         183       2  0 15:02 ?        00:00:00 [scsi_tmf_2]
+root         185       2  0 15:02 ?        00:00:00 [scsi_eh_3]
+root         187       2  0 15:02 ?        00:00:00 [scsi_tmf_3]
+root         189       2  0 15:02 ?        00:00:00 [scsi_eh_4]
+root         190       2  0 15:02 ?        00:00:00 [scsi_tmf_4]
+root         193       2  0 15:02 ?        00:00:00 [scsi_eh_5]
+root         194       2  0 15:02 ?        00:00:00 [scsi_tmf_5]
+root         197       2  0 15:02 ?        00:00:00 [scsi_eh_6]
+root         198       2  0 15:02 ?        00:00:00 [scsi_tmf_6]
+root         205       2  0 15:02 ?        00:00:00 [kworker/u2:4-events_power_efficient]
+root         206       2  0 15:02 ?        00:00:00 [kworker/u2:5-events_unbound]
+root         210       2  0 15:02 ?        00:00:00 [ttm_swap]
+root         239       2  0 15:02 ?        00:00:00 [raid5wq]
+root         282       2  0 15:02 ?        00:00:00 [jbd2/vda1-8]
+root         283       2  0 15:02 ?        00:00:00 [ext4-rsv-conver]
+root         353       1  0 15:02 ?        00:00:00 /lib/systemd/systemd-journald
+root         377       2  0 15:02 ?        00:00:00 [kworker/0:4-cgroup_destroy]
+root         382       1  0 15:02 ?        00:00:00 /lib/systemd/systemd-udevd
+systemd+     386       1  0 15:02 ?        00:00:00 /lib/systemd/systemd-networkd
+root         471       2  0 15:02 ?        00:00:00 [kaluad]
+root         472       2  0 15:02 ?        00:00:00 [kmpath_rdacd]
+root         473       2  0 15:02 ?        00:00:00 [kmpathd]
+root         474       2  0 15:02 ?        00:00:00 [kmpath_handlerd]
+root         475       1  0 15:02 ?        00:00:00 /sbin/multipathd -d -s
+root         485       2  0 15:02 ?        00:00:00 [loop0]
+root         487       2  0 15:02 ?        00:00:00 [loop1]
+root         490       2  0 15:02 ?        00:00:00 [loop2]
+root         542       1  0 15:02 ?        00:00:00 /usr/lib/accountsservice/accounts-daemon
+root         545       1  0 15:02 ?        00:00:00 /usr/sbin/cron -f
+message+     546       1  0 15:02 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         554       1  0 15:02 ?        00:00:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         556       1  0 15:02 ?        00:00:00 /usr/lib/policykit-1/polkitd --no-debug
+syslog       557       1  0 15:02 ?        00:00:00 /usr/sbin/rsyslogd -n -iNONE
+root         561       1  0 15:02 ?        00:00:00 /lib/systemd/systemd-logind
+root         564       1  0 15:02 ?        00:00:00 /usr/lib/udisks2/udisksd
+daemon       571       1  0 15:02 ?        00:00:00 /usr/sbin/atd -f
+root         572       1  0 15:02 ?        00:00:00 /usr/bin/containerd
+root         585       1  0 15:02 ttyS0    00:00:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+root         587       1  0 15:02 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root         638       1  0 15:02 ?        00:00:00 /usr/sbin/ModemManager
+root         642       1  0 15:02 ?        00:00:02 /usr/lib/snapd/snapd
+root         653       1  0 15:02 ?        00:00:00 dhclient -v
+root         660       1  0 15:02 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         716       1  0 15:02 ?        00:00:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         752       1  0 15:02 ?        00:00:00 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+root         799       1  0 15:02 ?        00:00:00 dhclient -v
+root         831       1  0 15:02 ?        00:00:00 dhclient -v
+root         838       2  0 15:02 ?        00:00:00 bpfilter_umh
+systemd+     883       1  0 15:02 ?        00:00:00 /lib/systemd/systemd-timesyncd
+systemd+     968       1  0 15:02 ?        00:00:00 /lib/systemd/systemd-resolved
+root        1097       1  0 15:02 ?        00:00:00 bash -c export RV_SCRIPT_DIR=/var/run/kc-internal/scenario-service && mkdir -p $RV_SCRIPT_DIR;  /bin/runtime-scenario-service 
+root        1100    1097  0 15:02 ?        00:00:00 /bin/runtime-scenario-service
+root        1113       1  0 15:02 ?        00:00:00 bash -c set -x; cd /opt; while ! curl -o theia-install.sh https://storage.googleapis.com/killercoda-prod-europe1/theia/theia-install.sh?v=43168; do sleep 1; done; bash theia-install.sh; rm theia-install.sh; nice
+root        1131    1113  0 15:02 ?        00:00:01 /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205
+root        1236       2  0 15:02 ?        00:00:00 [loop3]
+root        1306       1  0 15:02 ?        00:00:01 /bin/runtime-info-service
+root        1327       1  0 15:02 ?        00:00:00 bash -c while true; do /bin/kc-terminal -p 40200 --writable -t disableLeaveAlert=true bash; done
+root        1329    1327  0 15:02 ?        00:00:00 /bin/kc-terminal -p 40200 --writable -t disableLeaveAlert true bash
+root        2022       2  0 15:09 ?        00:00:00 [kworker/0:0-events]
+root        2044       2  0 15:17 ?        00:00:00 [kworker/u2:0-events_power_efficient]
+root        2049       2  0 15:17 ?        00:00:00 [kworker/0:1-events]
+root        2067    1329  0 15:19 pts/0    00:00:00 bash
+root        2075    1131  4 15:19 ?        00:00:01 /opt/theia/node /opt/theia/node_modules/@theia/core/lib/node/messaging/ipc-bootstrap --nsfwOptions={}
+root        2099    1131  0 15:19 pts/1    00:00:00 /bin/bash
+root        2141    2067  0 15:19 pts/0    00:00:00 ps -ef
+
+ubuntu $ ps -ef | grep ssh
+root         660       1  0 15:02 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root        2143    2067  0 15:20 pts/0    00:00:00 grep --color=auto ssh
+
+ubuntu $ ps -ef | grep sleep
+root        1113       1  0 15:02 ?        00:00:00 bash -c set -x; cd /opt; while ! curl -o theia-install.sh https://storage.googleapis.com/killercoda-prod-europe1/theia/theia-install.sh?v=43168; do sleep 1; done; bash theia-install.sh; rm theia-install.sh; nice -n 19 /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205
+root        2144    2067  0 15:20 pts/0    00:00:00 sleep 300
+root        2146    2067  0 15:20 pts/0    00:00:00 grep --color=auto sleep
+ubuntu $ kill 2144
+ubuntu $ ps -ef | grep sleep
+root        1113       1  0 15:02 ?        00:00:00 bash -c set -x; cd /opt; while ! curl -o theia-install.sh https://storage.googleapis.com/killercoda-prod-europe1/theia/theia-install.sh?v=43168; do sleep 1; done; bash theia-install.sh; rm theia-install.sh; nice -n 19 /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205
+root        2148    2067  0 15:20 pts/0    00:00:00 grep --color=auto sleep
+[1]+  Terminated              sleep 300
+
+ubuntu $ echo "apt install apache2  -y &>/dev/null" > run.sh | bash 
+ubuntu $ sh ./run.sh&
+[1] 2164
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0 ssl-cert
+Suggested packages:
+  apache2-doc apache2-suexec-pristine | apache2-suexec-custom www-browser openssl-blacklist
+The following NEW packages will be installed:
+  apache2 apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0 ssl-cert
+0 upgraded, 10 newly installed, 0 to remove and 187 not upgraded.
+Need to get 1846 kB of archives.
+After this operation, 8040 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapr1 amd64 1.6.5-1ubuntu1.1 [91.5 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libaprutil1 amd64 1.6.1-4ubuntu2.2 [85.1 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.1-4ubuntu2.2 [10.5 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libaprutil1-ldap amd64 1.6.1-4ubuntu2.2 [8752 B]
+Get:5 http://archive.ubuntu.com/ubuntu focal/main amd64 liblua5.2-0 amd64 5.2.4-1.1build3 [106 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2-bin amd64 2.4.41-4ubuntu3.21 [1189 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2-data all 2.4.41-4ubuntu3.21 [159 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2-utils amd64 2.4.41-4ubuntu3.21 [84.7 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2 amd64 2.4.41-4ubuntu3.21 [95.6 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal/main amd64 ssl-cert all 1.0.39 [17.0 kB]
+Fetched 1846 kB in 0s (5153 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package libapr1:amd64.
+(Reading database ... 72828 files and directories currently installed.)
+Preparing to unpack .../0-libapr1_1.6.5-1ubuntu1.1_amd64.deb ...
+Unpacking libapr1:amd64 (1.6.5-1ubuntu1.1) ...
+Selecting previously unselected package libaprutil1:amd64.
+Preparing to unpack .../1-libaprutil1_1.6.1-4ubuntu2.2_amd64.deb ...
+Unpacking libaprutil1:amd64 (1.6.1-4ubuntu2.2) ...
+Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
+Preparing to unpack .../2-libaprutil1-dbd-sqlite3_1.6.1-4ubuntu2.2_amd64.deb ...
+Unpacking libaprutil1-dbd-sqlite3:amd64 (1.6.1-4ubuntu2.2) ...
+Selecting previously unselected package libaprutil1-ldap:amd64.
+Preparing to unpack .../3-libaprutil1-ldap_1.6.1-4ubuntu2.2_amd64.deb ...
+Unpacking libaprutil1-ldap:amd64 (1.6.1-4ubuntu2.2) ...
+Selecting previously unselected package liblua5.2-0:amd64.
+Preparing to unpack .../4-liblua5.2-0_5.2.4-1.1build3_amd64.deb ...
+Unpacking liblua5.2-0:amd64 (5.2.4-1.1build3) ...
+Selecting previously unselected package apache2-bin.
+Preparing to unpack .../5-apache2-bin_2.4.41-4ubuntu3.21_amd64.deb ...
+Unpacking apache2-bin (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package apache2-data.
+Preparing to unpack .../6-apache2-data_2.4.41-4ubuntu3.21_all.deb ...
+Unpacking apache2-data (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package apache2-utils.
+Preparing to unpack .../7-apache2-utils_2.4.41-4ubuntu3.21_amd64.deb ...
+Unpacking apache2-utils (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package apache2.
+Preparing to unpack .../8-apache2_2.4.41-4ubuntu3.21_amd64.deb ...
+Unpacking apache2 (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package ssl-cert.
+Preparing to unpack .../9-ssl-cert_1.0.39_all.deb ...
+Unpacking ssl-cert (1.0.39) ...
+Setting up libapr1:amd64 (1.6.5-1ubuntu1.1) ...
+Setting up ssl-cert (1.0.39) ...
+Setting up liblua5.2-0:amd64 (5.2.4-1.1build3) ...
+Setting up apache2-data (2.4.41-4ubuntu3.21) ...
+Setting up libaprutil1:amd64 (1.6.1-4ubuntu2.2) ...
+Setting up libaprutil1-ldap:amd64 (1.6.1-4ubuntu2.2) ...
+Setting up libaprutil1-dbd-sqlite3:amd64 (1.6.1-4ubuntu2.2) ...
+Setting up apache2-utils (2.4.41-4ubuntu3.21) ...
+Setting up apache2-bin (2.4.41-4ubuntu3.21) ...
+Setting up apache2 (2.4.41-4ubuntu3.21) ...
+Enabling module mpm_event.
+Enabling module authz_core.
+Enabling module authz_host.
+Enabling module authn_core.
+Enabling module auth_basic.
+Enabling module access_compat.
+Enabling module authn_file.
+Enabling module authz_user.
+Enabling module alias.
+Enabling module dir.
+Enabling module autoindex.
+Enabling module env.
+Enabling module mime.
+Enabling module negotiation.
+Enabling module setenvif.
+Enabling module filter.
+Enabling module deflate.
+Enabling module status.
+Enabling module reqtimeout.
+Enabling conf charset.
+Enabling conf localized-error-pages.
+Enabling conf other-vhosts-access-log.
+Enabling conf security.
+Enabling conf serve-cgi-bin.
+Enabling site 000-default.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+Processing triggers for ufw (0.36-6ubuntu1) ...
+Processing triggers for systemd (245.4-4ubuntu3.18) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+
+[1]+  Done                    sh ./run.sh
+
+ubuntu $ ps -ef | grep sleep
+root        1113       1  0 15:02 ?        00:00:00 bash -c set -x; cd /opt; while ! curl -o theia-install.sh https://storage.googleapis.com/killercoda-prod-europe1/theia/theia-install.sh?v=43168; do sleep 1; done; bash theia-install.sh; rm theia-install.sh; nice -n 19 /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205
+root        3274    3253  0 15:23 pts/0    00:00:00 grep --color=auto sleep
+
+ubuntu $ kill -9 1113
+ubuntu $ ps -ef | grep sleep
+root        3276    3253  0 15:23 pts/0    00:00:00 grep --color=auto sleep
+
+ubuntu $ useradd -m johndoe 
+ubuntu $ id johndoe
+uid=1001(johndoe) gid=1001(johndoe) groups=1001(johndoe)
+ubuntu $ passwd johndoe
+New password: 
+Retype new password: 
+passwd: password updated successfully
+ubuntu $ echo ssh johndoe@$(curl -s ifconfig.co)
+ssh johndoe@74.220.27.36
+ubuntu $ ps -ef | grep httpd
+root        3316    3253  0 15:24 pts/0    00:00:00 grep --color=auto httpd
+ubuntu $ usermod -aG sudo johndoe
+ubuntu $ sudo whoami
+root
+ubuntu $ su - johndoe
+$ whoami
+johndoe
+$ sudo su 
+[sudo] password for johndoe: 
+ubuntu $ sudo cat /etc/shadow
+root:*:19303:0:99999:7:::
+daemon:*:19303:0:99999:7:::
+bin:*:19303:0:99999:7:::
+sys:*:19303:0:99999:7:::
+sync:*:19303:0:99999:7:::
+games:*:19303:0:99999:7:::
+man:*:19303:0:99999:7:::
+lp:*:19303:0:99999:7:::
+mail:*:19303:0:99999:7:::
+news:*:19303:0:99999:7:::
+uucp:*:19303:0:99999:7:::
+proxy:*:19303:0:99999:7:::
+www-data:*:19303:0:99999:7:::
+backup:*:19303:0:99999:7:::
+list:*:19303:0:99999:7:::
+irc:*:19303:0:99999:7:::
+gnats:*:19303:0:99999:7:::
+nobody:*:19303:0:99999:7:::
+systemd-network:*:19303:0:99999:7:::
+systemd-resolve:*:19303:0:99999:7:::
+systemd-timesync:*:19303:0:99999:7:::
+messagebus:*:19303:0:99999:7:::
+syslog:*:19303:0:99999:7:::
+_apt:*:19303:0:99999:7:::
+tss:*:19303:0:99999:7:::
+uuidd:*:19303:0:99999:7:::
+tcpdump:*:19303:0:99999:7:::
+sshd:*:19303:0:99999:7:::
+landscape:*:19303:0:99999:7:::
+pollinate:*:19303:0:99999:7:::
+fwupd-refresh:*:19303:0:99999:7:::
+systemd-coredump:!!:19309::::::
+ubuntu:$6$JsqEdowrtWmooKOj$PH3g3/CZFKNkmIlV5Qep5QCVBSVvrlfPB6UR0JkNtQDtaQJL2rwg3glb4zTEpNP0N4u8L3p7TvPW0hbnPUdKI1:19309:0:99999:7:::
+lxd:!:19309::::::
+kc-internal:$1$sQaBnyxd$J.bCe6l7D/XR1m/z3ZTue0:19309:0:99999:7:::
+dnsmasq:*:20130:0:99999:7:::
+johndoe:$6$w4e3cztVcmJdedm.$FqcRbDWP7MMXdC7Z914cbCfrCdk4zYuPh/5PbJmsbp1Ubr6w1Fgc12wiDU8DCEg8w6MAX1ETjfKTlkvofQ1Ec1:20136:0:99999:7:::
+
+ubuntu $ groupadd developers
+ubuntu $ groupadd ftp
+ubuntu $ grep developers /etc/group
+developers:x:1002:
+ubuntu $ groupadd admins 
+ubuntu $ useradd -m -g admins steve 
+ubuntu $ id steve
+uid=1002(steve) gid=1004(admins) groups=1004(admins)
+ubuntu $ 
+
+ubuntu $ sudo apt list --installed
+Listing... Done
+accountsservice/now 0.6.55-0ubuntu12~20.04.5 amd64 [installed,upgradable to: 0.6.55-0ubuntu12~20.04.7]
+adduser/focal,now 3.118ubuntu2 all [installed,automatic]
+alsa-topology-conf/focal,now 1.2.2-1 all [installed,automatic]
+alsa-ucm-conf/focal-updates,now 1.2.2-1ubuntu0.13 all [installed,automatic]
+apache2-bin/focal-updates,focal-security,now 2.4.41-4ubuntu3.21 amd64 [installed,automatic]
+apache2-data/focal-updates,focal-security,now 2.4.41-4ubuntu3.21 all [installed,automatic]
+apache2-utils/focal-updates,focal-security,now 2.4.41-4ubuntu3.21 amd64 [installed,automatic]
+apache2/focal-updates,focal-security,now 2.4.41-4ubuntu3.21 amd64 [installed]
+apparmor/now 2.13.3-7ubuntu5.1 amd64 [installed,upgradable to: 2.13.3-7ubuntu5.4]
+apport-symptoms/focal,now 0.23 all [installed,automatic]
+apport/now 2.20.11-0ubuntu27.24 all [installed,upgradable to: 2.20.11-0ubuntu27.27]
+apt-utils/now 2.0.9 amd64 [installed,upgradable to: 2.0.10]
+apt/now 2.0.9 amd64 [installed,upgradable to: 2.0.10]
+at/focal,now 3.1.23-1ubuntu1 amd64 [installed,automatic]
+base-files/now 11ubuntu5.6 amd64 [installed,upgradable to: 11ubuntu5.8]
+base-passwd/focal,now 3.5.47 amd64 [installed]
+bash-completion/focal,now 1:2.10-1ubuntu1 all [installed,automatic]
+*************************************
+************************************
+xz-utils/focal-updates,focal-security,now 5.2.4-1ubuntu1.1 amd64 [installed,automatic]
+zerofree/focal,now 1.1.1-1 amd64 [installed,automatic]
+zlib1g-dev/focal-updates,focal-security,now 1:1.2.11.dfsg-2ubuntu1.5 amd64 [installed,automatic]
+zlib1g/focal-updates,focal-security,now 1:1.2.11.dfsg-2ubuntu1.5 amd64 [installed,automatic]
+
+
+sudo apt list --all-versions
+
+ubuntu $ sudo apt install nginx
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 libxpm4 nginx-common nginx-core
+Suggested packages:
+  libgd-tools fcgiwrap nginx-doc
+The following NEW packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 libxpm4 nginx nginx-common nginx-core
+0 upgraded, 17 newly installed, 0 to remove and 187 not upgraded.
+Need to get 2437 kB of archives.
+After this operation, 7926 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 fonts-dejavu-core all 2.37-1 [1041 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 fontconfig-config all 2.13.1-2ubuntu3 [28.8 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal/main amd64 libfontconfig1 amd64 2.13.1-2ubuntu3 [114 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libjpeg-turbo8 amd64 2.0.3-0ubuntu1.20.04.3 [118 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/main amd64 libjpeg8 amd64 8c-2ubuntu8 [2194 B]
+Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libjbig0 amd64 2.1-3.1ubuntu0.20.04.1 [27.3 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libwebp6 amd64 0.6.1-2ubuntu0.20.04.3 [185 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libtiff5 amd64 4.1.0+git191117-2ubuntu0.20.04.14 [164 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libxpm4 amd64 1:3.5.12-1ubuntu0.20.04.2 [34.9 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgd3 amd64 2.2.5-5.2ubuntu2.4 [118 kB]
+Get:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx-common all 1.18.0-0ubuntu1.6 [37.7 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-http-image-filter amd64 1.18.0-0ubuntu1.6 [14.8 kB]
+Get:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-http-xslt-filter amd64 1.18.0-0ubuntu1.6 [13.0 kB]
+Get:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-mail amd64 1.18.0-0ubuntu1.6 [42.8 kB]
+Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-stream amd64 1.18.0-0ubuntu1.6 [67.2 kB]
+Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx-core amd64 1.18.0-0ubuntu1.6 [425 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx all 1.18.0-0ubuntu1.6 [3616 B]
+Fetched 2437 kB in 1s (4369 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package fonts-dejavu-core.
+(Reading database ... 73545 files and directories currently installed.)
+Preparing to unpack .../00-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../01-fontconfig-config_2.13.1-2ubuntu3_all.deb ...
+Unpacking fontconfig-config (2.13.1-2ubuntu3) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../02-libfontconfig1_2.13.1-2ubuntu3_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.13.1-2ubuntu3) ...
+Selecting previously unselected package libjpeg-turbo8:amd64.
+Preparing to unpack .../03-libjpeg-turbo8_2.0.3-0ubuntu1.20.04.3_amd64.deb ...
+Unpacking libjpeg-turbo8:amd64 (2.0.3-0ubuntu1.20.04.3) ...
+Selecting previously unselected package libjpeg8:amd64.
+Preparing to unpack .../04-libjpeg8_8c-2ubuntu8_amd64.deb ...
+Unpacking libjpeg8:amd64 (8c-2ubuntu8) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../05-libjbig0_2.1-3.1ubuntu0.20.04.1_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-3.1ubuntu0.20.04.1) ...
+Selecting previously unselected package libwebp6:amd64.
+Preparing to unpack .../06-libwebp6_0.6.1-2ubuntu0.20.04.3_amd64.deb ...
+Unpacking libwebp6:amd64 (0.6.1-2ubuntu0.20.04.3) ...
+Selecting previously unselected package libtiff5:amd64.
+Preparing to unpack .../07-libtiff5_4.1.0+git191117-2ubuntu0.20.04.14_amd64.deb ...
+Unpacking libtiff5:amd64 (4.1.0+git191117-2ubuntu0.20.04.14) ...
+Selecting previously unselected package libxpm4:amd64.
+Preparing to unpack .../08-libxpm4_1%3a3.5.12-1ubuntu0.20.04.2_amd64.deb ...
+Unpacking libxpm4:amd64 (1:3.5.12-1ubuntu0.20.04.2) ...
+Selecting previously unselected package libgd3:amd64.
+Preparing to unpack .../09-libgd3_2.2.5-5.2ubuntu2.4_amd64.deb ...
+Unpacking libgd3:amd64 (2.2.5-5.2ubuntu2.4) ...
+Selecting previously unselected package nginx-common.
+Preparing to unpack .../10-nginx-common_1.18.0-0ubuntu1.6_all.deb ...
+Unpacking nginx-common (1.18.0-0ubuntu1.6) ...
+Selecting previously unselected package libnginx-mod-http-image-filter.
+Preparing to unpack .../11-libnginx-mod-http-image-filter_1.18.0-0ubuntu1.6_amd64.deb ...
+Unpacking libnginx-mod-http-image-filter (1.18.0-0ubuntu1.6) ...
+Selecting previously unselected package libnginx-mod-http-xslt-filter.
+Preparing to unpack .../12-libnginx-mod-http-xslt-filter_1.18.0-0ubuntu1.6_amd64.deb ...
+Unpacking libnginx-mod-http-xslt-filter (1.18.0-0ubuntu1.6) ...
+Selecting previously unselected package libnginx-mod-mail.
+Preparing to unpack .../13-libnginx-mod-mail_1.18.0-0ubuntu1.6_amd64.deb ...
+Unpacking libnginx-mod-mail (1.18.0-0ubuntu1.6) ...
+Selecting previously unselected package libnginx-mod-stream.
+Preparing to unpack .../14-libnginx-mod-stream_1.18.0-0ubuntu1.6_amd64.deb ...
+Unpacking libnginx-mod-stream (1.18.0-0ubuntu1.6) ...
+Selecting previously unselected package nginx-core.
+Preparing to unpack .../15-nginx-core_1.18.0-0ubuntu1.6_amd64.deb ...
+Unpacking nginx-core (1.18.0-0ubuntu1.6) ...
+Selecting previously unselected package nginx.
+Preparing to unpack .../16-nginx_1.18.0-0ubuntu1.6_all.deb ...
+Unpacking nginx (1.18.0-0ubuntu1.6) ...
+Setting up libxpm4:amd64 (1:3.5.12-1ubuntu0.20.04.2) ...
+Setting up nginx-common (1.18.0-0ubuntu1.6) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+Setting up libjbig0:amd64 (2.1-3.1ubuntu0.20.04.1) ...
+Setting up libnginx-mod-http-xslt-filter (1.18.0-0ubuntu1.6) ...
+Setting up libwebp6:amd64 (0.6.1-2ubuntu0.20.04.3) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libjpeg-turbo8:amd64 (2.0.3-0ubuntu1.20.04.3) ...
+Setting up libjpeg8:amd64 (8c-2ubuntu8) ...
+Setting up libnginx-mod-mail (1.18.0-0ubuntu1.6) ...
+Setting up fontconfig-config (2.13.1-2ubuntu3) ...
+Setting up libnginx-mod-stream (1.18.0-0ubuntu1.6) ...
+Setting up libtiff5:amd64 (4.1.0+git191117-2ubuntu0.20.04.14) ...
+Setting up libfontconfig1:amd64 (2.13.1-2ubuntu3) ...
+Setting up libgd3:amd64 (2.2.5-5.2ubuntu2.4) ...
+Setting up libnginx-mod-http-image-filter (1.18.0-0ubuntu1.6) ...
+Setting up nginx-core (1.18.0-0ubuntu1.6) ...
+Not attempting to start NGINX, port 80 is already in use.
+Setting up nginx (1.18.0-0ubuntu1.6) ...
+Processing triggers for ufw (0.36-6ubuntu1) ...
+Processing triggers for systemd (245.4-4ubuntu3.18) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+
+ubuntu $ sudo apt remove nginx -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 libxpm4 nginx-common nginx-core
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  nginx
+0 upgraded, 0 newly installed, 1 to remove and 187 not upgraded.
+After this operation, 46.1 kB disk space will be freed.
+(Reading database ... 73770 files and directories currently installed.)
+Removing nginx (1.18.0-0ubuntu1.6) ...
+sudo apt autoremove
+ubuntu $ sudo apt autoremove
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages will be REMOVED:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 libxpm4 nginx-common nginx-core
+0 upgraded, 0 newly installed, 16 to remove and 187 not upgraded.
+After this operation, 7880 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 73767 files and directories currently installed.)
+Removing nginx-core (1.18.0-0ubuntu1.6) ...
+Removing libnginx-mod-http-image-filter (1.18.0-0ubuntu1.6) ...
+Removing libgd3:amd64 (2.2.5-5.2ubuntu2.4) ...
+Removing libfontconfig1:amd64 (2.13.1-2ubuntu3) ...
+Removing fontconfig-config (2.13.1-2ubuntu3) ...
+Removing fonts-dejavu-core (2.37-1) ...
+Removing libtiff5:amd64 (4.1.0+git191117-2ubuntu0.20.04.14) ...
+Removing libjbig0:amd64 (2.1-3.1ubuntu0.20.04.1) ...
+Removing libjpeg8:amd64 (8c-2ubuntu8) ...
+Removing libjpeg-turbo8:amd64 (2.0.3-0ubuntu1.20.04.3) ...
+Removing libnginx-mod-http-xslt-filter (1.18.0-0ubuntu1.6) ...
+Removing libnginx-mod-mail (1.18.0-0ubuntu1.6) ...
+Removing libnginx-mod-stream (1.18.0-0ubuntu1.6) ...
+Removing libwebp6:amd64 (0.6.1-2ubuntu0.20.04.3) ...
+Removing libxpm4:amd64 (1:3.5.12-1ubuntu0.20.04.2) ...
+Removing nginx-common (1.18.0-0ubuntu1.6) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+
+ubuntu $ sudo apt update -y
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+187 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+ubuntu $ sudo systemctl list-units -t service
+  UNIT                                           LOAD   ACTIVE SUB     DESCRIPTION                                                                  
+  accounts-daemon.service                        loaded active running Accounts Service                                                             
+  apache2.service                                loaded active running The Apache HTTP Server                                                       
+  apparmor.service                               loaded active exited  Load AppArmor profiles                                                       
+  apport.service                                 loaded active exited  LSB: automatic crash report generation                                       
+  atd.service                                    loaded active running Deferred execution scheduler                                                 
+  blk-availability.service                       loaded active exited  Availability of block devices                                                
+  console-setup.service                          loaded active exited  Set console font and keymap                                                  
+  containerd.service                             loaded active running containerd container runtime                                                 
+  cron.service                                   loaded active running Regular background program processing daemon                                 
+  dbus.service                                   loaded active running D-Bus System Message Bus                                                     
+  docker.service                                 loaded active running Docker Application Container Engine                                          
+  finalrd.service                                loaded active exited  Create final runtime dir for shutdown pivot root                             
+  getty@tty1.service                             loaded active running Getty on tty1                                                                
+  keyboard-setup.service                         loaded active exited  Set the console keyboard layout                                              
+  kmod-static-nodes.service                      loaded active exited  Create list of static device nodes for the current kernel                    
+  lvm2-monitor.service                           loaded active exited  Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
+  ModemManager.service                           loaded active running Modem Manager                                                                
+  multipathd.service                             loaded active running Device-Mapper Multipath Device Controller                                    
+  networkd-dispatcher.service                    loaded active running Dispatcher daemon for systemd-networkd                                       
+  packagekit.service                             loaded active running PackageKit Daemon                                                            
+  polkit.service                                 loaded active running Authorization Manager                                                        
+  rsyslog.service                                loaded active running System Logging Service                                                       
+  serial-getty@ttyS0.service                     loaded active running Serial Getty on ttyS0                                                        
+  setvtrgb.service                               loaded active exited  Set console scheme                                                           
+  snapd.apparmor.service                         loaded active exited  Load AppArmor profiles managed internally by snapd                           
+  snapd.seeded.service                           loaded active exited  Wait until snapd is fully seeded                                             
+  snapd.service                                  loaded active running Snap Daemon                                                                  
+  ssh.service                                    loaded active running OpenBSD Secure Shell server                                                  
+  systemd-fsck@dev-disk-by\x2dlabel-UEFI.service loaded active exited  File System Check on /dev/disk/by-label/UEFI                                 
+  systemd-journal-flush.service                  loaded active exited  Flush Journal to Persistent Storage                                          
+  systemd-journald.service                       loaded active running Journal Service                                                              
+  systemd-logind.service                         loaded active running Login Service                                                                
+  systemd-modules-load.service                   loaded active exited  Load Kernel Modules                                                          
+  systemd-networkd-wait-online.service           loaded active exited  Wait for Network to be Configured                                            
+  systemd-networkd.service                       loaded active running Network Service                                                              
+  systemd-random-seed.service                    loaded active exited  Load/Save Random Seed                                                        
+  systemd-remount-fs.service                     loaded active exited  Remount Root and Kernel File Systems                                         
+  systemd-resolved.service                       loaded active running Network Name Resolution                                                      
+  systemd-sysctl.service                         loaded active exited  Apply Kernel Variables                                                       
+  systemd-sysusers.service                       loaded active exited  Create System Users                                                          
+  systemd-timesyncd.service                      loaded active running Network Time Synchronization                                                 
+  systemd-tmpfiles-setup-dev.service             loaded active exited  Create Static Device Nodes in /dev                                           
+  systemd-tmpfiles-setup.service                 loaded active exited  Create Volatile Files and Directories                                        
+  systemd-udev-settle.service                    loaded active exited  udev Wait for Complete Device Initialization                                 
+  systemd-udev-trigger.service                   loaded active exited  udev Coldplug all Devices                                                    
+  systemd-udevd.service                          loaded active running udev Kernel Device Manager                                                   
+  systemd-update-utmp.service                    loaded active exited  Update UTMP about System Boot/Shutdown                                       
+  systemd-user-sessions.service                  loaded active exited  Permit User Sessions                                                         
+  ubuntu-fan.service                             loaded active exited  Ubuntu FAN network setup                                                     
+  udisks2.service                                loaded active running Disk Manager                                                                 
+  ufw.service                                    loaded active exited  Uncomplicated firewall                                                       
+  unattended-upgrades.service                    loaded active running Unattended Upgrades Shutdown                                                 
+  user-runtime-dir@1001.service                  loaded active exited  User Runtime Directory /run/user/1001                                        
+  user@1001.service                              loaded active running User Manager for UID 1001                                                    
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+
+54 loaded units listed. Pass --all to see loaded but inactive units, too.
+To show all installed unit files use 'systemctl list-unit-files'.
+
+ubuntu $ sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-17 15:21:21 UTC; 8min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 2692 (apache2)
+      Tasks: 55 (limit: 2338)
+     Memory: 5.0M
+     CGroup: /system.slice/apache2.service
+             ├─2692 /usr/sbin/apache2 -k start
+             ├─2694 /usr/sbin/apache2 -k start
+             └─2695 /usr/sbin/apache2 -k start
+
+Feb 17 15:21:21 ubuntu systemd[1]: Starting The Apache HTTP Server...
+Feb 17 15:21:21 ubuntu apachectl[2676]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+Feb 17 15:21:21 ubuntu systemd[1]: Started The Apache HTTP Server.
+
+ubuntu $ sudo systemctl start apache2
+ubuntu $ sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-17 15:21:21 UTC; 8min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 2692 (apache2)
+      Tasks: 55 (limit: 2338)
+     Memory: 5.0M
+     CGroup: /system.slice/apache2.service
+             ├─2692 /usr/sbin/apache2 -k start
+             ├─2694 /usr/sbin/apache2 -k start
+             └─2695 /usr/sbin/apache2 -k start
+
+Feb 17 15:21:21 ubuntu systemd[1]: Starting The Apache HTTP Server...
+Feb 17 15:21:21 ubuntu apachectl[2676]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+Feb 17 15:21:21 ubuntu systemd[1]: Started The Apache HTTP Server.
+ubuntu $ sudo systemctl stop apache2
+ubuntu $ sudo systemctl restart apache2
+ubuntu $ sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-17 15:30:15 UTC; 1s ago
+       Docs: https://httpd.apache.org/docs/2.4/
+    Process: 5421 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
+   Main PID: 5425 (apache2)
+      Tasks: 55 (limit: 2338)
+     Memory: 4.8M
+     CGroup: /system.slice/apache2.service
+             ├─5425 /usr/sbin/apache2 -k start
+             ├─5426 /usr/sbin/apache2 -k start
+             └─5427 /usr/sbin/apache2 -k start
+
+Feb 17 15:30:15 ubuntu systemd[1]: Starting The Apache HTTP Server...
+Feb 17 15:30:15 ubuntu apachectl[5424]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+Feb 17 15:30:15 ubuntu systemd[1]: Started The Apache HTTP Server.
+
+ubuntu $ sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-17 15:30:15 UTC; 1s ago
+       Docs: https://httpd.apache.org/docs/2.4/
+    Process: 5421 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
+   Main PID: 5425 (apache2)
+      Tasks: 55 (limit: 2338)
+     Memory: 4.8M
+     CGroup: /system.slice/apache2.service
+             ├─5425 /usr/sbin/apache2 -k start
+             ├─5426 /usr/sbin/apache2 -k start
+             └─5427 /usr/sbin/apache2 -k start
+
+Feb 17 15:30:15 ubuntu systemd[1]: Starting The Apache HTTP Server...
+Feb 17 15:30:15 ubuntu apachectl[5424]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+Feb 17 15:30:15 ubuntu systemd[1]: Started The Apache HTTP Server.
+ubuntu $ sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-17 15:30:15 UTC; 35s ago
+       Docs: https://httpd.apache.org/docs/2.4/
+    Process: 5421 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
+   Main PID: 5425 (apache2)
+      Tasks: 55 (limit: 2338)
+     Memory: 4.8M
+     CGroup: /system.slice/apache2.service
+             ├─5425 /usr/sbin/apache2 -k start
+             ├─5426 /usr/sbin/apache2 -k start
+             └─5427 /usr/sbin/apache2 -k start
+
+Feb 17 15:30:15 ubuntu systemd[1]: Starting The Apache HTTP Server...
+Feb 17 15:30:15 ubuntu apachectl[5424]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+Feb 17 15:30:15 ubuntu systemd[1]: Started The Apache HTTP Server.
+ubuntu $ sudo systemctl enable apache2
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+ubuntu $ sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-17 15:30:15 UTC; 40s ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 5425 (apache2)
+      Tasks: 55 (limit: 2338)
+     Memory: 4.8M
+     CGroup: /system.slice/apache2.service
+             ├─5425 /usr/sbin/apache2 -k start
+             ├─5426 /usr/sbin/apache2 -k start
+             └─5427 /usr/sbin/apache2 -k start
+
+Feb 17 15:30:15 ubuntu systemd[1]: Starting The Apache HTTP Server...
+Feb 17 15:30:15 ubuntu apachectl[5424]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+Feb 17 15:30:15 ubuntu systemd[1]: Started The Apache HTTP Server.
+ubuntu $ sudo systemctl disable apache2
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable apache2
+Removed /etc/systemd/system/multi-user.target.wants/apache2.service.
+
+ubuntu $ touch sample.txt 
+ubuntu $ ls -l sample.txt
+-rw-r--r-- 1 root root 0 Feb 17 15:31 sample.txt
+ubuntu $ chown johndoe sample.txt 
+ubuntu $ ls -l sample.txt
+-rw-r--r-- 1 johndoe root 0 Feb 17 15:31 sample.txt
+ubuntu $ groupadd devops 
+ubuntu $ chgrp devops sample.txt 
+ubuntu $ ls -l sample.txt
+-rw-r--r-- 1 johndoe devops 0 Feb 17 15:31 sample.txt
+ubuntu $ chown steve:admin sample.txt 
+ubuntu $ ls -l sample.txt 
+-rw-r--r-- 1 steve admin 0 Feb 17 15:31 sample.txt
+ubuntu $ chown root:root sample.txt 
+ubuntu $ ls -l sample.txt
+-rw-r--r-- 1 root root 0 Feb 17 15:31 sample.txt
+ubuntu $ chown -R johndoe:admin *
+ubuntu $ touch sample2.txt 
+ubuntu $ ls -l sample2.txt 
+-rw-r--r-- 1 root root 0 Feb 17 15:32 sample2.txt
+ubuntu $ chmod ugo+rwx sample2.txt 
+ubuntu $ ls -l sample2.txt
+-rwxrwxrwx 1 root root 0 Feb 17 15:32 sample2.txt
+ubuntu $ chmod 755 sample2.txt
+ubuntu $ ls -l sample2.txt
+-rwxr-xr-x 1 root root 0 Feb 17 15:32 sample2.txt
+ubuntu $ 
+
+
+
