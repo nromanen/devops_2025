@@ -35,6 +35,3 @@ tar -czvf ~/lenyk_archive.tar.gz ~/maksym/lenyk
 du -ah ~ | sort -rh | head -5
 #step 15 --- Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
 find ~ -type f -mtime -7 
-
-screenshots 
-https://drive.google.com/file/d/18wKXHrR1ja0fvq-7l7obQxi3wTiMR98n/view?usp=sharing, https://drive.google.com/file/d/1Dv0OU6YXzsh4qh-YSrm2YqdP8fpyOeO7/view?usp=sharing, https://drive.google.com/file/d/1O4Yw1LgwU1A8kHjG8yrIDPMHi4QQieMK/view?usp=sharing, https://drive.google.com/file/d/1P6tw7QpuvrMd5T82lng9o10PwG6SHze7/view?usp=sharing, https://drive.google.com/file/d/1YbKmKqkm4DnFvgScsxXl6xW9BueENVEb/view?usp=sharing, https://drive.google.com/file/d/1g_EIEOywklFPf2uGq1lXjBxbThRRy31E/view?usp=sharing, https://drive.google.com/file/d/1kVYw6eedhkek-q1wWcFqvcagcsSBa_ae/view?usp=sharing, https://drive.google.com/file/d/1qm1sPm8vAnHkmvDN4fZAho2mTQasYwJC/view?usp=sharing, https://drive.google.com/file/d/1rrl0dOvbE4gzEYossrPMi5VhDt1aWlea/view?usp=sharing, https://drive.google.com/file/d/1tOwVKNecxuuLZDOGQuMJroWdVBr9eMKj/view?usp=sharing
