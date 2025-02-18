@@ -1,0 +1,49 @@
+sudo useradd iryna_bondar
+
+sudo usermod -a iryna_bondar -G wheel
+
+sudo passwd iryna_bondar
+sudo su iryna_bondar
+source ~/.bashrc
+
+
+sudo cat /etc/passwd | grep iryna*
+iryna_bondar:x:1001:1001::/home/iryna_bondar:/bin/bash
+
+mkdir iryna
+touch ./iryna/bondar
+ln -s ./iryna/bondar ./iryna/bondar_lnk
+cd iryna/
+ll
+total 0
+-rw-rw-r--. 1 iryna_bondar iryna_bondar  0 Feb 15 22:08 bondar
+lrwxrwxrwx. 1 iryna_bondar iryna_bondar 16 Feb 15 22:10 bondar_lnk -> ./iryna/bondar
+
+sudo cp ./iryna/bondar /
+
+iryna_bondar@vbox ~]$ sudo ls -l / | grep bond*
+-rw-r--r--.  1 root    root             0 Feb 15 22:11 bondar
+
+sudo chown root:root /bondar
+sudo chmod 644 /bondar
+
+sudo ls -l / | grep bondar
+-rw-r--r--.  1 root    root             0 Feb 15 22:11 bondar
+
+sudo groupadd students && sudo usermod -aG students $(whoami)
+groups $(whoami)
+iryna_bondar : iryna_bondar wheel students
+
+tar -czvf ~/bondar_backup.tar.gz -C ~/iryna bondar
+bondar
+ll
+total 4
+-rw-rw-r--. 1 iryna_bondar iryna_bondar 118 Feb 15 22:26 bondar_backup.tar.gz
+drwxrwxr-x. 2 iryna_bondar iryna_bondar  38 Feb 15 22:10 iryna
+
+du -ah ~ | sort -rh | head -n 5
+20K /home/iryna_bondar
+4.0K /home/iryna_bondar/bondar_backup.tar.gz
+4.0K /home/iryna_bondar/.bashrc
+4.0K /home/iryna_bondar/.bash_profile
+4.0K /home/iryna_bondar/.bash_logout
