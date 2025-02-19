@@ -1,0 +1,227 @@
+#Use the previously created virtual machine with Linux, ensure that it is powered on and accessible. Complete the following tasks focused on user management, file handling, and command-line operations.
+
+#Add a user with your name to the operating system.
+ubuntu@ubuntu-serv-iso:~$ sudo useradd andriy            
+ubuntu@ubuntu-serv-iso:~$ sudo passwd andriy             #123
+ubuntu@ubuntu-serv-iso:~$ id andriy
+uid=1003(andriy) gid=1004(andriy) groups=1004(andriy)
+
+#Assign the user to the root group to provide administrative privileges.
+ubuntu@ubuntu-serv-iso:~$ sudo usermod andriy -aG root
+ubuntu@ubuntu-serv-iso:~$ id andriy
+uid=1003(andriy) gid=1004(andriy) groups=1004(andriy),0(root)
+ubuntu@ubuntu-serv-iso:~$ id andriy
+uid=1003(andriy) gid=1004(andriy) groups=1004(andriy),0(root),27(sudo)
+
+#Re-login to the system with the new user account to ensure changes take effect.
+ubuntu@ubuntu-serv-iso:~$ su andriy
+Password:
+$ pwd
+/home/ubuntu
+
+#Create a folder named after your first name within your home directory.
+$ cd /home
+$ mkdir andriy
+mkdir: cannot create directory ‘andriy’: Permission denied
+$ sudo mkdir andriy
+$ ls -la
+total 20
+drwxr-xr-x  5 root   root       4096 Feb 17 11:48 .
+drwxr-xr-x 23 root   root       4096 Feb  7 20:28 ..
+drwxr-xr-x  2 root   root       4096 Feb 17 11:48 andriy
+drwxrws---  2 root   developers 4096 Feb 14 12:14 dir1
+drwxr-x--- 12 ubuntu ubuntu     4096 Feb 17 11:02 ubuntu
+
+#set ownership
+$ sudo chown -R andriy:andriy andriy
+$ ls -la
+total 20
+drwxr-xr-x  5 root   root       4096 Feb 17 11:48 .
+drwxr-xr-x 23 root   root       4096 Feb  7 20:28 ..
+drwxr-xr-x  2 andriy andriy     4096 Feb 17 11:48 andriy
+drwxrws---  2 root   developers 4096 Feb 14 12:14 dir1
+drwxr-x--- 12 ubuntu ubuntu     4096 Feb 17 11:02 ubuntu
+
+#Inside this folder, create a file named after your last name.
+$ cd andriy
+$ touch leshchuk
+$ ls -la
+total 8
+drwxr-xr-x 2 andriy andriy 4096 Feb 17 11:50 .
+drwxr-xr-x 5 root   root   4096 Feb 17 11:48 ..
+-rw-rw-r-- 1 andriy andriy    0 Feb 17 11:50 leshchuk
+
+#Create a symbolic link pointing to your last name file.
+$ ln -s leshchuk leshchuk_symlink
+$ ls -la
+total 8
+drwxr-xr-x 2 andriy andriy 4096 Feb 17 11:53 .
+drwxr-xr-x 5 root   root   4096 Feb 17 11:48 ..
+-rw-rw-r-- 1 andriy andriy    0 Feb 17 11:50 leshchuk
+lrwxrwxrwx 1 andriy andriy    8 Feb 17 11:53 leshchuk_symlink -> leshchuk
+
+#Copy your last name file to the top-level directory (root) to demonstrate file access across directories.
+$ cp leshchuk /
+cp: cannot create regular file '/leshchuk': Permission denied
+$ sudo cp leshchuk /
+$ ls -la
+total 8
+drwxr-xr-x 2 andriy andriy 4096 Feb 17 11:55 .
+drwxr-xr-x 5 root   root   4096 Feb 17 11:48 ..
+-rw-rw-r-- 1 andriy andriy    0 Feb 17 11:50 leshchuk
+lrwxrwxrwx 1 andriy andriy    8 Feb 17 11:53 leshchuk_symlink -> leshchuk
+-rw-r--r-- 1 andriy andriy    0 Feb 17 11:55 .sudo_as_admin_successful
+$ ls -la /
+total 88
+drwxr-xr-x  23 root root  4096 Feb 17 11:55 .
+drwxr-xr-x  23 root root  4096 Feb 17 11:55 ..
+lrwxrwxrwx   1 root root     7 Apr 22  2024 bin -> usr/bin
+drwxr-xr-x   2 root root  4096 Feb 26  2024 bin.usr-is-merged
+drwxr-xr-x   4 root root  4096 Feb  7 20:38 boot
+dr-xr-xr-x   2 root root  4096 Aug 27 15:39 cdrom
+drwxr-xr-x  20 root root  4100 Feb 17 10:33 dev
+drwxr-xr-x 109 root root  4096 Feb 17 11:45 etc
+drwxr-xr-x   5 root root  4096 Feb 17 11:48 home
+-rw-r--r--   1 root root     0 Feb 17 11:55 leshchuk
+lrwxrwxrwx   1 root root     7 Apr 22  2024 lib -> usr/lib
+lrwxrwxrwx   1 root root     9 Apr 22  2024 lib64 -> usr/lib64
+drwxr-xr-x   2 root root  4096 Feb 26  2024 lib.usr-is-merged
+drwx------   2 root root 16384 Feb  7 20:29 lost+found
+drwxr-xr-x   2 root root  4096 Aug 27 14:18 media
+drwxr-xr-x   2 root root  4096 Aug 27 14:18 mnt
+drwxr-xr-x   2 root root  4096 Aug 27 14:18 opt
+dr-xr-xr-x 160 root root     0 Feb 17 10:33 proc
+drwx------   6 root root  4096 Feb 14 08:21 root
+drwxr-xr-x  28 root root   860 Feb 17 11:44 run
+lrwxrwxrwx   1 root root     8 Apr 22  2024 sbin -> usr/sbin
+drwxr-xr-x   2 root root  4096 Apr  3  2024 sbin.usr-is-merged
+drwxr-xr-x   2 root root  4096 Feb  7 20:43 snap
+drwxr-xr-x   2 root root  4096 Aug 27 14:18 srv
+dr-xr-xr-x  13 root root     0 Feb 17 10:33 sys
+drwxrwxrwt  14 root root  4096 Feb 17 11:34 tmp
+drwxr-xr-x  12 root root  4096 Aug 27 14:18 usr
+drwxr-xr-x  13 root root  4096 Feb  7 20:43 var
+$
+
+#Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately.
+$ sudo chown -R root:root /leshchuk
+$ ls -la /leshchuk
+-rw-r--r-- 1 andriy andriy 0 Feb 17 11:55 /leshchuk
+$ chmod 644 /leshchuk
+$ ls -la /leshchuk
+-rw-r--r-- 1 andriy andriy 0 Feb 17 11:55 /leshchuk
+
+#Use the command line to create a new user group with the name students and add your user to this group.
+$ sudo groupadd students -U andriy
+$ id andriy
+uid=1003(andriy) gid=1004(andriy) groups=1004(andriy),0(root),27(sudo),1005(students)
+$
+
+#Create a compressed backup of your last name file using the tar command and store it in your home directory.
+$ tar -c leshchuk -f leshchuk.tar
+$ ls
+leshchuk  leshchuk_symlink  leshchuk.tar
+$ ls -la
+total 24
+drwxr-xr-x 2 andriy andriy  4096 Feb 17 12:08 .
+drwxr-xr-x 5 root   root    4096 Feb 17 11:48 ..
+-rw-rw-r-- 1 andriy andriy     0 Feb 17 11:50 leshchuk
+lrwxrwxrwx 1 andriy andriy     8 Feb 17 11:53 leshchuk_symlink -> leshchuk
+-rw-rw-r-- 1 andriy andriy 10240 Feb 17 12:08 leshchuk.tar
+-rw------- 1 andriy andriy    20 Feb 17 12:08 .lesshst
+-rw-r--r-- 1 andriy andriy     0 Feb 17 11:55 .sudo_as_admin_successful
+
+#Use the du command to analyze the disk usage of your home directory, then display the top 5 largest files or directories.
+$ du -h /home
+20K     /home/andriy
+du: cannot read directory '/home/dir1': Permission denied
+4.0K    /home/dir1
+du: cannot read directory '/home/ubuntu': Permission denied
+4.0K    /home/ubuntu
+32K     /home
+$
+andriy@ubuntu-serv-iso:~$ du -ah /home | sort -nr | head -n 5
+du: cannot read directory '/home/dir1': Permission denied
+du: cannot read directory '/home/ubuntu': Permission denied
+32K     /home
+20K     /home/andriy
+12K     /home/andriy/leshchuk.tar
+4.0K    /home/ubuntu
+4.0K    /home/dir1
+
+#Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
+andriy@ubuntu-serv-iso:~$ find /home/ -mtime -7
+/home/
+/home/andriy
+/home/andriy/leshchuk_symlink
+/home/andriy/.lesshst
+/home/andriy/leshchuk.tar
+/home/andriy/.sudo_as_admin_successful
+/home/andriy/leshchuk
+/home/dir1
+find: ‘/home/dir1’: Permission denied
+/home/ubuntu
+find: ‘/home/ubuntu’: Permission denied
+andriy@ubuntu-serv-iso:~$
+
+#Provide screenshots and ensure they include the following crucial elements:
+#
+#The creation of the user account and group assignments.
+#The contents of your home directory, displaying the folder and file you created.
+#The symbolic link demonstrating access to your last name file.
+#The output showing the permission and ownership changes made to the copied file.
+#The output from the disk usage analysis and file search commands.
+
+
+Last login: Mon Feb 17 11:38:08 2025 from 192.168.123.131
+ubuntu@ubuntu-serv-iso:~$ id andriy
+uid=1003(andriy) gid=1004(andriy) groups=1004(andriy),0(root),27(sudo),1005(students)
+ubuntu@ubuntu-serv-iso:~$ ls -la /home/andriy
+total 28
+drwxr-xr-x 2 andriy andriy  4096 Feb 17 12:35 .
+drwxr-xr-x 5 root   root    4096 Feb 17 11:48 ..
+-rw------- 1 andriy andriy   396 Feb 17 12:35 .bash_history
+-rw-rw-r-- 1 andriy andriy     0 Feb 17 11:50 leshchuk
+lrwxrwxrwx 1 andriy andriy     8 Feb 17 11:53 leshchuk_symlink -> leshchuk
+-rw-rw-r-- 1 andriy andriy 10240 Feb 17 12:08 leshchuk.tar
+-rw------- 1 andriy andriy    20 Feb 17 12:30 .lesshst
+-rw-r--r-- 1 andriy andriy     0 Feb 17 11:55 .sudo_as_admin_successful
+ubuntu@ubuntu-serv-iso:~$ ls -la /leshchuk
+-rw-r--r-- 1 andriy andriy 0 Feb 17 11:55 /leshchuk
+ubuntu@ubuntu-serv-iso:~$ du -ah /home | sort -nr | head -n 5
+du: cannot read directory '/home/dir1': Permission denied
+892K    /home/ubuntu/devops_2025/.git/objects
+852K    /home/ubuntu/devops_2025/.git/objects/pack
+840K    /home/ubuntu/devops_2025/.git/objects/pack/pack-d43379736dd7f3ce9b5ab621a8faac7200dfb0c7.pack
+284K    /home/ubuntu/devops_veteran
+264K    /home/ubuntu/devops_veteran/.git
+ubuntu@ubuntu-serv-iso:~$ find /home/ -mtime -7
+/home/
+/home/andriy
+/home/andriy/leshchuk_symlink
+/home/andriy/.lesshst
+/home/andriy/leshchuk.tar
+/home/andriy/.sudo_as_admin_successful
+/home/andriy/leshchuk
+/home/andriy/.bash_history
+/home/dir1
+find: ‘/home/dir1’: Permission denied
+/home/ubuntu
+/home/ubuntu/.cache
+/home/ubuntu/.cache/mc
+/home/ubuntu/.cache/mc/mcedit
+/home/ubuntu/.cache/mc/Tree
+/home/ubuntu/mysystem.info
+/home/ubuntu/.lesshst
+/home/ubuntu/.gitconfig
+/home/ubuntu/devops_veteran
+/home/ubuntu/devops_veteran/bash.sh
+/home/ubuntu/devops_veteran/docs
+/home/ubuntu/devops_veteran/docs/CODEOWNERS
+/home/ubuntu/devops_veteran/README.md
+/home/ubuntu/devops_veteran/.git
+/home/ubuntu/devops_veteran/.git/packed-refs
+/home/ubuntu/devops_veteran/.git/objects
+/home/ubuntu/devops_veteran/.git/objects/ef
+/home/ubuntu/devops_veteran/.git/objects/ef/f17958e9098f4342b525c84c1ae92cdb997390
+

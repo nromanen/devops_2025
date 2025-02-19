@@ -1,0 +1,37 @@
+screenshots by links: https://drive.google.com/file/d/18wKXHrR1ja0fvq-7l7obQxi3wTiMR98n/view?usp=sharing, https://drive.google.com/file/d/1Dv0OU6YXzsh4qh-YSrm2YqdP8fpyOeO7/view?usp=sharing, https://drive.google.com/file/d/1O4Yw1LgwU1A8kHjG8yrIDPMHi4QQieMK/view?usp=sharing, https://drive.google.com/file/d/1P6tw7QpuvrMd5T82lng9o10PwG6SHze7/view?usp=sharing, https://drive.google.com/file/d/1YbKmKqkm4DnFvgScsxXl6xW9BueENVEb/view?usp=sharing, https://drive.google.com/file/d/1g_EIEOywklFPf2uGq1lXjBxbThRRy31E/view?usp=sharing, https://drive.google.com/file/d/1kVYw6eedhkek-q1wWcFqvcagcsSBa_ae/view?usp=sharing, https://drive.google.com/file/d/1qm1sPm8vAnHkmvDN4fZAho2mTQasYwJC/view?usp=sharing, https://drive.google.com/file/d/1rrl0dOvbE4gzEYossrPMi5VhDt1aWlea/view?usp=sharing, https://drive.google.com/file/d/1tOwVKNecxuuLZDOGQuMJroWdVBr9eMKj/view?usp=sharing
+
+#step 1 (as root user) create user --- Add a user with your name to the operating system.
+useradd -G root maksym
+#step 2 - add passwors for user
+passwd maksym
+#step 3 - add previliegies as sudo user --- Assign the user to the root group to provide administrative privileges.
+usermod -aG sudo maksym 
+#step 4
+relogin as new user to check it was created --- Re-login to the system with the new user account to ensure changes take effect.
+#step 5 - Create a folder named after your first name within your home directory.
+user was created with -G argument so folder is created.
+#step 6 - check groups relation(root) --- Assign the user to the root group to provide administrative privileges.
+groups
+#step 7 --- Create a folder named after your first name within your home directory.
+mkdir lenyk
+cd lenyk
+#step 8 --- Inside this folder, create a file named after your last name.
+touch lenyk
+#step 9 --- Create a symbolic link pointing to your last name file.
+ln -s lenyk link-to-lenyk
+#step 10 --- Copy your last name file to the top-level directory (root) to demonstrate file access across directories.
+cp lenyk /
+#step 11 --- Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately.
+sudo chown root lenyk
+chmod 644 lenyk
+#step 12 --- Use the command line to create a new user group with the name students and add your user to this group.
+sudo groupadd students
+groups maksym
+sudo usermod -aG students maksym
+groups maksym
+#step 13 --- Create a compressed backup of your last name file using the tar command and store it in your home directory.
+tar -czvf ~/lenyk_archive.tar.gz ~/maksym/lenyk
+#step 14 --- Use the du command to analyze the disk usage of your home directory, then display the top 5 largest files or directories.
+du -ah ~ | sort -rh | head -5
+#step 15 --- Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
+find ~ -type f -mtime -7 

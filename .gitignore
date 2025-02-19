@@ -1,1 +1,5 @@
-.idea/
+.env
+.idea
+.bin
+.img
+.png

@@ -1,0 +1,57 @@
+vboxuser@TestVM: ~$ sudo adduser -m katerynamuzhetska
+[sudo] password for vboxuser:
+New password:
+Retype new password:
+passwd: password updated successfully 
+vboxuser@TestVM:~$ sudo usermod -aG root katerynamuzhetska
+vboxuser@TestVM: ~$ groups katerynamuzhetska
+katerynamuzhetska: katerynamuzhetska root users
+
+vboxuser@TestVM: ~$ su - katerynamuzhetska
+Password:
+katerynamuzhetska@TestVM:~$ mkdir katya
+katerynamuzhetska@TestVM:~$ touch ./katya/muzhetska
+katerynamuzhetska@TestVM:~/katya$ ln -s ~/katya/muzhetska ~/katya/muzhetska_lnk
+katerynamuzhetska@TestVM:~/katya$ ls -al
+total 8
+drwxrwxr-x 2 katerynamuzhetska katerynamuzhetska 4096 Feb 18 08:09 .
+drwxr-x--- 5 katerynamuzhetska katerynamuzhetska 4096 Feb 18 07:49 ..
+-rw-rw-r-- 1 katerynamuzhetska katerynamuzhetska    0 Feb 18 07:51 muzhetska
+lrwxrwxrwx 1 katerynamuzhetska katerynamuzhetska   39 Feb 18 08:09 muzhetska_lnk -> /home/katerynamuzhetska/katya/muzhetska
+
+
+katerynamuzhetska@TestVM:~$ sudo cp ~/katya/muzhetska /muzhetska
+katerynamuzhetska@TestVM:~$ ls -l / | grep muzhetska
+-rw-r--r--   1 root root     0 Feb 18 08:41 muzhetska
+
+
+katerynamuzhetska@TestVM:~$ sudo chown root:root /muzhetska
+katerynamuzhetska@TestVM:~$ sudo chmod 644 /muzhetska
+katerynamuzhetska@TestVM:~$ ls -l / | grep muzhetska
+-rw-r--r--   1 root root     0 Feb 18 08:41 muzhetska
+
+
+katerynamuzhetska@TestVM:~$ sudo groupadd students
+katerynamuzhetska@TestVM:~$ sudo usermod -aG students katerynamuzhetska
+katerynamuzhetska@TestVM:~$ groups katerynamuzhetska
+katerynamuzhetska : katerynamuzhetska root sudo users students
+
+
+katerynamuzhetska@TestVM:~$ tar -cvf ~/muzhetska_backup.tar ~/katya/muzhetska
+tar: Removing leading `/' from member names
+/home/katerynamuzhetska/katya/muzhetska
+
+
+katerynamuzhetska@TestVM:~$ du -sh ~/
+3.8M    /home/katerynamuzhetska/
+katerynamuzhetska@TestVM:~$ du -ah ~/ | sort -rh | head -n 5
+3.8M    /home/katerynamuzhetska/devops_2025
+3.8M    /home/katerynamuzhetska/
+3.6M    /home/katerynamuzhetska/devops_2025/.git
+3.5M    /home/katerynamuzhetska/devops_2025/.git/objects/pack
+3.5M    /home/katerynamuzhetska/devops_2025/.git/objects
+
+
+katerynamuzhetska@TestVM:~$ find ~/ -type f -mtime -7
+
+Скріншот за посиланням: https://drive.google.com/file/d/1ajH6EJbKtoDrPeeIR1gDNeAtymYAigtA/view?usp=sharing

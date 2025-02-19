@@ -1,0 +1,24 @@
+1. sudo adduser vladyslav
+2. sudo usermod -aG sudo vladyslav
+3. su vladyslav
+4. mkdir ~/Melnyk
+5. cd ~/Melnyk
+6. touch Melnyk.txt
+7. ls -l ~/ */
+8. ln -s Melnyk.txt Melnyk_link
+9. ls -l Melnyk_link
+10. cp/Melnyk/Melnyk.txt /
+11 sudo cp /Melnyk/Melnyk.txt / 5 ls -1/
+12 sudo chown root:root Melnyk.txt
+13 sudo chown root:root /Melnyk.txt 
+14 sudo chmod 644 /Melnyk.txt
+15 ls -1 /
+16 sudo groupadd students
+17 sudo usermod -aG students vladyslav
+18 groups 
+19 id vladyslav
+20 tar -cvzf  ~/Melnyk_backup.tar.gz  /Melnyk/Melnyk.txt
+21 du -ah ~ | sort -rh | gead -n 5
+22 du -ah ~ | sort -rh | head -n 5
+23 find ~  -type f -mtive -7
+24 find ~ -type f -mtime -710. sudi]o
