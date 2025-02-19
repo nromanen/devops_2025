@@ -1,0 +1,50 @@
+Task 1-3
+
+T1.
+
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <filename> "
+    exit 1
+fi
+
+FILE="$1"
+
+if [ -f "$FILE" ]; then
+    cat "$FILE"
+else 
+    echo "error: file '$FILE' not found or doesn't exist"
+    exit 1
+fi
+
+
+T2.
+
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 \"any text\" "
+    exit 1
+fi
+
+for word in $@; do 
+    echo "$word"
+done
+
+
+T3.
+
+#!/bin/bash
+
+Log_File="log.log"
+
+> "$Log_File"
+
+for i in {0..4}; do
+    File_Name="file$i.txt"
+    echo "This is file $i. $File_Name" > "$File_Name"
+    echo "This is file $i. $File_Name" >> "$Log_File"
+done
+
+cat "$Log_File"
