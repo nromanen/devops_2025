@@ -1,0 +1,514 @@
+// Executing 'name' command 
+$ uname 
+Linux
+
+// Executing the 'name' command with options
+$ uname -a
+Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+$ uname --all
+Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+
+// The command with input, list files in /etc directory:
+$ ls /etc
+ModemManager                   cron.daily            groff            ldap            multipath.conf           rc0.d         sudoers
+NetworkManager                 cron.hourly           group            legal           nanorc                   rc1.d         sudoers.d
+PackageKit                     cron.monthly          group-           libaudit.conf   netplan                  rc2.d         sysctl.conf
+X11                            cron.weekly           grub.d           libblockdev     network                  rc3.d         sysctl.d
+adduser.conf                   crontab               gshadow          libnl-3         networkd-dispatcher      rc4.d         systemd
+alternatives                   cryptsetup-initramfs  gshadow-         locale.alias    networks                 rc5.d         terminfo
+apparmor                       crypttab              gss              locale.gen      newt                     rc6.d         timezone
+apparmor.d                     dbus-1                hdparm.conf      localtime       nsswitch.conf            rcS.d         tmpfiles.d
+apport                         dconf                 host.conf        logcheck        opt                      resolv.conf   ubuntu-advantage
+apt                            debconf.conf          hostname         login.defs      os-release               rmt           ucf.conf
+at.deny                        debian_version        hosts            logrotate.conf  overlayroot.conf         rpc           udev
+bash.bashrc                    default               hosts.allow      logrotate.d     overlayroot.local.conf   rsyslog.conf  udisks2
+bash_completion                deluser.conf          hosts.deny       lsb-release     pam.conf                 rsyslog.d     ufw
+bash_completion.d              depmod.d              init             ltrace.conf     pam.d                    screenrc      update-manager
+bindresvport.blacklist         dhcp                  init.d           lvm             passwd                   security      update-motd.d
+binfmt.d                       dkms                  initramfs-tools  machine-id      passwd-                  selinux       update-notifier
+byobu                          dnsmasq.d             inputrc          magic           perl                     services      usb_modeswitch.conf
+ca-certificates                docker                iproute2         magic.mime      php                      shadow        usb_modeswitch.d
+ca-certificates.conf           dpkg                  iscsi            mailcap         pki                      shadow-       vim
+ca-certificates.conf.dpkg-old  e2scrub.conf          issue            mailcap.order   pm                       shells        vmware-tools
+calendar                       ec2_version           issue.net        manpath.config  polkit-1                 skel          vtrgb
+cloud                          environment           kernel           mdadm           pollinate                sos           wgetrc
+cni                            ethertypes            kernel-img.conf  mime.types      popularity-contest.conf  ssh           xattr.conf
+console-setup                  fonts                 killercoda       mke2fs.conf     profile                  ssl           xdg
+containerd                     fstab                 landscape        modprobe.d      profile.d                subgid        zsh_command_not_found
+containers                     fuse.conf             ld.so.cache      modules         protocols                subgid-
+crictl.yaml                    fwupd                 ld.so.conf       modules-load.d  python3                  subuid
+cron.d                         gai.conf              ld.so.conf.d     mtab            python3.8                subuid-
+
+// To check the vendor of the operating system.
+$ cat /etc/*release 
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.5 LTS"
+NAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+
+// To check the CPU information
+$ cat /proc/cpuinfo
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 42
+model name      : Intel Xeon E312xx (Sandy Bridge, IBRS update)
+stepping        : 1
+microcode       : 0x1
+cpu MHz         : 3408.000
+cache size      : 16384 KB
+physical id     : 0
+siblings        : 1
+core id         : 0
+cpu cores       : 1
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx hypervisor lahf_lm cpuid_fault pti ssbd ibrs ibpb stibp tsc_adjust xsaveopt arat md_clear
+bugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit
+bogomips        : 6816.00
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 39 bits physical, 48 bits virtual
+power management:
+
+
+// To check the memory information
+$ cat /proc/meminfo 
+MemTotal:        2030940 kB
+MemFree:          312584 kB
+MemAvailable:    1567804 kB
+Buffers:          111276 kB
+Cached:          1179424 kB
+SwapCached:            0 kB
+Active:           891700 kB
+Inactive:         564228 kB
+Active(anon):     174304 kB
+Inactive(anon):      140 kB
+Active(file):     717396 kB
+Inactive(file):   564088 kB
+Unevictable:       18536 kB
+Mlocked:           18536 kB
+SwapTotal:       1048572 kB
+SwapFree:        1048572 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        183748 kB
+Mapped:           192328 kB
+Shmem:              1016 kB
+KReclaimable:     161664 kB
+Slab:             210952 kB
+SReclaimable:     161664 kB
+SUnreclaim:        49288 kB
+KernelStack:        3212 kB
+PageTables:         3800 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2064040 kB
+Committed_AS:    1095520 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       14016 kB
+VmallocChunk:          0 kB
+Percpu:              796 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      108404 kB
+DirectMap2M:     1988608 kB
+
+// To check the disck information
+$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0     7:0    0 63.2M  1 loop /snap/core20/1634
+loop1     7:1    0 67.8M  1 loop /snap/lxd/22753
+loop3     7:3    0 44.4M  1 loop /snap/snapd/23545
+loop4     7:4    0 63.7M  1 loop /snap/core20/2434
+loop5     7:5    0 91.9M  1 loop /snap/lxd/29619
+vda     252:0    0   20G  0 disk 
+|-vda1  252:1    0 19.9G  0 part /
+|-vda14 252:14   0    4M  0 part 
+`-vda15 252:15   0  106M  0 part /boot/efi
+
+// To check the architecture whether it is 32bit or 64bit
+$ uname -i
+x86_64
+
+// touch <file_name> - create a empty file
+$ touch file.txt
+
+// echo - echo will write the information to a file along with the redirect symbol >
+$ echo "Some text" > file2.txt
+
+// Get list of files and directories but it may not show hidden files.
+
+$ ls
+file.txt  file2.txt  filesystem  snap
+
+// Get list of hidden files and directories.
+$ ls -A
+.bash_history  .bashrc  .profile  .ssh  .theia  .vimrc  file.txt  file2.txt  filesystem  snap
+
+// Get list of hidden files and directories with top path.
+$ ls -a
+.  ..  .bash_history  .bashrc  .profile  .ssh  .theia  .vimrc  file.txt  file2.txt  filesystem  snap
+
+// Gt list of files with long format:
+$ ls -l
+total 8
+-rw-r--r-- 1 root root    0 Feb 15 13:15 file.txt
+-rw-r--r-- 1 root root   10 Feb 15 13:15 file2.txt
+lrwxrwxrwx 1 root root    1 Feb 11 16:42 filesystem -> /
+drwx------ 3 root root 4096 Feb 15 12:38 snap
+
+// Combine multiple option as well:
+$ ls -al
+total 40
+drwx------  5 root root 4096 Feb 15 13:15 .
+drwxr-xr-x 19 root root 4096 Feb 11 16:42 ..
+-rw-------  1 root root   20 Nov 13  2022 .bash_history
+-rw-r--r--  1 root root 3208 Feb 11 16:42 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  2 root root 4096 Feb 11 16:40 .ssh
+drwxr-xr-x  4 root root 4096 Feb 15 12:55 .theia
+-rw-r--r--  1 root root  109 Feb 11 16:42 .vimrc
+-rw-r--r--  1 root root    0 Feb 15 13:15 file.txt
+-rw-r--r--  1 root root   10 Feb 15 13:15 file2.txt
+lrwxrwxrwx  1 root root    1 Feb 11 16:42 filesystem -> /
+drwx------  3 root root 4096 Feb 15 12:38 snap
+
+// Print the inode number (also called file serial number and inode number) of each file:
+$ ls -i
+   633 file.txt    1550 file2.txt    4612 filesystem  786827 snap
+
+// Sort the contens of a directory in reverse order
+$ ls -lr
+total 8
+drwx------ 3 root root 4096 Feb 15 12:38 snap
+lrwxrwxrwx 1 root root    1 Feb 11 16:42 filesystem -> /
+-rw-r--r-- 1 root root   10 Feb 15 13:15 file2.txt
+-rw-r--r-- 1 root root    0 Feb 15 13:15 file.txt
+
+// To check where you are currently in the system we use pwd command.
+$ pwd
+/root
+
+// Make directories
+$ mkdir softserve dir3
+$ ls 
+dir3  file.txt  file2.txt  filesystem  snap  softserve
+
+// To change the work directory `cd`:
+ubuntu $ cd softserve/
+ubuntu $ pwd
+/root/softserve
+
+// To go to the home directory of the user
+ubuntu $ cd ~
+ubuntu $ pwd
+/root
+
+// To go to the root directory
+ubuntu $ cd /
+ubuntu $ pwd
+/
+
+// To copy a file we have cp command:
+ubuntu $ cp file1.txt page.txt
+ubuntu $ ls
+dir3  file1.txt  file2.txt  filesystem  page.txt  snap  softserve
+
+// To rename fine:
+ubuntu $ mv file2.txt note2.txt
+ubuntu $ ls 
+dir3  file1.txt  filesystem  note2.txt  page.txt  snap  softserve
+
+// To remove files in Linux use 'rm':
+ubuntu $ rm delfile.txt
+
+// To copy directories use '-r' option:
+ubuntu $ cp -r softserve dir2
+
+// To remove directory use 'rm' with option '-r'(removes directories and their content recursively) '-f'(forces the removal of all files or directories.)
+
+ubuntu $ mkdir DIR3 dir4
+ubuntu $ ls
+DIR2  DIR3  NOTE.txt  delfile.txt  delfile2.txt  delfile3.txt  dir3  dir4  file1.txt  filesystem  pages.txt  snap  softserve
+ubuntu $ rm -rf DIR3
+ubuntu $ ls
+DIR2  NOTE.txt  delfile.txt  delfile2.txt  delfile3.txt  dir3  dir4  file1.txt  filesystem  pages.txt  snap  softserve
+
+// The Linux rmdir command removes empty directories only.
+ubuntu $ rmdir dir3
+ubuntu $ ls
+DIR2  NOTE.txt  delfile.txt  delfile2.txt  delfile3.txt  dir4  file1.txt  filesystem  pages.txt  snap  softserve
+
+// To print the content of a file onto the standard output stream
+ubuntu $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:111:1::/var/cache/pollinate:/bin/false
+fwupd-refresh:x:112:116:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+kc-internal:x:0:0::/root:/bin/bash
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+// To filter the output based on line numbers we can use 'head' command(dy default the command gives top 10 lines), it gives the first 5 lines of the file:
+ubuntu $ head -n 5 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+
+// tail command will print last 10 lines, to change numer of lines use '-n' option:
+ubuntu $ tail -n 5 /etc/passwd
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+kc-internal:x:0:0::/root:/bin/bash
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+// The grep filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern:
+ubuntu $ grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+kc-internal:x:0:0::/root:/bin/bash
+
+// To filter based on the columns use: awk -F 'delimiter' '{print $column-number}'
+// It will print the first column of the file:
+buntu $ awk -F : '{print $1}' /etc/passwd
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+systemd-network
+systemd-resolve
+systemd-timesync
+messagebus
+syslog
+_apt
+tss
+uuidd
+tcpdump
+sshd
+landscape
+pollinate
+fwupd-refresh
+systemd-coredump
+ubuntu
+lxd
+kc-internal
+dnsmasq
+
+// It will print the first and second column of the file
+ubuntu $ awk -F : '{print $1, $2}' /etc/passwd
+root x
+daemon x
+bin x
+sys x
+sync x
+games x
+man x
+lp x
+mail x
+news x
+uucp x
+proxy x
+www-data x
+backup x
+list x
+irc x
+gnats x
+nobody x
+systemd-network x
+systemd-resolve x
+systemd-timesync x
+messagebus x
+syslog x
+_apt x
+tss x
+uuidd x
+tcpdump x
+sshd x
+landscape x
+pollinate x
+fwupd-refresh x
+systemd-coredump x
+ubuntu x
+lxd x
+kc-internal x
+dnsmasq x
+
+// 'find' is the command for searching through all the directories by the file name. 
+// This command only searches /etc directory for the passwd file. 
+ubuntu $ find /etc -name passwd
+/etc/passwd
+/etc/pam.d/passwd
+
+// Hard Links - Hardlinks create a value referenced the inode, let’s create our first hardlink
+ubuntu $ ln linksample.txt hard_linksample.txt 
+ubuntu $ ls -iAl
+total 2168
+ 64433 -rw------- 1 root root      20 Nov 13  2022 .bash_history
+  1541 -rw-r--r-- 1 root root    3208 Feb 11 16:42 .bashrc
+  1540 -rw-r--r-- 1 root root     161 Dec  5  2019 .profile
+258055 drwx------ 2 root root    4096 Feb 11 16:40 .ssh
+538588 drwxr-xr-x 4 root root    4096 Feb 15 18:42 .theia
+ 72502 -rw------- 1 root root    1947 Feb 15 19:25 .viminfo
+  1611 -rw-r--r-- 1 root root     109 Feb 11 16:42 .vimrc
+786894 drwxr-xr-x 2 root root    4096 Feb 15 18:53 DIR2
+  1550 -rw-r--r-- 1 root root      10 Feb 15 18:43 NOTE.txt
+ 71498 -rw-r--r-- 1 root root 2165252 Feb 15 19:31 apache-tomcat-8.0.0-RC1-deployer.tar.gz
+ 71457 -rw-r--r-- 1 root root       0 Feb 15 18:50 delfile.txt
+ 71478 -rw-r--r-- 1 root root       0 Feb 15 18:50 delfile2.txt
+ 71496 -rw-r--r-- 1 root root       0 Feb 15 18:50 delfile3.txt
+786896 drwxr-xr-x 2 root root    4096 Feb 15 18:57 dir4
+   633 -rw-r--r-- 1 root root       0 Feb 15 18:43 file1.txt
+  4612 lrwxrwxrwx 1 root root       1 Feb 11 16:42 filesystem -> /
+ 72441 -rw-r--r-- 2 root root       0 Feb 15 19:37 hard_linksample.txt
+ 72441 -rw-r--r-- 2 root root       0 Feb 15 19:37 linksample.txt
+ 71356 -rw-r--r-- 1 root root       0 Feb 15 18:46 pages.txt
+786815 drwx------ 3 root root    4096 Feb 15 17:54 snap
+786892 drwxr-xr-x 2 root root    4096 Feb 15 18:46 softserve
+ 72519 -rw-r--r-- 1 root root      25 Feb 15 19:25 videmo.txt
+
+// Symbolic Links
+ubuntu $ ln -s linksample.txt soft_linksample.txt 
+ubuntu $ ls -iAl
+total 2164
+ 64433 -rw------- 1 root root      20 Nov 13  2022 .bash_history
+  1541 -rw-r--r-- 1 root root    3208 Feb 11 16:42 .bashrc
+  1540 -rw-r--r-- 1 root root     161 Dec  5  2019 .profile
+258055 drwx------ 2 root root    4096 Feb 11 16:40 .ssh
+538588 drwxr-xr-x 4 root root    4096 Feb 15 19:49 .theia
+   633 -rw------- 1 root root     804 Feb 15 20:02 .viminfo
+  1611 -rw-r--r-- 1 root root     109 Feb 11 16:42 .vimrc
+786894 drwxr-xr-x 2 root root    4096 Feb 15 19:56 DIR2
+  1550 -rw-r--r-- 1 root root      10 Feb 15 19:51 NOTE.txt
+ 71457 -rw-r--r-- 1 root root 2165252 Feb 15 20:03 apache-tomcat-8.0.0-RC1-deployer.tar.gz
+ 71478 -rw-r--r-- 1 root root       0 Feb 15 19:54 delfile2.txt
+ 71490 -rw-r--r-- 1 root root       0 Feb 15 19:54 delfile3.txt
+  4612 lrwxrwxrwx 1 root root       1 Feb 11 16:42 filesystem -> /
+ 71498 -rw-r--r-- 2 root root       0 Feb 15 20:05 hard_linksample.txt
+ 71498 -rw-r--r-- 2 root root       0 Feb 15 20:05 linksample.txt
+ 71356 -rw-r--r-- 1 root root       0 Feb 15 19:53 pages.txt
+786832 drwx------ 3 root root    4096 Feb 15 19:29 snap
+ 72441 lrwxrwxrwx 1 root root      14 Feb 15 20:07 soft_linksample.txt -> linksample.txt
+786892 drwxr-xr-x 2 root root    4096 Feb 15 19:52 softserve
+ 71496 -rw-r--r-- 1 root root      29 Feb 15 20:02 videmo.txt
+
+ // To extract the files from .tar extension we can use tar command. To extract archives we use -x option and -f means file.
+ ubuntu $ tar -xf apache-tomcat-8.0.0-RC1-deployer.tar.gz 
+ ubuntu $ ls -la
+total 2176
+drwx------  8 root root    4096 Feb 15 20:10 .
+drwxr-xr-x 19 root root    4096 Feb 11 16:42 ..
+-rw-------  1 root root      20 Nov 13  2022 .bash_history
+-rw-r--r--  1 root root    3208 Feb 11 16:42 .bashrc
+-rw-r--r--  1 root root     161 Dec  5  2019 .profile
+drwx------  2 root root    4096 Feb 11 16:40 .ssh
+drwxr-xr-x  4 root root    4096 Feb 15 19:49 .theia
+-rw-------  1 root root     804 Feb 15 20:02 .viminfo
+-rw-r--r--  1 root root     109 Feb 11 16:42 .vimrc
+drwxr-xr-x  2 root root    4096 Feb 15 19:56 DIR2
+-rw-r--r--  1 root root      10 Feb 15 19:51 NOTE.txt
+drwxr-xr-x  4 root root    4096 Feb 15 20:10 apache-tomcat-8.0.0-RC1-deployer
+-rw-r--r--  1 root root 2165252 Feb 15 20:03 apache-tomcat-8.0.0-RC1-deployer.tar.gz
+
+// Extracting the files from zip
+ubuntu $ unzip shipping.zip 
+Archive:  shipping.zip
+36461c8be0056496241faf13c683609419f04b5b
+   creating: shipping-main/
+  inflating: shipping-main/README.md  
+  inflating: shipping-main/pom.xml   
+   creating: shipping-main/src/
+   creating: shipping-main/src/main/
+   creating: shipping-main/src/main/java/
+   creating: shipping-main/src/main/java/com/
+   creating: shipping-main/src/main/java/com/instana/
+   creating: shipping-main/src/main/java/com/instana/robotshop/
+   creating: shipping-main/src/main/java/com/instana/robotshop/shipping/
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Calculator.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/CartHelper.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/City.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/CityRepository.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Code.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/CodeRepository.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Controller.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/JpaConfig.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/RetryableDataSource.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/Ship.java  
+  inflating: shipping-main/src/main/java/com/instana/robotshop/shipping/ShippingServiceApplication.java  
+   creating: shipping-main/src/main/resources/
+  inflating: shipping-main/src/main/resources/application.properties  
+  inflating: shipping-main/systemd.service  
