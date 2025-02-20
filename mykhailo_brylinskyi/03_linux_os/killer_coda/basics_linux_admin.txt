@@ -157,7 +157,7 @@ Processing triggers for man-db (2.9.1-1) ...
 Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
 
 // To list all the services which are running in the Operating System.
-$ sudo systemct list-units -t service
+$ sudo systemctl list-units -t service
 
 // To check the status of a single service
 $ sudo systemctl status apache2
