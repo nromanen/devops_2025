@@ -3,13 +3,17 @@ param (
     [string]$fileName
 )
 
-# Перевіряємо, чи існує файл
+# Check if the file exists
 if (Test-Path $fileName) {
-    # Читаємо вміст файлу
-    $fileContent = Get-Content $fileName
+    try {
+        # Read and display file content
+        Get-Content $fileName
+    }
+    catch {
+        Write-Error "Failed to read file: $fileName. Error: $_"
+    } 
 
-    # Виводимо вміст файлу
-    $fileContent
+    
 } else {
-    Write-Host "Файл не знайдений: $fileName"
+    Write-Error "File not found: $fileName"   
 }
