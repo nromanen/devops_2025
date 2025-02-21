@@ -13,7 +13,7 @@ if [[ ! -f "$FILE" ]]; then
 fi
 
 # Створюємо порожній файл для фінальних результатів
-echo "" > "$OUTPUT_FILE"
+echo "{" > "$OUTPUT_FILE"
 
 # Перебираємо кожен рядок з файлу з слабкими паролями
 while IFS=',' read -r id first_name last_name email password; do
@@ -21,5 +21,6 @@ while IFS=',' read -r id first_name last_name email password; do
     echo "\"$email\" : \"$first_name's password is $password, it should be improved!\"" >> "$OUTPUT_FILE"
 done < "$FILE"
 
+echo "}" >> "$OUTPUT_FILE"
 # Виводимо результат в консоль
 cat "$OUTPUT_FILE"

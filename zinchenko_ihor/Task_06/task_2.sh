@@ -5,7 +5,7 @@ FILE="$HOME/devops_2025/zinchenko_ihor/Task_06/task/user_data_task2.txt"
 
 
 # Валідація email адрес, які вірні та закінчуються на '.com'та виявлення слабких паролів (без спецсимволів: ! № % : ?)
-PATTERN="^[0-9]+, [^,]+, [^,]+, [a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.com, [a-zA-Z0-9]+$"
+PATTERN="^[0-9]+, [^,]+, [^,]+, [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com, [[:alnum:]]+$"
 
 # Файл для збереження результатів
 OUTPUT_FILE="weak_passwords.txt"
