@@ -1,0 +1,32 @@
+sudo useradd -m oleksandrsydoruk
+sudo passwd oleksandrsydoruk
+
+sudo usermod -aG oleksandrsydoruk
+
+exit
+login
+password
+
+mkdir ~/oleksandr
+
+touch ~/oleksandr/sydoruk
+
+ln -s ~/oleksandr/sydoruk sydoruk.lnk
+
+sudo cp ~/oleksandr/sydoruk /
+
+sudo chmod 644 /sydoruk
+
+sudo groupadd students
+grep students /etc/group
+sudo usermod -aG students oleksandrsydoruk
+groups oleksandrsydoruk
+oleksandrsydoruk : oleksndrsydoruk sudo students
+
+tar -czvf ~/oleksandr/sydoruk_backup.tar.gz ~/oleksandr/sydoruk
+
+find ~/ -type f -mtime -7
+
+
+
+
