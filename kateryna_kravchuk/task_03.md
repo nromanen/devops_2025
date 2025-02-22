@@ -159,7 +159,7 @@ chown: changing ownership of 'kr.txt': Operation not permitted
 Checking out: `ls -l kr.txt`  
 
 ```bash
--rw-rw-r--. 1 root root 0 Feb 14 20:18 kr.txt
+-rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
 ```  
 
 Changing mode: `sudo chmod 644 kr.txt`  
@@ -179,6 +179,15 @@ Checking out: `ls -l kr.txt`
 ```bash
 -rw-r--r--. 1 1 root root 0 Feb 14 20:18 kr.txt
 ```  
+
+Nothing changes in permissions, because the file already was in the desired state:  
+
+| | owner | group | others |
+| --- | --- | --- | --- |
+| read | 4 | 4 | 4 |
+| write | 2 | 0 | 0 |
+|execute | 0 | 0 | 0 |
+| | **6** | **4** | **4** |
 
 ---
 
