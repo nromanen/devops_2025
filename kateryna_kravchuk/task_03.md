@@ -2,7 +2,6 @@
 
 > Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)
 
-
 #### 0. Preparation
 
 I will use the previously created virtual machine with Linux - Oracle Linux 9 via Vagrant:
@@ -158,7 +157,7 @@ Note: I should confirm any action I want to do in the root directory by providin
 chown: changing ownership of 'kr.txt': Operation not permitted
 ```
 
-###### 8.2 Changing mode  
+##### 8.2 Changing mode  
 
 `sudo chmod 644 kr.txt`  
 
@@ -177,7 +176,7 @@ chmod: changing permissions of 'kr.txt': Operation not permitted
 `ls -l kr.txt`  
 
 ```bash
--rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
+-rw-rw-r--. 1 root root 0 Feb 14 20:18 kr.txt
 ```  
 
 Nothing changes in permissions, because the file already was in the desired state:  
