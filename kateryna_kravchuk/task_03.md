@@ -145,17 +145,39 @@ Note: I should confirm any action I want to do in the root directory by providin
 #### 8. Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately
 
 `sudo chown root:root kr.txt`  
-Checking out: `ls -l kr.txt`  
 
 ```bash
--rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
-```  
+[sudo] password for kate_kr: 
+```
 
-Changing mode: `sudo chmod 664 kr.txt`  
+> We should run this in root mode, and here what happens if we haven't:  
+
+```bash
+chown: changing ownership of 'kr.txt': Operation not permitted
+```
+
 Checking out: `ls -l kr.txt`  
 
 ```bash
 -rw-rw-r--. 1 root root 0 Feb 14 20:18 kr.txt
+```  
+
+Changing mode: `sudo chmod 644 kr.txt`  
+
+```bash
+[sudo] password for kate_kr: 
+```
+
+> Again, confirm our *root* privileges to do this, otherwise we get the following:  
+
+```bash
+chmod: changing permissions of 'kr.txt': Operation not permitted
+```
+
+Checking out: `ls -l kr.txt`  
+
+```bash
+-rw-r--r--. 1 1 root root 0 Feb 14 20:18 kr.txt
 ```  
 
 ---
