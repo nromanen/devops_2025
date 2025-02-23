@@ -65,6 +65,8 @@ I used these symbols in my **regex** pattern:
 | `.` | Any character |
 | `\S` | Any non-whitespace character |
 | `[[:alnum:]]` | Same as `[a-zA-Z0-9]` |
+| `+` | Any quantity of previous symbol, but at least once |
+| `\` | Math the next character literally |
 
 **I used this commands:**  
 `grep` to filter out data,  
@@ -105,12 +107,11 @@ I used this set of symbols in the **regex** (aside previously described):
 | Symbol / class | Meaning |
 | --- | --- |
 | `\s` | Any whitespace (`[[:space:]]`) |
-| `+` | Any quantity of previous symbol, but at least once |
 | `\w` | Same as `[a-zA-Z0-9_]` with *boundary* check at the end |
 | `$` | End of the line |
 
 I also used `-P` flag with `grep` for Perl-compatible regex *(PCRE)* for more control over pattern (e.g., for use `\w`).  
-I prefer `\w` over `[[:alpha:]]`, as the first option also check the boundary of a word (and contains `_` as valid match), so we can't end up with something like *"sudo@..gmail.org"* (notice two dots one-by-one after `@`).  
+I prefer `\w` over `[[:alpha:]]`, as the first option matches word boundaries implicitly (it also includes `_` as valid match, but it's irrelevant here).  
 
 ---
 
@@ -169,6 +170,10 @@ Output is the same as in previous (one-liner version)!
 
 `awk` can split provided lines by default (using spaces). With the `-F", "` flag, we can configure it to split on comma-space (`", "`) pairs. If we do so, each separated part can be referenced in orded it occurrs.  
 
+---
+
+### General notes
+
 Here are some *regex* that I used during the process of finding the matches I wanted.  
 Somehow, it's not processing the same on Linux OS compared with what I checked on [this site](https://regex101.com/) (and that's why patterns I actually used are slightly different from what I've had tested).  
 
@@ -178,6 +183,8 @@ Somehow, it's not processing the same on Linux OS compared with what I checked o
 | `*` | Any quantity of previous character / group |
 | `\d` | `[[:digit:]]`(same as `[0-9]`) |
 | `[[:alpha:]]` | Same as `[a-zA-Z]` |
+
+> I had particularry hard time trying to make `'` in `awk '{print "{<something>}"}'` statement work correctly: i needed the `'\''` pattern inside the string I was trying to print for concantenate its two parts (first and last `'`) and for escape one (`\'` part).  
 
 ---
 

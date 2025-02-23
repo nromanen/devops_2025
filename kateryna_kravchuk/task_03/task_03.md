@@ -1,4 +1,4 @@
-# Task_03:  Linux OS
+# Task 03:  Linux OS
 
 > Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)
 
