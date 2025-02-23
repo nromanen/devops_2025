@@ -179,7 +179,7 @@ chmod: changing permissions of 'kr.txt': Operation not permitted
 -rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
 ```  
 
-Nothing changed in permissions, because the file already was in the desired state:  
+Nothing changed in permissions because the file has already been in the desired state:  
 
 | | owner | group | others |
 | --- | --- | --- | --- |
