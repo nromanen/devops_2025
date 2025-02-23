@@ -30,15 +30,14 @@ Unzipping it to the new *task_06* folder into the shared one and deleting the ar
 3. Verifying the shared folder in VM  
 
 Reloading VM by `vagrant reload`, connecting to it by `vagrant ssh` and switching to *kate_kr*.  
-Going to the desired directory on the VM (*/home/kate_kr/shared/task_06*) and checking by `ls-l`:  
+Going to the desired directory on the VM (*/home/kate_kr/shared/task_06*) and checking by `ls`:  
 
 ```sh
 [vagrant@localhost ~]$ su - kate_kr
 Password:
 [kate_kr@localhost ~]$ cd /home/kate_kr/shared/task_06
-[kate_kr@localhost task_06]$ ls -s
-total 8
-4 user_data_task2.txt  4 user_data.txt
+[kate_kr@localhost task_06]$ ls
+user_data_task2.txt  user_data.txt
 [kate_kr@localhost task_06]$ 
 ```
 
@@ -128,7 +127,7 @@ I prefer `\w` over `[[:alpha:]]`, as the first option matches word boundaries im
 Here I just need to modify slightly previous pattern to add a new regex group, and then to add some commands for process findings.  
 
 ```bash
-grep -oP '([[:alpha:]]+),\s[[:alpha:]]+,\s([\w.-]+@\w+\.com),\s([[:alnum:]]+)$' user_data_task2.txt | awk -F", " '{print "{\""$3"\" : \""$1"'\''s password is "$ 4", it should be improved!\"}"}' > names_week.json
+grep -oP '([[:alpha:]]+),\s[[:alpha:]]+,\s([\w.-]+@\w+\.com),\s([[:alnum:]]+)$' user_data_task2.txt | awk -F", " '{print "{\""$3"\" : \""$1"'\''s password is "$4", it should be improved!\"}"}' > names_week.json
 cat names_week.json
 ```
 
@@ -160,7 +159,7 @@ Output:
 Then run this file as input for `awk` (notice how references changed with changing of the columns structure of our file):  
 
 ```bash
-cat week_passwords_simple.txt | awk -F", " '{print "{\""$4"\" : \""$2"'\''s password is "$ 5", it should be improved!\"}"}' > names_week_simple.json
+cat week_passwords_simple.txt | awk -F", " '{print "{\""$4"\" : \""$2"'\''s password is "$5", it should be improved!\"}"}' > names_week_simple.json
 cat names_week_simple.json
 ```
 
