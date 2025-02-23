@@ -159,7 +159,7 @@ Output:
 Then, run this file as input for `awk`, noting that the column references have changed due to the updated file structure:  
 
 ```bash
-cat week_passwords_simple.txt | awk -F", " '{print "{\""$4"\" : \""$2"'\''s password is "$5", it should be improved!\"}"}' > names_week_simple.json
+awk -F", " '{print "{\""$4"\" : \""$2"'\''s password is "$5", it should be improved!\"}"}' week_passwords_simple.txt > names_week_simple.json
 cat names_week_simple.json
 ```
 
@@ -168,6 +168,7 @@ Output is the same as in previous (one-liner version)!
 ### Notes  
 
 `awk` can split provided lines by default (using spaces). With the `-F", "` flag, we can configure it to split on comma-space (`", "`) pairs. If we do so, each separated part can be referenced in order of occurrence.  
+> I needed to use the `'\''` pattern inside the string to concatenate its two parts (the first and last apostrophes) and to properly escape an apostrophe.  
 
 ---
 
@@ -182,8 +183,6 @@ Somehow, it's not processing the same on Linux OS compared with what I checked o
 | `*` | Any quantity of previous character / group |
 | `\d` | `[[:digit:]]`(same as `[0-9]`) |
 | `[[:alpha:]]` | Same as `[a-zA-Z]` |
-
-> I had particularly hard time trying to make `'` in `awk '{print "{<something>}"}'` statement work correctly: i needed the `'\''` pattern inside the string I was trying to print for concatenate its two parts (first and last `'`) and for escape one (`\'` part).  
 
 ---
 
