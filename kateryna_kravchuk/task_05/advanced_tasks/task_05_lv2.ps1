@@ -6,7 +6,7 @@ $numbers = $inp -split " " # split into an array
 
 # Check if were exactly two arguments provided
 if ($numbers.Count -ne 2) {
-    Write-Error "Enter exactly TWO numbers"
+    Write-Error "Enter exactly two numbers separated by a space"
     exit 1
 }
 

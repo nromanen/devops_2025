@@ -8,22 +8,18 @@ $fruits = @("apple", "mango", "banana", "kiwi", "orange", "lemon", "pear", "peac
 $id = 0
 
 # Populating $fruitNames
-foreach ($fruit in $fruits) {
-    $fruitNames.add($id, $fruit)
-    $id++
-}
+$fruitNames = @{}
+$fruits | ForEach-Object -Begin {$i=0} -Process { $fruitNames[$i++] = $_ }
 
-# Making second hashtable
+# Creating second hashtable with random quantities (1-20)
 $fruitQuantities = @{}
 
-for ($i = 0; $i -lt 10; $i++) {
-    $quantity = Get-Random -Minimum 1 -Maximum 21 # max = 20
-    $fruitQuantities.add($i, $quantity)
-}
+# Populating $fruitQuantities
+0..9 | ForEach-Object { $fruitQuantities[$_] = Get-Random -Minimum 1 -Maximum 21 }
 
-# Iterating $fruitQuantities & printing desired output
-foreach ($_ in $fruitQuantities.Keys) {
-    $quan = $fruitQuantities[$_]
-    $name = $fruitNames[$_]
-    Write-Output "${name}: ${quan}"
+# Display fruit names and their quantities
+foreach ($id in $fruitQuantities.Keys) {
+    $quantity = $fruitQuantities[$id]
+    $name = $fruitNames[$id]
+    Write-Output "$name`: $quantity"
 }
