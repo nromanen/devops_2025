@@ -1,13 +1,13 @@
 # Task 05: PowerShell
 
->Done by [@Lians-coder](https://github.com/Lians-coder) Kateryna Kravchuk  
+>Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)  
 
 ### Problem 1
 
 #### Task
 
 Suppose we have a text file that contains some file names, for example:  
-`jobe  `  
+`jobe`  
 `/var/www/html/index.html`  
 `/var/www/html/jobe`  
 Write a <span style="color: red">PowerShell</span> script that takes the name of a text file as an argument and shows its content.  
@@ -17,7 +17,7 @@ Write a <span style="color: red">PowerShell</span> script that takes the name of
 | Test | Input | Result |
 | --- | --- | --- |
 | # Test 1 | data1.txt | jobe  |
-|  |  | /var/www/html/index.html | 
+|  |  | /var/www/html/index.html |
 | | | /var/www/html/jobe |
 
 #### Solution  
@@ -174,3 +174,16 @@ Here's a *test2* desired output:
 2. `Get-Content` was used over `Write-Host` so it can be processed further if needed (e.g., to provide output to the pipeline).  
 
 3. `0..4 | ForEach-Object { $_ * 2 }` is slower and less efficient than traditional loops (e.g., `foreach` or `for`), but it's shorter and more readable, so I've choosen it over.  
+
+#### Notes
+
+##### Ways to clear output of running commands  
+
+| Way | Purpose |Explanation |
+| --- | --- | --- |
+| `<Do-Command> > $null 2>&1` | general output | `> $null` redirects `$stdout` output to `$null` |
+|  |  | `2>&1` redirects `$stderr` to normal output (which is already discarded by previous statement) |
+| `-ErrorAction SilentlyContinue` | with *cmdlets* |  prevents *error* messages from being displayed |
+| `[void]<Do-Command>` | object-returning commands | casts returned by command running object to `[void]` to discard it |
+| `<Do-Command> \| Out-Null` | pipeline output | prevents any output from appearing |
+| `$null = <Do-Command>` | normal output | uses sub-expression to run a command in & redirect it output to `$null` |

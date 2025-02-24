@@ -1,6 +1,6 @@
 # Task 04: Bash Scripting
 
->Done by [@Lians-coder](https://github.com/Lians-coder) Kateryna Kravchuk
+>Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)
 
 ## Simple problems
 
