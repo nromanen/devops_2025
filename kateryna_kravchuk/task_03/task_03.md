@@ -146,9 +146,11 @@ Note: I should confirm any action I want to do in the root directory by providin
 ##### 8.1 Changing ownership  
 
 `sudo chown root:root kr.txt`  
+Checking out: `ls -l kr.txt`  
 
 ```bash
 [sudo] password for kate_kr: 
+-rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
 ```
 
 > We should run this in root mode, and here what happens if we haven't:  
