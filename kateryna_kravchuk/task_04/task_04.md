@@ -98,7 +98,7 @@ Please create a bash script to create 5 text files named "file" and file number 
 #!/usr/bin/env bash
 
 # create log file or clear it if existing
-> log.log # Use null command (:) with redirection
+> log.log
 
 for ((i=0; i<5; i++)) 
 do
@@ -142,7 +142,7 @@ fi
 
 #### <span style="color: green"> Better solution </span>
 
-> It is a better solution, but it couldn't been handled properly by check algorithms on Moodle site (because of `exit`)  
+> It is a better solution, but it couldn't be handled properly by check algorithms on the Moodle site (because of `exit`)  
 
 ```bash
 #!/usr/bin/env bash
@@ -172,7 +172,7 @@ fi
 
 #### 1. File handeling in **bash**
 
-- check if file exist before processing: `-f` (flag)  
+- check if a file exist before processing: `-f` (flag)  
 - use `touch` to create file  
 - use `cat` to display content of file  
 

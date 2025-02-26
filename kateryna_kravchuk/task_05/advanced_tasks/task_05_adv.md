@@ -144,6 +144,8 @@ foreach ($id in $fruitQuantities.Keys) {
 
 ```
 
+> Note the backtick before the colon in the last `foreach` loop: it is an *escape character* in PowerShell and ensures the colon is treated as a literal character (inside double quotes, the colon might behave unexpectedly).  
+
 #### Output lv.3
 
 ```pwsh

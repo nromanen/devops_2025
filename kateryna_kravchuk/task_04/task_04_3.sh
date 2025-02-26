@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # create log file or clear it if existing
-> log.log # Use null command (:) with redirection
+> log.log
 
 for ((i=0; i<5; i++)) 
 do

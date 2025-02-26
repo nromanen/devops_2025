@@ -173,7 +173,7 @@ Here's a *test2* desired output:
 
 2. `Get-Content` was used over `Write-Host` so it can be processed further if needed (e.g., to provide output to the pipeline).  
 
-3. `0..4 | ForEach-Object { $_ * 2 }` is slower and less efficient than traditional loops (e.g., `foreach` or `for`), but it's shorter and more readable, so I've choosen it over.  
+3. `0..4 | ForEach-Object { $_ * 2 }` is slower and less efficient than traditional loops (e.g., `foreach` or `for`), but it's shorter and more readable, so I've chosen it over.  
 
 #### Notes
 
