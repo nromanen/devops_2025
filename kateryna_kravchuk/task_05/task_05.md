@@ -40,7 +40,7 @@ if (Test-Path $paths_file) {
     Get-Content $paths_file
 } else {
     Write-Error "File not found: $paths_file"
-    exit 1
+    exit 2
 }
 ```  
 
@@ -58,8 +58,8 @@ A static method `GetFileName($variable)` extracts the filename.
 
 ##### Cmdlets
 
-`Test-Path` checks if file (or folder) exists before proceeding.  
-`Get-Content` displays content of a file.  
+`Test-Path` checks if a file (or folder) exists before proceeding.  
+`Get-Content` displays the content of a file.  
 `Write-Error` generates an error message *(e.g., if no arguments provided)*.  
 
 ---

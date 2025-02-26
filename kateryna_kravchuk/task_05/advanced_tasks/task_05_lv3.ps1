@@ -1,13 +1,9 @@
 #!/usr/bin/env pwsh
 
-# Creating first hash table
-$fruitNames = @{}
-
-# Array to later populate that hashtable
+# Array to later populate first hashtable
 $fruits = @("apple", "mango", "banana", "kiwi", "orange", "lemon", "pear", "peach", "apricot", "plum")
-$id = 0
 
-# Populating $fruitNames
+# Populating first hashtable $fruitNames
 $fruitNames = @{}
 $fruits | ForEach-Object -Begin {$i=0} -Process { $fruitNames[$i++] = $_ }
 

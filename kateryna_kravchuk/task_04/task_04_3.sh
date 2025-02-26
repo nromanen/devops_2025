@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # create log file or clear it if existing
-> log.log
+> log.log # Use null command (:) with redirection
 
 for ((i=0; i<5; i++)) 
 do
     filename="file${i}.txt"
-    if [ ! -e "$filename" ]; then
-        touch "$filename" # create file
-    fi
+
+    touch "$filename" # create file or update timestamp if exists
+    
     echo "This is file ${i}. $filename" >> log.log # append to log file
 done
 

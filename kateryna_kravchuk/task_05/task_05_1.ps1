@@ -15,5 +15,5 @@ if (Test-Path $paths_file) {
     Get-Content $paths_file
 } else {
     Write-Error "File not found: $paths_file"
-    exit 1
+    exit 2
 }

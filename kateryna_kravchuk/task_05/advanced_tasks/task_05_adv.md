@@ -101,7 +101,7 @@ Sum is: 42
 
 `[int]` is an alias for `[Int32]` .NET type.  
 
-`TryParse` is a *statuc method* from *int* .NET type.  
+`TryParse` is a *static method* from *int* .NET type.  
 It has two parameters:  
 
 1. **first**: a string to convert;  
@@ -122,14 +122,10 @@ Next, iterate through $fruitQuantities using a loop and print the fruit name alo
 ```pwsh
 #!/usr/bin/env pwsh
 
-# Creating first hash table
-$fruitNames = @{}
-
-# Array to later populate that hashtable
+# Array to later populate first hashtable
 $fruits = @("apple", "mango", "banana", "kiwi", "orange", "lemon", "pear", "peach", "apricot", "plum")
-$id = 0
 
-# Populating $fruitNames
+# Populating first hashtable $fruitNames
 $fruitNames = @{}
 $fruits | ForEach-Object -Begin {$i=0} -Process { $fruitNames[$i++] = $_ }
 

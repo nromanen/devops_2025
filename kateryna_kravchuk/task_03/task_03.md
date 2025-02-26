@@ -167,7 +167,7 @@ chown: changing ownership of 'kr.txt': Operation not permitted
 [sudo] password for kate_kr: 
 ```
 
-> Again, confirm our *root* privileges to do this, otherwise we get the following:  
+> Ensure you run this command with *root* privileges, as failure to do so will result in:    
 
 ```bash
 chmod: changing permissions of 'kr.txt': Operation not permitted
