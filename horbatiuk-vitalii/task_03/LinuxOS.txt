@@ -1,0 +1,194 @@
+-- Add a user with your name to the operating system
+
+bison@Ubuntu24:/home$ adduser vitalii
+fatal: Only root may add a user or group to the system.
+bison@Ubuntu24:/home$ sudo adduser vitalii
+info: Adding user `vitalii' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `vitalii' (1001) ...
+info: Adding new user `vitalii' (1001) with group `vitalii (1001)' ...
+info: Creating home directory `/home/vitalii' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for vitalii
+Enter the new value, or press ENTER for the default
+	Full Name []: Horbatiuk
+	Room Number []: vitaljiano
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+info: Adding new user `vitalii' to supplemental / extra groups `users' ...
+info: Adding user `vitalii' to group `users' ...
+
+-- Assign the user to the root group to provide administrative privileges.
+
+bison@Ubuntu24:/home$ sudo usermod -aG sudo vitalii
+bison@Ubuntu24:/home$ su vitalii
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+vitalii@Ubuntu24:/home$ id vitalii
+uid=1001(vitalii) gid=1001(vitalii) groups=1001(vitalii),27(sudo),100(users)
+
+--Create a folder named after your first name within your home directory.
+
+vitalii@Ubuntu24:/home$ ls
+bison  vitalii
+vitalii@Ubuntu24:/home$ cd vitalii
+vitalii@Ubuntu24:~$ ls
+vitalii@Ubuntu24:~$ touch horbatiuk
+vitalii@Ubuntu24:~$ ls
+horbatiuk
+vitalii@Ubuntu24:~$ ls -i
+821694 horbatiuk
+vitalii@Ubuntu24:~$ mv horbatiuk horbatiuk.txt
+vitalii@Ubuntu24:~$ ls
+horbatiuk.txt
+
+-- Create a symbolic link pointing to your last name file.
+
+vitalii@Ubuntu24:~$ ls -i
+821694 horbatiuk.txt
+vitalii@Ubuntu24:~$ ln -s horbatiuk.txt soft_horbatiuk.txt
+vitalii@Ubuntu24:~$ ls -Ai
+824654 .bash_logout  821694 horbatiuk.txt  839859 soft_horbatiuk.txt
+839853 .bashrc       839854 .profile
+vitalii@Ubuntu24:~$ ls -i
+821694 horbatiuk.txt  839859 soft_horbatiuk.txt
+vitalii@Ubuntu24:~$ 
+
+-- Copy your last name file to the top-level directory (root) to demonstrate file access across directories.
+
+cp horbatiuk.txt ./
+cp: 'horbatiuk.txt' and './horbatiuk.txt' are the same file
+vitalii@Ubuntu24:~$ cp horbatiuk.txt ..
+cp: cannot create regular file '../horbatiuk.txt': Permission denied
+vitalii@Ubuntu24:~$ sudo cp horbatiuk.txt ..
+[sudo] password for vitalii: 
+vitalii@Ubuntu24:~$ ls -l
+total 0
+-rw-rw-r-- 1 vitalii vitalii  0 Feb 15 10:31 horbatiuk.txt
+lrwxrwxrwx 1 vitalii vitalii 13 Feb 15 10:35 soft_horbatiuk.txt -> horbatiuk.txt
+vitalii@Ubuntu24:~$ cd ..
+vitalii@Ubuntu24:/home$ ls
+bison  horbatiuk.txt  vitalii
+vitalii@Ubuntu24:/home$ sudo cp horbatiuk.txt /
+vitalii@Ubuntu24:/home$ ls
+bison  horbatiuk.txt  vitalii
+vitalii@Ubuntu24:/home$ cd /
+vitalii@Ubuntu24:/$ ls
+bin                home               media  sbin                usr
+bin.usr-is-merged  horbatiuk.txt      mnt    sbin.usr-is-merged  var
+boot               lib                opt    snap
+cdrom              lib64              proc   srv
+dev                lib.usr-is-merged  root   sys
+etc                lost+found         run    tmp
+vitalii@Ubuntu24:/$ ^C
+vitalii@Ubuntu24:/$ 
+
+-- Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately.
+
+vitalii@Ubuntu24:/$ ls -l horbtiuk.txt
+ls: cannot access 'horbtiuk.txt': No such file or directory
+vitalii@Ubuntu24:/$ ls -l horbatiuk.txt
+-rw-r--r-- 1 root root 0 Feb 15 10:40 horbatiuk.txt
+vitalii@Ubuntu24:/$ sudo chmod 644 horbatiuk.txt
+vitalii@Ubuntu24:/$ ls -l horbatiuk.txt
+-rw-r--r-- 1 root root 0 Feb 15 10:40 horbatiuk.txt
+
+-- Use the command line to create a new user group with the name students and add your user to this group.
+
+vitalii@Ubuntu24:/$ groupadd students
+groupadd: Permission denied.
+groupadd: cannot lock /etc/group; try again later.
+vitalii@Ubuntu24:/$ sudo groupadd students
+vitalii@Ubuntu24:/$ grep students /etc/group
+students:x:1003:
+vitalii@Ubuntu24:/$ sudo usermod -aG students vitalii
+vitalii@Ubuntu24:/$ id vitalii
+uid=1001(vitalii) gid=1001(vitalii) groups=1001(vitalii),27(sudo),100(users),1003(students)
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ sudo tar -czf horbatiuk.tar.gz horbatiuk.txt
+vitalii@Ubuntu24:/$ ls
+bin                home               lost+found  run                 tmp
+bin.usr-is-merged  horbatiuk.tar.gz   media       sbin                usr
+boot               horbatiuk.txt      mnt         sbin.usr-is-merged  var
+cdrom              lib                opt         snap
+dev                lib64              proc        srv
+etc                lib.usr-is-merged  root        sys
+vitalii@Ubuntu24:/$ sudo tar -czf home/vitalii/horbatiuk.tar.gz horbatiuk.txt
+vitalii@Ubuntu24:/$ ls home/vitalii
+horbatiuk.tar.gz  horbatiuk.txt  soft_horbatiuk.txt
+vitalii@Ubuntu24:/$ ls home/vitalii -l
+total 4
+-rw-r--r-- 1 root    root    117 Feb 15 11:01 horbatiuk.tar.gz
+-rw-rw-r-- 1 vitalii vitalii   0 Feb 15 10:31 horbatiuk.txt
+lrwxrwxrwx 1 vitalii vitalii  13 Feb 15 10:35 soft_horbatiuk.txt -> horbatiuk.txt
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+
+-- Create a compressed backup of your last name file using the tar command and store it in your home directory.
+
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ sudo tar -czf horbatiuk.tar.gz horbatiuk.txt
+vitalii@Ubuntu24:/$ ls
+bin                home               lost+found  run                 tmp
+bin.usr-is-merged  horbatiuk.tar.gz   media       sbin                usr
+boot               horbatiuk.txt      mnt         sbin.usr-is-merged  var
+cdrom              lib                opt         snap
+dev                lib64              proc        srv
+etc                lib.usr-is-merged  root        sys
+vitalii@Ubuntu24:/$ sudo tar -czf home/vitalii/horbatiuk.tar.gz horbatiuk.txt
+vitalii@Ubuntu24:/$ ls home/vitalii
+horbatiuk.tar.gz  horbatiuk.txt  soft_horbatiuk.txt
+vitalii@Ubuntu24:/$ ls home/vitalii -l
+total 4
+-rw-r--r-- 1 root    root    117 Feb 15 11:01 horbatiuk.tar.gz
+-rw-rw-r-- 1 vitalii vitalii   0 Feb 15 10:31 horbatiuk.txt
+lrwxrwxrwx 1 vitalii vitalii  13 Feb 15 10:35 soft_horbatiuk.txt -> horbatiuk.txt
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
+ls
+bin                etc               lib64              opt   sbin.usr-is-merged  usr
+bin.usr-is-merged  home              lib.usr-is-merged  proc  snap                var
+boot               horbatiuk.tar.gz  lost+found         root  srv
+cdrom              horbatiuk.txt     media              run   sys
+dev                lib               mnt                sbin  tmp
+
+-- Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
+
+vitalii@Ubuntu24:/$ sudo find home/vitalii -type f -mtime -7
+home/vitalii/horbatiuk.tar.gz
+home/vitalii/.sudo_as_admin_successful
+home/vitalii/.bash_logout
+home/vitalii/.bashrc
+home/vitalii/horbatiuk.txt
+home/vitalii/.profile
+vitalii@Ubuntu24:/$ 
+
+-- Use the du command to analyze the disk usage of your home directory, then display the top 5 largest files or directories.
+
+vitalii@Ubuntu24:/$ sudo du -ah . | sort -rh | head -n 5
+du: cannot access './proc/5210/task/5210/fd/4': No such file or directory
+du: cannot access './proc/5210/task/5210/fdinfo/4': No such file or directory
+du: cannot access './proc/5210/fd/3': No such file or directory
+du: cannot access './proc/5210/fdinfo/3': No such file or directory
+du: cannot access './run/user/1000/doc': Permission denied
+du: cannot access './run/user/1000/gvfs': Permission denied
+11G	.
+3.9G	./snap
+3.8G	./usr
+2.3G	./var
+2.3G	./usr/lib
+vitalii@Ubuntu24:/$ 
+vitalii@Ubuntu24:/$ 
