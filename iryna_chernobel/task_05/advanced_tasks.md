@@ -57,3 +57,55 @@ Error: The user did not enter a number
   ---
 
 Screanshots: https://drive.google.com/file/d/1RXr4gza2hY-19n203DeQiHwfr8puRRgx/view?usp=drive_link
+
+## Level 3
+```
+$fruitNames = @{
+    1 = "apple";
+    2 = "pear";
+    3 = "peach";
+    4 = "banana";
+    5 = "orange";
+    6 = "mango";
+    7 = "kiwi";
+    8 = "pineapple";
+    9 = "grape";
+    10 = "plum";
+}
+$fruitQuantities = @{
+    1 = 4;
+    2 = 3;
+    3 = 1;
+    4 = 7;
+    5 = 6;
+    6 = 2;
+    7 = 5;
+    8 = 8;
+    9 = 12;
+    10 = 9;
+}
+foreach ($id in $fruitQuantities.Keys) {
+    $fruitName = $fruitNames[$id]
+    $quantity = $fruitQuantities[$id]
+
+    Write-Host "$fruitName : $quantity"
+}
+```
+
+ ## Result:
+
+ ```
+plum : 9
+grape : 12
+pineapple : 8
+kiwi : 5
+mango : 2
+orange : 6
+banana : 7
+peach : 1
+pear : 3
+apple : 4
+```
+  ---
+
+Screanshots: https://drive.google.com/file/d/1-ssxW4H4S8cUZ26OM3lrrQoBNGx6BYwp/view?usp=drive_link
