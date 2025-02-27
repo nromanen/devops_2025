@@ -9,8 +9,13 @@ Write-Output "Hello, $name!"
 #Level 2 (70 points):
 
 # Prompt the user to enter two numbers
-$number1 = Read-Host "Please enter the first number"
-$number2 = Read-Host "Please enter the second number"
+do {
+    $number1 = Read-Host "Please enter valid first number"
+} until ($number1 -match '^\d+$')
+
+do {
+    $number2 = Read-Host "Please enter valid second number"
+} until ($number2 -match '^\d+$')
 
 # Function to add two numbers
 function Add-Numbers {
