@@ -1,0 +1,100 @@
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gig0/1, Gig0/2
+2    test_vlan_2                      active    Fa0/1, Fa0/2
+3    test_vlan_3                      active    Fa0/3, Fa0/4
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+Switch>ena
+Switch>enable 
+Switch#confi
+Switch#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vla
+Switch(config)#vlan 2
+Switch(config-vlan)#name Vlan2
+Switch(config-vlan)#exit
+Switch(config)#vlan 3
+Switch(config-vlan)#name Vlan3
+Switch(config-vlan)#exit
+Switch(config)# vlan 4
+Switch(config-vlan)#name Vlan4
+Switch(config-vlan)#exit
+Switch>show vlan brief 
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gig0/1, Gig0/2
+2    Vlan2                            active    Fa0/1, Fa0/2
+3    Vlan3                            active    Fa0/3, Fa0/4
+4    Vlan4                            active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active 
+
+Switch>enable 
+Switch#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z
+Switch(config)#interface FastEthernet 0/3
+Switch(config-if)#switchport access vlan 2
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/4
+Switch(config-if)#switchport access vlan 2
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/5
+Switch(config-if)#switchport access vlan 3
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/6
+Switch(config-if)#switchport access vlan 3
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/7
+Switch(config-if)#switchport access vlan 3
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/8
+Switch(config-if)#switchport access vlan 4
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/9
+Switch(config-if)#switchport access vlan 4
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet 0/10
+Switch(config-if)#switchport access vlan 4
+Switch(config-if)#exit
+Switch(config)#end
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#write
+Building configuration...
+[OK]
+Switch#exit
+
+Switch>show vlan brief 
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/11, Fa0/12, Fa0/13, Fa0/14
+                                                Fa0/15, Fa0/16, Fa0/17, Fa0/18
+                                                Fa0/19, Fa0/20, Fa0/21, Fa0/22
+                                                Fa0/23, Fa0/24, Gig0/1, Gig0/2
+2    Vlan2                            active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+3    Vlan3                            active    Fa0/5, Fa0/6, Fa0/7
+4    Vlan4                            active    Fa0/8, Fa0/9, Fa0/10
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active 
