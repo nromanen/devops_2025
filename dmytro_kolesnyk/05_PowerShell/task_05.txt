@@ -1,0 +1,78 @@
+https://drive.google.com/drive/folders/1XMmpgfwZd0-XnhpEW7kEeBlgbmpE24V7?usp=sharing
+
+
+Level 1 (50 points):
+
+    Prompt the user to enter their name.
+    Greet the user by printing "Hello, [name]!" to the console.
+
+PS C:\Users\vakol> $UserName = Read-Host "Please, enter your name"
+Write-Host "Hello, $UserName!"
+Please, enter your name: Dmytro
+Hello, Dmytro!
+
+===========================================================
+
+Level 2 (70 points):
+
+    Prompt the user to enter two numbers.
+
+    Write a function that accepts two parameters, two numbers.
+
+    Call this function by passing it the data entered by the user.
+
+    This function should add two numbers and print result for example: "Sum is: 10"
+
+    If the user enters a non-numeric value for the numbers, throws exception with message "The user did not enter a number"
+
+PS C:\Users\vakol> $a = Read-Host "Please, enter first number"
+$b = Read-Host "Please, enter first number"
+
+function sum($x, $y) {
+if ($x -as [float] -eq $null -or $y -as [float] -eq $null){
+throw "The user did not enter a number"
+} else {
+Write-Host "Sum is: $([decimal]$x + [decimal]$y)"
+}
+}
+
+sum $a $b
+
+Please, enter first number: 234.432
+Please, enter first number: 953.981
+Sum is: 1188.413
+
+Please, enter first number: 4
+Please, enter first number: qwer
+The user did not enter a number
+At line:6 char:1
++ throw "The user did not enter a number"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (The user did not enter a number:String) [], RuntimeException
+    + FullyQualifiedErrorId : The user did not enter a number
+
+===========================================================================
+
+Level 3 (100 points):
+
+Create two hash tables: $fruitNames, where the key is an ID (e.g., 1, 2, 3) and the value is the fruit name (e.g., 1: "apple", 2: "pear", 3: "peach"), and $fruitQuantities, where the key is the ID and the value is the quantity of each fruit (e.g., 1: 4, 2: 3, 3: 1). and populate it with at least ten different fruits.
+
+Next, iterate through $fruitQuantities using a loop and print the fruit name along with the corresponding quantity. Retrieve the fruit name from $fruitNames using the current ID from the iteration.
+
+PS C:\Users\vakol> $fruitNames = @{ 1 = "apple"; 2 = "pear"; 3 = "peach"; 4 = "banana"; 5 = "orange"; 6 = "grape"; 7 = "watermelon"; 8 = "pineapple"; 9 = "mango"; 10 = "strawberry" }
+$fruitQuantities = @{ 1 = 4; 2 = 3; 3 = 1; 4 = 10; 5 = 6; 6 = 20; 7 = 2; 8 = 1; 9 = 5; 10 = 12 }
+
+for ($i=1; $i -le $fruitNames.Count; $i++){
+Write-Host $("{0,-12} {1}" -f $fruitNames[$i], $fruitQuantities[$i])
+}
+
+apple        4
+pear         3
+peach        1
+banana       10
+orange       6
+grape        20
+watermelon   2
+pineapple    1
+mango        5
+strawberry   12
