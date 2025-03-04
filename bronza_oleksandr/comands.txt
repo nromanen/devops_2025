@@ -1,0 +1,107 @@
+[aleksbro@localhost /]$ sudo useradd -m oleksandr
+[aleksbro@localhost /]$ sudo passwd oleksandr
+Changing password for user oleksandr.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[aleksbro@localhost /]$ sudo usermod -aG wheel oleksandr
+[aleksbro@localhost /]$ su - oleksandr
+Password: 
+[oleksandr@localhost ~]$ cd ~
+[oleksandr@localhost ~]$ pwd
+/home/oleksandr
+[oleksandr@localhost ~]$ mkdir oleksandr
+[oleksandr@localhost ~]$ cd oleksandr/
+[oleksandr@localhost oleksandr]$ touch bronza.txt
+[oleksandr@localhost oleksandr]$ ln -s bronza.txt link_bronza.txt
+[oleksandr@localhost oleksandr]$ ls -ln
+total 0
+-rw-r--r--. 1 1001 1001  0 Feb  6 01:16 bronza.txt
+lrwxrwxrwx. 1 1001 1001 10 Feb  6 01:17 link_bronza.txt -> bronza.txt
+[oleksandr@localhost oleksandr]$ cp bronza.txt /bronza.txt
+cp: cannot create regular file '/bronza.txt': Permission denied
+[oleksandr@localhost oleksandr]$ sudo cp bronza.txt /bronza.txt
+[sudo] password for oleksandr: 
+[oleksandr@localhost oleksandr]$ cd /
+[oleksandr@localhost /]$ ls -la
+total 24
+dr-xr-xr-x.  18 root root  253 Feb  5 23:52 .
+dr-xr-xr-x.  18 root root  253 Feb  5 23:52 ..
+dr-xr-xr-x.   2 root root    6 Oct 26 08:09 afs
+lrwxrwxrwx.   1 root root    7 Oct 26 08:09 bin -> usr/bin
+dr-xr-xr-x.   7 root root 4096 Feb  5 23:01 boot
+-rw-r--r--.   1 root root    0 Feb  6 01:18 bronza.txt
+drwxr-xr-x.  20 root root 3980 Feb  6 01:07 dev
+drwxr-xr-x. 131 root root 8192 Feb  6 01:14 etc
+drwxr-xr-x.   4 root root   39 Feb  6 01:12 home
+lrwxrwxrwx.   1 root root    7 Oct 26 08:09 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Oct 26 08:09 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 media
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 mnt
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 opt
+dr-xr-xr-x. 354 root root    0 Feb  6 01:08 proc
+dr-xr-x---.   4 root root  172 Feb  5 23:48 root
+drwxr-xr-x.  43 root root 1140 Feb  5 23:09 run
+lrwxrwxrwx.   1 root root    8 Oct 26 08:09 sbin -> usr/sbin
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 srv
+dr-xr-xr-x.  12 root root    0 Feb  6 01:08 sys
+drwxrwxrwt.  18 root root 4096 Feb  6 01:15 tmp
+drwxr-xr-x.  12 root root  144 Feb  5 22:28 usr
+drwxr-xr-x.  20 root root 4096 Feb  5 22:33 var
+[oleksandr@localhost /]$ sudo chmod 633 bronza.txt
+[oleksandr@localhost /]$ ls -la
+total 24
+dr-xr-xr-x.  18 root root  253 Feb  5 23:52 .
+dr-xr-xr-x.  18 root root  253 Feb  5 23:52 ..
+dr-xr-xr-x.   2 root root    6 Oct 26 08:09 afs
+lrwxrwxrwx.   1 root root    7 Oct 26 08:09 bin -> usr/bin
+dr-xr-xr-x.   7 root root 4096 Feb  5 23:01 boot
+-rw--wx-wx.   1 root root    0 Feb  6 01:18 bronza.txt
+drwxr-xr-x.  20 root root 3980 Feb  6 01:07 dev
+drwxr-xr-x. 131 root root 8192 Feb  6 01:14 etc
+drwxr-xr-x.   4 root root   39 Feb  6 01:12 home
+lrwxrwxrwx.   1 root root    7 Oct 26 08:09 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Oct 26 08:09 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 media
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 mnt
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 opt
+dr-xr-xr-x. 353 root root    0 Feb  6 01:08 proc
+dr-xr-x---.   4 root root  172 Feb  5 23:48 root
+drwxr-xr-x.  43 root root 1140 Feb  5 23:09 run
+lrwxrwxrwx.   1 root root    8 Oct 26 08:09 sbin -> usr/sbin
+drwxr-xr-x.   2 root root    6 Oct 26 08:09 srv
+dr-xr-xr-x.  12 root root    0 Feb  6 01:08 sys
+drwxrwxrwt.  18 root root 4096 Feb  6 01:15 tmp
+drwxr-xr-x.  12 root root  144 Feb  5 22:28 usr
+drwxr-xr-x.  20 root root 4096 Feb  5 22:33 var
+[oleksandr@localhost /]$ groupadd students
+groupadd: group 'students' already exists
+[oleksandr@localhost /]$ sudo usermod -aG students oleksandr
+[oleksandr@localhost /]$ groups oleksandr
+oleksandr : oleksandr wheel students
+[oleksandr@localhost /]$ tar -czvf ~/oleksandr/backup_bronza.tar.gz bronza.txt
+tar: bronza.txt: Cannot open: Permission denied
+tar: Exiting with failure status due to previous errors
+[oleksandr@localhost /]$ sudo tar -czvf ~/oleksandr/backup_bronza.tar.gz bronza.txt
+bronza.txt
+[oleksandr@localhost /]$ ls -ls ~/oleksandr/
+total 4
+4 -rw-r--r--. 1 oleksandr oleksandr 114 Feb  6 01:24 backup_bronza.tar.gz
+0 -rw-r--r--. 1 oleksandr oleksandr   0 Feb  6 01:16 bronza.txt
+0 lrwxrwxrwx. 1 oleksandr oleksandr  10 Feb  6 01:17 link_bronza.txt -> bronza.txt
+[oleksandr@localhost /]$ ls -ls ~/oleksandr/^C
+[oleksandr@localhost /]$ cd ~/oleksandr/
+[oleksandr@localhost oleksandr]$ ls
+backup_bronza.tar.gz  bronza.txt  link_bronza.txt
+[oleksandr@localhost oleksandr]$ cd ..
+[oleksandr@localhost ~]$ du -ah ~ | sort -rh | head -n 5
+20K	/home/oleksandr
+4.0K	/home/oleksandr/.xautht0pO4W
+4.0K	/home/oleksandr/oleksandr/backup_bronza.tar.gz
+4.0K	/home/oleksandr/oleksandr
+4.0K	/home/oleksandr/.bashrc
+[oleksandr@localhost ~]$ find ~ -type f -mtime -7
+/home/oleksandr/.xautht0pO4W
+/home/oleksandr/oleksandr/bronza.txt
+/home/oleksandr/oleksandr/backup_bronza.tar.gz
+[oleksandr@localhost ~]$ 
