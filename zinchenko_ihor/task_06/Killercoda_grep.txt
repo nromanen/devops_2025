@@ -1,0 +1,204 @@
+ubuntu $ ls  /lib > file.txt
+ubuntu $ ls  /usr/lib > file2.txt
+ubuntu $ touch file1.txt
+
+ubuntu $ grep 'os-release' file.txt
+os-release
+
+ubuntu $ grep 'os-release' file.txt file2.txt
+file.txt:os-release
+file2.txt:os-release
+
+ubuntu $ grep -i 'os-release' file.txt
+os-release
+
+ubuntu $ grep -v 'os-release' file.txt
+accountsservice
+apparmor
+apt
+bfd-plugins
+binfmt.d
+bridge-utils
+byobu
+cloud-init
+cnf-update-db
+command-not-found
+compat-ld
+compel
+console-setup
+cpp
+criu
+cryptsetup
+dbus-1.0
+dkms
+dpkg
+dracut
+eject
+environment.d
+file
+finalrd
+gcc
+girepository-1.0
+git-core
+gnupg
+gnupg2
+gold-ld
+groff
+grub
+grub-legacy
+hdparm
+init
+initcpio
+initramfs-tools
+kernel
+klibc
+klibc-abS-oVB3xeRN8SFypUWbQvR33nc.so
+language-selector
+libcrun.a
+libcrun.la
+libdmmp.so
+libdmmp.so.0.2.0
+libhandle.so.1
+libhandle.so.1.0.3
+libmpathcmd.so
+libmpathcmd.so.0
+libmpathpersist.so
+libmpathpersist.so.0
+libmultipath.so
+libmultipath.so.0
+linux
+linux-boot-probes
+locale
+lsb
+man-db
+mime
+modprobe.d
+modules
+modules-load.d
+multipath
+nagios
+netplan
+networkd-dispatcher
+open-iscsi
+open-vm-tools
+openssh
+os-prober
+os-probes
+packagekit
+php
+pkg-config.multiarch
+pkgconfig
+pm-utils
+policykit-1
+python2.7
+python3
+python3.8
+python3.9
+recovery-mode
+rsyslog
+sasl2
+sftp-server
+shim
+snapd
+software-properties
+ssl
+sudo
+sysctl.d
+systemd
+sysusers.d
+tc
+terminfo
+tmpfiles.d
+ubuntu-advantage
+ubuntu-fan
+ubuntu-release-upgrader
+udev
+udisks2
+ufw
+update-notifier
+valgrind
+x86_64-linux-gnu
+xfsprogs
+
+ubuntu $ grep -c 'os-release' file.txt
+1
+ubuntu $ grep -l 'os-release' file.txt file2.txt
+file.txt
+file2.txt
+ubuntu $ grep -L 'os-release' file1.txt file2.txt
+file1.txt
+ubuntu $ grep -n 'os-release' file.txt
+72:os-release
+ubuntu $ grep -r 'os-release' .
+./file.txt:os-release
+./file2.txt:os-release
+ubuntu $ grep -w 'os-release' file.txt
+os-release
+ubuntu $ grep -x 'os-release' file.txt
+os-release
+ubuntu $ grep -A 2 'os-release' file.txt
+os-release
+packagekit
+php
+ubuntu $ grep -B 2 'os-release' file.txt
+os-prober
+os-probes
+os-release
+ubuntu $ grep -C 2 'os-release' file.txt
+os-prober
+os-probes
+os-release
+packagekit
+php
+
+ubuntu $ grep -E 'os-|world' file.txt
+os-prober
+os-probes
+os-release
+ubuntu $ grep '^os-release' file.txt
+os-release
+ubuntu $ grep 'os-release$' file.txt
+os-release
+ubuntu $ grep '[0-9]' file.txt
+dbus-1.0
+girepository-1.0
+gnupg2
+klibc-abS-oVB3xeRN8SFypUWbQvR33nc.so
+libdmmp.so.0.2.0
+libhandle.so.1
+libhandle.so.1.0.3
+libmpathcmd.so.0
+libmpathpersist.so.0
+libmultipath.so.0
+policykit-1
+python2.7
+python3
+python3.8
+python3.9
+sasl2
+udisks2
+x86_64-linux-gnu
+
+buntu $ ls /var | grep 'log'
+log
+ubuntu $ ps aux | grep 'bash'
+root        1097  0.0  0.1   3896  2812 ?        S    12:13   0:00 bash -c export RV_SCRIPT_DIR=/var/run/kc-internal/scenario-service && mkdir -p $RV_SCRIPT_DIR;  /bin/runtime-scenario-service 
+root        1112  0.0  0.1   3896  2880 ?        SN   12:13   0:00 bash -c set -x; cd /opt; while ! curl -o theia-install.sh https://storage.googleapis.com/killercoda-prod-europe1/theia/theia-install.sh?v=27919; do sleep 1; done; bash theia-install.sh; rm theia-install.sh; nice -n 19 /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205
+root        1284  0.0  0.0   3896  1020 ?        S    12:13   0:00 bash -c while true; do /bin/kc-terminal -p 40200 --writable -t disableLeaveAlert=true bash; done
+root        1286  0.0  0.1  10832  2080 ?        Sl   12:13   0:00 /bin/kc-terminal -p 40200 --writable -t disableLeaveAlert true bash
+root        2481  0.0  0.1   4240  3584 pts/0    Ss   12:16   0:00 bash
+root        2513  0.0  0.1   4244  3476 pts/1    SNs+ 12:16   0:00 /bin/bash
+root        2656  0.0  0.0   3304   724 pts/0    S+   12:22   0:00 grep --color=auto bash
+ubuntu $ grep -E 'os-release|world' file.txt
+os-release
+ubuntu $ grep -e 'os-release' -e 'world' file.txt
+os-release
+ubuntu $ find . -type f -name '*.txt' | xargs grep 'os-release'
+./file.txt:os-release
+./file2.txt:os-release
+
+ubuntu $ find . -type f -name '*.txt' -exec grep 'os-release' {} +
+./file.txt:os-release
+./file2.txt:os-release
+
+
