@@ -1,6 +1,6 @@
 # Task 04: Bash Scripting
 
->Done by [@Lians-coder](https://github.com/Lians-coder) Kateryna Kravchuk
+>Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)
 
 ## Simple problems
 
@@ -26,11 +26,14 @@ Write a shell script that takes the name of such a text file as an argument and 
 
 ```bash
 #!/usr/bin/env bash
+
+# check if no arguments provided
 if [ -z "$1" ]; then
-    echo "Error: Empty parameter" >&2
+    echo "Error: Empty parameter" >&2 # redirect to standard error output 
     exit 1
 fi
 
+# check if file exists
 if [ ! -f "$1" ]; then
     echo "Error: File not found" >&2
     exit 1
@@ -39,6 +42,8 @@ fi
 cat "$1"
 
 ```  
+
+---
 
 ### Problem 2
 
@@ -63,11 +68,13 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-for i in "$@"; do
+for i in "$@"; do # for every argument of all
    printf "%s\n" "$i"
 done
 
 ```
+
+---
 
 ### Problem 3
 
@@ -89,15 +96,17 @@ Please create a bash script to create 5 text files named "file" and file number 
 
 ```bash
 #!/usr/bin/env bash
+
+# create log file or clear it if existing
 > log.log
 
 for ((i=0; i<5; i++)) 
 do
     filename="file${i}.txt"
-    if [ ! -e "$filename" ]; then
-        touch "$filename"
-    fi
-    echo "This is file ${i}. $filename" >> log.log
+
+    touch "$filename" # create file or update timestamp if exists
+    
+    echo "This is file ${i}. $filename" >> log.log # append to log file
 done
 
 cat ./log.log
@@ -106,7 +115,7 @@ cat ./log.log
 
 ---
 
-## Advansed problem
+## Advanced problem
 
 #### Task
 
@@ -133,7 +142,7 @@ fi
 
 #### <span style="color: green"> Better solution </span>
 
-> It is a better solution, but it couldn't been handled properly by check alghoritms on Moodle site. 
+> It is a better solution, but it couldn't be handled properly by check algorithms on the Moodle site (because of `exit`)  
 
 ```bash
 #!/usr/bin/env bash
@@ -154,3 +163,27 @@ else
 fi
 
 ```
+
+---
+
+### Summary  
+
+*What I learned while completing these tasks:*  
+
+#### 1. File handeling in **bash**
+
+- check if a file exist before processing: `-f` (flag)  
+- use `touch` to create file  
+- use `cat` to display content of file  
+
+#### 2. Handeling command-line arguments
+
+Access script arguments:  
+`$0` (for the script name itself);  
+`$1` (for the first arg);  
+`$@` (for all args).  
+
+#### 3. Regex
+
+Use regex to validate *https* URLs: `^https://.+`  
+> `^` for start of the line; `.+` for matching at least one symbol  

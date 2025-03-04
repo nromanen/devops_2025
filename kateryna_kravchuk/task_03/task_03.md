@@ -1,7 +1,6 @@
-# Task_03:  Linux OS
+# Task 03:  Linux OS
 
 > Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)
-
 
 #### 0. Preparation
 
@@ -144,19 +143,52 @@ Note: I should confirm any action I want to do in the root directory by providin
 
 #### 8. Change the owner of the copied file to root and adjust its access rights to 644 to restrict permissions appropriately
 
+##### 8.1 Changing ownership  
+
 `sudo chown root:root kr.txt`  
 Checking out: `ls -l kr.txt`  
+
+```bash
+[sudo] password for kate_kr: 
+-rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
+```
+
+> We should run this in root mode, and here what happens if we haven't:  
+
+```bash
+chown: changing ownership of 'kr.txt': Operation not permitted
+```
+
+##### 8.2 Changing mode  
+
+`sudo chmod 644 kr.txt`  
+
+```bash
+[sudo] password for kate_kr: 
+```
+
+> Ensure you run this command with *root* privileges, as failure to do so will result in:    
+
+```bash
+chmod: changing permissions of 'kr.txt': Operation not permitted
+```
+
+##### 8.3 Checking out  
+
+`ls -l kr.txt`  
 
 ```bash
 -rw-r--r--. 1 root root 0 Feb 14 20:18 kr.txt
 ```  
 
-Changing mode: `sudo chmod 664 kr.txt`  
-Checking out: `ls -l kr.txt`  
+Nothing changed in permissions because the file has already been in the desired state:  
 
-```bash
--rw-rw-r--. 1 root root 0 Feb 14 20:18 kr.txt
-```  
+| | owner | group | others |
+| --- | --- | --- | --- |
+| read | 4 | 4 | 4 |
+| write | 2 | 0 | 0 |
+|execute | 0 | 0 | 0 |
+| | **6** | **4** | **4** |  
 
 ---
 
@@ -215,7 +247,7 @@ Sort (*-r* for descending, *-h* for human-readable sizes) and show top 5 largest
 
 ---
 
-#### 12. Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days.
+#### 12. Utilize the find command to locate all files (including your last name file) within your home directory that have been modified within the last 7 days  
 
 `find ~ -type f -mtime -7`  
 
