@@ -1,0 +1,42 @@
+obaklykov@osboxes:~$ mkdir ~/oleksandr
+obaklykov@osboxes:~$ touch ~/oleksandr/baklykov
+obaklykov@osboxes:~$ ln -s ~/oleksandr/baklykov ~/oleksandr/baklykov_link
+obaklykov@osboxes:~$ sudo cp ~/oleksandr/baklykov /baklykov
+[sudo] password for obaklykov:
+obaklykov@osboxes:~$ chown root:root /baklykov
+chown: changing ownership of '/baklykov': Operation not permitted
+obaklykov@osboxes:~$ sudo chown root:root /baklykov
+obaklykov@osboxes:~$ sudo chmod 644 /baklykov
+obaklykov@osboxes:~$ sudo groupadd students
+obaklykov@osboxes:~$ sudo usermod -aG students obaklykov
+obaklykov@osboxes:~$ tar -czvf ~/baklykov_backup.tar.gz ~/oleksandr/baklykov
+tar: Removing leading `/' from member names
+/home/obaklykov/oleksandr/baklykov
+obaklykov@osboxes:~$ du -ah ~ | sort -rh | head -n 5
+32K     /home/obaklykov
+4.0K    /home/obaklykov/.Xauthority
+4.0K    /home/obaklykov/.profile
+4.0K    /home/obaklykov/oleksandr
+4.0K    /home/obaklykov/.cache
+obaklykov@osboxes:~$ find ~ -type f -mtime -7
+/home/obaklykov/baklykov_backup.tar.gz
+/home/obaklykov/oleksandr/baklykov
+/home/obaklykov/.bash_logout
+/home/obaklykov/.sudo_as_admin_successful
+/home/obaklykov/.cache/motd.legal-displayed
+/home/obaklykov/.profile
+/home/obaklykov/.Xauthority
+/home/obaklykov/.bashrc
+obaklykov@osboxes:~$ id obaklykov
+uid=1001(obaklykov) gid=1001(obaklykov) groups=1001(obaklykov),0(root),27(sudo),100(users),1002(students)
+obaklykov@osboxes:~$ ls -l ~/oleksandr
+total 0
+-rw-rw-r-- 1 obaklykov obaklykov  0 Feb 18 21:25 baklykov
+lrwxrwxrwx 1 obaklykov obaklykov 34 Feb 18 21:25 baklykov_link -> /home/obaklykov/oleksandr/baklykov
+obaklykov@osboxes:~$ ls -l ~/oleksandr/baklykov_link
+lrwxrwxrwx 1 obaklykov obaklykov 34 Feb 18 21:25 /home/obaklykov/oleksandr/baklykov_link -> /home/obaklykov/oleksandr/baklykov
+obaklykov@osboxes:~$ ls -l /baklykov
+-rw-r--r-- 1 root root 0 Feb 18 21:26 /baklykov
+obaklykov@osboxes:~$ ls -l ~/baklykov_backup.tar.gz
+-rw-rw-r-- 1 obaklykov obaklykov 131 Feb 18 21:26 /home/obaklykov/baklykov_backup.tar.gz
+obaklykov@osboxes:~$
