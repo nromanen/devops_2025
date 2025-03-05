@@ -242,7 +242,7 @@ Ping statistics for 192.168.0.1:
 
 ```
 
-[Screenshot]()
+[Screenshot](https://drive.google.com/file/d/15pxN2Xe5ztSFJHWWZ35tBsCBZZeGCxz5/view?usp=drive_link)
 
 2. From **kravchuk_4** (*vlan_second*) to **PC5** (*vlan_third*, third subnet): `ping 192.168.2.10`  
   
@@ -261,7 +261,7 @@ Ping statistics for 192.168.2.10:
 
 ```
 
-[Screenshot]()
+[Screenshot](https://drive.google.com/file/d/1MA1C7anz9D0oY8sbzvsbpWH8Jwcdkk9D/view?usp=drive_link)
 
 #### 3. Within *vlan_third*
 
@@ -286,7 +286,7 @@ Approximate round trip times in milli-seconds:
 
 ```
 
-[Screenshot]()
+[Screenshot](https://drive.google.com/file/d/1C1VybeXhm7ExOxVj5Tfnnpd1N1UV7-0V/view?usp=drive_link)
 
 2. From **PC5** to **PC4**: `ping 192.168.2.9`  
   
@@ -307,7 +307,7 @@ Approximate round trip times in milli-seconds:
 
 ```
 
-[Screenshot]()
+[Screenshot](https://drive.google.com/file/d/1oR8JvX7-f4URyRfiwHoPl84TTDtQigJs/view?usp=drive_link)
 
 ##### 3.2 Between subnets
 
@@ -328,7 +328,7 @@ Ping statistics for 192.168.2.9:
 
 ```
 
-[Screenshot]()
+[Screenshot](https://drive.google.com/file/d/1dpveWFezi53XuLmnc1ddKAmqGi2OXLXQ/view?usp=drive_link)
 
 2. From **PC2** to **PC0**: `ping 192.168.2.1`  
   
@@ -347,13 +347,13 @@ Ping statistics for 192.168.2.1:
 
 ```
 
-[Screenshot]()
+[Screenshot](https://drive.google.com/file/d/1zamE2oOf1Pn8fGgyJ6zTjrni-0ZETfJk/view?usp=drive_link)
 
 ---
 
 ### Screenshots
 
-[Diagram]() as a result of a work.  
+[Diagram](https://drive.google.com/file/d/1Faz_DhsLKWT62lLUToXXhWMUf772wCyO/view?usp=drive_link) as a result of a work.  
 
 ### Resources
 
