@@ -81,7 +81,7 @@ The task forbid to use masks /24 and /16, so change previous subnet masks of `kr
 
 #### Notes
 
-The subnet mask `255.255.255.128` corresponds to `/25` prefix notation, which meant one bit from host part of the IP is now used for subnetting. As a result, we get **2 ^ 1 = 2** subnets, each with **2 ^ 7 - 2 = 126** usable host addresses.  
+The subnet mask `255.255.255.128` corresponds to `/25` prefix notation, which meant one bit from the host part of the IP is now used for subnetting. As a result, we get **2 ^ 1 = 2** subnets, each with **2 ^ 7 - 2 = 126** usable host addresses.  
 For the IP `192.168.0.1`, the valid host address range is from `192.168.0.1` to `192.168.0.126` (inclusive).  
 Similarly, the subnet mask `255.255.255.240` corresponds to `/28` prefix, which provides **2 ^ 4 = 16** subnets, with **2 ^ 4 - 2 = 14** usable host addresses in each subnet. For the IP `192.168.1.1`, the  valid host address range is from `192.168.1.1` to `192.168.1.14` (inclusive).  
 
@@ -102,7 +102,7 @@ To create subnets, assign the following IPs to the newly created *vlan 4* PCs, u
 
 #### Note
 
-By using the `/30` mask (which allocates 6 bits for the network part), we are able to cully utillize the address space, creating up to **2 ^ 6 = 64** subnets (inclusive), each with **2 ^ 2 - 2 = 2** usable host addresses (the **- 2** accounts for network and broadcast addresses).  
+By using the `/30` mask (which allocates 6 bits for the network part), we are able to fully utillize the address space, creating up to **2 ^ 6 = 64** subnets (inclusive), each with **2 ^ 2 - 2 = 2** usable host addresses (the **- 2** accounts for network and broadcast addresses).  
 
 > The `/30` mask is commonly used for point-to-point links rather than general PC assignments, as it provides just two usable host addresses per subnet.
 
