@@ -5,7 +5,7 @@ contains emails in the file 'user_data.txt' that start with “sudo” and end w
 - should be executed at folder where placed user_data.txt
 
 ```
-$ grep -E '\bsudo.*@.*\.org\b' user_data.txt
+$ grep -oE '\bsudo[a-zA-Z0-9._%+-]*@[^[:space:]]+\.org\b' user_data.txt
 ```
 
 # 2 part of Task 06 - 90 points
@@ -22,5 +22,4 @@ Based on the previous task's results, retrieve the name and password, and constr
 - should be executed at folder where placed user_data2.txt
 
 ```
-$ grep -E '^[^,]+,([^,]+),([^,]+),[^,]+@[^,]+\.com,([^!№%:?]+)$' user_data_task2.txt | while IFS=, read -r id first_name last_name email password; do   echo '{"'"$email"'" :"'"$first_name"'s password is '"$password"', it should be improved!"}'; done 
-```
+$ grep -E '^[^,]+,([^,]+),([^,]+),[^,]+@[^,]+\.com,([^!№%:?]+)$' user_data_task2.txt | while IFS=, read -r id first_name last_name email password; do     trimmed_first_name="$(echo "$first_name" | sed 's/^ *//')";     trimmed_email="$(echo "$email" | sed 's/^ *//')";     echo '{"'"$trimmed_email"'" : "'"$trimmed_first_name""'"'s password is '"$password"', it should be improved!"}'; done````
