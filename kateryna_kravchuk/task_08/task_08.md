@@ -166,7 +166,7 @@ HostMax: 192.168.1.14
 
 ```cmd
 Netmask: 255.255.255.252 = 30
-Subnets for /25: 64
+Subnets for /30: 64
 Hosts: 2
 ---------
 First subnet:
@@ -353,7 +353,7 @@ Ping statistics for 192.168.2.1:
 
 ### Screenshots
 
-[Diagram](https://drive.google.com/file/d/1Faz_DhsLKWT62lLUToXXhWMUf772wCyO/view?usp=drive_link) as a result of a work.  
+[Diagram](https://drive.google.com/file/d/1v502vxxOgs2B87u3oIAaQzMAsV5q8Kn2/view?usp=drive_link) as a result of a work.  
 
 ### Resources
 
