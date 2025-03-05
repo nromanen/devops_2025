@@ -4,7 +4,7 @@
 
 ## Preparation 1  
 
-The detailed process of gaining access to the Linux VM was described in [this section](https://github.com/nromanen/devops_2025/blob/kateryna_kravchuk/kateryna_kravchuk/task_03/task_03.md#0-preparation) of the same name in **Task 03**.  
+The detailed process of gaining access to the Linux VM was described in [this section](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_03/task_03.md#0-preparation) of the same name in **Task 03**.  
 
 ---
 
@@ -141,7 +141,7 @@ Output:
 
 #### An alternative (simpler) solution  
 
-Make a file with all columns from *user_data.txt* (as in [advanced task 1](https://github.com/nromanen/devops_2025/blob/kateryna_kravchuk/kateryna_kravchuk/task_06/task_06.md#advanced-task-2), but without filtering out other non-relevant information).  
+Make a file with all columns from *user_data.txt* (as in [advanced task 1](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_06/task_06.md#advanced-task--1), but without filtering out other non-relevant information).  
 
 ```bash
 grep -oP '.*,\s[[:alpha:]]+,\s([\w.-]+@\w+\.com),\s([[:alnum:]]+)$' user_data_task2.txt > week_passwords_simple.txt
