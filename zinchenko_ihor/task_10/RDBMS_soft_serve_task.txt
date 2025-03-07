@@ -1,0 +1,187 @@
+zincheis@server:~$ sudo mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 59
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE softserve_database;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> CREATE USER 'sofserve_user'@'%' IDENTIFIED BY 'password';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> GRANT ALL ON sofserve_database.* TO 'sofserve_user'@'%';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+zincheis@server:~$ mariadb -u softserve_user -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'softserve_user'@'localhost' (using password: YES)
+zincheis@server:~$ sudo mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 61
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SELECT User, Host FROM mysql.user;
++---------------+-----------+
+| User          | Host      |
++---------------+-----------+
+| sofserve_user | %         |
+| backup_user   | localhost |
+| mariadb.sys   | localhost |
+| mysql         | localhost |
+| root          | localhost |
++---------------+-----------+
+5 rows in set (0.001 sec)
+
+zincheis@server:~$ cd /etc/mysql/mariadb.conf.d/
+zincheis@server:/etc/mysql/mariadb.conf.d$ ll
+total 28
+drwxr-xr-x 2 root root 4096 Mar  7 11:11 ./
+drwxr-xr-x 4 root root 4096 Mar  7 11:11 ../
+-rw-r--r-- 1 root root  575 May 25  2024 50-client.cnf
+-rw-r--r-- 1 root root  231 May 25  2024 50-mysql-clients.cnf
+-rw-r--r-- 1 root root  927 May 25  2024 50-mysqld_safe.cnf
+-rw-r--r-- 1 root root 3572 May 25  2024 50-server.cnf
+-rw-r--r-- 1 root root  570 May 25  2024 60-galera.cnf
+zincheis@server:/etc/mysql/mariadb.conf.d$ sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+zincheis@server:/etc/mysql/mariadb.conf.d$ sudo systemctl restart mariadb
+zincheis@server:/etc/mysql/mariadb.conf.d$ sudo systemctl status mariadb
+● mariadb.service - MariaDB 10.6.18 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2025-03-07 12:11:17 UTC; 6s ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 3838 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /var/run/mysqld (cod>
+    Process: 3840 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (co>
+    Process: 3842 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] && VAR= ||   VAR=`c>
+    Process: 3882 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (c>
+    Process: 3885 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0/SUCCESS)
+   Main PID: 3871 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 13 (limit: 14685)
+     Memory: 61.0M
+        CPU: 341ms
+     CGroup: /system.slice/mariadb.service
+             └─3871 /usr/sbin/mariadbd
+
+Mar 07 12:11:17 server mariadbd[3871]: 2025-03-07 12:11:17 0 [Note] InnoDB: Buffer pool(s) load>
+Mar 07 12:11:17 server systemd[1]: Started MariaDB 10.6.18 database server.
+Mar 07 12:11:17 server /etc/mysql/debian-start[3887]: Upgrading MySQL tables if necessary.
+Mar 07 12:11:17 server /etc/mysql/debian-start[3890]: Looking for 'mariadb' as: /usr/bin/mariadb
+Mar 07 12:11:17 server /etc/mysql/debian-start[3890]: Looking for 'mariadb-check' as: /usr/bin/>
+Mar 07 12:11:17 server /etc/mysql/debian-start[3890]: This installation of MariaDB is already u>
+Mar 07 12:11:17 server /etc/mysql/debian-start[3890]: There is no need to run mysql_upgrade aga>
+Mar 07 12:11:17 server /etc/mysql/debian-start[3890]: You can use --force if you still want to >
+Mar 07 12:11:17 server /etc/mysql/debian-start[3898]: Checking for insecure root accounts.
+Mar 07 12:11:17 server /etc/mysql/debian-start[3902]: Triggering myisam-recover for all MyISAM >
+lines 1-28/28 (END)
+
+
+zincheis@server:~$ sudo mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 36
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON softserve_database.* TO 'softserve_user'@'%' IDENTIFIED BY 'password';
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+zincheis@server:~$ mariadb -u softserve_user -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 38
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+MariaDB [(none)]> exit
+Bye
+
+zincheis@server:~$ mariadb -u softserve_user -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 33
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| softserve_database |
++--------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [(none)]>
+MariaDB [(none)]> exit
+Bye
+
+
+
+MariaDB [softserve_database]>  INSERT INTO Users (name, email) 
+VALUES
+  ('user1', 'user1@example.com'),
+  ('user2', 'user2@example.com'),
+  ('user3', 'user3@example.com'),
+  ('user4', 'user4@example.com'),
+  ('user5', 'user5@example.com');
+
+ 
+MariaDB [softserve_database]>  INSERT INTO Products (product_name, price) 
+VALUES
+  ('Product A', 100.00),
+  ('Product B', 200.00),
+  ('Product C', 150.00),
+  ('Product D', 250.00),
+  ('Product E', 300.00);
+
+MariaDB [softserve_database]> SELECT * FROM Users;
++----+-------+-------------------+
+| id | name  | email             |
++----+-------+-------------------+
+|  1 | user1 | user1@example.com |
+|  2 | user2 | user2@example.com |
+|  3 | user3 | user3@example.com |
+|  4 | user4 | user4@example.com |
+|  5 | user5 | user5@example.com |
++----+-------+-------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [softserve_database]> SELECT * FROM Products;
++----+--------------+--------+
+| id | product_name | price  |
++----+--------------+--------+
+|  1 | Product A    | 100.00 |
+|  2 | Product B    | 200.00 |
+|  3 | Product C    | 150.00 |
+|  4 | Product D    | 250.00 |
+|  5 | Product E    | 300.00 |
++----+--------------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [softserve_database]>
+

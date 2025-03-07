@@ -1,0 +1,56 @@
+ubuntu $ docker pull mysql:latest
+latest: Pulling from library/mysql
+43759093d4f6: Pull complete 
+d255dceb9ed5: Pull complete 
+23d22e42ea50: Pull complete 
+431b106548a3: Pull complete 
+2be0d473cadf: Pull complete 
+f56a22f949f9: Pull complete 
+277ab5f6ddde: Pull complete 
+df1ba1ac457a: Pull complete 
+cc9646b08259: Pull complete 
+893b018337e2: Pull complete 
+Digest: sha256:146682692a3aa409eae7b7dc6a30f637c6cb49b6ca901c2cd160becc81127d3b
+Status: Downloaded newer image for mysql:latest
+docker.io/library/mysql:latest
+ubuntu $ 
+
+ubuntu $ docker run --name my-own-mysql -e MYSQL_ROOT_PASSWORD=mypass123 -d mysql:latest
+730f23a8556a7a2543b999680ac9deb18c822731326793e3674efb59340e6120
+ubuntu $ docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                 NAMES
+730f23a8556a   mysql:latest   "docker-entrypoint.s…"   14 seconds ago   Up 13 seconds   3306/tcp, 33060/tcp   my-own-mysql
+ubuntu $ docker pull phpmyadmin/phpmyadmin:latest
+latest: Pulling from phpmyadmin/phpmyadmin
+af302e5c37e9: Pull complete 
+71a74ed03dab: Pull complete 
+3ef8d0774deb: Pull complete 
+11d17388a3b8: Pull complete 
+0814cbbf72a2: Pull complete 
+3a28acedadf8: Pull complete 
+2ab7ef40feaf: Pull complete 
+88324ccb20a1: Pull complete 
+ad5f2fca9132: Pull complete 
+9df2a6231627: Pull complete 
+b3207e60ff9a: Pull complete 
+d18c9f420b35: Pull complete 
+673faad72ba8: Pull complete 
+4f4fb700ef54: Pull complete 
+a5c74661bb9e: Pull complete 
+1cf5cbfd971f: Pull complete 
+e92d8472eb26: Pull complete 
+7755344c0dda: Pull complete 
+b0f9dd503cef: Pull complete 
+2ee0fe041682: Pull complete 
+Digest: sha256:95e01f723b5e55fabf16d0473f1df2354c4c6352b35902b51d6a6245e074aee4
+Status: Downloaded newer image for phpmyadmin/phpmyadmin:latest
+docker.io/phpmyadmin/phpmyadmin:latest
+ubuntu $ docker run --name my-own-phpmyadmin -d --link my-own-mysql:db -p 8080:80 phpmyadmin/phpmyadmin
+b3685dd093761034a72e32a42c259ed096fd2307c1466d62108016a243897c6a
+ubuntu $ docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED              STATUS              PORTS                                   NAMES
+b3685dd09376   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   3 seconds ago        Up 1 second         0.0.0.0:8080->80/tcp, :::8080->80/tcp   my-own-phpmyadmin
+730f23a8556a   mysql:latest            "docker-entrypoint.s…"   About a minute ago   Up About a minute   3306/tcp, 33060/tcp                     my-own-mysql
+ubuntu $ 
+
+
