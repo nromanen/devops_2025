@@ -21,3 +21,21 @@ CREATE USER 'sofserve_user'@'%' IDENTIFIED BY 'password';
 GRANT ALL ON sofserve_database.* TO 'sofserve_user'@'%';
 FLUSH PRIVILEGES;
 ```
+### 5. Перевірка доступу користувача до бази даних
+
+- Увійти в MariaDB під створеним користувачем 
+
+mariadb -u sofserve_user -p
+
+- Перевірити, які бази даних бачить користувач
+
+
+SHOW DATABASES;
+
+
+| Database          |
+| ----- |
+| information_schema |
+| sofserve_database |
+
+---
