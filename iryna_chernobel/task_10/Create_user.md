@@ -39,3 +39,4 @@ SHOW DATABASES;
 | sofserve_database |
 
 ---
+## Screanshot: https://drive.google.com/drive/folders/1krA5tl4Dlv7Pd2Nr5ynXOB8P7QXAQWwb?usp=drive_link
