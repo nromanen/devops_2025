@@ -1,4 +1,4 @@
-# Task 07: Assignment Network Basic
+# Task 08: TCP/IP Addressing
 
 > Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)  
 
