@@ -166,4 +166,26 @@ default via 192.168.0.1 dev enp0s3 proto dhcp src 192.168.0.172 metric 100
 
     iryna@ubuntu:~$ sudo netplan apply
 ``` 
-Screanshot: 
+Screanshot: https://drive.google.com/drive/folders/1Me3ZK-cOWo59ij37n4kbfBwavRDLwfPB?usp=drive_link 
+
+## 7. Перезапуск мережевих служб та перевірка брандмауера 
+``` 
+iryna@ubuntu:~$ sudo systemctl restart systemd-networkd
+iryna@ubuntu:~$ sudo ufw status
+Status: inactive
+``` 
+
+## 8. Використання tcpdump для захоплення трафіку 
+``` 
+iryna@ubuntu:~$ sudo tcpdump -i enp0s3
+iryna@ubuntu:~$ sudo tcpdump -i enp0s3 -n
+``` 
+Screanshot :https://drive.google.com/drive/folders/18RkZZ4LYXKVrkU7vRpzE2iDjno6n5sCC?usp=drive_link
+
+ ## 9.  Перегляд системних логів на наявність помилок 
+``` 
+iryna@ubuntu:~$ sudo journalctl -u systemd-networkd --no-pager | grep error
+iryna@ubuntu:~$ sudo tail -n 50 /var/log/syslog
+iryna@ubuntu:~$ sudo cat /var/log/syslog | grep -i network
+``` 
+Screanshot: https://drive.google.com/drive/folders/1aQX26mEZEzoMV2Ws8FvxBWglz0q3Nz0f?usp=drive_link
