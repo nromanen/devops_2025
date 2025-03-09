@@ -110,3 +110,60 @@ tcp             LISTEN           0                4096                          
 Screanshot: https://drive.google.com/drive/folders/1oKxNYzGTYYcVg6YH81nYBXxBPOtmcf3K?usp=drive_link
 
 ## 5. Перевірка DHCP (отримання IP-адреси) та зміна IP-адреси через dhclient
+``` 
+iryna@ubuntu:~$ ip a | grep "inet "
+    inet 127.0.0.1/8 scope host lo
+    inet 192.168.0.174/24 metric 100 brd 192.168.0.255 scope global dynamic enp0s3
+iryna@ubuntu:~$ journalctl -u systemd-networkd | grep DHCP
+iryna@ubuntu:~$ sudo apt install isc-dhcp-client -y
+Reading package lists... Done
+iryna@ubuntu:~$ sudo dhclient -r
+iryna@ubuntu:~$ sudo dhclient
+
+iryna@ubuntu:~$ ip a | grep "inet "
+inet 127.0.0.1/8 scope host lo
+inet 192.168.0.174/24 metric 100 brd 192.168.0.255 scope global dynamic enp0s3
+``` 
+Screanshot: https://drive.google.com/drive/folders/1uygE0mjiyL8N-JobM34qq259q-G1Fs6G?usp=drive_link
+
+## 6. Перевірка конфігураційних файлів та додавання статичної IP-адреси
+``` 
+iryna@ubuntu:~$ sudo cat /etc/netplan/*.yaml
+
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    ethernets:
+        enp0s3:
+            dhcp4: true
+    version: 2
+
+iryna@ubuntu:~$
+network:
+    ethernets:
+        enp0s3:
+            dhcp4: no
+            addresses:
+              - 192.168.0.200/24
+            gateway4: 192.168.0.1
+            nameservers:
+                addresses: [8.8.8.8, 8.8.4.4]
+    version: 2
+
+iryna@ubuntu:~$ ip a | grep "inet "
+inet 127.0.0.1/8 scope host lo
+inet 192.168.0.200/24 brd 192.168.0.255 scope global enp0s3
+inet 192.168.0.172/24 metric 100 brd 192.168.0.255 scope global secondary dynamic enp0s3
+
+iryna@ubuntu:~$ ip route
+default via 192.168.0.1 dev enp0s3 proto static
+default via 192.168.0.1 dev enp0s3 proto dhcp src 192.168.0.172 metric 100
+192.168.0.0/24 dev enp0s3 proto kernel scope link src 192.168.0.200
+192.168.0.1 dev enp0s3 proto dhcp scope link src 192.168.0.172 metric 100
+
+    iryna@ubuntu:~$ sudo netplan apply
+``` 
+Screanshot: 
