@@ -1,0 +1,982 @@
+=== atop snapshot ===
+
+
+ATOP - osboxes     2025/03/08  16:04:16     -----------------     26m35s elapsed
+PRC | sys    8.02s | user   3.21s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      1% | irq       0% | idle     98% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw   177816 | intr 4120269 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 511.8M | vmlim   4.8G |
+PAG | migrate    0 | pgin  133373 | pgout  90594 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read   17043 | write   9258 | avio 0.22 ms |
+DSK |          sda | busy      0% | read   14089 | write   3881 | avio 0.30 ms |
+NET | transport    | tcpi    5385 | tcpo    4885 | udpi     103 | udpo     103 |
+NET | network      | ipi     5523 | ipo     4708 | ipfrw      0 | deliv   5521 |
+NET | enp0s3    0% | pcki    7558 | pcko    4975 | si   27 Kbps | so    6 Kbps |
+NET | lo      ---- | pcki      84 | pcko      84 | si    0 Kbps | so    0 Kbps |
+*** System and Process Activity since Boot ***    Unrestricted view (privileged)
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+      9  5.27s  0.00s  0.00s     0B     0B  36.0K     0B   0% kworker/0:1-ev 
+      1  0.87s  0.97s  0.00s  22.6M  14.3M 423.1M 298.4M   0% systemd        
+   1673  0.28s  1.21s  0.00s 633.9M  39.9M  17.1M  12.2M   0% fwupd          
+   1118  0.19s  0.11s  0.00s  16.0M   6.8M     0B     0B   0% sshd           
+     55  0.22s  0.00s  0.00s     0B     0B 756.0K     0B   0% kworker/u4:4-e 
+    696  0.05s  0.13s  0.00s   7.3M   5.1M   1.1M     0B   0% dbus-daemon    
+     25  0.18s  0.00s  0.00s     0B     0B   1.0M     0B   0% kworker/u4:1-f 
+   1731  0.07s  0.07s  0.00s 308.5M   9.4M 640.0K  32.0K   0% upowerd        
+    305  0.07s  0.06s  0.00s  48.2M  16.0M   1.1M  14.8M   0% systemd-journa 
+     29  0.12s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+    749  0.04s  0.07s  0.00s 108.0M  22.7M  14.3M     0B   0% unattended-upg 
+    336  0.07s  0.02s  0.00s 280.6M  24.9M   2.0M     0B   0% multipathd     
+    707  0.05s  0.04s  0.00s  16.9M   8.6M 308.0K     0B   0% systemd-logind 
+     17  0.09s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+    701  0.04s  0.04s  0.00s 298.7M   7.3M 824.0K     0B   0% polkitd        
+    709  0.04s  0.03s  0.00s 457.3M  13.3M   5.7M     0B   0% udisksd        
+    980  0.02s  0.05s  0.00s  19.7M  11.3M 628.0K     0B   0% systemd        
+    382  0.02s  0.05s  0.00s  29.4M   8.0M  17.7M     0B   0% systemd-udevd  
+     16  0.04s  0.03s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     31  0.00s  0.07s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+    563  0.02s  0.04s  0.00s  20.7M  12.6M   4.7M     0B   0% systemd-resolv 
+    761  0.04s  0.02s  0.00s 380.7M  12.1M   5.6M     0B   0% ModemManager   
+   1119  0.03s  0.03s  0.00s   9.2M   6.1M   5.3M  12.0K   0% bash           
+   1904  0.02s  0.03s  0.00s  12.2M  12.1M 280.0K  24.0K   0% atop           
+     45  0.05s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+    564  0.02s  0.02s  0.00s  88.1M   7.5M 204.0K     0B   0% systemd-timesy 
+    991  0.01s  0.03s  0.00s   9.2M   6.0M   2.7M     0B   0% bash           
+    765  0.01s  0.03s  0.00s 214.9M   5.5M   1.0M 304.0K   0% rsyslogd       
+    232  0.03s  0.00s  0.00s     0B     0B     0B   9.1M   0% jbd2/dm-0-8    
+    540  0.01s  0.01s  0.00s  17.8M   9.4M   2.0M     0B   0% systemd-networ 
+   2320  0.01s  0.01s  0.00s   9.4M   6.3M 400.0K  60.0K   0% bash           
+    842  0.01s  0.01s  0.00s   8.1M   5.5M  12.2M   4.0K   0% login          
+   2214  0.01s  0.00s  0.00s 364.8M  20.9M     0B     0B   0% packagekitd    
+   1069  0.00s  0.01s  0.00s  15.8M  10.6M  40.0K   8.0K   0% sshd           
+   2287  0.00s  0.01s  0.00s   9.1M   6.0M     0B     0B   0% bash           
+   2301  0.00s  0.01s  0.00s   9.1M   6.0M  48.0K     0B   0% bash           
+   1809  0.01s  0.00s  0.00s   2.7M   1.3M     0B     0B   0% atopacctd      
+     50  0.01s  0.00s  0.00s     0B     0B     0B     0B   0% scsi_eh_0      
+   2353  0.00s  0.00s  0.00s  10.9M  10.8M     0B     0B   0% atop           
+    829  0.00s  0.00s  0.00s  13.0M   8.1M     0B     0B   0% sshd           
+   2351  0.00s  0.00s  0.00s  17.9M   7.1M     0B     0B   0% sudo           
+    840  0.00s  0.00s  0.00s  15.1M   4.6M     0B     0B   0% nginx          
+   2350  0.00s  0.00s  0.00s   9.4M   4.3M     0B   4.0K   0% bash           
+   2286  0.00s  0.00s  0.00s   9.2M   3.9M     0B     0B   0% bash           
+   2300  0.00s  0.00s  0.00s   9.1M   3.9M     0B     0B   0% bash           
+   2319  0.00s  0.00s  0.00s   9.1M   3.8M     0B     0B   0% bash           
+    981  0.00s  0.00s  0.00s  19.7M   3.4M     0B     0B   0% (sd-pam)       
+    809  0.00s  0.00s  0.00s   6.8M   2.8M  88.0K     0B   0% cron           
+   2352  0.00s  0.00s  0.00s  17.9M   2.4M     0B     0B   0% sudo           
+    839  0.00s  0.00s  0.00s  13.4M   1.9M     0B     0B   0% nginx          
+      2  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kthreadd       
+      3  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% pool_workqueue 
+      4  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-rcu_ 
+      5  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-sync 
+      6  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-slub 
+      7  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-netn 
+     12  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-mm_p 
+     13  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_tasks_kthr 
+     14  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_tasks_rude 
+     15  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_tasks_trac 
+     18  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_exp_par_gp 
+     19  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_exp_gp_kth 
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     21  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% idle_inject/0  
+     22  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% cpuhp/0        
+     23  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kdevtmpfs      
+     24  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-inet 
+     26  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kauditd        
+     27  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% khungtaskd     
+     28  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% oom_reaper     
+     30  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-writ 
+     32  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksmd           
+     33  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% khugepaged     
+     34  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kint 
+     35  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kblo 
+     36  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-blkc 
+     37  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% irq/9-acpi     
+     38  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-tpm_ 
+     39  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-ata_ 
+     40  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-md   
+     41  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-md_b 
+     42  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-edac 
+     43  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-devf 
+     44  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% watchdogd      
+     46  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kswapd0        
+     47  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ecryptfs-kthre 
+     48  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kthr 
+     49  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-acpi 
+     51  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-scsi 
+     52  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% scsi_eh_1      
+     53  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-scsi 
+     56  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-mld  
+     57  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-ipv6 
+     65  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kstr 
+     67  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u5:0   
+     73  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-cryp 
+     82  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-char 
+    145  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% scsi_eh_2      
+    146  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-scsi 
+    147  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% scsi_eh_3      
+    148  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-scsi 
+    160  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kdmf 
+    189  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-raid 
+    233  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-ext4 
+    331  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kmpa 
+    332  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-kmpa 
+    384  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% psimon         
+    430  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:2H   
+    474  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% irq/18-vmwgfx  
+    477  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-ttm  
+    493  0.00s  0.00s  0.00s     0B     0B     0B  32.0K   0% jbd2/sda2-8    
+    495  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-ext4 
+    600  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-cfg8 
+   1036  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/R-tls- 
+   1865  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% psimon         
+   2008  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:0-f 
+   2010  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:0-cg 
+   2167  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:2-cg 
+
+
+ATOP - osboxes      2025/03/08  16:04:17      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      1 |
+CPU | sys       0% | user      0% | irq       0% | idle    100% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       75 | intr    2888 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 512.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+NET | transport    | tcpi       1 | tcpo       1 | udpi       0 | udpo       0 |
+NET | network      | ipi        1 | ipo        1 | ipfrw      0 | deliv      1 |
+NET | enp0s3    0% | pcki       1 | pcko       1 | si    0 Kbps | so    1 Kbps |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s 320.0K 312.0K     0B   8.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2214  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% packagekitd    
+    305  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% systemd-journa 
+   2351  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sudo           
+   1118  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sshd           
+   1809  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atopacctd      
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-f 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-f 
+   2354  0.00s  0.00s      -     0K     0K      -      -   0% <atop>         
+
+
+ATOP - osboxes      2025/03/08  16:04:18      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.01s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       54 | intr    2811 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 512.5M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.00s  0.01s  0.00s  36.0K -20.0K     0B   4.0K   1% atop           
+     17  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% rcu_preempt    
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:19      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      1% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       52 | intr    2881 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 512.5M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2353  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atop           
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+
+
+ATOP - osboxes      2025/03/08  16:04:20      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.02s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       2% | user      1% | irq       0% | idle     97% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       82 | intr    2519 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.01s  0.00s     0B     0B     0B     0B   2% atop           
+   1904  0.00s  0.01s  0.00s 696.0K 696.0K     0B  20.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+    709  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% udisksd        
+   1731  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% upowerd        
+    701  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% polkitd        
+    696  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% dbus-daemon    
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-e 
+
+
+ATOP - osboxes      2025/03/08  16:04:21      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      1% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       51 | intr    2693 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B   4.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     27  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% khungtaskd     
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:22      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       76 | intr    2835 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout     14 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write     12 | avio 0.25 ms |
+DSK |          sda | busy      0% | read       0 | write      4 | avio 0.75 ms |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2214  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% packagekitd    
+   2353  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atop           
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-f 
+    232  0.00s  0.00s  0.00s     0B     0B     0B   4.0K   0% jbd2/dm-0-8    
+
+
+ATOP - osboxes      2025/03/08  16:04:23      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       83 | intr    2797 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+NET | transport    | tcpi       6 | tcpo       3 | udpi       0 | udpo       0 |
+NET | network      | ipi        6 | ipo        3 | ipfrw      0 | deliv      6 |
+NET | enp0s3    0% | pcki       6 | pcko       3 | si    4 Kbps | so    2 Kbps |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B   8.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2351  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sudo           
+   1118  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sshd           
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:24      -----------------       1s elapsed
+PRC | sys    0.02s | user   0.01s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       68 | intr    2721 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+NET | transport    | tcpi       2 | tcpo       1 | udpi       0 | udpo       0 |
+NET | network      | ipi        2 | ipo        1 | ipfrw      0 | deliv      2 |
+NET | enp0s3    0% | pcki       2 | pcko       1 | si    1 Kbps | so    0 Kbps |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.01s  0.00s     0B     0B     0B     0B   2% atop           
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+    709  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% udisksd        
+    701  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% polkitd        
+   2351  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sudo           
+   1118  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sshd           
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:25      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      1% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       59 | intr    2802 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout      5 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write      2 | avio  0.0 ns |
+DSK |          sda | busy      0% | read       0 | write      2 | avio  0.0 ns |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+     29  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/u4:2-e 
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2353  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atop           
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-f 
+
+
+ATOP - osboxes      2025/03/08  16:04:26      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       48 | intr    2874 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B   4.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:27      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    49 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     98% | wait      1% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       98 | intr    2903 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout     42 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write     37 | avio 0.11 ms |
+DSK |          sda | busy      0% | read       0 | write     31 | avio 0.13 ms |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2214  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% packagekitd    
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-w 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-w 
+    232  0.00s  0.00s  0.00s     0B     0B     0B   8.0K   0% jbd2/dm-0-8    
+
+
+ATOP - osboxes      2025/03/08  16:04:28      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.01s | #proc    118 | #tidle    49 | #exit      0 |
+CPU | sys       0% | user      0% | irq       0% | idle    100% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       62 | intr    2912 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout      4 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write      2 | avio  0.0 ns |
+DSK |          sda | busy      0% | read       0 | write      2 | avio  0.0 ns |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.00s  0.01s  0.00s     0B     0B     0B   4.0K   1% atop           
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+    709  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% udisksd        
+    701  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% polkitd        
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:29      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       55 | intr    2794 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+NET | network      | ipi        1 | ipo        0 | ipfrw      0 | deliv      1 |
+NET | enp0s3    0% | pcki       1 | pcko       0 | si    0 Kbps | so    0 Kbps |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B   4.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:30      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      1% | irq       0% | idle     98% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       50 | intr    2828 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-e 
+
+
+ATOP - osboxes      2025/03/08  16:04:31      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      0% | irq       0% | idle    100% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       56 | intr    2928 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+NET | transport    | tcpi       2 | tcpo       1 | udpi       0 | udpo       0 |
+NET | network      | ipi        2 | ipo        1 | ipfrw      0 | deliv      2 |
+NET | enp0s3    0% | pcki       2 | pcko       1 | si    1 Kbps | so    0 Kbps |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2353  0.00s  0.00s  0.00s     0B     0B     0B   4.0K   0% atop           
+   2351  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sudo           
+   1118  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% sshd           
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-e 
+
+
+ATOP - osboxes      2025/03/08  16:04:32      -----------------       1s elapsed
+PRC | sys    0.00s | user   0.00s | #proc    118 | #tidle    49 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       53 | intr    2860 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2214  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% packagekitd    
+    709  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% udisksd        
+   2353  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atop           
+    701  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% polkitd        
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-f 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:33      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.01s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       64 | intr    2799 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout      7 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write      8 | avio 0.38 ms |
+DSK |          sda | busy      0% | read       0 | write      3 | avio 1.00 ms |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.01s  0.00s     0B     0B     0B   4.0K   2% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+    232  0.00s  0.00s  0.00s     0B     0B     0B  16.0K   0% jbd2/dm-0-8    
+
+
+ATOP - osboxes      2025/03/08  16:04:34      -----------------       1s elapsed
+PRC | sys    0.02s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      1% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       52 | intr    2620 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout      3 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write      2 | avio  0.0 ns |
+DSK |          sda | busy      0% | read       0 | write      1 | avio  0.0 ns |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% atop           
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:35      -----------------       1s elapsed
+PRC | sys    0.00s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       1% | idle     98% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       58 | intr    2931 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2353  0.00s  0.00s  0.00s     0B     0B     0B   4.0K   0% atop           
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+     55  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:4-e 
+
+
+ATOP - osboxes      2025/03/08  16:04:36      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.01s | #proc    118 | #tidle    49 | #exit      0 |
+CPU | sys       0% | user      0% | irq       0% | idle    100% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       55 | intr    2827 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.01s  0.00s     0B     0B     0B   4.0K   2% atop           
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      1  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% systemd        
+    709  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% udisksd        
+    540  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% systemd-networ 
+    701  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% polkitd        
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     16  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% ksoftirqd/0    
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:37      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    49 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       57 | intr    2920 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2214  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% packagekitd    
+   2353  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atop           
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-f 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:38      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      1% | irq       0% | idle     98% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       52 | intr    2873 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B   4.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:39      -----------------       1s elapsed
+PRC | sys    0.00s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       60 | intr    2665 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout      5 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write      6 | avio 0.67 ms |
+DSK |          sda | busy      0% | read       0 | write      3 | avio 1.33 ms |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2353  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% atop           
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+     45  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1H-k 
+    232  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% jbd2/dm-0-8    
+
+
+ATOP - osboxes      2025/03/08  16:04:40      -----------------       1s elapsed
+PRC | sys    0.02s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      0% | irq       0% | idle    100% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       58 | intr    2657 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PAG | migrate    0 | pgin       0 | pgout      3 | swout      0 | oomkill    0 |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+LVM | g-ubuntu--lv | busy      0% | read       0 | write      2 | avio  0.0 ns |
+DSK |          sda | busy      0% | read       0 | write      1 | avio  0.0 ns |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% atop           
+      9  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% kworker/0:1-ev 
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+    709  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% udisksd        
+    701  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% polkitd        
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:41      -----------------       1s elapsed
+PRC | sys    0.00s | user   0.01s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       1% | user      0% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       50 | intr    2828 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.00s  0.01s  0.00s     0B     0B     0B   8.0K   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     25  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:1-e 
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+
+ATOP - osboxes      2025/03/08  16:04:42      -----------------       1s elapsed
+PRC | sys    0.01s | user   0.00s | #proc    118 | #tidle    50 | #exit      0 |
+CPU | sys       0% | user      1% | irq       0% | idle     99% | wait      0% |
+CPL | numcpu     1 | avg1    0.00 | avg5    0.00 | csw       52 | intr    2905 |
+MEM | tot     1.6G | free  845.3M | avail   1.2G | cache 507.7M | slab   79.0M |
+MEM | numnode    1 | shmem   1.2M | shrss   0.0M | shswp   0.0M | pgtab   3.9M |
+SWP | tot     4.0G | free    4.0G | swcac   0.0M | vmcom 513.2M | vmlim   4.8G |
+PSI | cpusome   0% | memsome   0% | memfull   0% | iosome    0% | iofull    0% |
+
+    PID SYSCPU USRCPU BDELAY  VGROW  RGROW  RDDSK  WRDSK  CPU CMD            
+   2353  0.01s  0.00s  0.00s     0B     0B     0B     0B   1% atop           
+   1673  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% fwupd          
+    336  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% multipathd     
+   2214  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% packagekitd    
+      9  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/0:1-ev 
+     17  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% rcu_preempt    
+     20  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% migration/0    
+     29  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kworker/u4:2-e 
+     31  0.00s  0.00s  0.00s     0B     0B     0B     0B   0% kcompactd0     
+
+=== htop snapshot ===
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root        1673  0.1  2.4 649164 40908 ?        Ssl  15:44   0:01 /usr/libexec/fwupd/fwupd
+root         336  0.0  1.5 287336 25508 ?        SLsl 15:37   0:00 /sbin/multipathd -d -s
+root         749  0.0  1.3 110560 23244 ?        Ssl  15:37   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root        2214  0.0  1.2 373604 21408 ?        Ssl  15:59   0:00 /usr/libexec/packagekitd
+root         305  0.0  0.9  49380 16336 ?        S<s  15:37   0:00 /usr/lib/systemd/systemd-journald
+root           1  0.1  0.8  23156 14664 ?        Ss   15:37   0:01 /sbin/init
+root         709  0.0  0.8 468256 13596 ?        Ssl  15:37   0:00 /usr/libexec/udisks2/udisksd
+root        1904  0.0  0.7  13200 13124 ?        S<Ls 15:44   0:00 /usr/bin/atop -w /var/log/atop/atop_20250308 600
+systemd+     563  0.0  0.7  21176 12940 ?        Ss   15:37   0:00 /usr/lib/systemd/systemd-resolved
+root         761  0.0  0.7 389864 12360 ?        Ssl  15:37   0:00 /usr/sbin/ModemManager
+osboxes      980  0.0  0.6  20132 11600 ?        Ss   15:37   0:00 /usr/lib/systemd/systemd --user
+root        1069  0.0  0.6  16204 10852 ?        Ss   15:38   0:00 sshd: osboxes [priv]
+root        1731  0.0  0.5 315860  9636 ?        Ssl  15:44   0:00 /usr/libexec/upowerd
+systemd+     540  0.0  0.5  18276  9580 ?        Ss   15:37   0:00 /usr/lib/systemd/systemd-networkd
+root         707  0.0  0.5  17332  8772 ?        Ss   15:37   0:00 /usr/lib/systemd/systemd-logind
+root         829  0.0  0.4  13320  8320 ?        Ss   15:37   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         382  0.0  0.4  30156  8200 ?        Ss   15:37   0:00 /usr/lib/systemd/systemd-udevd
+systemd+     564  0.0  0.4  90204  7692 ?        Ssl  15:37   0:00 /usr/lib/systemd/systemd-timesyncd
+polkitd      701  0.0  0.4 305856  7484 ?        Ssl  15:37   0:00 /usr/lib/polkit-1/polkitd --no-debug
+osboxes     1118  0.0  0.4  16364  6932 ?        S    15:38   0:00 sshd: osboxes@pts/0
+osboxes     2320  0.0  0.3   9628  6424 pts/0    S    16:01   0:00 bash
+osboxes     1119  0.0  0.3   9396  6248 pts/0    Ss   15:38   0:00 -bash
+osboxes      991  0.0  0.3   9404  6184 tty1     S+   15:37   0:00 -bash
+osboxes     2287  0.0  0.3   9364  6168 pts/0    S    16:01   0:00 bash
+osboxes     2301  0.0  0.3   9364  6144 pts/0    S    16:01   0:00 bash
+root         842  0.0  0.3   8296  5664 tty1     Ss   15:37   0:00 /bin/login -p --
+syslog       765  0.0  0.3 220088  5644 ?        Ssl  15:37   0:00 /usr/sbin/rsyslogd -n -iNONE
+message+     696  0.0  0.3   7496  5192 ?        Ss   15:37   0:00 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+www-data     840  0.0  0.2  15496  4716 ?        S    15:37   0:00 nginx: worker process
+osboxes     2350  0.0  0.2   9628  4392 pts/0    S+   16:04   0:00 bash
+osboxes     2355  0.0  0.2   8428  4204 pts/0    R+   16:04   0:00 ps aux --sort=-%mem
+osboxes     2286  0.0  0.2   9396  4024 pts/0    S    16:01   0:00 -bash
+osboxes     2300  0.0  0.2   9364  3960 pts/0    S    16:01   0:00 bash
+osboxes     2319  0.0  0.2   9364  3916 pts/0    S    16:01   0:00 bash
+osboxes      981  0.0  0.2  20168  3456 ?        S    15:37   0:00 (sd-pam)
+root         809  0.0  0.1   6924  2872 ?        Ss   15:37   0:00 /usr/sbin/cron -f -P
+root         839  0.0  0.1  13756  1912 ?        Ss   15:37   0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+root        1809  0.0  0.0   2756  1304 ?        S<   15:44   0:00 /usr/sbin/atopacctd
+root           2  0.0  0.0      0     0 ?        S    15:37   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    15:37   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-slub_flushwq]
+root           7  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-netns]
+root           9  0.3  0.0      0     0 ?        I    15:37   0:05 [kworker/0:1-events]
+root          12  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-mm_percpu_wq]
+root          13  0.0  0.0      0     0 ?        I    15:37   0:00 [rcu_tasks_kthread]
+root          14  0.0  0.0      0     0 ?        I    15:37   0:00 [rcu_tasks_rude_kthread]
+root          15  0.0  0.0      0     0 ?        I    15:37   0:00 [rcu_tasks_trace_kthread]
+root          16  0.0  0.0      0     0 ?        S    15:37   0:00 [ksoftirqd/0]
+root          17  0.0  0.0      0     0 ?        I    15:37   0:00 [rcu_preempt]
+root          18  0.0  0.0      0     0 ?        S    15:37   0:00 [rcu_exp_par_gp_kthread_worker/0]
+root          19  0.0  0.0      0     0 ?        S    15:37   0:00 [rcu_exp_gp_kthread_worker]
+root          20  0.0  0.0      0     0 ?        S    15:37   0:00 [migration/0]
+root          21  0.0  0.0      0     0 ?        S    15:37   0:00 [idle_inject/0]
+root          22  0.0  0.0      0     0 ?        S    15:37   0:00 [cpuhp/0]
+root          23  0.0  0.0      0     0 ?        S    15:37   0:00 [kdevtmpfs]
+root          24  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-inet_frag_wq]
+root          25  0.0  0.0      0     0 ?        I    15:37   0:00 [kworker/u4:1-events_unbound]
+root          26  0.0  0.0      0     0 ?        S    15:37   0:00 [kauditd]
+root          27  0.0  0.0      0     0 ?        S    15:37   0:00 [khungtaskd]
+root          28  0.0  0.0      0     0 ?        S    15:37   0:00 [oom_reaper]
+root          29  0.0  0.0      0     0 ?        I    15:37   0:00 [kworker/u4:2-events_unbound]
+root          30  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-writeback]
+root          31  0.0  0.0      0     0 ?        S    15:37   0:00 [kcompactd0]
+root          32  0.0  0.0      0     0 ?        SN   15:37   0:00 [ksmd]
+root          33  0.0  0.0      0     0 ?        SN   15:37   0:00 [khugepaged]
+root          34  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kintegrityd]
+root          35  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kblockd]
+root          36  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-blkcg_punt_bio]
+root          37  0.0  0.0      0     0 ?        S    15:37   0:00 [irq/9-acpi]
+root          38  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-tpm_dev_wq]
+root          39  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-ata_sff]
+root          40  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-md]
+root          41  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-md_bitmap]
+root          42  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-edac-poller]
+root          43  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-devfreq_wq]
+root          44  0.0  0.0      0     0 ?        S    15:37   0:00 [watchdogd]
+root          45  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/0:1H-kblockd]
+root          46  0.0  0.0      0     0 ?        S    15:37   0:00 [kswapd0]
+root          47  0.0  0.0      0     0 ?        S    15:37   0:00 [ecryptfs-kthread]
+root          48  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kthrotld]
+root          49  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-acpi_thermal_pm]
+root          50  0.0  0.0      0     0 ?        S    15:37   0:00 [scsi_eh_0]
+root          51  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-scsi_tmf_0]
+root          52  0.0  0.0      0     0 ?        S    15:37   0:00 [scsi_eh_1]
+root          53  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-scsi_tmf_1]
+root          55  0.0  0.0      0     0 ?        I    15:37   0:00 [kworker/u4:4-events_power_efficient]
+root          56  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-mld]
+root          57  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-ipv6_addrconf]
+root          65  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kstrp]
+root          67  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/u5:0]
+root          73  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-cryptd]
+root          82  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-charger_manager]
+root         145  0.0  0.0      0     0 ?        S    15:37   0:00 [scsi_eh_2]
+root         146  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-scsi_tmf_2]
+root         147  0.0  0.0      0     0 ?        S    15:37   0:00 [scsi_eh_3]
+root         148  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-scsi_tmf_3]
+root         160  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kdmflush/252:0]
+root         189  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-raid5wq]
+root         232  0.0  0.0      0     0 ?        S    15:37   0:00 [jbd2/dm-0-8]
+root         233  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-ext4-rsv-conversion]
+root         331  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kmpathd]
+root         332  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-kmpath_handlerd]
+root         384  0.0  0.0      0     0 ?        S    15:37   0:00 [psimon]
+root         430  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/0:2H]
+root         474  0.0  0.0      0     0 ?        S    15:37   0:00 [irq/18-vmwgfx]
+root         477  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-ttm]
+root         493  0.0  0.0      0     0 ?        S    15:37   0:00 [jbd2/sda2-8]
+root         495  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-ext4-rsv-conversion]
+root         600  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-cfg80211]
+root        1036  0.0  0.0      0     0 ?        I<   15:37   0:00 [kworker/R-tls-strp]
+root        1865  0.0  0.0      0     0 ?        S    15:44   0:00 [psimon]
+root        2008  0.0  0.0      0     0 ?        I    15:48   0:00 [kworker/u4:0-flush-252:0]
+root        2010  0.0  0.0      0     0 ?        I    15:49   0:00 [kworker/0:0-cgroup_destroy]
+root        2167  0.0  0.0      0     0 ?        I    15:59   0:00 [kworker/0:2-cgroup_destroy]
+
+=== btop snapshot ===
+    PID CMD                         %MEM %CPU
+   1673 /usr/libexec/fwupd/fwupd     2.4  0.1
+    336 /sbin/multipathd -d -s       1.5  0.0
+    749 /usr/bin/python3 /usr/share  1.3  0.0
+   2214 /usr/libexec/packagekitd     1.2  0.0
+    305 /usr/lib/systemd/systemd-jo  0.9  0.0
+      1 /sbin/init                   0.8  0.1
+    709 /usr/libexec/udisks2/udisks  0.8  0.0
+   1904 /usr/bin/atop -w /var/log/a  0.7  0.0
+    563 /usr/lib/systemd/systemd-re  0.7  0.0
+    761 /usr/sbin/ModemManager       0.7  0.0
+    980 /usr/lib/systemd/systemd --  0.6  0.0
+   1069 sshd: osboxes [priv]         0.6  0.0
+   1731 /usr/libexec/upowerd         0.5  0.0
+    540 /usr/lib/systemd/systemd-ne  0.5  0.0
+    707 /usr/lib/systemd/systemd-lo  0.5  0.0
+    829 sshd: /usr/sbin/sshd -D [li  0.4  0.0
+    382 /usr/lib/systemd/systemd-ud  0.4  0.0
+    564 /usr/lib/systemd/systemd-ti  0.4  0.0
+    701 /usr/lib/polkit-1/polkitd -  0.4  0.0
+   1118 sshd: osboxes@pts/0          0.4  0.0
+   2320 bash                         0.3  0.0
+   1119 -bash                        0.3  0.0
+    991 -bash                        0.3  0.0
+   2287 bash                         0.3  0.0
+   2301 bash                         0.3  0.0
+    842 /bin/login -p --             0.3  0.0
+    765 /usr/sbin/rsyslogd -n -iNON  0.3  0.0
+    696 @dbus-daemon --system --add  0.3  0.0
+    840 nginx: worker process        0.2  0.0
+   2286 -bash                        0.2  0.0
+   2300 bash                         0.2  0.0
+   2319 bash                         0.2  0.0
+   2350 ps -eo pid,cmd,%mem,%cpu --  0.2  0.0
+    981 (sd-pam)                     0.2  0.0
+    809 /usr/sbin/cron -f -P         0.1  0.0
+    839 nginx: master process /usr/  0.1  0.0
+   1809 /usr/sbin/atopacctd          0.0  0.0
+      2 [kthreadd]                   0.0  0.0
+      3 [pool_workqueue_release]     0.0  0.0
+      4 [kworker/R-rcu_gp]           0.0  0.0
+      5 [kworker/R-sync_wq]          0.0  0.0
+      6 [kworker/R-slub_flushwq]     0.0  0.0
+      7 [kworker/R-netns]            0.0  0.0
+      9 [kworker/0:1-events]         0.0  0.3
+     12 [kworker/R-mm_percpu_wq]     0.0  0.0
+     13 [rcu_tasks_kthread]          0.0  0.0
+     14 [rcu_tasks_rude_kthread]     0.0  0.0
+     15 [rcu_tasks_trace_kthread]    0.0  0.0
+     16 [ksoftirqd/0]                0.0  0.0
+     17 [rcu_preempt]                0.0  0.0
+     18 [rcu_exp_par_gp_kthread_wor  0.0  0.0
+     19 [rcu_exp_gp_kthread_worker]  0.0  0.0
+     20 [migration/0]                0.0  0.0
+     21 [idle_inject/0]              0.0  0.0
+     22 [cpuhp/0]                    0.0  0.0
+     23 [kdevtmpfs]                  0.0  0.0
+     24 [kworker/R-inet_frag_wq]     0.0  0.0
+     25 [kworker/u4:1-events_unboun  0.0  0.0
+     26 [kauditd]                    0.0  0.0
+     27 [khungtaskd]                 0.0  0.0
+     28 [oom_reaper]                 0.0  0.0
+     29 [kworker/u4:2-events_unboun  0.0  0.0
+     30 [kworker/R-writeback]        0.0  0.0
+     31 [kcompactd0]                 0.0  0.0
+     32 [ksmd]                       0.0  0.0
+     33 [khugepaged]                 0.0  0.0
+     34 [kworker/R-kintegrityd]      0.0  0.0
+     35 [kworker/R-kblockd]          0.0  0.0
+     36 [kworker/R-blkcg_punt_bio]   0.0  0.0
+     37 [irq/9-acpi]                 0.0  0.0
+     38 [kworker/R-tpm_dev_wq]       0.0  0.0
+     39 [kworker/R-ata_sff]          0.0  0.0
+     40 [kworker/R-md]               0.0  0.0
+     41 [kworker/R-md_bitmap]        0.0  0.0
+     42 [kworker/R-edac-poller]      0.0  0.0
+     43 [kworker/R-devfreq_wq]       0.0  0.0
+     44 [watchdogd]                  0.0  0.0
+     45 [kworker/0:1H-kblockd]       0.0  0.0
+     46 [kswapd0]                    0.0  0.0
+     47 [ecryptfs-kthread]           0.0  0.0
+     48 [kworker/R-kthrotld]         0.0  0.0
+     49 [kworker/R-acpi_thermal_pm]  0.0  0.0
+     50 [scsi_eh_0]                  0.0  0.0
+     51 [kworker/R-scsi_tmf_0]       0.0  0.0
+     52 [scsi_eh_1]                  0.0  0.0
+     53 [kworker/R-scsi_tmf_1]       0.0  0.0
+     55 [kworker/u4:4-events_power_  0.0  0.0
+     56 [kworker/R-mld]              0.0  0.0
+     57 [kworker/R-ipv6_addrconf]    0.0  0.0
+     65 [kworker/R-kstrp]            0.0  0.0
+     67 [kworker/u5:0]               0.0  0.0
+     73 [kworker/R-cryptd]           0.0  0.0
+     82 [kworker/R-charger_manager]  0.0  0.0
+    145 [scsi_eh_2]                  0.0  0.0
+    146 [kworker/R-scsi_tmf_2]       0.0  0.0
+    147 [scsi_eh_3]                  0.0  0.0
+    148 [kworker/R-scsi_tmf_3]       0.0  0.0
+    160 [kworker/R-kdmflush/252:0]   0.0  0.0
+    189 [kworker/R-raid5wq]          0.0  0.0
+    232 [jbd2/dm-0-8]                0.0  0.0
+    233 [kworker/R-ext4-rsv-convers  0.0  0.0
+    331 [kworker/R-kmpathd]          0.0  0.0
+    332 [kworker/R-kmpath_handlerd]  0.0  0.0
+    384 [psimon]                     0.0  0.0
+    430 [kworker/0:2H]               0.0  0.0
+    474 [irq/18-vmwgfx]              0.0  0.0
+    477 [kworker/R-ttm]              0.0  0.0
+    493 [jbd2/sda2-8]                0.0  0.0
+    495 [kworker/R-ext4-rsv-convers  0.0  0.0
+    600 [kworker/R-cfg80211]         0.0  0.0
+   1036 [kworker/R-tls-strp]         0.0  0.0
+   1865 [psimon]                     0.0  0.0
+   2008 [kworker/u4:0-flush-252:0]   0.0  0.0
+   2010 [kworker/0:0-cgroup_destroy  0.0  0.0
+   2167 [kworker/0:2-cgroup_destroy  0.0  0.0
