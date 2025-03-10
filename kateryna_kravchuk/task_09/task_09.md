@@ -5,25 +5,25 @@
 ## Preparation
 
 I will use the previously created virtual machine with Ubuntu Linux Server:  
-    1. Start the virtual machine in VirtualBox.
-    2. Log in to the server.
-    3. Enable SSH:
-        3.1 Run `sudo systemctl status ssh` to check if SSH is already enabled.
-        3.2 If it is not enabled, run `sudo systemctl enable --now ssh`.
-    4. Connect using **PuTTY**:
-        4.1 Run `ip a` to find the server's IP address.
-        4.2 Enter the IP address and port (22) in the PuTTY application.
-        4.3 Log in again through the PuTTY terminal.
+    1. Start the virtual machine in VirtualBox.  
+    2. Log in to the server.  
+    3. Enable SSH:  
+        3.1 Run `sudo systemctl status ssh` to check if SSH is already enabled.  
+        3.2 If it is not enabled, run `sudo systemctl enable --now ssh`.  
+    4. Connect using **PuTTY**:  
+        4.1 Run `ip a` to find the server's IP address.  
+        4.2 Enter the IP address and port (22) in the PuTTY application.  
+        4.3 Log in again through the PuTTY terminal.  
 
 ---
 
-## Tasks and solutions
+## Tasks and solutions  
 
-### 1. Status of the network
+### 1. Status of the network  
 
 Check the status of the network interface. Use `atop`, `htop`, and `btop` utilities to display running processes on your OS.  
 
-#### `atop`
+#### `atop`  
 
 Install it: `sudo apt install atop`.  
   
@@ -32,14 +32,14 @@ This utility dynamically updates running process information and provides detail
   
 To quit utility, press `q`.  
 
-#### `htop`
+#### `htop`  
 
 `sudo apt install htop`  
 `htop`  
   
 This [utility](https://drive.google.com/file/d/1EsnGVFxEABK3HUiND3m0DZk-pdrtlqVz/view?usp=drive_link) has two interfaces: *Main* and *I/O*  providing similar information to `atop` with an interactive display.  
 
-#### `btop`
+#### `btop`  
 
 `sudo apt install btop`  
 `btop`  
@@ -50,13 +50,13 @@ This [utility](https://drive.google.com/file/d/1EsnGVFxEABK3HUiND3m0DZk-pdrtlqVz
 
 ### 2. Ping
 
-1. Ping the localhost with a set of 10 packets, each with a size of 1500 bytes.
-2. Ping an external host by its name and obtain its IP address.
-3. Trace the route to the external host (e.g., softerveinc.com).
+1. Ping the localhost with a set of 10 packets, each with a size of 1500 bytes.  
+2. Ping an external host by its name and obtain its IP address.  
+3. Trace the route to the external host (e.g., softerveinc.com).  
 
 #### `ping`
 
-1. `ping -c 10 -s 1500 127.0.0.1`
+1. `ping -c 10 -s 1500 127.0.0.1`  
 
 ```bash
 PING 127.0.0.1 (127.0.0.1) 1500(1528) bytes of data.
@@ -76,7 +76,7 @@ PING 127.0.0.1 (127.0.0.1) 1500(1528) bytes of data.
 rtt min/avg/max/mdev = 0.027/0.039/0.043/0.004 ms
 ```
 
-2. `ping -c 4 www.google.com`
+2. `ping -c 4 www.google.com`  
 
 ```bash
 PING www.google.com (216.58.215.100) 56(84) bytes of data.
@@ -92,7 +92,7 @@ rtt min/avg/max/mdev = 56.351/96.153/136.013/30.489 ms
 
 The IP address of *[www.google.com](www.google.com)* is displayed in the first line of the output: `216.58.215.100`.  
 
-#### `traceroute`
+#### `traceroute`  
 
 To install command: `sudo apt install inetutils-traceroute`.  
 `traceroute -I softerveinc.com`  
@@ -115,11 +115,11 @@ traceroute to softserveinc.com (45.60.69.61), 64 hops max
 
 The `-I` option forces to use *ICMP* Echo Requests instead of the default *UDP* packets. This can be beneficial because some firewalls block UDP-based traceroute packets while allowing ICMP traffic.  
 
-### 3. DNS
+### 3. DNS  
 
-Check your DNS configuration.
+Check your DNS configuration.  
 
-#### To check the configured DNS servers: `cat /etc/resolv.conf`
+#### To check the configured DNS servers: `cat /etc/resolv.conf`  
 
 ```bash
 nameserver 127.0.0.53
@@ -130,7 +130,7 @@ search .
 This output indicates server is using `systemd-resolved` for DNS resolution.  
 `systemd-resolved` typically listens on `127.0.0.53` (*localhost*) and forwards DNS queries to the external DNS servers.  
 
-#### To manually test DNS resolution: `dig google.com`
+#### To manually test DNS resolution: `dig google.com`  
 
 ```bash
 ; <<>> DiG 9.18.30-0ubuntu0.24.04.2-Ubuntu <<>> google.com
@@ -156,20 +156,20 @@ google.com.             130     IN      A       142.250.186.206
 
 The `dig` (domain information groper) is a flexible tool for querying DNS name servers. It performs DNS lookups and displays the answers that are returned from the queried name server(s).  
 In the **output**:  
-    1. The ANSWER SECTION shows the resolved IP address (`142.250.186.206`) for *google.com*.
-    2. The SERVER field confirms that the query was processed by `127.0.0.53`, meaning `systemd-resolved` is working correctly.
-    3. The *UDP* protocol was used for the query.
+    1. The ANSWER SECTION shows the resolved IP address (`142.250.186.206`) for *google.com*.  
+    2. The SERVER field confirms that the query was processed by `127.0.0.53`, meaning `systemd-resolved` is working correctly.  
+    3. The *UDP* protocol was used for the query.  
 This confirms that the DNS server is functioning properly.  
 
 ---
 
-### 4. Firewall
+### 4. Firewall  
 
-Review the firewall rules (iptables or ufw). List the open ports on your system using netstat and ss.
+Review the firewall rules (iptables or ufw). List the open ports on your system using netstat and ss.  
 
 > Install packages: ... .  
 
-#### `sudo iptables -L -v -n`
+#### `sudo iptables -L -v -n`  
 
 ```bash
 [sudo] password for lians:
@@ -186,13 +186,13 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 
 This **output** indicates no active firewall rules at the moment.  
 
-##### Options for `iptables`
+##### Options for `iptables`  
 
 `-L` lists all rules.  
 `-v` gives verbose output, including packet counts.  
 `-n` displays numeric IP addresses and port numbers (avoids DNS resolution delays).  
 
-#### `sudo ufw status verbose`
+#### `sudo ufw status verbose`  
 
 > `ufw` stands for *Uncomplicated Firewall*  
 
@@ -204,7 +204,7 @@ This output indicates *ufw* is currently disabled.
 
 ---
 
-#### Listening ports by `sudo netstat -tuln`
+#### Listening ports by `sudo netstat -tuln`  
 
 ```bash
 Active Internet connections (only servers)
@@ -218,14 +218,14 @@ udp        0      0 127.0.0.53:53           0.0.0.0:*
 udp        0      0 192.168.1.110:68        0.0.0.0:*
 ```
 
-##### Options for `netstat`
+##### Options for `netstat`  
 
 `-t` shows TCP connections.  
 `-u` shows UDP connections.  
 `-l` shows only listening ports.  
 `-n` shows numerical addresses and ports (instead of resolving them).  
 
-#### Listening ports by `sudo ss -tuln`
+#### Listening ports by `sudo ss -tuln`  
 
 ```bash
 Netid          State           Recv-Q           Send-Q                 Local Address:Port          Peer Address:Port          Process
@@ -241,25 +241,25 @@ tcp            LISTEN          0                128                             
 
 >Options are the same as for `netstat`.  
 
-##### Analysis of listening ports
+##### Analysis of listening ports  
 
 From the above **outputs**, we can see:  
-    1. Port **53** (DNS) is being used by `systemd-resolved` (`127.0.0.53` and `127.0.0.54`).
-    2. Port **22** (SSH) is open on both *IPv4* (`0.0.0.0:22`) and *IPv6* (`:::22`).
+    1. Port **53** (DNS) is being used by `systemd-resolved` (`127.0.0.53` and `127.0.0.54`).  
+    2. Port **22** (SSH) is open on both *IPv4* (`0.0.0.0:22`) and *IPv6* (`:::22`).  
     3. Port **68** (UDP) is used for *DHCP* client communication (`192.168.1.110:68`).  
   
 This means the machine accepts SSH connections, but no additional services are exposed externally.  
 
 ---
 
-### 5. DHCP
+### 5. DHCP  
 
 If you are using DHCP,  
     1. verify that your system is obtaining an IP address correctly.  
     2. Change the IP address using the dhclient command.  
     3. Show the results.  
 
-#### 5.1 Check current configuration
+#### 5.1 Check current configuration  
 
 ##### `ip a`  
 
@@ -278,7 +278,7 @@ If you are using DHCP,
        valid_lft forever preferred_lft forever
 ```
 
-##### `ifconfig`
+##### `ifconfig`  
 
 ```bash
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -301,9 +301,9 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 
 These outputs shows that server is obtaining an IP addresses **via DHCP**, as indicated by the line following *valid_lft*:  
-`valid_lft 83733sec preferred_lft 83733sec`
+`valid_lft 83733sec preferred_lft 83733sec`  
 
-##### `ps aux | grep dhclient`
+##### `ps aux | grep dhclient`  
 
 > To install *dhclient*: `sudo apt install isc-dhcp-client`  
 
@@ -312,9 +312,9 @@ USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 lians       1663  0.0  0.1   6544  2304 pts/0    S+   09:09   0:00 grep --color=auto dhclient
 ```
 
-The **output** implies the DHCP client is not actively requesting an IP address at the moment.
+The **output** implies the DHCP client is not actively requesting an IP address at the moment.  
 
-#### 5.2 `dhcpclient`
+#### 5.2 `dhcpclient`  
 
 1. `sudo dhclient -r` to release IP address.  
 2. `sudo dhclient enp0s3` to obtain a new one.  
@@ -324,9 +324,9 @@ Setting LLMNR support level "yes" for "2", but the global support level is "no".
 Failed to set DNS configuration: Invalid DNS server address
 ```
 
-##### Checking the network configuration file
+##### Checking the network configuration file  
 
-The previous **output** suggests there may be an issue with DNS configuration during the DHCP process. To investigate further, check the network configuration file: `sudo cat /etc/netplan/*.yaml`  
+The previous **output** suggests there may be an issue with DNS configuration during the DHCP process. To investigate further, check the network configuration file: `sudo cat /etc/netplan/*.yaml`.  
 
 ```yaml
 network:
@@ -336,7 +336,7 @@ network:
     version: 2
 ```
 
-##### Troubleshooting
+##### Troubleshooting  
 
 Since `dhcp4: true` is configured properly, but DNS issues persist, restart `systemd-networkd`, which is the default network renderer for *netplan*:. This will shutdown the PuTTY connection ("Network error: Software caused connection abort"), so reconnect and check the IP address by running `ip a` again.  
 
@@ -383,7 +383,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 
 These **results** confirm that the IP address was successfully changed by releasing the current IP with *dhclient*, obtaining a new one, and verifying the changes by restarting `systemd-networkd`.  
 
-##### Notes on `dhclient`
+##### Notes on `dhclient`  
 
 If we run `ip a` after `sudo dhclient -r` **without** obtaining a new IP, the output will look like this:  
 
@@ -402,15 +402,15 @@ If we run `ip a` after `sudo dhclient -r` **without** obtaining a new IP, the ou
 
 >Notice that there is no line indicating an IPv4 address assigned to the *enp0s3* interface.  
 
-##### 5.3 Results
+##### 5.3 Results  
 
 **Output** after running `sudo dhclient enp0s3` were provided before.  
 
 ---
 
-### 6. Network
+### 6. Network  
 
-#### 6.1 Check the network configuration files
+#### 6.1 Check the network configuration files  
 
 I was doing this **previously** (when trying to understand the strange output by *dhclient*).  
 
@@ -433,7 +433,7 @@ network:
 
 > `Ctrl + O` to save, *enter* to confirm and `ctrl + X` to exit.  
 
-#### 6.3 Apply the changes and verify correct operation
+#### 6.3 Apply the changes and verify correct operation  
 
 1. `sudo netplan generate` to check for errors, and then `sudo netplan apply`.  
 Since the PuTTY connection will be terminated, run `ip a` directly on the server to verify the changes:  
@@ -466,18 +466,18 @@ The **routing table** confirmed the default route was correctly set to `192.168.
 
 ---
 
-### 7. Restart & verifying
+### 7. Restart & verifying  
 
-#### 7.1 Restart network services to apply any changes made during troubleshooting
+#### 7.1 Restart network services to apply any changes made during troubleshooting  
 
 Again: `sudo systemctl restart systemd-networkd`.  
 This step doesn't change anything as the network service was already restarted earlier.  
 
-#### 7.2 Check the firewall status on your system
+#### 7.2 Check the firewall status on your system  
 
-##### `ufw`
+##### `ufw`  
 
-Check the status of the firewall: `sudo ufw status`.
+Check the status of the firewall: `sudo ufw status`.  
 
 ```bash
 Status: inactive
@@ -490,7 +490,7 @@ Rules updated
 Rules updated (v6)
 ```
 
-##### `iptables`
+##### `iptables`  
 
 Verify the current `iptables` rules: `sudo iptables -L`. The output shows no rules.  
 To add an HTTP rule, use the following: `sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT`.  
@@ -510,14 +510,14 @@ target     prot opt source               destination
 
 ---
 
-### 8. Traffic
+### 8. Traffic  
 
 Use the tcpdump utility to display traffic through the Ethernet port, including IP addresses and port numbers.  
 
 > Use `sudo apt install tcpdump -y` to install the utility.  
 >Here will be just a small pieces of a huge outputs.  
 
-#### To display available interfaces for capturing traffic: `tcpdump -D`
+#### To display available interfaces for capturing traffic: `tcpdump -D`  
 
 ```bash
 1.enp0s3 [Up, Running, Connected]
@@ -532,7 +532,7 @@ Use the tcpdump utility to display traffic through the Ethernet port, including 
 
 This **output** lists various interfaces, including *enp0s3* (Ethernet) and *lo* (Loopback).  
 
-#### To capture traffic on the *enp0s3*: `sudo tcpdump -i enp0s3`
+#### To capture traffic on the *enp0s3*: `sudo tcpdump -i enp0s3`  
 
 ```bash
 listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
@@ -553,7 +553,7 @@ listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
 This captures packets exchanged between the *userver.ssh* and `192.168.1.104.51851`.  
 The flags indicate different packet statuses such as **P.** (push), **.** (acknowledgment), and **seq**uence numbers.  
 
-#### To capture with more details: `sudo tcpdump -i enp0s3 -n -v`
+#### To capture with more details: `sudo tcpdump -i enp0s3 -n -v`  
 
 ```bash
 tcpdump: listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
@@ -577,19 +577,19 @@ tcpdump: listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 26214
 ```
 
 This **output** provides additional details such as:  
-    1. *TTL* (Time to Live) and *ID* for each packet.
-    2. Checksum validation status for the packets.
-    3. **Seq**uence and **ack**nowledgment numbers that help in tracking the flow of the communication.
+    1. *TTL* (Time to Live) and *ID* for each packet.  
+    2. Checksum validation status for the packets.  
+    3. **Seq**uence and **ack**nowledgment numbers that help in tracking the flow of the communication.  
 
 ---
 
-### 9. Logs
+### 9. Logs  
 
-Check system logs for network-related errors. Common logs include syslog, messages, access, and network.log.
+Check system logs for network-related errors. Common logs include syslog, messages, access, and network.log.  
 
-#### Logs from `/var/log/syslog`
+#### Logs from `/var/log/syslog`  
 
-`sudo grep -i 'network' /var/log/syslog | tail -n 15`
+`sudo grep -i 'network' /var/log/syslog | tail -n 15`  
 
 >The `cat /var/syslog` produses a much larger output.  
 
@@ -611,15 +611,15 @@ Check system logs for network-related errors. Common logs include syslog, messag
 2025-03-10T13:12:29.088493+00:00 userver snapd[3673]: stateengine.go:161: state ensure error: persistent network error: Post "https://api.snapcraft.io/v2/snaps/refresh": dial tcp: lookup api.snapcraft.io: Temporary failure in name resolution
 ```
 
-##### Output notes 1
+##### Output notes 1  
 
-1. The `systemd-networkd` logs show the network interfaces (`lo` and `enp0s3`) gaining carriers and successfully linking up. This indicates that the network interfaces are being properly initialized.
-2. `systemd-timesyncd` reports multiple attempts to re-establish a connection after network configuration changes. This might be a result of network service restarts or modifications.
-3. The *snapd* service logs indicate a failure when attempting to perform a network operation, specifically related to DNS resolution (Temporary failure in name resolution). This is a common issue when the network or DNS services are misconfigured.
+1. The `systemd-networkd` logs show the network interfaces (`lo` and `enp0s3`) gaining carriers and successfully linking up. This indicates that the network interfaces are being properly initialized.  
+2. `systemd-timesyncd` reports multiple attempts to re-establish a connection after network configuration changes. This might be a result of network service restarts or modifications.  
+3. The *snapd* service logs indicate a failure when attempting to perform a network operation, specifically related to DNS resolution (Temporary failure in name resolution). This is a common issue when the network or DNS services are misconfigured.  
 
-#### Logs from `/var/log/cloud-init.log`
+#### Logs from `/var/log/cloud-init.log`  
 
-`sudo grep -i 'network' /var/log/cloud-init.log | tail -n 15`
+`sudo grep -i 'network' /var/log/cloud-init.log | tail -n 15`  
 
 ```bash
 2025-02-04 21:43:49,002 - handlers.py[DEBUG]: start: init-network/config-resizefs: running config-resizefs with frequency always
@@ -639,18 +639,18 @@ Check system logs for network-related errors. Common logs include syslog, messag
 2025-02-04 21:44:05,050 - stages.py[DEBUG]: Event Denied: scopes=['network'] EventType=hotplug
 ```
 
-##### Output notes 2
+##### Output notes 2  
 
-1. Cloud-init network configuration: this shows successful completion of several cloud-init tasks, including resizing filesystems, configuring mounts, and setting hostnames. The log entries indicate that network configurations (such as `config-set_hostname`, `config-update_hostname`, and `config-ssh`) ran successfully.
-2. The log entry `Event Denied: scopes=['network'] EventType=hotplug` suggests that cloud-init was configured to reject certain dynamic network events (hotplug events) during the instance setup.
+1. Cloud-init network configuration: this shows successful completion of several cloud-init tasks, including resizing filesystems, configuring mounts, and setting hostnames. The log entries indicate that network configurations (such as `config-set_hostname`, `config-update_hostname`, and `config-ssh`) ran successfully.  
+2. The log entry `Event Denied: scopes=['network'] EventType=hotplug` suggests that cloud-init was configured to reject certain dynamic network events (hotplug events) during the instance setup.  
 
-#### Summary for *logs*
+#### Summary for *logs*  
 
 The *syslog* entries confirm network interfaces are being initialized correctly, but the *snapd* errors related to DNS indicate that network resolution might still be problematic (e.g., DNS issues or misconfiguration).  
 The *cloud-init* log shows that network configuration tasks were executed correctly during instance setup, and dynamic network events (such as *hotplug*) were denied for some reason, which could be related to network interface configuration timing.  
 
 ---
 
-### Screenshots
+### Screenshots  
 
 Some screenshots are included in the solution descriptions, but most can be found [here](https://drive.google.com/drive/folders/1WKTmHcWIRDsP66Ncj7xzo_ApWDT23IKC?usp=drive_link). The remaining ones are provided as text output within this file.  
