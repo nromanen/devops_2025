@@ -1,0 +1,54 @@
+[Task]. RDBMS
+
+-Створюємо базу даних з своїм іменем:
+CREATE DATABASE Oleh;
+
+-Перевіряємо чи база даних Oleh створена:
+SHOW DATABASES;
+
+Скріншот: https://drive.google.com/file/d/11Wlbzl2uYH4xdwFSJ4Qr5AuqTUpxthLO/view?usp=sharing
+
+
+-Створюємо таблицю Users, таблицю Products:
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR (100) NOT NULL,
+    email VARCHAR (150) UNIQUE NOT NULL
+);
+
+CREATE TABLE Products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR (200) NOT NULL,
+    price DECIMAL (10,2) NOT NULL
+);
+
+-Переглядаємо структуру створених таблиць:
+DESCRIBE Users;
+DESCRIBE Products;
+
+Скріншот: https://drive.google.com/file/d/1PT2EDAkdAm3T5E01WbosqChkH5rV-RPS/view?usp=sharing
+
+
+-Створюємо дамп бази даних:
+mysqldump -u oleh_db -p Oleh > oleh_database_dump.sql
+
+-Перевіряємо чи створився дамп бази даних:
+ls -lh oleh_database_dump.sql
+head -n 20 ls -lh oleh_database_dump.sql
+
+Скріншот: https://drive.google.com/file/d/10v_Rgd71-QyBXBF5jyWtacvb9YfNyRbt/view?usp=sharing
+
+
+
+
+-Відновлюємо дані у нову базу даних:
+-Спочатку створюємо нову базу даних у яку будемо відновлювати стару базу даних
+CREATE DATABASE Oleh_new;
+-І тепер відновлюємо стару базу даних у нову базу даних:
+mysql -u oleh_db Oleh_new < oleh_database_dump.sql
+
+Скріншот: https://drive.google.com/file/d/1YzFaFzOpgyZ3IZgxGsu1yZzHFKRt73h_/view?usp=sharing
+
+
+-Приєднання до бази даних з програму DBeaver: https://drive.google.com/file/d/14dNybFpypl4H4CpgzVSvVnSeHOUPWozv/view?usp=sharing
+

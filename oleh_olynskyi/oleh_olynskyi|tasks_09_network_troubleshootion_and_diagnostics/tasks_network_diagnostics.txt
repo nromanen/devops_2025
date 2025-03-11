@@ -1,0 +1,306 @@
+
+Check the status of the network interface. Use atop, htop, and btop utilities to display running processes on your OS:
+
+Виконання команди atop: sudo atop
+
+Виконання команди htop: htop
+
+Виконання команди btop: btop
+
+Оскільки результат виводу дуже великий, я сформував окремий файл, який додам як окремий файл system_snapshot.txt
+
+
+Ping the localhost with a set of 10 packets, each with a size of 1500 bytes.
+-Виконання команди ping:
+osboxes@osboxes:~$ ping -c 10 -s 1500 127.0.0.1
+PING 127.0.0.1 (127.0.0.1) 1500(1528) bytes of data.
+1508 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.088 ms
+1508 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.021 ms
+1508 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.021 ms
+1508 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.027 ms
+1508 bytes from 127.0.0.1: icmp_seq=5 ttl=64 time=0.021 ms
+1508 bytes from 127.0.0.1: icmp_seq=6 ttl=64 time=0.021 ms
+1508 bytes from 127.0.0.1: icmp_seq=7 ttl=64 time=0.021 ms
+1508 bytes from 127.0.0.1: icmp_seq=8 ttl=64 time=0.022 ms
+1508 bytes from 127.0.0.1: icmp_seq=9 ttl=64 time=0.021 ms
+1508 bytes from 127.0.0.1: icmp_seq=10 ttl=64 time=0.021 ms
+--- 127.0.0.1 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9245ms
+rtt min/avg/max/mdev = 0.021/0.028/0.088/0.019 ms
+
+
+
+
+
+Ping an external host by its name and obtain its IP address. Trace the route to the external host (e.g., softerveinc.com).
+-Виконання команди ping:
+osboxes@osboxes:~$ ping softerveinc.com -c 4
+PING softerveinc.com (54.93.72.124) 56(84) bytes of data.
+--- softerveinc.com ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3064ms
+
+-Виконання команди traceroute:
+osboxes@osboxes:~$ traceroute softerveinc.com
+traceroute to softerveinc.com (54.93.72.124), 30 hops max, 60 byte packets
+ 1  _gateway (192.168.0.1)  5.763 ms  6.340 ms  6.211 ms
+ 2  91.210.22.1 (91.210.22.1)  15.826 ms  16.465 ms  16.419 ms
+ 3  194.44.15.81 (194.44.15.81)  11.149 ms  11.596 ms  11.557 ms
+ 4  99.83.64.18 (99.83.64.18)  26.887 ms  27.221 ms  27.206 ms
+ 5  52.93.18.183 (52.93.18.183)  22.953 ms 52.93.18.187 (52.93.18.187)  20.798 ms 52.93.18.193 (52.93.18.193)  38.260 ms
+ 6  52.93.18.29 (52.93.18.29)  20.757 ms 52.93.18.35 (52.93.18.35)  14.806 ms 52.93.18.113 (52.93.18.113)  21.766 ms
+ 7  * * *
+ 8  * * *
+ 9  * * *
+.
+.
+.
+28  * * *
+29  * * *
+30  * * *
+
+
+
+
+
+Check your DNS configuration.
+-Виконання команди nmcli:
+osboxes@osboxes:~$ nmcli device show
+GENERAL.DEVICE:                         enp0s3
+GENERAL.TYPE:                           ethernet
+GENERAL.HWADDR:                         08:00:27:A9:59:1E
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.DEVICE:                         enp0s3
+GENERAL.TYPE:                           ethernet
+GENERAL.HWADDR:                         08:00:27:A9:59:1E
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.CONNECTION:                     --
+GENERAL.CON-PATH:                       --
+WIRED-PROPERTIES.CARRIER:               on
+IP4.ADDRESS[1]:                         192.168.0.105/24
+IP4.GATEWAY:                            192.168.0.1
+IP4.ROUTE[1]:                           dst = 0.0.0.0/0, nh = 192.168.0.1, mt =>
+IP4.ROUTE[2]:                           dst = 192.168.0.0/24, nh = 0.0.0.0, mt >
+IP4.ROUTE[3]:                           dst = 192.168.0.1/32, nh = 0.0.0.0, mt >
+IP6.ADDRESS[1]:                         fe80::a00:27ff:fea9:591e/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+GENERAL.DEVICE:                         lo
+GENERAL.TYPE:                           loopback
+GENERAL.HWADDR:                         00:00:00:00:00:00
+GENERAL.MTU:                            65536
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.CONNECTION:                     --
+GENERAL.CON-PATH:                       --
+IP4.ADDRESS[1]:                         127.0.0.1/8
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         ::1/128
+IP6.GATEWAY:                            --
+
+-Виконання команди dig:
+osboxes@osboxes:~$ dig google.com
+; <<>> DiG 9.20.0-2ubuntu3.1-Ubuntu <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28869
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 4, ADDITIONAL: 9
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;google.com.                    IN      A
+;; ANSWER SECTION:
+google.com.             234     IN      A       172.217.16.14
+;; AUTHORITY SECTION:
+google.com.             234     IN      NS      ns4.google.com.
+google.com.             234     IN      NS      ns2.google.com.
+google.com.             234     IN      NS      ns3.google.com.
+google.com.             234     IN      NS      ns1.google.com.
+;; ADDITIONAL SECTION:
+ns4.google.com.         234     IN      AAAA    2001:4860:4802:38::a
+ns2.google.com.         234     IN      A       216.239.34.10
+ns1.google.com.         234     IN      AAAA    2001:4860:4802:32::a
+ns4.google.com.         234     IN      A       216.239.38.10
+ns3.google.com.         234     IN      A       216.239.36.10
+ns2.google.com.         234     IN      AAAA    2001:4860:4802:34::a
+ns1.google.com.         234     IN      A       216.239.32.10
+ns3.google.com.         234     IN      AAAA    2001:4860:4802:36::a
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sat Mar 08 17:14:11 UTC 2025
+;; MSG SIZE  rcvd: 303
+
+
+
+
+
+Review the firewall rules (iptables or ufw). List the open ports on your system using netstat and ss.
+-Виконання команди iptables:
+osboxes@osboxes:~$ sudo iptables -L -v
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+-Виконання команди ufw:
+osboxes@osboxes:~$ sudo ufw status
+Status: active
+To                         Action      From
+--                         ------      ----
+22                         ALLOW       Anywhere
+80                         ALLOW       Anywhere
+443                        ALLOW       Anywhere
+22 (v6)                    ALLOW       Anywhere (v6)
+80 (v6)                    ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+
+-Виконання команди netstat:
+osboxes@osboxes:~$ sudo netstat -tuln
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN
+tcp6       0      0 :::22                   :::*                    LISTEN
+tcp6       0      0 :::80                   :::*                    LISTEN
+udp        0      0 127.0.0.54:53           0.0.0.0:*
+udp        0      0 127.0.0.53:53           0.0.0.0:*
+udp        0      0 192.168.0.105:68        0.0.0.0:*
+
+-Виконання команди ss:
+osboxes@osboxes:~$ sudo ss -tuln
+Netid   State     Recv-Q    Send-Q              Local Address:Port       Peer Address:Port
+udp     UNCONN    0         0                      127.0.0.54:53              0.0.0.0:*
+udp     UNCONN    0         0                   127.0.0.53%lo:53              0.0.0.0:*
+udp     UNCONN    0         0            192.168.0.105%enp0s3:68              0.0.0.0:*
+tcp     LISTEN    0         4096                127.0.0.53%lo:53              0.0.0.0:*
+tcp     LISTEN    0         4096                   127.0.0.54:53              0.0.0.0:*
+tcp     LISTEN    0         4096                      0.0.0.0:22              0.0.0.0:*
+tcp     LISTEN    0         511                       0.0.0.0:80              0.0.0.0:*
+tcp     LISTEN    0         4096                         [::]:22                 [::]:*
+tcp     LISTEN    0         511                          [::]:80                 [::]:*
+
+
+
+
+
+If you are using DHCP, verify that your system is obtaining an IP address correctly. Change the IP address using the dhclient command. Show the results.
+-Перевірки поточної IP-адреси:
+osboxes@osboxes:~$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:a9:59:1e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.105/24 metric 100 brd 192.168.0.255 scope global dynamic enp0s3
+       valid_lft 6407sec preferred_lft 6407sec
+    inet6 fe80::a00:27ff:fea9:591e/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+
+-Видалення поточної IP-адреси за допомогою команди sudo dhclient -r
+Перевірка через команду ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:a9:59:1e brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::a00:27ff:fea9:591e/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+
+-Призначеня нової IP-адреси за допомогою команди sudo dhclient
+
+-Перевірка через команду ip addr show:
+osboxes@osboxes:~$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:a9:59:1e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.105/24 metric 100 brd 192.168.0.255 scope global dynamic enp0s3
+       valid_lft 6407sec preferred_lft 6407sec
+    inet6 fe80::a00:27ff:fea9:591e/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+
+комент: як видно з попередніх результатів, IP-адреса була: 192.168.0.105/24, потім коли була використана команда dhclient -r, IP-адреси взагалі не було, а коли призначили нову за допомогою команди dhclient, то IP-адреса знов стала:  192.168.0.105/24
+
+
+
+
+
+Check the network configuration files. Add a static IP address to an existing interface. Apply the changes and verify correct operation.-
+Перевірка поточної IP-адреси:
+osboxes@osboxes:~$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:a9:59:1e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.105/24 metric 100 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 6885sec preferred_lft 6885sec
+    inet6 fe80::a00:27ff:fea9:591e/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+
+-Редагування конфігураційного файлу: sudo nano /etc/netplan/50-cloud-init.yaml
+Застосування змін: sudo netplan apply
+
+-Перевірка чи змінилась IP-адреса:
+osboxes@osboxes:~$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:a9:59:1e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.100/24 metric 100 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 6885sec preferred_lft 6885sec
+    inet6 fe80::a00:27ff:fea9:591e/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+
+комент: як видно з попередніх результатів, IP-адреса була: 192.168.0.105/24, потім після редагування конфігураційного файлу і застосовування змін IP-адреса змінилась на:  192.168.1.100/24, але після цього не пінгується 8.8.8.8, google.com, 192.168.1.1, тому я змінив IP адресу назад на 192.168.0.105/24
+
+
+
+
+
+Use the tcpdump utility to display traffic through the Ethernet port, including IP addresses and port numbers.
+-Виконання команди tcpdump:
+вивів перші 10 рядків:
+15:07:57.938896 IP 192.168.0.105.22 > 192.168.0.100.61289: Flags [P.], seq 2401426797:2401426925, ack 592374253, win 451, length 128
+15:07:57.938985 IP 192.168.0.105.22 > 192.168.0.100.61289: Flags [P.], seq 128:272, ack 1, win 451, length 144
+15:07:57.939038 IP 192.168.0.100.61289 > 192.168.0.105.22: Flags [.], ack 128, win 255, length 0
+15:07:57.939124 IP 192.168.0.105.22 > 192.168.0.100.61289: Flags [P.], seq 272:352, ack 1, win 451, length 80
+15:07:57.939255 IP 192.168.0.100.61289 > 192.168.0.105.22: Flags [.], ack 352, win 255, length 0
+15:07:57.939282 IP 192.168.0.105.22 > 192.168.0.100.61289: Flags [P.], seq 352:432, ack 1, win 451, length 80
+15:07:57.939369 IP 192.168.0.105.22 > 192.168.0.100.61289: Flags [P.], seq 432:496, ack 1, win 451, length 64
+15:07:57.939425 IP 192.168.0.100.61289 > 192.168.0.105.22: Flags [.], ack 496, win 254, length 0
+15:07:59.905149 ARP, Request who-has 192.168.0.1 tell 192.168.0.105, length 28
+15:07:59.907475 ARP, Reply 192.168.0.1 is-at 18:d6:c7:8b:72:e8, length 46
+
+
+
+
+
+Check system logs for network-related errors. Common logs include syslog, messages, access, and network.log.
+-Перевірити журнал syslog за допомогою команди sudo grep -i "network" /var/log/syslog
+-Перевірити журнал messages за допомогою  команди sudo less /var/log/messages
+-Перевірити журнал access.log за допомогою  команди sudo less /var/log/access.log 
+-Перевірити журнал network.log за допомогою  команди sudo less /var/log/network.log
+
+
