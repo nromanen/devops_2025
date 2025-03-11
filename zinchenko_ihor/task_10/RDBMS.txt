@@ -1,0 +1,578 @@
+zincheis@server:~$ sudo apt update
+[sudo] password for zincheis:
+Hit:1 http://ua.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://ua.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:3 http://ua.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:4 http://ua.archive.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:5 http://ua.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [2,3                78 kB]
+Get:6 http://ua.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Package                s [3,113 kB]
+Get:7 http://ua.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-e                n [549 kB]
+Get:8 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages                 [1,193 kB]
+Get:9 http://ua.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Package                s [52.2 kB]
+Get:10 http://ua.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-                en [13.2 kB]
+Get:11 http://ua.archive.ubuntu.com/ubuntu jammy-security/main amd64 Packages [2                ,137 kB]
+Get:12 http://ua.archive.ubuntu.com/ubuntu jammy-security/restricted amd64 Packa                ges [2,967 kB]
+Get:13 http://ua.archive.ubuntu.com/ubuntu jammy-security/restricted Translation                -en [524 kB]
+Get:14 http://ua.archive.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packa                ges [45.5 kB]
+Get:15 http://ua.archive.ubuntu.com/ubuntu jammy-security/multiverse Translation                -en [10.3 kB]
+Fetched 13.4 MB in 4s (3,760 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+113 packages can be upgraded. Run 'apt list --upgradable' to see them.
+zincheis@server:~$ sudo apt install mariadb-server -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  galera-4 libcgi-fast-perl libcgi-pm-perl libclone-perl libconfig-inifiles-perl
+  libdbd-mysql-perl libdbi-perl libencode-locale-perl libfcgi-bin libfcgi-perl libfcgi0ldbl
+  libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl
+  libhttp-message-perl libio-html-perl liblwp-mediatypes-perl libmariadb3 libmysqlclient21
+  libsnappy1v5 libtimedate-perl liburi-perl liburing2 mariadb-client-10.6
+  mariadb-client-core-10.6 mariadb-common mariadb-server-10.6 mariadb-server-core-10.6
+  mysql-common socat
+Suggested packages:
+  libmldbm-perl libnet-daemon-perl libsql-statement-perl libdata-dump-perl
+  libipc-sharedcache-perl libbusiness-isbn-perl libwww-perl mailx mariadb-test
+The following NEW packages will be installed:
+  galera-4 libcgi-fast-perl libcgi-pm-perl libclone-perl libconfig-inifiles-perl
+  libdbd-mysql-perl libdbi-perl libencode-locale-perl libfcgi-bin libfcgi-perl libfcgi0ldbl
+  libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl
+  libhttp-message-perl libio-html-perl liblwp-mediatypes-perl libmariadb3 libmysqlclient21
+  libsnappy1v5 libtimedate-perl liburi-perl liburing2 mariadb-client-10.6
+  mariadb-client-core-10.6 mariadb-common mariadb-server mariadb-server-10.6
+  mariadb-server-core-10.6 mysql-common socat
+0 upgraded, 32 newly installed, 0 to remove and 113 not upgraded.
+Need to get 18.6 MB of archives.
+After this operation, 164 MB of additional disk space will be used.
+Get:1 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 mysql-common all 5.8+1.0.8 [7,212 B]
+Get:2 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-common all 1:10.6.18-0ubuntu0.22.04.1 [16.5 kB]
+Get:3 http://ua.archive.ubuntu.com/ubuntu jammy/universe amd64 galera-4 amd64 26.4.9-1build1 [720 kB]
+Get:4 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libdbi-perl amd64 1.643-3build3 [741 kB]
+Get:5 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libconfig-inifiles-perl all 3.000003-1 [40.5 kB]
+Get:6 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libmariadb3 amd64 1:10.6.18-0ubuntu0.22.04.1 [181 kB]
+Get:7 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-client-core-10.6 amd64 1:10.6.18-0ubuntu0.22.04.1 [974 kB]
+Get:8 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-client-10.6 amd64 1:10.6.18-0ubuntu0.22.04.1 [1,523 kB]
+Get:9 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libsnappy1v5 amd64 1.1.8-1build3 [17.5 kB]
+Get:10 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 liburing2 amd64 2.1-2build1 [10.3 kB]
+Get:11 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-server-core-10.6 amd64 1:10.6.18-0ubuntu0.22.04.1 [7,694 kB]
+Get:12 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 socat amd64 1.7.4.1-3ubuntu4 [349 kB]
+Get:13 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-server-10.6 amd64 1:10.6.18-0ubuntu0.22.04.1 [4,222 kB]
+Get:14 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libhtml-tagset-perl all 3.20-4 [12.5 kB]
+Get:15 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 liburi-perl all 5.10-1 [78.8 kB]
+Get:16 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libhtml-parser-perl amd64 3.76-1build2 [88.4 kB]
+Get:17 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libcgi-pm-perl all 4.54-1 [188 kB]
+Get:18 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libfcgi0ldbl amd64 2.4.2-2build2 [28.0 kB]
+Get:19 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libfcgi-perl amd64 0.82+ds-1build1 [22.8 kB]
+Get:20 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libcgi-fast-perl all 1:2.15-1 [10.5 kB]
+Get:21 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libclone-perl amd64 0.45-1build3 [11.0 kB]
+Get:22 http://ua.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libmysqlclient21 amd64 8.0.41-0ubuntu0.22.04.1 [1,308 kB]
+Get:23 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libdbd-mysql-perl amd64 4.050-5ubuntu0.22.04.1 [87.6 kB]
+Get:24 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libencode-locale-perl all 1.05-1.1 [11.8 kB]
+Get:25 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libfcgi-bin amd64 2.4.2-2build2 [11.2 kB]
+Get:26 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libhtml-template-perl all 2.97-1.1 [59.1 kB]
+Get:27 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libtimedate-perl all 2.3300-2 [34.0 kB]
+Get:28 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libhttp-date-perl all 6.05-1 [9,920 B]
+Get:29 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libio-html-perl all 1.004-2 [15.4 kB]
+Get:30 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 liblwp-mediatypes-perl all 6.04-1 [19.5 kB]
+Get:31 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libhttp-message-perl all 6.36-1 [76.8 kB]
+Get:32 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-server all 1:10.6.18-0ubuntu0.22.04.1 [11.8 kB]
+Fetched 18.6 MB in 10s (1,928 kB/s)
+Extracting templates from packages: 100%
+Preconfiguring packages ...
+Selecting previously unselected package mysql-common.
+(Reading database ... 110117 files and directories currently installed.)
+Preparing to unpack .../00-mysql-common_5.8+1.0.8_all.deb ...
+Unpacking mysql-common (5.8+1.0.8) ...
+Selecting previously unselected package mariadb-common.
+Preparing to unpack .../01-mariadb-common_1%3a10.6.18-0ubuntu0.22.04.1_all.deb ...
+Unpacking mariadb-common (1:10.6.18-0ubuntu0.22.04.1) ...
+Selecting previously unselected package galera-4.
+Preparing to unpack .../02-galera-4_26.4.9-1build1_amd64.deb ...
+Unpacking galera-4 (26.4.9-1build1) ...
+Selecting previously unselected package libdbi-perl:amd64.
+Preparing to unpack .../03-libdbi-perl_1.643-3build3_amd64.deb ...
+Unpacking libdbi-perl:amd64 (1.643-3build3) ...
+Selecting previously unselected package libconfig-inifiles-perl.
+Preparing to unpack .../04-libconfig-inifiles-perl_3.000003-1_all.deb ...
+Unpacking libconfig-inifiles-perl (3.000003-1) ...
+Selecting previously unselected package libmariadb3:amd64.
+Preparing to unpack .../05-libmariadb3_1%3a10.6.18-0ubuntu0.22.04.1_amd64.deb ...
+Unpacking libmariadb3:amd64 (1:10.6.18-0ubuntu0.22.04.1) ...
+Selecting previously unselected package mariadb-client-core-10.6.
+Preparing to unpack .../06-mariadb-client-core-10.6_1%3a10.6.18-0ubuntu0.22.04.1_amd64.deb ...
+Unpacking mariadb-client-core-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Selecting previously unselected package mariadb-client-10.6.
+Preparing to unpack .../07-mariadb-client-10.6_1%3a10.6.18-0ubuntu0.22.04.1_amd64.deb ...
+Unpacking mariadb-client-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Selecting previously unselected package libsnappy1v5:amd64.
+Preparing to unpack .../08-libsnappy1v5_1.1.8-1build3_amd64.deb ...
+Unpacking libsnappy1v5:amd64 (1.1.8-1build3) ...
+Selecting previously unselected package liburing2:amd64.
+Preparing to unpack .../09-liburing2_2.1-2build1_amd64.deb ...
+Unpacking liburing2:amd64 (2.1-2build1) ...
+Selecting previously unselected package mariadb-server-core-10.6.
+Preparing to unpack .../10-mariadb-server-core-10.6_1%3a10.6.18-0ubuntu0.22.04.1_amd64.deb ...
+Unpacking mariadb-server-core-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Selecting previously unselected package socat.
+Preparing to unpack .../11-socat_1.7.4.1-3ubuntu4_amd64.deb ...
+Unpacking socat (1.7.4.1-3ubuntu4) ...
+Setting up mysql-common (5.8+1.0.8) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up mariadb-common (1:10.6.18-0ubuntu0.22.04.1) ...
+update-alternatives: using /etc/mysql/mariadb.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Selecting previously unselected package mariadb-server-10.6.
+(Reading database ... 110560 files and directories currently installed.)
+Preparing to unpack .../00-mariadb-server-10.6_1%3a10.6.18-0ubuntu0.22.04.1_amd64.deb ...
+Unpacking mariadb-server-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../01-libhtml-tagset-perl_3.20-4_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-4) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../02-liburi-perl_5.10-1_all.deb ...
+Unpacking liburi-perl (5.10-1) ...
+Selecting previously unselected package libhtml-parser-perl:amd64.
+Preparing to unpack .../03-libhtml-parser-perl_3.76-1build2_amd64.deb ...
+Unpacking libhtml-parser-perl:amd64 (3.76-1build2) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../04-libcgi-pm-perl_4.54-1_all.deb ...
+Unpacking libcgi-pm-perl (4.54-1) ...
+Selecting previously unselected package libfcgi0ldbl:amd64.
+Preparing to unpack .../05-libfcgi0ldbl_2.4.2-2build2_amd64.deb ...
+Unpacking libfcgi0ldbl:amd64 (2.4.2-2build2) ...
+Selecting previously unselected package libfcgi-perl:amd64.
+Preparing to unpack .../06-libfcgi-perl_0.82+ds-1build1_amd64.deb ...
+Unpacking libfcgi-perl:amd64 (0.82+ds-1build1) ...
+Selecting previously unselected package libcgi-fast-perl.
+Preparing to unpack .../07-libcgi-fast-perl_1%3a2.15-1_all.deb ...
+Unpacking libcgi-fast-perl (1:2.15-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../08-libclone-perl_0.45-1build3_amd64.deb ...
+Unpacking libclone-perl (0.45-1build3) ...
+Selecting previously unselected package libmysqlclient21:amd64.
+Preparing to unpack .../09-libmysqlclient21_8.0.41-0ubuntu0.22.04.1_amd64.deb ...
+Unpacking libmysqlclient21:amd64 (8.0.41-0ubuntu0.22.04.1) ...
+Selecting previously unselected package libdbd-mysql-perl:amd64.
+Preparing to unpack .../10-libdbd-mysql-perl_4.050-5ubuntu0.22.04.1_amd64.deb ...
+Unpacking libdbd-mysql-perl:amd64 (4.050-5ubuntu0.22.04.1) ...
+Selecting previously unselected package libencode-locale-perl.
+Preparing to unpack .../11-libencode-locale-perl_1.05-1.1_all.deb ...
+Unpacking libencode-locale-perl (1.05-1.1) ...
+Selecting previously unselected package libfcgi-bin.
+Preparing to unpack .../12-libfcgi-bin_2.4.2-2build2_amd64.deb ...
+Unpacking libfcgi-bin (2.4.2-2build2) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../13-libhtml-template-perl_2.97-1.1_all.deb ...
+Unpacking libhtml-template-perl (2.97-1.1) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../14-libtimedate-perl_2.3300-2_all.deb ...
+Unpacking libtimedate-perl (2.3300-2) ...
+Selecting previously unselected package libhttp-date-perl.
+Preparing to unpack .../15-libhttp-date-perl_6.05-1_all.deb ...
+Unpacking libhttp-date-perl (6.05-1) ...
+Selecting previously unselected package libio-html-perl.
+Preparing to unpack .../16-libio-html-perl_1.004-2_all.deb ...
+Unpacking libio-html-perl (1.004-2) ...
+Selecting previously unselected package liblwp-mediatypes-perl.
+Preparing to unpack .../17-liblwp-mediatypes-perl_6.04-1_all.deb ...
+Unpacking liblwp-mediatypes-perl (6.04-1) ...
+Selecting previously unselected package libhttp-message-perl.
+Preparing to unpack .../18-libhttp-message-perl_6.36-1_all.deb ...
+Unpacking libhttp-message-perl (6.36-1) ...
+Selecting previously unselected package mariadb-server.
+Preparing to unpack .../19-mariadb-server_1%3a10.6.18-0ubuntu0.22.04.1_all.deb ...
+Unpacking mariadb-server (1:10.6.18-0ubuntu0.22.04.1) ...
+Setting up libconfig-inifiles-perl (3.000003-1) ...
+Setting up galera-4 (26.4.9-1build1) ...
+Setting up libmysqlclient21:amd64 (8.0.41-0ubuntu0.22.04.1) ...
+Setting up libfcgi0ldbl:amd64 (2.4.2-2build2) ...
+Setting up libclone-perl (0.45-1build3) ...
+Setting up libhtml-tagset-perl (3.20-4) ...
+Setting up liblwp-mediatypes-perl (6.04-1) ...
+Setting up libfcgi-bin (2.4.2-2build2) ...
+Setting up libencode-locale-perl (1.05-1.1) ...
+Setting up libsnappy1v5:amd64 (1.1.8-1build3) ...
+Setting up socat (1.7.4.1-3ubuntu4) ...
+Setting up libio-html-perl (1.004-2) ...
+Setting up libmariadb3:amd64 (1:10.6.18-0ubuntu0.22.04.1) ...
+Setting up libtimedate-perl (2.3300-2) ...
+Setting up libfcgi-perl:amd64 (0.82+ds-1build1) ...
+Setting up liburing2:amd64 (2.1-2build1) ...
+Setting up liburi-perl (5.10-1) ...
+Setting up libdbi-perl:amd64 (1.643-3build3) ...
+Setting up mariadb-server-core-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Setting up libhttp-date-perl (6.05-1) ...
+Setting up mariadb-client-core-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Setting up libdbd-mysql-perl:amd64 (4.050-5ubuntu0.22.04.1) ...
+Setting up libhtml-parser-perl:amd64 (3.76-1build2) ...
+Setting up mariadb-client-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Setting up libhttp-message-perl (6.36-1) ...
+Setting up libcgi-pm-perl (4.54-1) ...
+Setting up libhtml-template-perl (2.97-1.1) ...
+Setting up mariadb-server-10.6 (1:10.6.18-0ubuntu0.22.04.1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/mariadb.service → /lib/systemd/system/mariadb.service.
+Setting up libcgi-fast-perl (1:2.15-1) ...
+Setting up mariadb-server (1:10.6.18-0ubuntu0.22.04.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.9) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+zincheis@server:~$ sudo systemctl status mariadb
+● mariadb.service - MariaDB 10.6.18 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2025-03-07 11:11:36 UTC; 13s ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 2574 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /var/run/mysqld (cod>
+    Process: 2575 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (co>
+    Process: 2577 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] && VAR= ||   VAR=`c>
+    Process: 2619 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (c>
+    Process: 2621 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0/SUCCESS)
+   Main PID: 2606 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 14 (limit: 14685)
+     Memory: 61.1M
+        CPU: 334ms
+     CGroup: /system.slice/mariadb.service
+             └─2606 /usr/sbin/mariadbd
+
+Mar 07 11:11:36 server mariadbd[2606]: Version: '10.6.18-MariaDB-0ubuntu0.22.04.1'  socket: '/r>
+Mar 07 11:11:36 server systemd[1]: Started MariaDB 10.6.18 database server.
+Mar 07 11:11:36 server /etc/mysql/debian-start[2623]: Upgrading MySQL tables if necessary.
+Mar 07 11:11:36 server /etc/mysql/debian-start[2626]: Looking for 'mariadb' as: /usr/bin/mariadb
+Mar 07 11:11:36 server /etc/mysql/debian-start[2626]: Looking for 'mariadb-check' as: /usr/bin/>
+Mar 07 11:11:36 server /etc/mysql/debian-start[2626]: This installation of MariaDB is already u>
+Mar 07 11:11:36 server /etc/mysql/debian-start[2626]: There is no need to run mysql_upgrade aga>
+Mar 07 11:11:36 server /etc/mysql/debian-start[2626]: You can use --force if you still want to >
+Mar 07 11:11:36 server /etc/mysql/debian-start[2636]: Checking for insecure root accounts.
+Mar 07 11:11:36 server /etc/mysql/debian-start[2640]: Triggering myisam-recover for all MyISAM >
+lines 1-28/28 (END)
+zincheis@server:~$ sudo systemctl enable mariadb
+Synchronizing state of mariadb.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable mariadb
+
+zincheis@server:~$ sudo mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user. If you've just installed MariaDB, and
+haven't set the root password yet, you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password or using the unix_socket ensures that nobody
+can log into the MariaDB root user without the proper authorisation.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Switch to unix_socket authentication [Y/n] n
+ ... skipping.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Change the root password? [Y/n] n
+ ... skipping.
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] n
+ ... skipping.
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+zincheis@server:~$
+
+zincheis@server:~$ sudo mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 36
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE zinchenko_ihor;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABASE' at line 1
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| zinchenko_ihor     |
++--------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [(none)]> exit;
+Bye
+zincheis@server:~$
+
+zincheis@server:~$ sudo mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 37
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE zinchenko_ihor
+Database changed
+MariaDB [zinchenko_ihor]> CREATE TABLE Users (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100),
+    ->     email VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [zinchenko_ihor]> CREATE TABLE Products (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     product_name VARCHAR(100),
+    ->     price DECIMAL(10,2)
+    -> );
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [zinchenko_ihor]> SHOW TABLES;
++--------------------------+
+| Tables_in_zinchenko_ihor |
++--------------------------+
+| Products                 |
+| Users                    |
++--------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [zinchenko_ihor]> EXIT;
+Bye
+zincheis@server:~$
+
+zincheis@server:~$ sudo mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 39
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE zinchenko_ihor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [zinchenko_ihor]> DESCRIBE Users;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | YES  |     | NULL    |                |
+| email | varchar(100) | YES  |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [zinchenko_ihor]> DESCRIBE Products;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| id           | int(11)       | NO   | PRI | NULL    | auto_increment |
+| product_name | varchar(100)  | YES  |     | NULL    |                |
+| price        | decimal(10,2) | YES  |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [zinchenko_ihor]>
+
+
+MariaDB [zinchenko_ihor]> SHOW CREATE TABLE Users\G
+*************************** 1. row ***************************
+       Table: Users
+Create Table: CREATE TABLE `Users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+1 row in set (0.000 sec)
+
+MariaDB [zinchenko_ihor]>
+MariaDB [zinchenko_ihor]> SHOW CREATE TABLE Products\G
+*************************** 1. row ***************************
+       Table: Products
+Create Table: CREATE TABLE `Products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(100) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+1 row in set (0.000 sec)
+
+
+zincheis@server:~$ mysqldump -u root -p zinchenko_ihor > zinchenko_ihor__backup.sql
+Enter password:
+mysqldump: Got error: 1698: "Access denied for user 'root'@'localhost'" when trying to connect
+zincheis@server:~$ sudo mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 41
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE USER 'backup_user'@'localhost' IDENTIFIED BY 'StrongPassword';
+Query OK, 0 rows affected (0.003 sec)
+
+MariaDB [(none)]> CREATE USER 'backup_user'@'localhost' IDENTIFIED BY 'P@ssw0rd!';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'backup_user'@'localhost'
+MariaDB [(none)]> ALTER USER 'backup_user'@'localhost' IDENTIFIED BY 'P@ssw0rd!';
+Query OK, 0 rows affected (0.003 sec)
+
+MariaDB [(none)]> GRANT SELECT, LOCK TABLES, SHOW VIEW, EVENT, TRIGGER ON myname.* TO 'backup_user'@'localhost';
+Query OK, 0 rows affected (0.003 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> EXIT;
+Bye
+zincheis@server:~$
+
+zincheis@server:~$ mysqldump -u backup_user -p zinchenko_ihor > zinchenko_ihor__backup.sql
+Enter password:
+mysqldump: Got error: 1044: "Access denied for user 'backup_user'@'localhost' to database 'zinchenko_ihor'" when selecting the database
+zincheis@server:~$
+zincheis@server:~$
+zincheis@server:~$ sudo mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 43
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> GRANT SELECT, LOCK TABLES, SHOW VIEW, EVENT, TRIGGER ON zinchenko_ihor.* TO 'backup_user'@'localhost';
+Query OK, 0 rows affected (0.003 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> EXIT;
+Bye
+zincheis@server:~$
+
+
+zincheis@server:~$ mysqldump -u backup_user -p zinchenko_ihor > zinchenko_ihor_backup.sql && echo "Backup completed successfully"
+Enter password:
+Backup completed successfully
+zincheis@server:~$ ls -lh zinchenko_ihor_backup.sql
+-rw-rw-r-- 1 zincheis zincheis 2.6K Mar  7 11:38 zinchenko_ihor_backup.sql
+zincheis@server:~$
+
+zincheis@server:~$ ./mysqldump.sh
+Enter password:
+Database dump created successfully.
+zincheis@server:~$ ls -lh zinchenko_ihor_backup.sql
+-rw-rw-r-- 1 zincheis zincheis 2.6K Mar  7 11:38 zinchenko_ihor_backup.sql
+zincheis@server:~$ cat mysqldump.sh
+mysqldump -u backup_user -p zinchenko_ihor > zinchenko_ihor_backup.sql
+if [ $? -eq 0 ]; then
+    echo "Database dump created successfully."
+else
+    echo "Database dump failed!" >&2
+fi
+zincheis@server:~$
+
+zincheis@server:~$ sudo mysql -u root -p -e "CREATE DATABASE zinchenko_ihor_new;"
+Enter password:
+zincheis@server:~$ sudo mysql -u root -p -e "SHOW DATABASE;"
+Enter password:
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABASE' at line 1
+zincheis@server:~$ sudo mysql -u root -p -e "SHOW DATABASES;"
+Enter password:
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| zinchenko_ihor     |
+| zinchenko_ihor_new |
++--------------------+
+zincheis@server:~$ sudo mysql -u root -p -e "USE zinchenko_ihor_new; SHOW TABLES;"
+Enter password:
+zincheis@server:~$ sudo mysql -u root -p -e "USE zinchenko_ihor; SHOW TABLES;"
+Enter password:
++--------------------------+
+| Tables_in_zinchenko_ihor |
++--------------------------+
+| Products                 |
+| Users                    |
++--------------------------+
+zincheis@server:~$ mysql -u root -p zinchenko_ihor_new < zinchenko_ihor_backup.sql
+Enter password:
+ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+zincheis@server:~$ sudo mysql -u root -p zinchenko_ihor_new < zinchenko_ihor_backup.sql
+Enter password:
+zincheis@server:~$ sudo mysql -u root -p -e "USE zinchenko_ihor_new; SHOW TABLES;"
+Enter password:
++------------------------------+
+| Tables_in_zinchenko_ihor_new |
++------------------------------+
+| Products                     |
+| Users                        |
++------------------------------+
+zincheis@server:~$
