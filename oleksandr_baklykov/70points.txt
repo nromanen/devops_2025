@@ -1,0 +1,4 @@
+root@osboxes:/home/obaklykov# grep -oE 'sudo[[:alnum:][:punct:]]*@[^[:space:]]*\.org' user_data.txt
+sudo_david+-millersell@ya2hoo.org
+sudojamesanderson@hotmaI_l.org
+sudonoah_+scott@yahoo.org
