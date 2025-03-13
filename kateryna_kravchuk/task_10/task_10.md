@@ -6,17 +6,17 @@
 
 ### Task 0
 
-Use the previously created virtual machine with Linux, ensure that it is powered on and accessible.  
+Use the previously created virtual machine with Linux, ensure that it is powered on and accessible  
 
 ### Solution 0
 
-I will use **Ubuntu Linux Server 24 LTC** that was previously installed in the *Virtual Box*. The process of gaining acces described in [this](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_09/task_09.md#preparation) part of Task 9.  
+I will use **Ubuntu Linux Server 24 LTS**, which was previously installed in *Virtual Box*. The process of gaining acces described in [this](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_09/task_09.md#preparation) part of Task 9.  
 
 ---
 
 ## 1. DB installation
 
-### Task 1
+### Task
 
 Install <span style="color: #db1a74">MariaDB</span> on Ubuntu Linux.  
 
@@ -56,14 +56,14 @@ Mar 12 07:47:06 userver /etc/mysql/debian-start[15971]: Upgrading MariaDB tables
 Mar 12 07:47:06 userver /etc/mysql/debian-start[15982]: Checking for insecure root accounts.
 ```
 
-The third line from the end tells the *mariadb.service* has been successfully started.  
-In case it's not: `sudo systemctl start mariadb.service`.  
+The third line from the end indicates the *mariadb.service* has been successfully started.  
+If it hasn’t, use the command `sudo systemctl start mariadb.service`.  
 
 ### Configuration
 
 `sudo mariadb-secure-installation`  
 
-**Output** and *Y/n* choices to make during the secure installation:  
+**Output** and *Y/n* choices to be made during the secure installation:  
 
 ```bash
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
@@ -132,7 +132,7 @@ Thanks for using MariaDB!
 
 ## 2. Create an admin
 
-1. Check the listening port (which is for MariaDB server. as showed it the *status* previously): `netstat -ant | grep 3306`  
+1. Check the listening port for the MariaDB server (as shown in the status previously) with the following command: `netstat -ant | grep 3306`  
 
 ```bash
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN
@@ -152,7 +152,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MariaDB [(none)]>
 ```
 
-3. Check for the existance of root users:  
+3. Check for the existence of root users:  
 
 ```sql
 SELECT User, Host FROM mysql.user WHERE User = 'root';
@@ -165,9 +165,9 @@ SELECT User, Host FROM mysql.user WHERE User = 'root';
 1 row in set (0.005 sec)
 ```
 
-> Optional - change *root* to *admin*: `RENAME USER 'root'@'localhost' TO 'admin'@'localhost';`. (I'll stack with *root* foor now)  
+> Optional - change *root* to *admin*: `RENAME USER 'root'@'localhost' TO 'admin'@'localhost';` (I'll stick with *root* foor now)  
 
-Give the root privileges with ability to grant them to others and assign password:  
+Give root privileges with the ability to grant them to others and assign a password:  
 
 ```sql
 GRANT ALL ON *.* to 'root'@'localhost' IDENTIFIED BY '<password>' WITH GRANT OPTION;
@@ -175,7 +175,7 @@ GRANT ALL ON *.* to 'root'@'localhost' IDENTIFIED BY '<password>' WITH GRANT OPT
 Query OK, 0 rows affected (0.018 sec)
 ```
 
-Reload the user privileges from the *mysql* system database into memory (to apply any modifications to user privileges immediately without restarting the database):  
+Reload the user privileges from the system database into memory to apply any modifications to user privileges immediately, without restarting the database:  
 
 ```sql
 FLUSH PRIVILEGES;
@@ -217,7 +217,7 @@ Mar 12 07:47:06 userver /etc/mysql/debian-start[15982]: Checking for insecure ro
 
 ### 1. Create a database with your name
 
-> First, login with credentials from the previous step: `sudo mariadb -u root -p`. Running just the `sudo mariadb` will cause an error.  
+> First, log in with the credentials from the previous step using: `sudo mariadb -u root -p`. Running just `sudo mariadb` will cause an error.  
 
 ```sql
 CREATE DATABASE lians;
@@ -266,7 +266,7 @@ Query OK, 0 rows affected (0.024 sec)
 
 3. Check the creation.  
 
-> There is an option to show details of some table in less detailed output also: `DESCRIBE <table_name>;`.
+> There is an option to show details of a table in a less detailed output as well: `DESCRIBE <table_name>;`.
 
 ```sql
 SHOW CREATE TABLE Users;
@@ -297,7 +297,7 @@ SHOW CREATE TABLE Products;
 +--------------------------------------------------------------------+
 ```
 
-> The *lians* DB doesn't have any relations between tables yet, so, it might be useful to have an *Purchases* table to relate user ids with the products' ids they've bought.  
+> The *lians* DB doesn't have any relations between tables yet, so it might be useful to have a *Purchases* table to relate user IDs with the product IDs they've bought.  
 
 ### 3. Create a database dump
 
@@ -338,7 +338,7 @@ EXIT;
 
 2. Restore the *dump* into this new DB: `mariadb -u root -p lians_restore < lians_backup.sql`.  
 
-3. Verify the successful restoring: login again with `sudo mariadb -u root -p`, then:  
+3. Verify the successful restoring - log in again with `sudo mariadb -u root -p`, then:  
 
 ```sql
 USE lians_restore;
@@ -358,7 +358,7 @@ SHOW TABLES;
 ## Screenshots
 
 The created [databases](https://drive.google.com/file/d/1gW5j8ANPoFn7ZmwmY4KD17WYYvZ_IShr/view?usp=drive_link).  
-The structure of the [Users and Products](https://drive.google.com/file/d/15tnHKa0kbGn6EGZE0KRG3GXBZHt4CfCM/view?usp=drive_link)" tables.  
+The structure of the [Users and Products](https://drive.google.com/file/d/15tnHKa0kbGn6EGZE0KRG3GXBZHt4CfCM/view?usp=drive_link) tables.  
 The [output](https://drive.google.com/file/d/1xITm2ES6p3KBziq8G5se-j6GEl7h1i-Q/view?usp=drive_link) confirming the successful creation of the database dump.  
 The process of [restoring](https://drive.google.com/file/d/13LZTEG7CwoS2nqESoOHpuIcWVkENn-ta/view?usp=drive_link) data into the new database.  
 The rest screenshots could be found [here](https://drive.google.com/drive/folders/1DdHsbwjrubOh6NrivPfwQaPy6O3W8tg3?usp=sharing).  
