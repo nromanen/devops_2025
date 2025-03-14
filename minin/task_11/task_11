@@ -1,0 +1,162 @@
+#KiierKoda
+#Create the Database https://drive.google.com/file/d/1L6k07yEp88__J5x5u1-cIqUZbvfiKi4h/view?usp=sharing
+ubuntu $ mongo
+#MongoDB shell version v4.4.11
+#connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+#Implicit session: session { "id" : UUID("2327324b-f28b-47f0-8a44-f94c3a18d984") }
+#MongoDB server version: 4.4.11
+#Welcome to the MongoDB shell.
+#For interactive help, type "help".
+#For more comprehensive documentation, see
+#        https://docs.mongodb.com/
+#Questions? Try the MongoDB Developer Community Forums
+#        https://community.mongodb.com
+#---
+#The server generated these startup warnings when booting: 
+#        2025-03-14T09:23:06.588+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+#        2025-03-14T09:23:07.133+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+#---
+#---
+#        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+#        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+#
+#        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+#        and anyone you share the URL with. MongoDB may use this information to make product
+#        improvements and to suggest MongoDB products and deployment options to you.
+#
+#        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+#        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+#---
+> use minin
+#switched to db minin
+
+#######
+
+#Add Documents to the Database https://drive.google.com/file/d/1qiRpIrCOCiIacAvc0mXQarXWHFZRNyw4/view?usp=sharing
+> db.createCollection("books")
+#{ "ok" : 1 }
+> db.books.insertOne({
+...   title: "Book One",
+...   author: "Author A",
+...   year: 2000,
+...   pages: 300,
+...   copies: 5
+... })
+#{
+#        "acknowledged" : true,
+#        "insertedId" : ObjectId("67d3f89f934e6e52a72cf021")
+#}
+> db.books.insertOne({
+...   title: "Book Two",
+...   author: "Author B",
+...   year: 2005,
+...   pages: 250,
+...   copies: 3
+... })
+#{
+#        "acknowledged" : true,
+#        "insertedId" : ObjectId("67d3f89f934e6e52a72cf022")
+#}
+> db.books.insertOne({
+...   title: "Book Three",
+...   author: "Author C",
+...   year: 2000,
+...   pages: 400,
+...   copies: 2
+... })
+#{
+#        "acknowledged" : true,
+#        "insertedId" : ObjectId("67d3f8a1934e6e52a72cf023")
+#}
+
+#######
+
+#Update Book Information https://drive.google.com/file/d/175jC_C_NzcDIHLuPWD36m8pr0QQLcK49/view?usp=sharing
+> db.books.updateOne(
+...   { title: "Book One" },
+...   { $set: { copies: 10 } }
+... )
+#{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+######
+
+#Query for Books https://drive.google.com/file/d/1EXWWcQbPJFgmnxEeK619B-JY5N5ZNjd1/view?usp=sharing
+> db.books.find({ year: 2000 })
+#{ "_id" : ObjectId("67d3f89f934e6e52a72cf021"), "title" : "Book One", "author" : "Author A", "year" : 2000, "pages" : 300, "copies" : 10 }
+#{ "_id" : ObjectId("67d3f8a1934e6e52a72cf023"), "title" : "Book Three", "author" : "Author C", "year" : 2000, "pages" : 400, "copies" : 2 }
+ 
+
+
+#Local
+#Create the Database https://drive.google.com/file/d/1iKikbQdKUjRWrVqWDvCFpmnaAcVCLnDj/view?usp=sharing
+test> use minin
+#switched to db minin
+
+#######
+#Adding documents to the database https://drive.google.com/file/d/1ofE2BRDPq8GbomD5cEElaJk_EIQDdJJE/view?usp=sharing
+minin> db.createCollection("books")
+#{ ok: 1 }
+minin> db.books.insertOne({
+...   title: "Book One",
+...   author: "Author A",
+...   year: 2000,
+...   pages: 300,
+...   copies: 5
+... })
+... db.books.insertOne({
+...   title: "Book Two",
+...   author: "Author B",
+...   year: 2005,
+...   pages: 250,
+...   copies: 3
+... })
+... db.books.insertOne({
+...   title: "Book Three",
+...   author: "Author C",
+...   year: 2000,
+...   pages: 400,
+...   copies: 2
+... })
+#{
+#  acknowledged: true,
+#  insertedId: ObjectId('67d40610be31e192d16b140d')
+#}
+
+
+############
+
+#Modifying book information https://drive.google.com/file/d/1NRiVKB7414fG5bHxfgmpGxWb8eylqRo3/view?usp=sharing
+minin> db.books.updateOne(
+...   { title: "Book One" },
+...   { $set: { copies: 10 } }
+... )
+#{
+#  acknowledged: true,
+#  insertedId: null,
+#  matchedCount: 1,
+#  modifiedCount: 1,
+#  upsertedCount: 0
+#}
+
+#############
+
+#Executing queries to find books https://drive.google.com/file/d/1GFDGWgk5sYStH8M3GCj9vn8L94oEw-wa/view?usp=sharing
+minin> db.books.find({ year: 2000 })
+#[
+#  {
+#    _id: ObjectId('67d40610be31e192d16b140b'),
+#    title: 'Book One',
+#    author: 'Author A',
+#    year: 2000,
+#    pages: 300,
+#    copies: 10
+#  },
+#  {
+#    _id: ObjectId('67d40610be31e192d16b140d'),
+#    title: 'Book Three',
+#    author: 'Author C',
+#    year: 2000,
+#    pages: 400,
+#    copies: 2
+#  }
+#]
