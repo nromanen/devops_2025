@@ -1,0 +1,191 @@
+# KillerCoda
+
+mongosh
+
+use dmytryi
+
+db.dmytryi.insertMany([
+  {
+    title: "The Shining",
+    author: "Stephen King",
+    year_of_publication: 1986,
+    number_of_pages: 659,
+    number_of_copies: 10
+  },
+  {
+    title: "It",
+    author: "Stephen King",
+    year_of_publication: 1986,
+    number_of_pages: 1138,
+    number_of_copies: 15
+  },
+  {
+    title: "Carrie",
+    author: "Stephen King",
+    year_of_publication: 1974,
+    number_of_pages: 199,
+    number_of_copies: 12
+  }
+]);
+
+# out
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67d48f38d40994bb466b140b'),
+    '1': ObjectId('67d48f38d40994bb466b140c'),
+    '2': ObjectId('67d48f38d40994bb466b140d')
+  }
+}
+
+#
+#update 
+
+
+db.dmytryi.updateOne(
+  { title: "The Shining" },
+  { $set: { number_of_copies: 999 } }
+);
+
+#out
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+#
+
+dmytryi> db.dmytryi.find({ year_of_publication: 1986 });
+#out
+[
+  {
+    _id: ObjectId('67d48f38d40994bb466b140b'),
+    title: 'The Shining',
+    author: 'Stephen King',
+    year_of_publication: 1986,
+    number_of_pages: 659,
+    number_of_copies: 999
+  },
+  {
+    _id: ObjectId('67d48f38d40994bb466b140c'),
+    title: 'It',
+    author: 'Stephen King',
+    year_of_publication: 1986,
+    number_of_pages: 1138,
+    number_of_copies: 15
+  }
+]
+#
+
+
+#####
+# CentOS 7
+
+sudo tee /etc/yum.repos.d/mongodb-org-4.4.repo <<EOF
+[mongodb-org-4.4]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.4/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
+EOF
+
+
+sudo yum install -y mongodb-org
+
+[vagrant@vbox ~]$ sudo systemctl status mongod | grep act*
+   Active: active (running) since пт 2025-03-14 21:06:12 UTC; 14s ago
+
+
+curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo tee /etc/pki/rpm-gpg/MONGODB-SERVER-6.0.asc
+
+sudo tee /etc/yum.repos.d/mongodb-mongosh.repo <<EOF
+[mongodb-mongosh]
+name=MongoDB Shell
+baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-mongosh/1.8/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/MONGODB-SERVER-6.0.asc
+EOF
+
+sudo yum install -y mongodb-mongosh
+
+sudo yum clean all
+sudo yum makecache
+sudo yum install -y mongodb-mongosh
+
+sudo vi /etc/mongod.conf
+bindIp: 0.0.0.0
+
+sudo systemctl restart mongod
+
+mongosh
+
+dmytryi> db.dmytryi.insertMany([
+...   {
+...     title: "The Shining",
+...     author: "Stephen King",
+...     year_of_publication: 1986,
+...     number_of_pages: 659,
+...     number_of_copies: 10
+...   },
+...   {
+...     title: "It",
+...     author: "Stephen King",
+...     year_of_publication: 1986,
+...     number_of_pages: 1138,
+...     number_of_copies: 15
+...   },
+...   {
+...     title: "Carrie",
+...     author: "Stephen King",
+...     year_of_publication: 1974,
+...     number_of_pages: 199,
+...     number_of_copies: 12
+...   }
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67d4a01e2764c200fd6b140b'),
+    '1': ObjectId('67d4a01e2764c200fd6b140c'),
+    '2': ObjectId('67d4a01e2764c200fd6b140d')
+  }
+}
+
+dmytryi> db.dmytryi.updateOne(
+...   { title: "The Shining" },
+...   { $set: { number_of_copies: 999 } }
+... );
+... 
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+dmytryi> db.dmytryi.find({ year_of_publication: 1986 });
+[
+  {
+    _id: ObjectId('67d4a01e2764c200fd6b140b'),
+    title: 'The Shining',
+    author: 'Stephen King',
+    year_of_publication: 1986,
+    number_of_pages: 659,
+    number_of_copies: 999
+  },
+  {
+    _id: ObjectId('67d4a01e2764c200fd6b140c'),
+    title: 'It',
+    author: 'Stephen King',
+    year_of_publication: 1986,
+    number_of_pages: 1138,
+    number_of_copies: 15
+  }
+]
+
