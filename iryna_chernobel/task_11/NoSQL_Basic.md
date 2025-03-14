@@ -1,9 +1,9 @@
-# Task 11: NoSQL
 
-> Виконала [@Ir04ka7](https://https:github.com/Ir04ka7) (Iryna Chernobel)
+# Task 11: NoSQL
 
 
 # KillerCoda середовища
+
 - Запусти середовище на KillerCoda, перейшовши за посиланням:
 👉 [Setup MongoDB на KillerCoda](https://killercoda.com/online-marathon/course/DevOps_dev/Setup_mongodb)
 
