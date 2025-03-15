@@ -1,0 +1,81 @@
+
+# 1.In the last step, create a database named <your name> instead of john_doe
+use vitalii
+switched to db vitalii
+db.createCollection("Books")
+{ ok: 1 }
+
+
+# 2.Add three documents to the database that include the following details about your favorite 
+#books: Title, Author, Year of Publication, Number of Pages, Number of Copies
+show collections
+Books
+db.Books.insertMany([{Title: "Post Title 1", Author: "Auhtor 1", Year_of_Publication: "2020", Number_of_Pages: "456", Number_of_Copies:"50"},
+                     {Title: "Post Title 2", Author: "Author 2", Year_of_Publication: "2023", Number_of_Pages: "200", Number_of_Copies:"120"},
+                     {Title: "Post Title 3", Author: "Author 3", Year_of_Publication: "2025", Number_of_Pages: "1450", Number_of_Copies:"1200"}
+                     ])
+
+acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67d55892cd3c4f5604be38f3'),
+    '1': ObjectId('67d55892cd3c4f5604be38f4'),
+    '2': ObjectId('67d55892cd3c4f5604be38f5')
+  }
+db.Books.find().pretty()
+{
+  _id: ObjectId('67d55892cd3c4f5604be38f3'),
+  Title: 'Post Title 1',
+  Author: 'Auhtor 1',
+  Year_of_Publication: '2020',
+  Number_of_Pages: '456',
+  Number_of_Copies: '50'
+}
+{
+  _id: ObjectId('67d55892cd3c4f5604be38f4'),
+  Title: 'Post Title 2',
+  Author: 'Author 2',
+  Year_of_Publication: '2023',
+  Number_of_Pages: '200',
+  Number_of_Copies: '120'
+}
+{
+  _id: ObjectId('67d55892cd3c4f5604be38f5'),
+  Title: 'Post Title 3',
+  Author: 'Author 3',
+  Year_of_Publication: '2025',
+  Number_of_Pages: '1450',
+  Number_of_Copies: '1200'
+}
+
+# 3.Update book information: modify the number of copies for the first book you entered
+
+db.Books.updateOne({Title: "Post Title 1"}, {$set : {Number_of_Copies: 1000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+db.Books.find({Title: "Post Title 1"})
+{
+  _id: ObjectId('67d55892cd3c4f5604be38f3'),
+  Title: 'Post Title 1',
+  Author: 'Auhtor 1',
+  Year_of_Publication: '2020',
+  Number_of_Pages: '456',
+  Number_of_Copies: 1000
+}
+
+# 4.Query for books: find all books published in the same year as one of the books you entered
+
+db.Books.find({Year_of_Publication : "2020"})
+
+  _id: ObjectId('67d55892cd3c4f5604be38f3'),
+  Title: 'Post Title 1',
+  Author: 'Auhtor 1',
+  Year_of_Publication: '2020',
+  Number_of_Pages: '456',
+  Number_of_Copies: 1000
+}
