@@ -1,4 +1,4 @@
-# Task 10: NoSQL
+# Task 11: NoSQL
 
 > Done by [@Lians-coder](https://github.com/Lians-coder) (Kateryna Kravchuk)
 
@@ -155,7 +155,7 @@ In the last step, create a database named `<your name>` instead of `john_doe`.
 #### 3.1 Create DB
 
 ```bash
-mondosh
+mongosh
 use lians
 ```
 
@@ -295,7 +295,7 @@ Install MongoDB on your previously created virtual machine with Linux.
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
 ```
 
-> the varsion is most important, as non-compatible one may not run.  
+> The version is most important, as non-compatible one may not run.  
 
 #### 1.3 Install dependencies
 
@@ -512,7 +512,7 @@ db.mycol.insertMany( [
 }
 ```
 
-Another way to verify - `show dbs`, where *lians* shoud have a greater volume that before.  
+Another way to verify - `show dbs`, where *lians* should have a greater volume that before.  
 
 ```bash
 admin   40.00 KiB
@@ -574,7 +574,7 @@ To verify changes: `db.mycol.find().pretty()`.
 
 #### 2.4 Execute queries to retrieve information
 
-Find all books that has more than 200 pages:  
+Find all books that have more than 200 pages:  
 
 ```js
 db.mycol.find({ pages: {$gt: 200} }).pretty()
@@ -611,7 +611,7 @@ db.mycol.find({ pages: {$gt: 200} }).pretty()
 
 All schreenshots could be found [here](https://drive.google.com/drive/folders/1EbS39UKhvJUjQGdO_CVj6mgX054FQwyJ?usp=sharing).  
 
-### Crutial steps
+### Crucial steps
 
 Creating the database and adding documents to the database: [KillerCoda](https://drive.google.com/file/d/1v5aO02UfDMPaQNpErm69itG393AGP7q4/view?usp=drive_link), [Docker](https://drive.google.com/file/d/1_2bVZZfn2Yayfl9WbwBmmJqa5zsFcivC/view?usp=drive_link).  
 Modifying book information: [KillerCoda](https://drive.google.com/file/d/1lcurwq6r_VKvBG32CuwTgRUZk08ab1rI/view?usp=drive_link), [Docker](https://drive.google.com/file/d/1w9jfcu0DSAw4_fSetXBBLiBdVdyheiIu/view?usp=drive_link).  
@@ -666,9 +666,9 @@ sudo apt autoremove -y
 MongoDB 7.0+ requires a 64-bit x86-64 CPU with at least SSE4.2 and AVX support. To check if your CPU has the required features, run: `cat /proc/cpuinfo | grep -o -m 1 'sse4_2\|avx'`.  
 If *sse4_2* and *avx* appear, your CPU is compatible.  
 
-My output: `sse4_2`, so the virtualization lacks of *avx* support, therefor a different solution might be needed.  
+My output: `sse4_2`, so the virtualization lacks *avx* support, therefore a different solution may be required.  
 
-For information about how to enable *avx* support in VirtualBox, consider to check this links:  
+For information about how to enable *avx* support in VirtualBox, consider to check these links:  
 
 - [Mongod status returns core-dump](https://www.mongodb.com/community/forums/t/mongod-status-returns-core-dump-after-install-v6-on-ubuntu-22-04/207375/4);  
 - [Mongo db failed](https://www.mongodb.com/community/forums/t/mongo-db-failed-unable-to-start-mongodb/124039/9);  
