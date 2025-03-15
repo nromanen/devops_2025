@@ -1,0 +1,158 @@
+ivan@osboxes:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 37
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE IvanDB;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| IvanDB             |
+| information_schema |
+| mysql              |
+| natalya            |
+| performance_schema |
+| sofserve_database  |
+| sys                |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [(none)]> USE IvanDB;
+Database changed
+MariaDB [IvanDB]> CREATE TABLE Users (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(50) NOT NULL,
+    ->     email VARCHAR(100) UNIQUE NOT NULL
+    -> );
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [IvanDB]> CREATE TABLE Products (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     product_name VARCHAR(100) NOT NULL,
+    ->     price DECIMAL(10,2) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [IvanDB]> SHOW TABLES;
++------------------+
+| Tables_in_IvanDB |
++------------------+
+| Products         |
+| Users            |
++------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [IvanDB]> DESC Users;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50)  | NO   |     | NULL    |                |
+| email | varchar(100) | NO   | UNI | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [IvanDB]> DESC Products;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| id           | int(11)       | NO   | PRI | NULL    | auto_increment |
+| product_name | varchar(100)  | NO   |     | NULL    |                |
+| price        | decimal(10,2) | NO   |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [IvanDB]> exit
+Bye
+ivan@osboxes:~$ mysqldump -u root -p IvanDB > IvanDB_dump.sql
+Enter password:
+mysqldump: Got error: 1698: "Access denied for user 'root'@'localhost'" when trying to connect
+ivan@osboxes:~$ mysqldump -u ivan -p IvanDB > IvanDB_dump.sql
+Enter password:
+mysqldump: Got error: 1045: "Access denied for user 'ivan'@'localhost' (using password: YES)" when trying to connect
+ivan@osboxes:~$ sudo mysqldump -u root IvanDB > IvanDB_dump.sql
+ivan@osboxes:~$ ls -lh IvanDB_dump.sql
+-rw-rw-r-- 1 ivan ivan 2.7K Mar  8 03:07 IvanDB_dump.sql
+ivan@osboxes:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 41
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE IvanDB_New;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| IvanDB             |
+| IvanDB_New         |
+| information_schema |
+| mysql              |
+| natalya            |
+| performance_schema |
+| sofserve_database  |
+| sys                |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+ivan@osboxes:~$ sudo mysql -u root -p IvanDB_New < IvanDB_dump.sql
+Enter password:
+ivan@osboxes:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 43
+Server version: 10.6.18-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE IvanDB_New;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [IvanDB_New]> SHOW TABLES;
++----------------------+
+| Tables_in_IvanDB_New |
++----------------------+
+| Products             |
+| Users                |
++----------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [IvanDB_New]> DESC Users;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50)  | NO   |     | NULL    |                |
+| email | varchar(100) | NO   | UNI | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [IvanDB_New]> DESC Products;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| id           | int(11)       | NO   | PRI | NULL    | auto_increment |
+| product_name | varchar(100)  | NO   |     | NULL    |                |
+| price        | decimal(10,2) | NO   |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [IvanDB_New]> exit
+Bye
