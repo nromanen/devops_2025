@@ -1,0 +1,180 @@
+ivan@osboxes:~$ #start task 3 baza
+ivan@osboxes:~$ sqlite3 --version
+3.37.2 2022-01-06 13:25:41 872ba256cbf61d9290b571c0e6d82a20c224ca3ad82971edc46b29818d5dalt1
+ivan@osboxes:~$ sqlite3 ivan.db
+SQLite version 3.37.2 2022-01-06 13:25:41
+Enter ".help" for usage hints.
+sqlite> .help
+.archive ...             Manage SQL archives
+.auth ON|OFF             Show authorizer callbacks
+.backup ?DB? FILE        Backup DB (default "main") to FILE
+.bail on|off             Stop after hitting an error.  Default OFF
+.binary on|off           Turn binary output on or off.  Default OFF
+.cd DIRECTORY            Change the working directory to DIRECTORY
+.changes on|off          Show number of rows changed by SQL
+.check GLOB              Fail if output since .testcase does not match
+.clone NEWDB             Clone data into NEWDB from the existing database
+.connection [close] [#]  Open or close an auxiliary database connection
+.databases               List names and files of attached databases
+.dbconfig ?op? ?val?     List or change sqlite3_db_config() options
+.dbinfo ?DB?             Show status information about the database
+.dump ?OBJECTS?          Render database content as SQL
+.echo on|off             Turn command echo on or off
+.eqp on|off|full|...     Enable or disable automatic EXPLAIN QUERY PLAN
+.excel                   Display the output of next command in spreadsheet
+.exit ?CODE?             Exit this program with return-code CODE
+.expert                  EXPERIMENTAL. Suggest indexes for queries
+.explain ?on|off|auto?   Change the EXPLAIN formatting mode.  Default: auto
+.filectrl CMD ...        Run various sqlite3_file_control() operations
+.fullschema ?--indent?   Show schema and the content of sqlite_stat tables
+.headers on|off          Turn display of headers on or off
+.help ?-all? ?PATTERN?   Show help text for PATTERN
+.import FILE TABLE       Import data from FILE into TABLE
+.imposter INDEX TABLE    Create imposter table TABLE on index INDEX
+.indexes ?TABLE?         Show names of indexes
+.limit ?LIMIT? ?VAL?     Display or change the value of an SQLITE_LIMIT
+.lint OPTIONS            Report potential schema issues.
+.load FILE ?ENTRY?       Load an extension library
+.log FILE|off            Turn logging on or off.  FILE can be stderr/stdout
+.mode MODE ?TABLE?       Set output mode
+.nonce STRING            Disable safe mode for one command if the nonce matches
+.nullvalue STRING        Use STRING in place of NULL values
+.once ?OPTIONS? ?FILE?   Output for the next SQL command only to FILE
+.open ?OPTIONS? ?FILE?   Close existing database and reopen FILE
+.output ?FILE?           Send output to FILE or stdout if FILE is omitted
+.parameter CMD ...       Manage SQL parameter bindings
+.print STRING...         Print literal STRING
+.progress N              Invoke progress handler after every N opcodes
+.prompt MAIN CONTINUE    Replace the standard prompts
+.quit                    Exit this program
+.read FILE               Read input from FILE
+.recover                 Recover as much data as possible from corrupt db.
+.restore ?DB? FILE       Restore content of DB (default "main") from FILE
+.save FILE               Write in-memory database into FILE
+.scanstats on|off        Turn sqlite3_stmt_scanstatus() metrics on or off
+.schema ?PATTERN?        Show the CREATE statements matching PATTERN
+.selftest ?OPTIONS?      Run tests defined in the SELFTEST table
+.separator COL ?ROW?     Change the column and row separators
+.session ?NAME? CMD ...  Create or control sessions
+.sha3sum ...             Compute a SHA3 hash of database content
+.shell CMD ARGS...       Run CMD ARGS... in a system shell
+.show                    Show the current values for various settings
+.stats ?ARG?             Show stats or turn stats on or off
+.system CMD ARGS...      Run CMD ARGS... in a system shell
+.tables ?TABLE?          List names of tables matching LIKE pattern TABLE
+.testcase NAME           Begin redirecting output to 'testcase-out.txt'
+.testctrl CMD ...        Run various sqlite3_test_control() operations
+.timeout MS              Try opening locked tables for MS milliseconds
+.timer on|off            Turn SQL timer on or off
+.trace ?OPTIONS?         Output each SQL statement as it is run
+.vfsinfo ?AUX?           Information about the top-level VFS
+.vfslist                 List all available VFSes
+.vfsname ?AUX?           Print the name of the VFS stack
+.width NUM1 NUM2 ...     Set minimum column widths for columnar output
+sqlite> .quit
+ivan@osboxes:~$ ls -lh ivan.db
+-rw-r--r-- 1 ivan ivan 0 Mar 15 16:46 ivan.db
+ivan@osboxes:~$ sqlite3 ivan.db
+SQLite version 3.37.2 2022-01-06 13:25:41
+Enter ".help" for usage hints.
+sqlite> CREATE TABLE Users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT UNIQUE NOT NULL);
+sqlite> CREATE TABLE Products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, price REAL NOT NULL);
+sqlite> .tables
+Products  Users
+sqlite> INSERT INTO Users (name, email) VALUES
+    ('Artem Shkondeiuk', 'artem@example.com'),
+    ('Baklykov Oleksandr', 'oleksandr@example.com'),
+    ('Horbatiuk Vitalii', 'vitalii@example.com'),
+    ('Horbatok Ivan', 'ivan@example.com'),
+    ('Hushuley Yaryna', 'yaryna@example.com'),
+    ('Igor Polatayko', 'igor@example.com'),
+    ('Iryna Chernobel', 'iryna@example.com'),
+    ('Ivan Zhaldak', 'ivan.z@example.com'),
+    ('Kateryna Kravchuk', 'kateryna@example.com'),
+    ('Kulnieva Mariia', 'mariia@example.com'),
+    ('Maksym Maksymenko', 'maksym@example.com');
+sqlite> INSERT INTO Products (name, price) VALUES
+    ('Wheat', 300.50),
+    ('Corn', 250.00),
+    ('Sunflower', 500.75),
+    ('Barley', 270.30),
+    ('Soybeans', 450.60),
+    ('Sugar beet', 150.90),
+    ('Potatoes', 120.40),
+    ('Apples', 80.99),
+    ('Grapes', 90.50),
+    ('Strawberries', 200.00),
+    ('Carrots', 110.75);
+sqlite> SELECT * FROM Users;
+1|Artem Shkondeiuk|artem@example.com
+2|Baklykov Oleksandr|oleksandr@example.com
+3|Horbatiuk Vitalii|vitalii@example.com
+4|Horbatok Ivan|ivan@example.com
+5|Hushuley Yaryna|yaryna@example.com
+6|Igor Polatayko|igor@example.com
+7|Iryna Chernobel|iryna@example.com
+8|Ivan Zhaldak|ivan.z@example.com
+9|Kateryna Kravchuk|kateryna@example.com
+10|Kulnieva Mariia|mariia@example.com
+11|Maksym Maksymenko|maksym@example.com
+sqlite> SELECT * FROM Products;
+1|Wheat|300.5
+2|Corn|250.0
+3|Sunflower|500.75
+4|Barley|270.3
+5|Soybeans|450.6
+6|Sugar beet|150.9
+7|Potatoes|120.4
+8|Apples|80.99
+9|Grapes|90.5
+10|Strawberries|200.0
+11|Carrots|110.75
+sqlite> .exit
+ivan@osboxes:~$ sqlite3 ivan.db .dump > ivan_dump.sql
+ivan@osboxes:~$ ls -lh ivan_dump.sql
+-rw-rw-r-- 1 ivan ivan 1.8K Mar 15 16:55 ivan_dump.sql
+ivan@osboxes:~$ sqlite3
+SQLite version 3.37.2 2022-01-06 13:25:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .exit
+ivan@osboxes:~$ sqlite3 ivan_restore.db
+
+завис термінал 
+
+ivan@osboxes:~$ \ls -lh ivan_dump.sql
+-rw-rw-r-- 1 ivan ivan 1.8K Mar 15 16:55 ivan_dump.sql
+ivan@osboxes:~$ ls -lh *.db
+-rw-r--r-- 1 ivan ivan 20K Mar 15 16:54 ivan.db
+-rw-r--r-- 1 ivan ivan   0 Mar 15 18:26 ivan_restore.db
+ivan@osboxes:~$ .tables
+.tables: command not found
+ivan@osboxes:~$ sqlite3 ivan_restore.db < ivan_dump.sql
+ivan@osboxes:~$ sqlite3 ivan_restore.db ".tables"
+Products  Users
+ivan@osboxes:~$ sqlite3 ivan_restore.db "SELECT * FROM Users;"
+sqlite3 ivan_restore.db "SELECT * FROM Products;"
+1|Artem Shkondeiuk|artem@example.com
+2|Baklykov Oleksandr|oleksandr@example.com
+3|Horbatiuk Vitalii|vitalii@example.com
+4|Horbatok Ivan|ivan@example.com
+5|Hushuley Yaryna|yaryna@example.com
+6|Igor Polatayko|igor@example.com
+7|Iryna Chernobel|iryna@example.com
+8|Ivan Zhaldak|ivan.z@example.com
+9|Kateryna Kravchuk|kateryna@example.com
+10|Kulnieva Mariia|mariia@example.com
+11|Maksym Maksymenko|maksym@example.com
+1|Wheat|300.5
+2|Corn|250.0
+3|Sunflower|500.75
+4|Barley|270.3
+5|Soybeans|450.6
+6|Sugar beet|150.9
+7|Potatoes|120.4
+8|Apples|80.99
+9|Grapes|90.5
+10|Strawberries|200.0
+11|Carrots|110.75
+ivan@osboxes:~$
