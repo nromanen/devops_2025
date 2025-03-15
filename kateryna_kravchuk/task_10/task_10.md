@@ -10,7 +10,7 @@ Use the previously created virtual machine with Linux, ensure that it is powered
 
 ### Solution 0
 
-I will use **Ubuntu Linux Server 24 LTS**, which was previously installed in *Virtual Box*. The process of gaining acces described in [this](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_09/task_09.md#preparation) part of Task 9.  
+Use **Ubuntu Linux Server 24 LTS**, which was previously installed in the *Virtual Box*. The process of gaining access described in [this](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_09/task_09.md#preparation) part of Task 9.  
 
 ---
 
@@ -22,7 +22,7 @@ Install <span style="color: #db1a74">MariaDB</span> on Ubuntu Linux.
 
 ### Install
 
-> Run `sudo apt update && upgrade` before if needed  
+> Run `sudo apt update && sudo apt upgrade` before if needed  
 
 `sudo apt install mariadb-server -y`  
 
@@ -167,7 +167,7 @@ SELECT User, Host FROM mysql.user WHERE User = 'root';
 
 > Optional - change *root* to *admin*: `RENAME USER 'root'@'localhost' TO 'admin'@'localhost';` (I'll stick with *root* foor now)  
 
-Give root privileges with the ability to grant them to others and assign a password:  
+Give the root privileges with the ability to grant them to others and assign a password:  
 
 ```sql
 GRANT ALL ON *.* to 'root'@'localhost' IDENTIFIED BY '<password>' WITH GRANT OPTION;
@@ -239,7 +239,7 @@ MariaDB [(none)]> SHOW DATABASES;
 
 ### 2. Create two tables
 
-Create two tables: <span style="color: #db1a74">"Users"</span> and <span style="color: #db1a74">"Products"</span>. Each table should contain three field.  
+Create two tables: <span style="color: #db1a74">"Users"</span> and <span style="color: #db1a74">"Products"</span>. Each table should contain three fields.  
 
 1. Swich to created database: `USE lians;`  
 
