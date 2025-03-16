@@ -1,0 +1,9 @@
+1. Results of the task on KillerCoda: https://drive.google.com/file/d/15ToCCfD0hcYyqfbcFjaPdeCMS0rl5flu/view?usp=sharing
+2. Screenshots that demonstrate the working WordPress site: https://drive.google.com/file/d/14bNGnBxU8bCgJhXVwh3XaQC8rSrzo50r/view?usp=sharing
+#Explanation for WordPress task:
+192.168.1.252: Встановлено Apache, PHP і WordPress, які підключаються до MySQL на 192.168.1.139.
+192.168.1.139: Встановлено лише MySQL, який обслуговує базу wordpress.
+#Схема роботи:
+Користувач звертається до 192.168.1.252/wordpress.
+Apache на 192.168.1.252 обробляє запит через PHP.
+PHP підключається до MySQL на 192.168.1.139 для отримання даних із бази wordpress.
