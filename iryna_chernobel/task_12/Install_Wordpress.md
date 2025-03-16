@@ -137,7 +137,7 @@ http://192.168.0.198/wordpress
 
 - [Робочий сайт WordPress](https://drive.google.com/file/d/1lnMSlaflNVnjtKNA-KRw6HGthXSv-Odp/view?usp=drive_link)
 - [Встановлена база даних з користувачем](https://drive.google.com/file/d/10FKROu5d3HJpPoxMvXIVnDQQW1xSm4sa/view?usp=drive_link)
-- [Налаштовання Машини 1  (веб-сервер)](_https://drive.google.com/drive/folders/164daCsJ0yFK9VvhL8fgTl79a_wyFa96O?usp=drive_link)
+- [Налаштовання Машини 1  (веб-сервер)](https://drive.google.com/drive/folders/164daCsJ0yFK9VvhL8fgTl79a_wyFa96O?usp=drive_link)
 - [Налаштовання Машини 2  (сервер бази даних)](https://drive.google.com/drive/folders/1RTldwFhvjz1s3InFUHBptrspALcxttsR?usp=drive_link)
 - [WordPress](https://drive.google.com/drive/folders/1_QEJW-Q8r58LiGEXgFVYCF4jjeQTFYkJ?usp=drive_link)
 
