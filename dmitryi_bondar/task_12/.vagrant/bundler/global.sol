@@ -1,0 +1,1 @@
+{"dependencies":[["vagrant-hostsupdater",["= 1.2.4"]],["vagrant-rdp",["= 0.6.0"]],["vagrant-reload",["= 0.0.1"]]],"checksum":"42a1e52b8342687bf381aab7cab91966b896ef197141648be53a3a5505f03976","vagrant_version":"2.4.3"}
