@@ -1,4 +1,4 @@
-# 12 Task on Nginx Load Balancer Configuration
+# 12 Task on Nginx Load Balancer
 
  
 ## ОС та розміщення сайтів
