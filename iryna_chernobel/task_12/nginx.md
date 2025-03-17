@@ -34,16 +34,16 @@ sudo chown -R www-data:www-data /var/www/html/wordpress
 #### VM2 (192.168.0.198)
 ```
 CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'wpuser'@'localhost' IDENTIFIED BY '*****';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'localhost';
+CREATE USER 'wpuser'@'%' IDENTIFIED BY '*****';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'%';
 FLUSH PRIVILEGES;
 ```
 
 #### VM3 (192.168.0.193)
 ```
 CREATE DATABASE wordpress2 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'wpuser2'@'localhost' IDENTIFIED BY '*****';
-GRANT ALL PRIVILEGES ON wordpress2.* TO 'wpuser2'@'localhost';
+CREATE USER 'wpuser2'@'%' IDENTIFIED BY '*****';
+GRANT ALL PRIVILEGES ON wordpress2.* TO 'wpuser2'@'%';
 FLUSH PRIVILEGES;
 ```
 
@@ -54,7 +54,7 @@ FLUSH PRIVILEGES;
 define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'wpuser' );
 define( 'DB_PASSWORD', '*****' );
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'localhost' );І
 define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 ```
