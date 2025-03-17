@@ -1,0 +1,214 @@
+Little bit modified task for better experience.
+
+add separate 1 LB and 3 nodes where run js app and run it via Vagrantfile
+
+Also pls see file bootlog.txt
+
+
+
+sudo tail -f /var/log/nginx/access.log
+192.168.50.12 - - [17/Mar/2025:02:28:10 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.221:3000
+192.168.50.12 - - [17/Mar/2025:02:28:11 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.222:3000
+192.168.50.12 - - [17/Mar/2025:02:28:12 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.223:3000
+192.168.50.12 - - [17/Mar/2025:02:28:13 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.221:3000
+192.168.50.12 - - [17/Mar/2025:02:28:13 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.222:3000
+192.168.50.12 - - [17/Mar/2025:02:28:14 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.223:3000
+192.168.50.12 - - [17/Mar/2025:02:28:15 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.221:3000
+192.168.50.12 - - [17/Mar/2025:02:28:15 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.222:3000
+192.168.50.12 - - [17/Mar/2025:02:28:16 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.223:3000
+192.168.50.12 - - [17/Mar/2025:02:28:17 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.221:3000
+192.168.50.12 - - [17/Mar/2025:02:28:17 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.222:3000
+192.168.50.12 - - [17/Mar/2025:02:28:18 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.223:3000
+192.168.50.12 - - [17/Mar/2025:02:28:18 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.221:3000
+192.168.50.12 - - [17/Mar/2025:02:28:18 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.222:3000
+192.168.50.12 - - [17/Mar/2025:02:28:19 +0000] "GET / HTTP/1.1" 200 16 "-" "curl/7.81.0" "-" upstream=192.168.50.223:3000
+
+#######
+# curl for node1
+curl -s http://192.168.50.221:3000
+I am an endpoint%
+
+# curl for node2
+curl -s http://192.168.50.222:3000
+I am an endpoint%
+
+# curl for node3
+curl -s http://192.168.50.223:3000
+I am an endpoint%
+
+# curl for lb
+curl http://192.168.50.220
+I am an endpoint%
+
+########
+❯ tree -h
+[4.0K]  .
+├── [413K]  bootlog.txt
+├── [4.0K]  config
+│   ├── [4.0K]  app1
+│   │   ├── [ 187]  app.js
+│   │   └── [ 232]  package.json
+│   └── [1.9K]  nginx.conf
+└── [3.1K]  Vagrantfile
+
+#########
+
+❯ cat Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.box_version = "2004.01"
+
+#   config.vm.synced_folder "./config", "/vagrant/config", mount_options: ["dmode=774", "fmode=775"]
+
+
+#   # Load Balancer (Nginx)
+  config.vm.define "lb" do |web|
+    web.vm.hostname = "lb"
+    web.vm.network "public_network", bridge: "wlp58s0", ip: "192.168.50.220"
+    web.vm.network "forwarded_port", guest: 80, host: 8081
+    web.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+    end
+    web.vm.provision "shell", inline: <<-SHELL
+      sudo sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+      sudo sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+      sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+      sudo rpm --import https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+      sudo yum install -y epel-release
+      sudo yum update -y
+      sudo yum install -y nginx curl
+      sudo systemctl daemon-reexec
+      sudo systemctl enable --now nginx
+      sudo systemctl enable --now firewalld
+      sudo firewall-cmd --permanent --add-service=http
+      sudo firewall-cmd --reload
+      sudo setenforce 0
+
+      # Copy Load Balancer Nginx configuration
+      sudo cp /vagrant/config/nginx.conf /etc/nginx/nginx.conf
+      sudo systemctl restart nginx
+    SHELL
+  end
+
+  # Function to create app nodes (node1, node2, node3)
+  ["node1", "node2", "node3"].each_with_index do |node, index|
+    config.vm.define node do |db|
+      db.vm.hostname = node
+      db.vm.network "public_network", bridge: "wlp58s0", ip: "192.168.50.#{221 + index}"
+      db.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"
+        vb.cpus = 1
+      end
+      db.vm.provision "shell", inline: <<-SHELL
+        sudo sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+        sudo sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+        sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        sudo rpm --import https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+        sudo yum install -y epel-release
+        sudo yum update -y
+        sudo yum install -y nodejs npm
+        sudo systemctl enable --now firewalld
+        sudo firewall-cmd --permanent --add-service=http
+        sudo firewall-cmd --permanent --add-port=3000/tcp
+        sudo firewall-cmd --reload
+#        sudo setenforce 0
+        # Create app directory
+      # Create app directory and copy files
+      sudo mkdir -p /home/vagrant/app1
+      sudo cp /vagrant/config/app1/app.js /home/vagrant/app1/app.js
+      sudo cp /vagrant/config/app1/package.json /home/vagrant/app1/package.json
+      sudo chown -R vagrant:vagrant /home/vagrant/app1
+
+      # Install Node.js dependencies
+      cd /home/vagrant/app1
+      npm install
+
+      # Start Node.js app on port 3000
+      nohup node /home/vagrant/app1/app.js > /dev/null 2>&1 &
+
+        # Install Node.js dependencies
+        cd /home/vagrant/app1
+        npm install
+
+        # Start Node.js app on port 3000
+        nohup node /home/vagrant/app1/app.js > /dev/null 2>&1 &
+      SHELL
+    end
+  end
+end
+
+########
+❯ cat nginx.conf
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log notice;
+pid /run/nginx.pid;
+
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                '$status $body_bytes_sent "$http_referer" '
+                '"$http_user_agent" "$http_x_forwarded_for" '
+                'upstream=$upstream_addr';
+
+    access_log /var/log/nginx/access.log main;
+
+    sendfile on;
+    tcp_nopush on;
+    keepalive_timeout 65;
+    types_hash_max_size 4096;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    include /etc/nginx/conf.d/*.conf;
+
+    upstream backend {
+        server 192.168.50.221:3000;
+        server 192.168.50.222:3000;
+        server 192.168.50.223:3000;
+    }
+
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name localhost; # Changed to localhost, or your ip, or your domain.
+
+        root /usr/share/nginx/html;
+        include /etc/nginx/default.d/*.conf;
+
+        location / {
+            proxy_redirect off;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_pass http://backend;
+            proxy_connect_timeout 75s;
+            proxy_send_timeout 75s;
+            proxy_read_timeout 75s;
+            proxy_http_version 1.1;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_buffers 8 16k;
+            proxy_buffer_size 32k;
+            proxy_busy_buffers_size 64k;
+            proxy_temp_file_write_size 64k;
+        }
+
+        error_page 404 /404.html;
+        location = /404.html {}
+
+        location /cv.html {
+            try_files $uri =404;
+        }
+
+        location = /50x.html {
+            root /usr/share/nginx/html;
+        }
+    }
+}
