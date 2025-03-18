@@ -330,6 +330,7 @@ Reading state information... Done
 ```bash
 sudo apt install -y mongodb-org
 ```
+
 > Notice that the installation of this meta-package will install all the tools and the server together, giving a complete MongoDB setup.  
 
 This part of the **output** shows what have beed done and what tools were installed:  
@@ -374,7 +375,7 @@ Mar 14 14:32:12 userver systemd[1]: Started mongod.service - MongoDB Database Se
 
 `sudo apt install -y mongodb-mongosh`  
 
-> Unfortunately, somehow *mongod.service* keep failing after every attemp to connect via *mongosh*. After trying mutiple solutions and [fixes](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_11/task_11.md#troubleshooting) (none of which worked), I decided to run next steps inside *docker*.  
+> Unfortunately, somehow *mongod.service* keep failing after every attemp to connect via `mongosh`. After trying mutiple solutions and [fixes](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_11/task_11.md#troubleshooting) (none of which worked), I decided to run next steps inside *docker*.  
 
 ---
 
@@ -433,7 +434,7 @@ To connect to the MondiDB inside container, use anything from the following:
 
 Or run `db.runCommand({ hello: 1 })` for more information:  
 
-**Output**: 
+**Output**:  
 
 ```js
 {
