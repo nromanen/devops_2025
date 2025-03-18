@@ -1,0 +1,1009 @@
+#Check the status of the network interface. Use atop, htop, and btop utilities to display running processes on your OS.
+
+vagrant@bullseye:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:8d:c0:4d brd ff:ff:ff:ff:ff:ff
+    altname enp0s3
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic eth0
+       valid_lft 84831sec preferred_lft 84831sec
+    inet6 fd00::a00:27ff:fe8d:c04d/64 scope global dynamic mngtmpaddr 
+       valid_lft 86277sec preferred_lft 14277sec
+    inet6 fe80::a00:27ff:fe8d:c04d/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:41:88:3f brd ff:ff:ff:ff:ff:ff
+    altname enp0s8
+    inet 192.168.50.41/24 brd 192.168.50.255 scope global dynamic eth1
+       valid_lft 84848sec preferred_lft 84848sec
+    inet6 fe80::a00:27ff:fe41:883f/64 scope link 
+       valid_lft forever preferred_lft forever
+
+####
+sudo ip link show eth1
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:41:88:3f brd ff:ff:ff:ff:ff:ff
+    altname enp0s8
+
+####
+
+
+
+# install atop
+vagrant@bullseye:~$ sudo apt update
+Get:1 https://security.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+Get:2 https://deb.debian.org/debian bullseye InRelease [116 kB]
+Get:3 https://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+Get:4 https://security.debian.org/debian-security bullseye-security/main Sources [241 kB]
+Get:5 https://deb.debian.org/debian bullseye/main Sources [8500 kB]
+Get:6 https://security.debian.org/debian-security bullseye-security/main amd64 Packages [350 kB]
+Get:7 https://security.debian.org/debian-security bullseye-security/main Translation-en [228 kB]
+Get:8 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]                   
+Get:9 https://deb.debian.org/debian bullseye/main Translation-en [6235 kB]
+Get:10 https://deb.debian.org/debian bullseye-updates/main Sources [7908 B]
+Get:11 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+Get:12 https://deb.debian.org/debian bullseye-updates/main Translation-en [10.9 kB]
+Fetched 23.8 MB in 6s (4126 kB/s)                           
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+48 packages can be upgraded. Run 'apt list --upgradable' to see them.
+vagrant@bullseye:~$ sudo apt-get install atop
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  atop
+0 upgraded, 1 newly installed, 0 to remove and 48 not upgraded.
+Need to get 201 kB of archives.
+After this operation, 511 kB of additional disk space will be used.
+Get:1 https://deb.debian.org/debian bullseye/main amd64 atop amd64 2.6.0-2 [201 kB]
+Fetched 201 kB in 0s (488 kB/s)
+apt-listchanges: Can't set locale; make sure $LC_* and $LANG are correct!
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_TIME = "uk_UA.UTF-8",
+	LC_MONETARY = "uk_UA.UTF-8",
+	LC_ADDRESS = "uk_UA.UTF-8",
+	LC_TELEPHONE = "uk_UA.UTF-8",
+	LC_NAME = "uk_UA.UTF-8",
+	LC_MEASUREMENT = "uk_UA.UTF-8",
+	LC_IDENTIFICATION = "uk_UA.UTF-8",
+	LC_NUMERIC = "uk_UA.UTF-8",
+	LC_PAPER = "uk_UA.UTF-8",
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("C.UTF-8").
+locale: Cannot set LC_ALL to default locale: No such file or directory
+Selecting previously unselected package atop.
+(Reading database ... 25141 files and directories currently installed.)
+Preparing to unpack .../atop_2.6.0-2_amd64.deb ...
+Unpacking atop (2.6.0-2) ...
+Setting up atop (2.6.0-2) ...
+Created symlink /etc/systemd/system/timers.target.wants/atop-rotate.timer → /lib/systemd/system/atop-rotate.timer.
+Created symlink /etc/systemd/system/multi-user.target.wants/atop.service → /lib/systemd/system/atop.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/atopacct.service → /lib/systemd/system/atopacct.service.
+atop-rotate.service is a disabled or a static unit, not starting it.
+Processing triggers for man-db (2.9.4-2) ...
+
+sudo atop  # press n 
+ATOP - bullseye                              2025/03/10  13:43:21                              ----------------                               10s elapsed
+PRC |  sys    0.07s |  user   0.01s  |  #proc     93 |  #trun      2  | #tslpi    71  |  #tslpu     0  | #zombie    0  |  clones     0  | #exit      0  |
+CPU |  sys       0% |  user      0%  |  irq       0% |  idle    200%  | wait      0%  |  ipc notavail  | cycl unknown  |  curf 1.90GHz  | curscal   ?%  |
+cpu |  sys       0% |  user      0%  |  irq       0% |  idle    100%  | cpu000 w  0%  |  ipc notavail  | cycl unknown  |  curf 1.90GHz  | curscal   ?%  |
+CPL |  avg1    0.00 |  avg5    0.02  |  avg15   0.00 |                | csw      943  |                | intr    3054  |                | numcpu     2  |
+MEM |  tot   461.1M |  free   46.5M  |  cache 275.1M |  dirty   0.0M  | buff   17.4M  |  slab   40.7M  | vmbal   0.0M  |  zfarc   0.0M  | hptot   0.0M  |
+SWP |  tot     0.0M |  free    0.0M  |               |                | swcac   0.0M  |                |               |  vmcom 334.7M  | vmlim 230.6M  |
+PSI |  cpusome   0% |  memsome   0%  |  memfull   0% |  iosome    0%  | iofull    0%  |  cs     0/0/0  | ms     0/0/0  |  mf     0/0/0  | is     0/0/0  |
+NET |  transport    |  tcpi       4  |  tcpo       4 |  udpi       0  | udpo       0  |  tcpao      0  | tcppo      0  |  tcprs      0  | udpie      0  |
+NET |  network      |  ipi        4  |  ipo        4 |  ipfrw      0  | deliv      4  |                |               |  icmpi      0  | icmpo      0  |
+NET |  eth0    ---- |  pcki       4  |  pcko       4 |  sp    0 Mbps  | si    0 Kbps  |  so    0 Kbps  | erri       0  |  erro       0  | drpo       0  |
+NET |  eth1    ---- |  pcki       1  |  pcko       0 |  sp    0 Mbps  | si    0 Kbps  |  so    0 Kbps  | erri       0  |  erro       0  | drpo       0  |
+
+    PID   SYSCPU   USRCPU    RDELAY    VGROW     RGROW    RDDSK     WRDSK   RUID       EUID        ST   EXC     THR   S    CPUNR    CPU    CMD        1/1
+   4040    0.02s    0.01s     0.00s       0K        0K       0K        0K   root       root        --     -       1   R        1     0%    atop
+   3028    0.02s    0.00s     0.01s       0K        0K       0K        0K   root       root        --     -       1   R        0     0%    kworker/0:1-ev
+    239    0.01s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   S        0     0%    irq/18-vmwgfx
+   1099    0.01s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   I        1     0%    kworker/u4:3-f
+   3062    0.01s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   I        1     0%    kworker/1:0-ev
+    346    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   S        1     0%    unattended-upg
+    285    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   S        1     0%    systemd-logind
+   1087    0.00s    0.00s     0.00s       0K        0K       0K        0K   vagrant    vagrant     --     -       1   S        1     0%    sshd
+    272    0.00s    0.00s     0.00s       0K        0K       0K        0K   messageb   messageb    --     -       1   S        1     0%    dbus-daemon
+     11    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   S        0     0%    ksoftirqd/0
+     12    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   I        1     0%    rcu_sched
+     18    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   S        1     0%    ksoftirqd/1
+     28    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   S        1     0%    kcompactd0
+     58    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   I        1     0%    kworker/u4:1-e
+    104    0.00s    0.00s     0.00s       0K        0K       0K        0K   root       root        --     -       1   I        1     0%    kworker/1:1H-k
+
+
+# install htop
+sudo apt update && sudo apt-get install htop -y
+Hit:1 https://deb.debian.org/debian bullseye InRelease
+Hit:2 https://security.debian.org/debian-security bullseye-security InRelease
+Hit:3 https://deb.debian.org/debian bullseye-updates InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+48 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libnl-3-200 libnl-genl-3-200
+Suggested packages:
+  lm-sensors strace
+The following NEW packages will be installed:
+  htop libnl-3-200 libnl-genl-3-200
+0 upgraded, 3 newly installed, 0 to remove and 48 not upgraded.
+Need to get 211 kB of archives.
+After this operation, 573 kB of additional disk space will be used.
+Get:1 https://deb.debian.org/debian bullseye/main amd64 libnl-3-200 amd64 3.4.0-1+b1 [63.6 kB]
+Get:2 https://deb.debian.org/debian bullseye/main amd64 libnl-genl-3-200 amd64 3.4.0-1+b1 [21.2 kB]
+Get:3 https://deb.debian.org/debian bullseye/main amd64 htop amd64 3.0.5-7 [127 kB]
+Fetched 211 kB in 0s (515 kB/s)
+apt-listchanges: Can't set locale; make sure $LC_* and $LANG are correct!
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_TIME = "uk_UA.UTF-8",
+	LC_MONETARY = "uk_UA.UTF-8",
+	LC_ADDRESS = "uk_UA.UTF-8",
+	LC_TELEPHONE = "uk_UA.UTF-8",
+	LC_NAME = "uk_UA.UTF-8",
+	LC_MEASUREMENT = "uk_UA.UTF-8",
+	LC_IDENTIFICATION = "uk_UA.UTF-8",
+	LC_NUMERIC = "uk_UA.UTF-8",
+	LC_PAPER = "uk_UA.UTF-8",
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("C.UTF-8").
+locale: Cannot set LC_ALL to default locale: No such file or directory
+Selecting previously unselected package libnl-3-200:amd64.
+(Reading database ... 25173 files and directories currently installed.)
+Preparing to unpack .../libnl-3-200_3.4.0-1+b1_amd64.deb ...
+Unpacking libnl-3-200:amd64 (3.4.0-1+b1) ...
+Selecting previously unselected package libnl-genl-3-200:amd64.
+Preparing to unpack .../libnl-genl-3-200_3.4.0-1+b1_amd64.deb ...
+Unpacking libnl-genl-3-200:amd64 (3.4.0-1+b1) ...
+Selecting previously unselected package htop.
+Preparing to unpack .../htop_3.0.5-7_amd64.deb ...
+Unpacking htop (3.0.5-7) ...
+Setting up libnl-3-200:amd64 (3.4.0-1+b1) ...
+Setting up libnl-genl-3-200:amd64 (3.4.0-1+b1) ...
+Setting up htop (3.0.5-7) ...
+Processing triggers for man-db (2.9.4-2) ...
+Processing triggers for mailcap (3.69) ...
+Processing triggers for libc-bin (2.31-13+deb11u11) ...
+
+sudo htop
+
+
+# install btop 
+vagrant@bullseye:~$ sudo apt update && sudo apt install snapd && sudo snap install btop
+Hit:1 https://security.debian.org/debian-security bullseye-security InRelease
+Hit:2 https://deb.debian.org/debian bullseye InRelease
+Hit:3 https://deb.debian.org/debian bullseye-updates InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+48 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+snapd is already the newest version (2.49-1+deb11u2).
+0 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
+2025-03-10T13:39:06Z INFO Waiting for automatic snapd restart...
+btop 1.4.0 from James Tigert (kz6fittycent) installed
+
+sudo btop
+
+######
+# Ping the localhost with a set of 10 packets, each with a size of 1500 bytes.
+
+vagrant@bullseye:~$ ping -c 10 -s 1500 localhost
+PING localhost(localhost (::1)) 1500 data bytes
+1508 bytes from localhost (::1): icmp_seq=1 ttl=64 time=0.075 ms
+1508 bytes from localhost (::1): icmp_seq=2 ttl=64 time=0.032 ms
+1508 bytes from localhost (::1): icmp_seq=3 ttl=64 time=0.105 ms
+1508 bytes from localhost (::1): icmp_seq=4 ttl=64 time=0.030 ms
+1508 bytes from localhost (::1): icmp_seq=5 ttl=64 time=0.094 ms
+1508 bytes from localhost (::1): icmp_seq=6 ttl=64 time=0.077 ms
+1508 bytes from localhost (::1): icmp_seq=7 ttl=64 time=0.080 ms
+1508 bytes from localhost (::1): icmp_seq=8 ttl=64 time=0.078 ms
+1508 bytes from localhost (::1): icmp_seq=9 ttl=64 time=0.087 ms
+1508 bytes from localhost (::1): icmp_seq=10 ttl=64 time=0.078 ms
+
+--- localhost ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9161ms
+rtt min/avg/max/mdev = 0.030/0.073/0.105/0.023 ms
+######
+
+
+# Ping an external host by its name and obtain its IP address. Trace the route to the external host (e.g., softerveinc.com).
+
+host google.com.ua
+google.com.ua has address 142.250.186.195
+google.com.ua has IPv6 address 2a00:1450:401b:806::2003
+google.com.ua mail is handled by 0 smtp.google.com.
+
+# or 
+vagrant@bullseye:~$ dig google.com.ua +short
+142.250.186.195
+
+####
+vagrant@bullseye:~$ ping -c 4 google.com.ua
+PING google.com.ua (216.58.215.67) 56(84) bytes of data.
+64 bytes from waw02s16-in-f3.1e100.net (216.58.215.67): icmp_seq=1 ttl=255 time=39.5 ms
+64 bytes from waw02s16-in-f3.1e100.net (216.58.215.67): icmp_seq=2 ttl=255 time=41.3 ms
+64 bytes from waw02s16-in-f3.1e100.net (216.58.215.67): icmp_seq=3 ttl=255 time=39.8 ms
+64 bytes from waw02s16-in-f3.1e100.net (216.58.215.67): icmp_seq=4 ttl=255 time=41.5 ms
+
+--- google.com.ua ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 39.488/40.524/41.542/0.887 ms
+####
+
+vagrant@bullseye:~$ traceroute google.com.ua
+traceroute to google.com.ua (216.58.215.67), 30 hops max, 60 byte packets
+ 1  10.0.2.2 (10.0.2.2)  0.607 ms  0.832 ms  0.783 ms
+ 2  cisco (192.168.50.1)  2.988 ms  2.938 ms  2.891 ms
+ 3  10.0.0.10 (10.0.0.10)  2.762 ms  5.284 ms  5.127 ms
+ 4  43-8-5-195.ip.ukrtel.net (195.5.8.43)  5.017 ms  10.427 ms  5.169 ms
+ 5  10.50.40.14 (10.50.40.14)  16.855 ms  16.786 ms  22.447 ms
+ 6  74.125.52.238 (74.125.52.238)  21.976 ms *  20.498 ms
+ 7  74.125.245.57 (74.125.245.57)  16.145 ms  16.057 ms 74.125.245.73 (74.125.245.73)  15.947 ms
+ 8  74.125.245.62 (74.125.245.62)  21.401 ms  25.579 ms  25.477 ms
+ 9  142.251.242.41 (142.251.242.41)  46.863 ms  46.753 ms 142.251.242.35 (142.251.242.35)  34.907 ms
+10  142.250.46.54 (142.250.46.54)  40.310 ms 192.178.99.99 (192.178.99.99)  34.729 ms 216.239.58.77 (216.239.58.77)  35.676 ms
+11  216.239.58.77 (216.239.58.77)  35.607 ms 192.178.99.101 (192.178.99.101)  29.437 ms 108.170.234.103 (108.170.234.103)  29.370 ms
+12  waw02s16-in-f3.1e100.net (216.58.215.67)  35.364 ms 108.170.234.103 (108.170.234.103)  35.846 ms waw02s16-in-f3.1e100.net (216.58.215.67)  46.210 ms
+
+# or 
+vagrant@bullseye:~$ sudo apt-get install mtr -y
+mtr -n google.com.ua
+
+
+####
+
+
+Check your DNS configuration.
+vagrant@bullseye:~$ cat /etc/resolv.conf
+nameserver 192.168.50.1
+
+#
+vagrant@bullseye:~$ systemctl is-active systemd-resolved
+inactive
+vagrant@bullseye:~$ sudo systemctl start systemd-resolved
+vagrant@bullseye:~$ sudo systemctl enable systemd-resolved
+Created symlink /etc/systemd/system/dbus-org.freedesktop.resolve1.service → /lib/systemd/system/systemd-resolved.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/systemd-resolved.service → /lib/systemd/system/systemd-resolved.service.
+vagrant@bullseye:~$ systemd-resolve --status
+Global
+         Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: foreign
+Current DNS Server: 192.168.50.1
+       DNS Servers: 192.168.50.1
+
+Link 2 (eth0)
+Current Scopes: LLMNR/IPv4 LLMNR/IPv6
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+Link 3 (eth1)
+Current Scopes: LLMNR/IPv4 LLMNR/IPv6
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+#
+vagrant@bullseye:~$ resolvectl status eth1
+Link 3 (eth1)
+Current Scopes: LLMNR/IPv4 LLMNR/IPv6
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+#
+ dig google.com
+
+; <<>> DiG 9.16.50-Debian <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 24105
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;google.com.			IN	A
+
+;; ANSWER SECTION:
+google.com.		230	IN	A	172.217.16.14
+
+;; Query time: 108 msec
+;; SERVER: 192.168.50.1#53(192.168.50.1)
+;; WHEN: Mon Mar 10 14:24:11 UTC 2025
+;; MSG SIZE  rcvd: 55
+
+####
+vagrant@bullseye:~$ sudo netstat -tulnp | grep :53
+tcp        0      0 0.0.0.0:5355            0.0.0.0:*               LISTEN      10605/systemd-resol 
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      10605/systemd-resol 
+tcp6       0      0 :::5355                 :::*                    LISTEN      10605/systemd-resol 
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           10605/systemd-resol 
+udp        0      0 0.0.0.0:5355            0.0.0.0:*                           10605/systemd-resol 
+udp6       0      0 :::5355                 :::*                                10605/systemd-resol 
+
+####
+vagrant@bullseye:~$ sudo lsof -i :53
+COMMAND     PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+systemd-r 10605 systemd-resolve   17u  IPv4  39853      0t0  UDP 127.0.0.53:domain 
+systemd-r 10605 systemd-resolve   18u  IPv4  39854      0t0  TCP 127.0.0.53:domain (LISTEN)
+
+
+# Review the firewall rules (iptables or ufw). List the open ports on your system using netstat and ss.
+sudo apt-get install ufw
+
+vagrant@bullseye:~$ sudo systemctl status ufw
+● ufw.service - Uncomplicated firewall
+     Loaded: loaded (/lib/systemd/system/ufw.service; enabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: man:ufw(8)
+
+vagrant@bullseye:~$ sudo ufw allow ssh
+Rules updated
+Rules updated (v6)
+
+vagrant@bullseye:~$ sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+
+vagrant@bullseye:~$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                  
+22/tcp (v6)                ALLOW IN    Anywhere (v6)         
+
+##
+agrant@bullseye:~$ sudo iptables -L -n -v
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   16   872 ufw-before-logging-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   16   872 ufw-before-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-after-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-after-logging-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-reject-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-track-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ufw-before-logging-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-before-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-after-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-after-logging-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-reject-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ufw-track-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   952 ufw-before-logging-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   952 ufw-before-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    1   100 ufw-after-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    1   100 ufw-after-logging-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    1   100 ufw-reject-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    1   100 ufw-track-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-after-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-after-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ufw-skip-to-policy-input  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:137
+    0     0 ufw-skip-to-policy-input  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:138
+    0     0 ufw-skip-to-policy-input  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:139
+    0     0 ufw-skip-to-policy-input  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:445
+    0     0 ufw-skip-to-policy-input  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+    0     0 ufw-skip-to-policy-input  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:68
+    0     0 ufw-skip-to-policy-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type BROADCAST
+
+Chain ufw-after-logging-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 3/min burst 10 LOG flags 0 level 4 prefix "[UFW BLOCK] "
+
+Chain ufw-after-logging-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 3/min burst 10 LOG flags 0 level 4 prefix "[UFW BLOCK] "
+
+Chain ufw-after-logging-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-after-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-before-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 3
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 11
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 12
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8
+    0     0 ufw-user-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-before-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+   16   872 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ufw-logging-deny  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 3
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 11
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 12
+    0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:67 dpt:68
+    0     0 ufw-not-local  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            224.0.0.251          udp dpt:5353
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            239.255.255.250      udp dpt:1900
+    0     0 ufw-user-input  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-before-logging-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-before-logging-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-before-logging-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-before-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      lo      0.0.0.0/0            0.0.0.0/0           
+    9   852 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    1   100 ufw-user-output  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-logging-allow (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 3/min burst 10 LOG flags 0 level 4 prefix "[UFW ALLOW] "
+
+Chain ufw-logging-deny (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID limit: avg 3/min burst 10
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 3/min burst 10 LOG flags 0 level 4 prefix "[UFW BLOCK] "
+
+Chain ufw-not-local (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type MULTICAST
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type BROADCAST
+    0     0 ufw-logging-deny  all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 3/min burst 10
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-reject-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-reject-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-reject-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-skip-to-policy-forward (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-skip-to-policy-input (7 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-skip-to-policy-output (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-track-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-track-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-track-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    1   100 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW
+
+Chain ufw-user-forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-user-input (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+
+Chain ufw-user-limit (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 3/min burst 5 LOG flags 0 level 4 prefix "[UFW LIMIT BLOCK] "
+    0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+Chain ufw-user-limit-accept (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-user-logging-forward (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-user-logging-input (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-user-logging-output (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ufw-user-output (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+#
+vagrant@bullseye:~$ sudo netstat -tulnp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:5355            0.0.0.0:*               LISTEN      10605/systemd-resol 
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      10605/systemd-resol 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      572/sshd: /usr/sbin 
+tcp6       0      0 :::5355                 :::*                    LISTEN      10605/systemd-resol 
+tcp6       0      0 :::22                   :::*                    LISTEN      572/sshd: /usr/sbin 
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           10605/systemd-resol 
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           353/chronyd         
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           962/dhclient        
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           326/dhclient        
+udp        0      0 0.0.0.0:5355            0.0.0.0:*                           10605/systemd-resol 
+udp6       0      0 ::1:323                 :::*                                353/chronyd         
+udp6       0      0 :::5355                 :::*                                10605/systemd-resol 
+
+#
+vagrant@bullseye:~$ ss -tulnp
+Netid          State           Recv-Q          Send-Q                   Local Address:Port                   Peer Address:Port          Process          
+udp            UNCONN          0               0                        127.0.0.53%lo:53                          0.0.0.0:*                              
+udp            UNCONN          0               0                            127.0.0.1:323                         0.0.0.0:*                              
+udp            UNCONN          0               0                              0.0.0.0:68                          0.0.0.0:*                              
+udp            UNCONN          0               0                              0.0.0.0:68                          0.0.0.0:*                              
+udp            UNCONN          0               0                              0.0.0.0:5355                        0.0.0.0:*                              
+udp            UNCONN          0               0                                [::1]:323                            [::]:*                              
+udp            UNCONN          0               0                                 [::]:5355                           [::]:*                              
+tcp            LISTEN          0               4096                           0.0.0.0:5355                        0.0.0.0:*                              
+tcp            LISTEN          0               4096                     127.0.0.53%lo:53                          0.0.0.0:*                              
+tcp            LISTEN          0               128                            0.0.0.0:22                          0.0.0.0:*                              
+tcp            LISTEN          0               4096                              [::]:5355                           [::]:*                              
+tcp            LISTEN          0               128                               [::]:22                             [::]:*                              
+
+####
+
+# If you are using DHCP, verify that your system is obtaining an IP address correctly. Change the IP address using the dhclient command. Show the results.
+
+vagrant@bullseye:~$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:8d:c0:4d brd ff:ff:ff:ff:ff:ff
+    altname enp0s3
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic eth0
+       valid_lft 78130sec preferred_lft 78130sec
+    inet6 fd00::a00:27ff:fe8d:c04d/64 scope global dynamic mngtmpaddr 
+       valid_lft 86070sec preferred_lft 14070sec
+    inet6 fe80::a00:27ff:fe8d:c04d/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:41:88:3f brd ff:ff:ff:ff:ff:ff
+    altname enp0s8
+    inet 192.168.50.41/24 brd 192.168.50.255 scope global dynamic eth1
+       valid_lft 78147sec preferred_lft 78147sec
+    inet6 fe80::a00:27ff:fe41:883f/64 scope link 
+       valid_lft forever preferred_lft forever
+
+#
+vagrant@bullseye:~$ cat /var/lib/dhcp/dhclient.leases
+lease {
+  interface "eth1";
+  fixed-address 192.168.50.41;
+  option subnet-mask 255.255.255.0;
+  option dhcp-lease-time 86400;
+  option routers 192.168.50.1;
+  option dhcp-message-type 5;
+  option dhcp-server-identifier 192.168.50.1;
+  option domain-name-servers 192.168.50.1;
+  option dhcp-renewal-time 43200;
+  option dhcp-rebinding-time 75600;
+  option broadcast-address 192.168.50.255;
+  option host-name "bullseye";
+  renew 2 2025/03/11 02:16:30;
+  rebind 2 2025/03/11 12:42:22;
+  expire 2 2025/03/11 15:42:22;
+}
+lease {
+  interface "eth0";
+  fixed-address 10.0.2.15;
+  filename "00_Pre_task_2_default_1741613038921_52439.pxe";
+  option subnet-mask 255.255.255.0;
+  option routers 10.0.2.2;
+  option dhcp-lease-time 86400;
+  option dhcp-message-type 5;
+  option dhcp-server-identifier 10.0.2.2;
+  option domain-name-servers 10.0.2.3;
+  option domain-search "NetisRouter_bc62ce7ff3fd.";
+  option host-name "vbox";
+  option domain-name "NetisRouter_bc62ce7ff3fd";
+  renew 2 2025/03/11 01:17:49;
+  rebind 2 2025/03/11 12:42:22;
+  expire 2 2025/03/11 15:42:22;
+}
+lease {
+  interface "eth0";
+  fixed-address 10.0.2.15;
+  filename "00_Pre_task_2_default_1741613038921_52439.pxe";
+  option subnet-mask 255.255.255.0;
+  option dhcp-lease-time 86400;
+  option routers 10.0.2.2;
+  option dhcp-message-type 5;
+  option domain-name-servers 10.0.2.3;
+  option dhcp-server-identifier 10.0.2.2;
+  option domain-search "NetisRouter_bc62ce7ff3fd.";
+  option host-name "vbox";
+  option domain-name "NetisRouter_bc62ce7ff3fd";
+  renew 2 2025/03/11 03:30:34;
+  rebind 2 2025/03/11 12:42:28;
+  expire 2 2025/03/11 15:42:28;
+}
+lease {
+  interface "eth1";
+  fixed-address 192.168.50.41;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.50.1;
+  option dhcp-lease-time 86400;
+  option dhcp-message-type 5;
+  option domain-name-servers 192.168.50.1;
+  option dhcp-server-identifier 192.168.50.1;
+  option dhcp-renewal-time 43200;
+  option broadcast-address 192.168.50.255;
+  option dhcp-rebinding-time 75600;
+  option host-name "bullseye";
+  renew 2 2025/03/11 02:17:54;
+  rebind 2 2025/03/11 12:42:28;
+  expire 2 2025/03/11 15:42:28;
+}
+
+#
+sudo dhclient -r
+sudo ip route flush dev eth1
+sudo rm /var/lib/dhcp/dhclient.leases
+
+vagrant@bullseye:~$ sudo dhclient eth1
+vagrant@bullseye:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:8d:c0:4d brd ff:ff:ff:ff:ff:ff
+    altname enp0s3
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic eth0
+       valid_lft 86091sec preferred_lft 86091sec
+    inet6 fd00::a00:27ff:fe8d:c04d/64 scope global dynamic mngtmpaddr 
+       valid_lft 86317sec preferred_lft 14317sec
+    inet6 fe80::a00:27ff:fe8d:c04d/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:41:88:3f brd ff:ff:ff:ff:ff:ff
+    altname enp0s8
+    inet 192.168.50.41/24 brd 192.168.50.255 scope global dynamic eth1
+       valid_lft 86399sec preferred_lft 86399sec
+    inet6 fe80::a00:27ff:fe41:883f/64 scope link 
+       valid_lft forever preferred_lft forever
+
+####
+
+# Check the network configuration files. Add a static IP address to an existing interface. Apply the changes and verify correct operation.
+
+sudo apt install netplan.io
+
+sudo vi /etc/netplan/00-installer-config.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth1:
+      dhcp4: false
+      addresses:
+        - 192.168.50.251/24
+      gateway4: 192.168.50.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+		  
+vagrant@bullseye:~$ sudo netplan apply
+
+agrant@bullseye:~$ ip addr show eth1
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:41:88:3f brd ff:ff:ff:ff:ff:ff
+    altname enp0s8
+    inet 192.168.50.251/24 brd 192.168.50.255 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe41:883f/64 scope link 
+       valid_lft forever preferred_lft forever
+
+vagrant@bullseye:~$ ping -c 4 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=255 time=42.2 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=255 time=41.3 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=255 time=43.0 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=255 time=43.3 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3011ms
+rtt min/avg/max/mdev = 41.347/42.462/43.278/0.760 ms
+
+#### 
+
+# Restart network services to apply any changes made during troubleshooting. Check the firewall status on your system.
+
+vagrant@bullseye:~$ sudo systemctl restart systemd-networkd
+
+vagrant@bullseye:~$ sudo netplan apply
+
+vagrant@bullseye:~$ sudo systemctl status ufw
+● ufw.service - Uncomplicated firewall
+     Loaded: loaded (/lib/systemd/system/ufw.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Mon 2025-03-10 16:23:14 UTC; 19min ago
+       Docs: man:ufw(8)
+   Main PID: 194 (code=exited, status=0/SUCCESS)
+      Tasks: 0 (limit: 510)
+     Memory: 0B
+        CPU: 0
+     CGroup: /system.slice/ufw.service
+
+Mar 10 16:23:14 bullseye systemd[1]: Finished Uncomplicated firewall.
+Warning: journal has been rotated since unit was started, output may be incomplete.
+
+vagrant@bullseye:~$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                  
+22/tcp (v6)                ALLOW IN    Anywhere (v6)       
+
+####
+
+# Use the tcpdump utility to display traffic through the Ethernet port, including IP addresses and port numbers.
+
+sudo apt update && sudo apt install -y tcpdump
+
+vagrant@bullseye:~$ sudo tcpdump -i eth1 -nn
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+22:01:22.320584 IP6 fe80::fc49:2ca2:12f8:9727 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+22:01:22.722542 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:22.738305 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:23.144407 ARP, Request who-has 192.168.50.1 tell 192.168.50.12, length 46
+22:01:23.149167 ARP, Reply 192.168.50.1 is-at 48:f8:b3:9a:5c:e0, length 46
+22:01:23.723575 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:23.725056 ARP, Request who-has 192.168.50.11 tell 192.168.50.12, length 46
+22:01:23.731761 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:23.733442 ARP, Reply 192.168.50.11 is-at a4:77:33:7c:78:ec, length 46
+22:01:24.119116 IP 0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from dc:fb:48:f7:4c:4d, length 286
+22:01:24.123317 IP 0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from dc:fb:48:f7:4c:4d, length 292
+22:01:24.139628 IP6 fe80::fc49:2ca2:12f8:9727 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+22:01:24.724372 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:24.729805 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:24.745547 IP6 fe80::fc49:2ca2:12f8:9727 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+22:01:25.722292 IP 192.168.50.12.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlecast._tcp.local. (40)
+22:01:25.722292 IP 192.168.50.12.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlecast._tcp.local. (40)
+22:01:25.724788 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:25.725898 IP 192.168.50.12.39986 > 239.255.255.250.1900: UDP, length 173
+22:01:25.894774 IP 192.168.50.11.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlezone._tcp.local. (40)
+22:01:26.599845 IP6 fe80::a00:27ff:fe41:883f > ff02::2: ICMP6, router solicitation, length 16
+22:01:26.722928 IP 192.168.50.12.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlecast._tcp.local. (40)
+22:01:26.723714 IP 192.168.50.12.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlecast._tcp.local. (40)
+22:01:26.817989 IP 192.168.50.11.5353 > 224.0.0.251.5353: 0*- [0q] 1/0/3 PTR Chromecast-e96e7bf26ef34f8bc387ba0abf06a8e7._googlecast._tcp.local. (368)
+22:01:28.073497 IP 192.168.50.251.40343 > 91.198.10.4.123: NTPv4, Client, length 48
+22:01:28.098477 IP 91.198.10.4.123 > 192.168.50.251.40343: NTPv4, Server, length 48
+22:01:28.098478 ARP, Request who-has 192.168.50.251 tell 192.168.50.12, length 46
+22:01:28.098585 ARP, Reply 192.168.50.251 is-at 08:00:27:41:88:3f, length 28
+22:01:28.110344 IP 91.198.10.4.123 > 192.168.50.251.40343: NTPv4, Server, length 48
+22:01:28.110464 IP 192.168.50.251 > 91.198.10.4: ICMP 192.168.50.251 udp port 40343 unreachable, length 84
+22:01:28.724451 IP 192.168.50.12.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlecast._tcp.local. (40)
+22:01:28.724452 IP 192.168.50.12.5353 > 224.0.0.251.5353: 0 PTR (QM)? _googlecast._tcp.local. (40)
+22:01:28.762081 IP 192.168.50.11.5353 > 224.0.0.251.5353: 0*- [0q] 1/0/3 PTR Chromecast-e96e7bf26ef34f8bc387ba0abf06a8e7._googlecast._tcp.local. (368)
+22:01:28.762082 IP 192.168.50.11.5353 > 224.0.0.251.5353: 0*- [0q] 1/0/3 PTR Chromecast-e96e7bf26ef34f8bc387ba0abf06a8e7._googlecast._tcp.local. (368)
+22:01:29.471511 IP 192.168.50.251.58803 > 193.34.155.3.123: NTPv4, Client, length 48
+22:01:29.497784 IP 193.34.155.3.123 > 192.168.50.251.58803: NTPv4, Server, length 48
+22:01:29.497785 IP 193.34.155.3.123 > 192.168.50.251.58803: NTPv4, Server, length 48
+^C
+37 packets captured
+37 packets received by filter
+0 packets dropped by kernel
+
+####
+
+# Check system logs for network-related errors. Common logs include syslog, messages, access, and network.log.
+
+vagrant@bullseye:~$ sudo journalctl -xe | grep -i "network"
+Mar 10 17:08:47 bullseye systemd[1]: Stopped target Network.
+░░ Subject: A stop job for unit network.target has finished
+░░ A stop job for unit network.target has finished.
+Mar 10 17:08:47 bullseye systemd[1]: Stopping Raise network interfaces...
+░░ Subject: A stop job for unit networking.service has begun execution
+░░ A stop job for unit networking.service has begun execution.
+Mar 10 17:08:47 bullseye systemd[1]: Stopping Network Name Resolution...
+Mar 10 17:08:47 bullseye systemd[1]: Stopped Network Name Resolution.
+Mar 10 17:08:47 bullseye systemd[1]: Stopping Network Service...
+░░ Subject: A stop job for unit systemd-networkd.service has begun execution
+░░ A stop job for unit systemd-networkd.service has begun execution.
+Mar 10 17:08:47 bullseye systemd-networkd[1035]: eth1: DHCPv6 lease lost
+Mar 10 17:08:47 bullseye systemd[1]: systemd-networkd.service: Succeeded.
+░░ The unit systemd-networkd.service has successfully entered the 'dead' state.
+Mar 10 17:08:47 bullseye systemd[1]: Stopped Network Service.
+░░ Subject: A stop job for unit systemd-networkd.service has finished
+░░ A stop job for unit systemd-networkd.service has finished.
+Mar 10 17:08:49 bullseye systemd[1]: Requested transaction contradicts existing jobs: Transaction for systemd-networkd.service/start is destructive (systemd-reboot.service has 'start' job queued, but 'stop' is included in transaction).
+Mar 10 17:08:49 bullseye systemd[1]: systemd-networkd.socket: Failed to queue service startup job (Maybe the service file is missing or not a non-template unit?): Transaction for systemd-networkd.service/start is destructive (systemd-reboot.service has 'start' job queued, but 'stop' is included in transaction).
+Mar 10 17:08:49 bullseye systemd[1]: systemd-networkd.socket: Failed with result 'resources'.
+░░ The unit systemd-networkd.socket has entered the 'failed' state with result 'resources'.
+Mar 10 17:08:49 bullseye systemd[1]: networking.service: Succeeded.
+░░ The unit networking.service has successfully entered the 'dead' state.
+Mar 10 17:08:49 bullseye systemd[1]: Stopped Raise network interfaces.
+░░ Subject: A stop job for unit networking.service has finished
+░░ A stop job for unit networking.service has finished.
+Mar 10 17:09:15 bullseye kernel: e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 17:09:15 bullseye kernel: e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 17:09:15 bullseye kernel: e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 17:09:15 bullseye systemd[1]: Listening on Network Service Netlink Socket.
+Mar 10 17:09:15 bullseye systemd-udevd[234]: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Mar 10 17:09:15 bullseye systemd[1]: Starting Network Service...
+░░ Subject: A start job for unit systemd-networkd.service has begun execution
+░░ A start job for unit systemd-networkd.service has begun execution.
+Mar 10 17:09:16 bullseye systemd-networkd[252]: Enumeration completed
+Mar 10 17:09:16 bullseye systemd[1]: Started Network Service.
+░░ Subject: A start job for unit systemd-networkd.service has finished successfully
+░░ A start job for unit systemd-networkd.service has finished successfully.
+Mar 10 17:09:16 bullseye systemd[1]: Starting Wait for Network to be Configured...
+░░ Subject: A start job for unit systemd-networkd-wait-online.service has begun execution
+░░ A start job for unit systemd-networkd-wait-online.service has begun execution.
+Mar 10 17:09:16 bullseye systemd-networkd[252]: eth1: Link UP
+Mar 10 17:09:17 bullseye systemd-networkd[252]: eth1: Gained carrier
+Mar 10 17:09:17 bullseye systemd[1]: Starting Network Name Resolution...
+Mar 10 17:09:18 bullseye systemd-networkd[252]: eth1: Gained IPv6LL
+Mar 10 17:09:18 bullseye systemd-networkd[252]: eth0: Link UP
+Mar 10 17:09:18 bullseye systemd-networkd[252]: eth0: Gained carrier
+Mar 10 17:09:18 bullseye systemd[1]: Started Network Name Resolution.
+Mar 10 17:09:18 bullseye systemd[1]: Reached target Host and Network Name Lookups.
+Mar 10 17:09:18 bullseye systemd[1]: Starting Raise network interfaces...
+░░ Subject: A start job for unit networking.service has begun execution
+░░ A start job for unit networking.service has begun execution.
+Mar 10 17:09:18 bullseye snapd[396]: AppArmor status: apparmor is enabled but some kernel features are missing: dbus, network
+Mar 10 17:09:20 bullseye systemd-networkd[252]: eth0: Gained IPv6LL
+Mar 10 17:09:22 bullseye systemd[1]: Finished Raise network interfaces.
+░░ Subject: A start job for unit networking.service has finished successfully
+░░ A start job for unit networking.service has finished successfully.
+Mar 10 17:09:22 bullseye systemd[1]: Reached target Network.
+░░ Subject: A start job for unit network.target has finished successfully
+░░ A start job for unit network.target has finished successfully.
+Mar 10 17:09:22 bullseye snapd[396]: backends.go:58: AppArmor status: apparmor is enabled but some kernel features are missing: dbus, network
+Mar 10 17:09:30 bullseye systemd[1]: Finished Wait for Network to be Configured.
+░░ Subject: A start job for unit systemd-networkd-wait-online.service has finished successfully
+░░ A start job for unit systemd-networkd-wait-online.service has finished successfully.
+Mar 10 17:09:30 bullseye systemd[1]: Reached target Network is Online.
+░░ Subject: A start job for unit network-online.target has finished successfully
+░░ A start job for unit network-online.target has finished successfully.
+Mar 10 17:09:59 bullseye systemd[1]: systemd-networkd-wait-online.service: Succeeded.
+░░ The unit systemd-networkd-wait-online.service has successfully entered the 'dead' state.
+Mar 10 17:09:59 bullseye systemd[1]: Stopped Wait for Network to be Configured.
+░░ Subject: A stop job for unit systemd-networkd-wait-online.service has finished
+░░ A stop job for unit systemd-networkd-wait-online.service has finished.
+
+#
+vagrant@bullseye:~$ sudo dmesg | grep -i "eth\|network\|dhcp"
+[    4.329954] e1000: Intel(R) PRO/1000 Network Driver
+[    5.193375] e1000 0000:00:03.0 eth0: (PCI:33MHz:32-bit) 08:00:27:8d:c0:4d
+[    5.194503] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+[    5.751627] e1000 0000:00:08.0 eth1: (PCI:33MHz:32-bit) 08:00:27:41:88:3f
+[    5.753190] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+[    7.287670] systemd[1]: Listening on Network Service Netlink Socket.
+[    9.597533] e1000: eth1 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[    9.665133] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
+[   11.296621] e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[   11.299599] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   11.582030] [UFW BLOCK] IN=eth1 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fe41:883f DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=255 FLOWLBL=859239 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   11.598150] [UFW BLOCK] IN=eth0 OUT= MAC= SRC=10.0.2.15 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=255 ID=14903 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   11.609718] [UFW BLOCK] IN=eth1 OUT= MAC=01:00:5e:00:00:fc:dc:fb:48:f7:4c:4d:08:00 SRC=192.168.50.12 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=1 ID=55517 DF PROTO=UDP SPT=59733 DPT=5355 LEN=34 
+[   11.610282] [UFW BLOCK] IN=eth1 OUT= MAC= SRC=192.168.50.251 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=255 ID=44252 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   11.936589] [UFW BLOCK] IN=eth1 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fe41:883f DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=255 FLOWLBL=859239 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   11.943948] [UFW BLOCK] IN=eth1 OUT= MAC= SRC=192.168.50.251 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=255 ID=44299 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   11.950524] [UFW BLOCK] IN=eth0 OUT= MAC= SRC=10.0.2.15 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=255 ID=14954 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   11.958058] [UFW BLOCK] IN=eth1 OUT= MAC=01:00:5e:00:00:fc:dc:fb:48:f7:4c:4d:08:00 SRC=192.168.50.12 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=1 ID=55721 DF PROTO=UDP SPT=59733 DPT=5355 LEN=34 
+[   12.286979] [UFW BLOCK] IN=eth1 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fe41:883f DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=255 FLOWLBL=859239 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   12.296112] [UFW BLOCK] IN=eth0 OUT= MAC= SRC=10.0.2.15 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=255 ID=14988 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   12.302549] [UFW BLOCK] IN=eth1 OUT= MAC=01:00:5e:00:00:fc:dc:fb:48:f7:4c:4d:08:00 SRC=192.168.50.12 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=1 ID=55755 DF PROTO=UDP SPT=59733 DPT=5355 LEN=34 
+[   12.303493] [UFW BLOCK] IN=eth1 OUT= MAC= SRC=192.168.50.251 DST=224.0.0.252 LEN=54 TOS=0x00 PREC=0x00 TTL=255 ID=44356 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   13.025197] [UFW BLOCK] IN=eth0 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fe8d:c04d DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=255 FLOWLBL=92444 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   13.036000] [UFW BLOCK] IN=eth1 OUT= MAC=33:33:00:01:00:03:dc:fb:48:f7:4c:4d:86:dd SRC=fe80:0000:0000:0000:fc49:2ca2:12f8:9727 DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=1 FLOWLBL=825680 PROTO=UDP SPT=37411 DPT=5355 LEN=34 
+[   13.377251] [UFW BLOCK] IN=eth0 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fe8d:c04d DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=255 FLOWLBL=92444 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   13.389088] [UFW BLOCK] IN=eth1 OUT= MAC=33:33:00:01:00:03:dc:fb:48:f7:4c:4d:86:dd SRC=fe80:0000:0000:0000:fc49:2ca2:12f8:9727 DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=1 FLOWLBL=825680 PROTO=UDP SPT=37411 DPT=5355 LEN=34 
+[   13.727645] [UFW BLOCK] IN=eth0 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fe8d:c04d DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=255 FLOWLBL=92444 PROTO=UDP SPT=5355 DPT=5355 LEN=34 
+[   13.738547] [UFW BLOCK] IN=eth1 OUT= MAC=33:33:00:01:00:03:dc:fb:48:f7:4c:4d:86:dd SRC=fe80:0000:0000:0000:fc49:2ca2:12f8:9727 DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=74 TC=0 HOPLIMIT=1 FLOWLBL=825680 PROTO=UDP SPT=37411 DPT=5355 LEN=34 
+[  254.537559] device eth1 entered promiscuous mode
+[  290.680676] device eth1 left promiscuous mode
+[  293.256068] device eth1 entered promiscuous mode
+[  300.861144] device eth1 left promiscuous mode
+
+#
+vagrant@bullseye:~$ sudo grep -i network /var/log/messages
+Mar 10 13:24:06 bullseye kernel: [    0.972572] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 13:24:06 bullseye kernel: [    1.317827] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 13:24:06 bullseye kernel: [    1.782666] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:08:54 bullseye kernel: [    3.403294] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:08:54 bullseye kernel: [    4.010273] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:08:54 bullseye kernel: [    4.510436] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:14:31 bullseye kernel: [    2.868329] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:14:31 bullseye kernel: [    3.344548] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:14:31 bullseye kernel: [    3.814204] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:21:06 bullseye kernel: [    3.470320] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:21:06 bullseye kernel: [    4.205055] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:21:06 bullseye kernel: [    4.798038] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:23:13 bullseye kernel: [    3.674402] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:23:13 bullseye kernel: [    4.313751] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:23:13 bullseye kernel: [    4.815880] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 17:09:18 bullseye kernel: [    4.329954] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 17:09:18 bullseye kernel: [    5.194503] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 17:09:18 bullseye kernel: [    5.753190] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+
+#
+vagrant@bullseye:~$ sudo grep -i network /var/log/auth.log
+Mar 10 16:15:46 bullseye sudo:  vagrant : TTY=pts/0 ; PWD=/home/vagrant ; USER=root ; COMMAND=/usr/bin/systemctl restart networking
+Mar 10 16:41:06 bullseye sudo:  vagrant : TTY=pts/0 ; PWD=/home/vagrant ; USER=root ; COMMAND=/usr/bin/systemctl restart systemd-networkd
+Mar 10 22:05:00 bullseye sudo:  vagrant : TTY=pts/0 ; PWD=/home/vagrant ; USER=root ; COMMAND=/usr/bin/grep -i network /var/log/messages
+Mar 10 22:05:32 bullseye sudo:  vagrant : TTY=pts/0 ; PWD=/home/vagrant ; USER=root ; COMMAND=/usr/bin/grep -i network /var/log/auth.log
+
+#
+vagrant@bullseye:~$ sudo grep -i network /var/log/kern.log
+Mar 10 13:24:06 bullseye kernel: [    0.972572] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 13:24:06 bullseye kernel: [    1.317827] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 13:24:06 bullseye kernel: [    1.782666] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:08:54 bullseye kernel: [    3.403294] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:08:54 bullseye kernel: [    4.010273] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:08:54 bullseye kernel: [    4.510436] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:14:31 bullseye kernel: [    2.868329] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:14:31 bullseye kernel: [    3.344548] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:14:31 bullseye kernel: [    3.814204] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:21:06 bullseye kernel: [    3.470320] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:21:06 bullseye kernel: [    4.205055] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:21:06 bullseye kernel: [    4.798038] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 16:23:13 bullseye kernel: [    3.674402] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 16:23:13 bullseye kernel: [    4.313751] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 16:23:13 bullseye kernel: [    4.815880] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+Mar 10 17:09:18 bullseye kernel: [    4.329954] e1000: Intel(R) PRO/1000 Network Driver
+Mar 10 17:09:18 bullseye kernel: [    5.194503] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Mar 10 17:09:18 bullseye kernel: [    5.753190] e1000 0000:00:08.0 eth1: Intel(R) PRO/1000 Network Connection
+
+#
+sudo less /var/log/syslog
+sudo less /var/log/messages
+sudo less /var/log/kern.log
+sudo less /var/log/auth.log
+
+vagrant@bullseye:~$ sudo journalctl -u NetworkManager --no-pager | tail -n 50
+-- Journal begins at Mon 2025-03-10 13:24:05 UTC, ends at Mon 2025-03-10 22:08:04 UTC. --
+-- No entries --
