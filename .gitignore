@@ -1,0 +1,7 @@
+.env
+.idea
+.bin
+.img
+.png
+
+.DS_Store
