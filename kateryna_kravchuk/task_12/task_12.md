@@ -52,7 +52,7 @@ sudo mariadb
 GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
 GRANT ALL ON *.* TO 'ruser'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-EXIT:
+EXIT;
 ```
 
 3. Add new rules for the firewall.  
@@ -495,7 +495,7 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-It may be required to grant options explicitly, if some basic command do not work properly:  
+It may be required to grant options explicitly, if some basic commands do not work properly:  
 
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON wordpress.* TO 'wp_user'@'%';
