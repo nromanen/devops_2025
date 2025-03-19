@@ -74,3 +74,6 @@ vagrant up
 ```
 http://192.168.100.100:8080/dogs
 ```
+### [Результат](https://drive.google.com/file/d/1ai29nyKTu5d4c5uTrT_mZvSkeoLLZQnO/view?usp=drive_link)
+
+## [Скріншоти](https://drive.google.com/drive/folders/1k2W8e8ewBShqrLoSq7-PmWswfYWJzb3z?usp=drive_link)
