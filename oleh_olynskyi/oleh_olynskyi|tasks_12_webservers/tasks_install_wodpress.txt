@@ -1,0 +1,19 @@
+[Task]. Install Wordpress
+
+-Встановив Apache, PHP на Oracle Linux 9
+-Встановив MariaDB на Ubuntu Server
+
+-Встановив Wordpress на Oracle Linux 9
+-Встановив Wordpress на Ubuntu Server
+
+Скріншот початкової сторінки встановлення WordPress відкритої на Windows:
+https://drive.google.com/file/d/1AQCfnToiNsVVqQzf8iGSGih2DPCOqiky/view?usp=sharing
+https://drive.google.com/file/d/1L6moRg12MwI92ixRdWVLknENLMlG0W-R/view?usp=sharing
+ 
+
+База даних з базою даних wordpress відкрита на Ubuntu Server:
+https://drive.google.com/file/d/1fooE17fnkMAnNIeqbEw92oSR5TaYqhMa/view?usp=sharing
+
+
+Статус веб-сервера Apache на Oracle Linux 9:
+https://drive.google.com/file/d/1l4ebdFcTP2D7RIXLXp5h3xj_wwHPlRZs/view?usp=sharing
