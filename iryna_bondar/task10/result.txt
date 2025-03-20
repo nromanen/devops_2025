@@ -1,0 +1,107 @@
+
+MariaDB [(none)]> CREATE DATABASE iryna;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| iryna              |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [(none)]> USE iryna;
+Database changed
+MariaDB [iryna]> CREATE TABLE Users (
+    ->     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    ->     gender VARCHAR(50) NOT NULL,
+    ->     age INT NOT NULL,
+    ->     birthdate DATE NOT NULL
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+
+MariaDB [iryna]> INSERT INTO Users (gender, age, birthdate)
+    -> VALUES ('female', 50, '1975-01-01');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [iryna]> CREATE TABLE Products (
+    ->     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    ->     vendor VARCHAR(50) NOT NULL,
+    ->     price INT NOT NULL,
+    ->     barcode VARCHAR(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [iryna]> INSERT INTO Products (vendor, price, barcode)
+    -> VALUES ('Iphone 16 Pro', 1000, '4820012345678');
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [iryna]> USE iryna; SELECT * FROM Users;
+Database changed
++----+--------+-----+------------+
+| id | gender | age | birthdate  |
++----+--------+-----+------------+
+|  1 | female |  50 | 1975-01-01 |
++----+--------+-----+------------+
+1 row in set (0.00 sec)
+
+MariaDB [iryna]> USE iryna; SELECT * FROM Products;
+Database changed
++----+---------------+-------+---------------+
+| id | vendor        | price | barcode       |
++----+---------------+-------+---------------+
+|  1 | Iphone 16 Pro |  1000 | 4820012345678 |
++----+---------------+-------+---------------+
+1 row in set (0.00 sec)
+
+[vagrant@vbox ~]$ mysqldump -u admin -p iryna > iryna_dumpdb.sql
+
+[vagrant@vbox ~]$ ll
+total 4
+-rw-rw-r--. 1 vagrant vagrant 2725 бер 11 17:24 iryna_dumpdb.sql
+
+
+MariaDB [(none)]> CREATE DATABASE iryna_restored;
+Query OK, 1 row affected (0.00 sec)
+
+[vagrant@vbox ~]$ mysql -u admin -p iryna_restored < iryna_dumpdb.sql 
+Enter password: 
+
+MariaDB [(none)]> USE iryna_restored; SELECT * FROM Users;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
++----+--------+-----+------------+
+| id | gender | age | birthdate  |
++----+--------+-----+------------+
+|  1 | female |  50 | 1975-01-01 |
++----+--------+-----+------------+
+1 row in set (0.00 sec)
+
+MariaDB [iryna_restored]> USE iryna_restored; SELECT * FROM Products;
+Database changed
++----+---------------+-------+---------------+
+| id | vendor        | price | barcode       |
++----+---------------+-------+---------------+
+|  1 | Iphone 16 Pro |  1000 | 4820012345678 |
++----+---------------+-------+---------------+
+1 row in set (0.00 sec)
+
+MariaDB [iryna_restored]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| iryna              |
+| iryna_restored     |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)

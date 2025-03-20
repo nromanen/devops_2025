@@ -1,0 +1,78 @@
+# KillerCoda and Ubuntu 22.04
+
+mongosh
+
+use iryna
+
+iryna> db.iryna.insertMany([
+...    {
+...      title: "The Shining",
+...      author: "Stephen King",
+...      year_of_publication: 1986,
+...      number_of_pages: 659,
+...      number_of_copies: 10
+...    },
+...    {
+...      title: "It",
+...      author: "Stephen King",
+...      year_of_publication: 1986,
+...      number_of_pages: 1138,
+...      number_of_copies: 15
+...    },
+...    {
+...      title: "Carrie",
+...      author: "Stephen King",
+...      year_of_publication: 1974,
+...      number_of_pages: 199,
+...      number_of_copies: 12
+...    }
+...  ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67d4a228d90385935c6b140b'),
+    '1': ObjectId('67d4a228d90385935c6b140c'),
+    '2': ObjectId('67d4a228d90385935c6b140d')
+  }
+}
+
+
+#
+#update 
+
+
+iryna> db.iryna.updateOne(
+...    { title: "The Shining" },
+...    { $set: { number_of_copies: 10000 } }
+...  );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+
+
+iryna> db.iryna.find({ year_of_publication: 1986 });
+[
+  {
+    _id: ObjectId('67d4a228d90385935c6b140b'),
+    title: 'The Shining',
+    author: 'Stephen King',
+    year_of_publication: 1986,
+    number_of_pages: 659,
+    number_of_copies: 10000
+  },
+  {
+    _id: ObjectId('67d4a228d90385935c6b140c'),
+    title: 'It',
+    author: 'Stephen King',
+    year_of_publication: 1986,
+    number_of_pages: 1138,
+    number_of_copies: 15
+  }
+]
+
