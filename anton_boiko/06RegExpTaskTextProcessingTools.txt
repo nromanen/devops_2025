@@ -1,8 +1,0 @@
-https://drive.google.com/file/d/1Ip6P253CK_ZEXH8tSOOXjtv8MHkGYV9j/view?usp=sharing
-
-
-grep "sudo.*[[:alnum:]]\+@[[:alnum:]]\+.org" user_data.txt
-
-grep "[[:alnum:]]\+@[[:alnum:]]\+[[:alpha:]].com, [[:alnum:]]\+$" user_data_task2.txt
-
-grep "[[:alnum:]]\+@[[:alnum:]]\+[[:alpha:]].com, [[:alnum:]]\+$" user_data_task2.txt | awk 'BEGIN { FS=", " } {print "\033[1;33m" "\"" $4 "\" : "  "\"" $2 "\047s password is " $5 ", it should be improved!\"" "\033[0m"}'
