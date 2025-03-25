@@ -1,26 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$install_deps = <<-'SHELL'
+    sudo apt-get update
+    sudo apt-get install -y openjdk-17-jdk
+SHELL
+
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/jammy64"
-  
-    config.vm.network "private_network", ip: "192.168.100.100"
-    config.vm.network "forwarded_port", guest: 8080, host: 8080
-  
-    config.vm.provider "virtualbox" do |vb|
-      vb.memory = "4096"
-      vb.cpus = 2
-    end
-  
-    config.vm.provision "shell", inline: <<-SHELL
-      sudo apt-get update
-      sudo apt-get install -y openjdk-17-jdk
-    SHELL
-  
-    config.trigger.after :up do |trigger|
-      trigger.run do |t|
-        t.info = "Running the Java application..."
-        t.info = "📦 Application available at http://localhost:8080/dogs"
-        # t.run = ["bash", "-c", "cd /vagrant && ./gradlew bootRun"]
-        trigger.run = { inline: "cd /vagrant && ./gradlew bootRun || echo 'Error: Failed to start application. Check logs for details.'" }
-        
-      end
-    end
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.provider "virtualbox" do |vb|
+
+    vb.memory = "4096"
+    vb.cpus = 2
   end
+  config.vm.network "private_network", ip: "192.168.100.100"
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  # config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+  config.vm.provision "shell", inline: $install_deps
+  config.trigger.after :up do |trigger|
+    trigger.info = "Starting Java application..."
+    trigger.run_remote = { inline: "cd /vagrant && ./gradlew bootRun" }
+  end
+end
