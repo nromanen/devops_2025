@@ -1,6 +1,7 @@
 # HOMEWORK - TASK_13
 all files at repository ---> https://github.com/DevOps1-Fundamentals/vagrant-Lenykmax?tab=readme-ov-file
 
+all screenshots by link ---> https://drive.google.com/drive/folders/1HsVDk2uh027neUxJCBjfDi3NyGqHAQV6?usp=drive_link
 # vagrant-java-app
 
 ## Project Overview
