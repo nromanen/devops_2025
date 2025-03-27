@@ -1,0 +1,15 @@
+1. The created database with your name:
+https://drive.google.com/file/d/1sF35QlaNMVzQNlvnbapVWYHKag5Cmc96/view?usp=sharing
+
+2. The structure of the "Users" and "Products" tables:
+https://drive.google.com/file/d/1tFhkZw-6yYjAER7RVmmbk_BvkGIT2k7O/view?usp=sharing
+https://drive.google.com/file/d/1YvlZzD-uN0VosyKNQSkDRLNbJLpqoc3f/view?usp=sharing
+https://drive.google.com/file/d/1zfXe3ibJeRsEeYTAbwgd2t3SUQwFsMQY/view?usp=sharing
+https://drive.google.com/file/d/1nE4RFQLWT8MGkzfiIhkkSynTOjfd7KsG/view?usp=sharing
+
+3. The output confirming the successful creation of the database dump:
+https://drive.google.com/file/d/1aUIMyU811C599ZZ0S7HWfZWFue5H4t27/view?usp=sharing
+https://drive.google.com/file/d/1va8-qvGRJ4LvSCIUlI2HthszcL7w4b3P/view?usp=sharing
+
+4. The process of restoring the data into the new database:
+https://drive.google.com/file/d/10rbkqhOh25X3sw7g3vVO3oC5wNNka_ra/view?usp=sharing
