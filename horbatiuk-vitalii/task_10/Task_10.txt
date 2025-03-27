@@ -1,0 +1,152 @@
+ison@Ubuntu24:~$ netstat -ant | grep 3306
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN     
+tcp6       0      0 :::3306                 :::*                    LISTEN     
+bison@Ubuntu24:~$ sudo mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 39
+Server version: 10.11.8-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use user;
+ERROR 1049 (42000): Unknown database 'user'
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| softserve_database |
+| sys                |
++--------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [(none)]> use mysql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [mysql]> select user from user;
++----------------+
+| User           |
++----------------+
+| softserve_user |
+| mariadb.sys    |
+| mysql          |
+| root           |
++----------------+
+4 rows in set (0.002 sec)
+
+MariaDB [mysql]> grant all on *.* to 'admin'@'%' identified by 'password' with grant option;
+Query OK, 0 rows affected (0.004 sec)
+
+MariaDB [mysql]> flush privileges;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [mysql]> select user from user;
++----------------+
+| User           |
++----------------+
+| admin          |
+| softserve_user |
+| mariadb.sys    |
+| mysql          |
+| root           |
++----------------+
+5 rows in set (0.001 sec)
+ariaDB [(none)]> CREATE DATABASE vitalii;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use vitalii
+MariaDB [vitalii]> CREATE TABLE User(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(20) NOT NULL,
+    -> email VARCHAR(30) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.039 sec)
+MariaDB [vitalii]> CREATE TABLE Products(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(30) NOT NULL,
+    -> price DOUBLE NOT NULL
+    -> );
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [vitalii]> show tables;
++-------------------+
+| Tables_in_vitalii |
++-------------------+
+| Products          |
+| User              |
++-------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [vitalii]> exit
+Bye
+bison@Ubuntu24:~$ mysqldump -u admin -p vitalii>data-dump.sql
+Enter password: 
+bison@Ubuntu24:~$ head -n 5 data-dump.sql
+/*!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19  Distrib 10.11.8-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: vitalii
+-- ------------------------------------------------------
+bison@Ubuntu24:~$ mariadb -u root
+MariaDB [(none)]> CREATE DATABASE restor_DB_vitalii;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+bison@Ubuntu24:~$ mysql -u admin -p restor_DB_vitalii<data-dump.sql
+Enter password: 
+bison@Ubuntu24:~$ sudo mysql -u admin -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 58
+Server version: 10.11.8-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show tables;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| restor_DB_vitalii  |
+| softserve_database |
+| sys                |
+| vitalii            |
++--------------------+
+7 rows in set (0.002 sec)
+
+MariaDB [(none)]> use restor_DB-vitalii;
+ERROR 1049 (42000): Unknown database 'restor_DB-vitalii'
+MariaDB [(none)]> use restor_DB_vitalii;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [restor_DB_vitalii]> SHOW TABLES;
++-----------------------------+
+| Tables_in_restor_DB_vitalii |
++-----------------------------+
+| Products                    |
+| User                        |
++-----------------------------+
+2 rows in set (0.000 sec)
+
+
