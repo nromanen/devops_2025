@@ -103,7 +103,7 @@ To                         Action      From
 Develop a *Jenkinsfile* that outlines a basic CI/CD pipeline structure with the following stages:  
     1. **Prepare**: Include a stage that installs Node.js version 22.  
     2. **Build**: Simulate the build process by showing the version of npm.  
-    -3.**Test**: Simulate the testing process by displaying the environment variable JENKINS_URL.
+    3. **Test**: Simulate the testing process by displaying the environment variable JENKINS_URL.
 
 ### 2.1 Jenkinsfile
 
@@ -116,15 +116,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    node {
-                        checkout scm
-                    }
-                }
-            }
-        }
         stage('Install Node.js') {
             steps {
                 script {
@@ -167,7 +158,7 @@ Configure Jenkins to run the pipeline by retrieving the Jenkinsfile from your Gi
 
 #### Webhook configuration (optional)
 
-To use **webhooks**, first get a *white* IP, for examle, from [ngrok](https://ngrok.com/).  
+To use **webhooks**, first get a *white* IP, for example, from [ngrok](https://ngrok.com/).  
 
 ```bash
 curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
@@ -185,7 +176,7 @@ Output:
 Authtoken saved to configuration file: /home/vagrant/.config/ngrok/ngrok.yml
 ```
 
-Navigate to the server by this new adddress:  
+Navigate to the server by this new address:  
 
 ```bash
 ngrok http --url=<new-address>.app 8080
