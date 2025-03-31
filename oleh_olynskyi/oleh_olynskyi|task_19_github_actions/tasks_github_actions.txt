@@ -1,0 +1,27 @@
+[ Task ] CI/CD_Github_Actions
+
+Task (70 points)
+
+Скріншот: 
+https://drive.google.com/file/d/1lJECREdHccy3PyM2MTxQ68OEhsv49Ofa/view?usp=sharing
+
+Посилання на репозиторій: 
+https://github.com/Oleh200/Github-Action_learn
+
+
+*Task (90 points)
+
+Скріншот: 
+https://drive.google.com/file/d/1qbGgOV1KUBYQv7sRegaYxKI0GOesmpOg/view?usp=sharing
+
+Посилання на репозиторій:     
+https://github.com/Oleh200/java-app-Oleh200
+
+
+**Advanced Task (100 points)
+
+Скріншот: 
+https://drive.google.com/file/d/1X9xvcEFR2e3qwBSIjrV7B_yExVNZBpG4/view?usp=sharing
+
+Посилання на репозиторій:     
+https://github.com/Oleh200/java-app-Oleh200
