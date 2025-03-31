@@ -43,7 +43,7 @@ runs-on: ubuntu-latest
     python-version: '3.12'
 ```
 
-> Here and in the following steps, *output* will ge gathered from the finished pipeline, just splitted into steps, which were currently described.  
+> Here and in the following steps, *output* will ge gathered from the finished pipeline, just split into steps, which were currently described.  
 
 **Output:**  
 
@@ -210,10 +210,10 @@ Successfully installed Flask-2.2.3 Flask-Cors-3.0.10 Flask-RESTful-0.3.9 Jinja2-
 ```yml
 # Database
 - name: Create a database
-run: python db.py
+  run: python db.py
 
 - name: Verify creation
-run: ls -l products.db
+  run: ls -l products.db
 ```
 
 **Output:**  
@@ -246,13 +246,13 @@ Run ls -l products.db
 ```yml
 # Database setup
 - name: Delete all product data
-run: python db.py -d
+  run: python db.py -d
 
 - name: Add default product data
-run: python db.py -a
+  run: python db.py -a
 
 - name:  Print product data to the console
-run: python db.py -p
+  run: python db.py -p
 ```
 
 **Output:**  
@@ -300,10 +300,10 @@ Run python db.py -p
 ```yml
 # API
 - name: Run the API
-run: python app.py --host localhost --port 5000 &
+  run: python app.py --host localhost --port 5000 &
 
 - name: Wait for start
-run: sleep 5
+  run: sleep 5
 ```
 
 > `sleep` here is for safely waiting while the *Flask app* starts.  
@@ -349,7 +349,7 @@ Run sleep 5
 
 ```yml
 - name: Test GET /api/products
-run: |
+  run: |
     curl -X GET http://localhost:5000/api/products
 ```
 
@@ -402,7 +402,7 @@ Run curl -X GET http://localhost:5000/api/products
 
 ```yml
 - name: Test POST /api/products
-run: |
+  run: |
     curl -X POST http://localhost:5000/api/products -H "Content-Type: application/json" -d '{"name": "Avocado", "price": 58}'   
 ```
 
@@ -432,7 +432,7 @@ Run curl -X POST http://localhost:5000/api/products -H "Content-Type: applicatio
 
 ```yml
 - name: Test GET /api/products/{product_id}
-run: |
+  run: |
     curl -X GET http://localhost:5000/api/products/3
 ```
 
@@ -463,7 +463,7 @@ Run curl -X GET http://localhost:5000/api/products/3
 
 ```yml
 - name: Test PATCH /api/products/{product_id}
-run: |
+  run: |
     curl -X PATCH http://localhost:5000/api/products/5 -H "Content-Type: application/json" -d '{"price": 67}'
 ```
 
@@ -492,7 +492,7 @@ Run curl -X PATCH http://localhost:5000/api/products/5 -H "Content-Type: applica
 
 ```yml
 - name: Test DELETE /api/products/{product_id}
-run: |
+  run: |
     curl -X DELETE http://localhost:5000/api/products/1
 ```
 
@@ -548,7 +548,7 @@ Run python db.py -d
   run: pytest test_app.py
 ```
 
-> [Here](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_19/Vtest_app.py) is the tests file I wrote for this step.  
+> [Here](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_19/test_app.py) is the tests file I wrote for this step.  
 > [Vagrantfile](https://github.com/nromanen/devops_2025/blob/main/kateryna_kravchuk/task_19/Vagrantfile) for simulate `ubuntu-latest` runner for testing unit tests:)  
 
 **Output:**  
