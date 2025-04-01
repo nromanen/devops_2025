@@ -1,0 +1,70 @@
+pipeline {
+    agent any
+
+    environment {
+        NVM_DIR = "${HOME}/.nvm"
+        NODE_VERSION = "22"
+    }
+
+    stages {
+        stage('Prepare') {
+            steps {
+                echo 'Checking and installing NVM/Node.js if needed'
+                sh '''
+                    # Install NVM if not already present
+                    if [ ! -s "$NVM_DIR/nvm.sh" ]; then
+                      echo "Installing NVM..."
+                      curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+                    fi
+
+                    # Load NVM
+                    . "$NVM_DIR/nvm.sh"
+
+                    # Install Node.js only if not installed
+                    if ! nvm ls "$NODE_VERSION" > /dev/null; then
+                      echo "Installing Node.js $NODE_VERSION"
+                      nvm install $NODE_VERSION
+                    fi
+                '''
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Running Build'
+                sh '''
+                    . "$NVM_DIR/nvm.sh"
+                    nvm use $NODE_VERSION
+                    echo "Node version: $(node -v)"
+                    echo "NPM version: $(npm -v)"
+                    echo "Build completed at $(date)" > build.log
+                '''
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running Tests'
+                sh '''
+                    echo "JENKINS_URL=$JENKINS_URL" >> build.log
+                    echo "Tests simulated successfully" >> build.log
+                '''
+            }
+        }
+
+        stage('Archive Logs') {
+            steps {
+                echo 'Archiving build logs'
+                archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
+            }
+        }
+    }
+}
+
+https://drive.google.com/file/d/1R4P8SKo4AHiFXYroXqf_C96QXc53g-pc/view
+https://drive.google.com/file/d/1W_jWFs4YLqLPB3x7ZrR1nKLULM9KeNg7/view
+https://drive.google.com/file/d/1ATMyo2r27x88BdAExP1YQpwYMUzefztX/view
+https://drive.google.com/file/d/1Qpp7ves4zin0errOwBWUX5En06KDbIMR/view
+https://drive.google.com/file/d/1-dhtOI9VWUaPUHDdF3_7_XthUuYuDopi/view
+https://drive.google.com/file/d/1667Sogp7jjnn4HUxAG7ckZYCiO3AWqBk/view
+
