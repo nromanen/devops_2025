@@ -1,0 +1,12 @@
+1. Git repo with Jenkins 
+	https://github.com/vitaljiano/Jenkins_pipeline
+
+2. Jenkins test
+	https://drive.google.com/file/d/1WQVLpM_YMXW5-N0YUBIUwpXyP1QyA2oE/view?usp=sharing
+3. Jenkins prepare
+	https://drive.google.com/file/d/1pll1hI5VHCczwe3wmlZ1crMFUjmuoITk/view?usp=sharing
+4. Jenkins build
+	https://drive.google.com/file/d/1gAcAwxvsEa5tC7d-vnh3hiDfB_rexUCu/view?usp=sharing
+5. Jenkins complete
+	https://drive.google.com/file/d/1ONNy6HoKNeqZVG5FhZNZMSM_31h5Gb2O/view?usp=sharing
+ 
