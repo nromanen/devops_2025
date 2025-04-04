@@ -1,0 +1,26 @@
+Task 1:
+$ grep -E "\ssudo[[:alnum:]_+-@.]+\@.*\.org\," user_data.txt
+5, David, Miller, sudo_david+-millersell@ya2hoo.org, 23456
+7, James, Anderson, sudojamesanderson@hotmaI_l.org, 34567
+15, Noah, Scott, sudonoah_+scott@yahoo.org, 90876
+
+Advenced task 1:
+$ grep -E '[[:alnum:]]+[._-]?[[:alnum:]]+*@[[:alnum:]]+\.com,\s[^!№%:?]+$' user_data_task2.txt
+1, Bob, Sinkler, sudobobbsinnn@gmail.com, 12345
+3, Michael, Thompson, mthompson@hotmail.com, 54&321
+4, Sarah, Williams, sarahwills@gmail.com, 98765
+6, Emily, Davis, emilydavis@gmail.com, 87654
+8, Olivia, Wilson, owilson@gmail.com, H@ppy#456
+10, Sophia, Taylor, sophiataylor@gmail.com, Cool#C@t99$
+18, Isabella, Young, isabellayoung@gmail.com, 41953Boobi#
+
+Advenced task 2:
+$ grep -E '[[:alnum:]]+[._-]?[[:alnum:]]+*@[[:alnum:]]+\.com,\s[^!№%:?]+$' user_data_task2.txt | awk -F ', ' '{print "{\"" $4 "\" : \"" $2"'\''s password is " $5 ", it should be improved!\"}"}'
+{"sudobobbsinnn@gmail.com" : "Bob's password is 12345, it should be improved!"}
+{"mthompson@hotmail.com" : "Michael's password is 54&321, it should be improved!"}
+{"sarahwills@gmail.com" : "Sarah's password is 98765, it should be improved!"}
+{"emilydavis@gmail.com" : "Emily's password is 87654, it should be improved!"}
+{"owilson@gmail.com" : "Olivia's password is H@ppy#456, it should be improved!"}
+{"sophiataylor@gmail.com" : "Sophia's password is Cool#C@t99$, it should be improved!"}
+{"liamlewis@hotmail..com" : "Liam's password is 97531, it should be improved!"}
+{"isabellayoung@gmail.com" : "Isabella's password is 41953Boobi#, it should be improved!"}
