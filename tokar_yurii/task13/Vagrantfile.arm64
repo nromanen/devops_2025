@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$install_deps = <<-SHELL
+  sudo apt update
+  sudo apt install -y openjdk-17-jdk gradle
+  cd /vagrant
+  ./gradlew bootRun
+SHELL
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "perk/ubuntu-2204-arm64"
+
+  config.vm.provider "qemu" do |qe|
+    qe.memory = 4096
+    qe.cpus = 2
+    qe.arch = "aarch64" 
+    qe.machine = "virt" 
+    qe.cpu = "max"
+    qe.net_device = "virtio-net"
+    qe.ssh_port = "50222" 
+  end
+
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+  
+  config.vm.provision "shell", inline: $install_deps
+  
+#  config.trigger.after :up do |trigger|
+#    trigger.info = "стартуэм апку..."
+#    trigger.run = { inline: "cd /vagrant && ./gradlew bootRun" }
+#  end
+end
+
