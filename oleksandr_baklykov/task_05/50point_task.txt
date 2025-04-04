@@ -1,4 +1,0 @@
-#!/usr/bin/env pwsh
-
-$name = Read-Host "Enter name:"
-Write-Output "Hello, $name!"
