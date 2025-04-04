@@ -1,0 +1,38 @@
+warning, fail, enp0s3
+
+dark@ubunta:~$ grep -i "fail" /var/log/syslog
+2025-03-09T09:22:06.838516+00:00 ubunta fwupd[11623]: 09:22:06.838 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0: failed to open /dev/sr0: No medium found
+2025-03-09T10:04:28.063972+00:00 ubunta fwupd[13247]: 10:04:28.063 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0: failed to open /dev/sr0: No medium found
+
+dark@ubunta:~$ journalctl -k | grep "net"
+Mar 01 10:59:34 ubunta kernel: audit: initializing netlink subsys (disabled)
+Mar 01 10:59:34 ubunta kernel: drop_monitor: Initializing network drop monitor service
+Mar 01 10:59:34 ubunta systemd[1]: Listening on systemd-networkd.socket - Network Service Netlink Socket.
+Mar 01 10:59:34 ubunta systemd[1]: netplan-ovs-cleanup.service - OpenVSwitch configuration for cleanup was skipped because of an unmet condition check (ConditionFileIsExecutable=/usr/bin/ovs-vsctl).
+
+dark@ubunta:~$ tail /var/log/ufw.log
+2025-03-09T10:40:13.428472+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC=01:00:5e:00:00:fc:e4:a4:71:05:ac:bc:08:00 SRC=192.168.1.105 DST=224.0.0.252 LEN=55 TOS=0x00 PREC=0x00 TTL=1 ID=62667 PROTO=UDP SPT=60695 DPT=5355 LEN=35
+2025-03-09T12:08:45.989858+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=192.168.1.106 DST=224.0.0.252 LEN=52 TOS=0x00 PREC=0x00 TTL=255 ID=25175 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:08:45.989948+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fea0:59d8 DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=72 TC=0 HOPLIMIT=255 FLOWLBL=259196 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:08:46.240595+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=192.168.1.106 DST=224.0.0.252 LEN=52 TOS=0x00 PREC=0x00 TTL=255 ID=25300 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:08:46.240671+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fea0:59d8 DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=72 TC=0 HOPLIMIT=255 FLOWLBL=259196 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:08:46.497572+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=192.168.1.106 DST=224.0.0.252 LEN=52 TOS=0x00 PREC=0x00 TTL=255 ID=25334 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:08:46.497640+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=fe80:0000:0000:0000:0a00:27ff:fea0:59d8 DST=ff02:0000:0000:0000:0000:0000:0001:0003 LEN=72 TC=0 HOPLIMIT=255 FLOWLBL=259196 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:10:14.505924+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=192.168.1.106 DST=224.0.0.252 LEN=52 TOS=0x00 PREC=0x00 TTL=255 ID=55964 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:10:14.761695+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=192.168.1.106 DST=224.0.0.252 LEN=52 TOS=0x00 PREC=0x00 TTL=255 ID=56147 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+2025-03-09T12:10:14.993957+00:00 ubunta kernel: [UFW BLOCK] IN=enp0s3 OUT= MAC= SRC=192.168.1.106 DST=224.0.0.252 LEN=52 TOS=0x00 PREC=0x00 TTL=255 ID=56251 PROTO=UDP SPT=5355 DPT=5355 LEN=32
+
+dark@ubunta:~$ journalctl -p err
+Mar 01 10:28:08 ubunta kernel: RETBleed: WARNING: Spectre v2 mitigation leaves >Mar 01 10:28:08 ubunta systemd[1]: Invalid DMI field header.
+Mar 01 10:28:10 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems >Mar 01 10:28:10 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configur>Mar 01 10:28:10 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch>Mar 01 10:29:06 ubunta login[1059]: PAM unable to dlopen(pam_lastlog.so): /usr/>Mar 01 10:29:06 ubunta login[1059]: PAM adding faulty module: pam_lastlog.so
+-- Boot 452be4aa0a7a47bb8ba8b7140f705553 --
+Mar 01 10:58:22 ubunta kernel: RETBleed: WARNING: Spectre v2 mitigation leaves >Mar 01 10:58:23 ubunta systemd[1]: Invalid DMI field header.
+Mar 01 10:58:25 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems >Mar 01 10:58:25 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configur>Mar 01 10:58:25 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch>-- Boot 1c9a035ffd9543c7ae524b4997c6da05 --
+Mar 01 10:59:34 ubunta kernel: RETBleed: WARNING: Spectre v2 mitigation leaves >Mar 01 10:59:34 ubunta systemd[1]: Invalid DMI field header.
+Mar 01 10:59:37 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems >Mar 01 10:59:37 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configur>Mar 01 10:59:37 ubunta kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch>Mar 01 10:59:57 ubunta login[823]: PAM unable to dlopen(pam_lastlog.so): /usr/l>Mar 01 10:59:57 ubunta login[823]: PAM adding faulty module: pam_lastlog.so
+Mar 08 18:43:00 ubunta dhclient[3961]: can't create /var/lib/dhcp/dhclient.leas>Mar 08 18:43:00 ubunta dhclient[3961]: Open a socket for LPF: Operation not per>Mar 08 18:43:00 ubunta dhclient[3961]:
+Mar 08 18:43:00 ubunta dhclient[3961]: If you think you have received this mess>Mar 08 18:43:00 ubunta dhclient[3961]: than a configuration issue please read t>Mar 08 18:43:00 ubunta dhclient[3961]: bugs on either our web page at www.isc.o>Mar 08 18:43:00 ubunta dhclient[3961]: before submitting a bug.  These pages ex>Mar 08 18:43:00 ubunta dhclient[3961]: process and the information we find help>Mar 08 18:43:00 ubunta dhclient[3961]:
+Mar 08 18:43:00 ubunta dhclient[3961]: exiting.
+Mar 08 18:54:03 ubunta dhclient[4109]: send_packet: Network is unreachable
+Mar 08 18:54:03 ubunta dhclient[4109]: send_packet: please consult README file >Mar 08 18:54:03 ubunta dhclient[4109]: dhclient.c:3254: Failed to send 300 byte>Mar 08 20:38:38 ubunta dhclient[5127]: Error getting hardware address for "wlan>Mar 08 20:38:38 ubunta dhclient[5127]:
+Mar 08 20:38:38 ubunta dhclient[5127]: If you think you have received this mess>Mar 08 20:38:38 ubunta dhclient[5127]: than a configuration issue please read t>Mar 08 20:38:38 ubunta dhclient[5127]: bugs on either our web page at www.isc.o>Mar 08 20:38:38 ubunta dhclient[5127]: before submitting a bug.  These pages ex>
