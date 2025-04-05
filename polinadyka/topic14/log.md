@@ -1,0 +1,1 @@
+ links to the GitHub repository containing solutions for the practical task related to Build Tools.: https://github.com/DevOps2-Fundamentals/build-tools-DykaPolina
