@@ -1,0 +1,359 @@
+2025-03-31T09:18:41.4266547Z Current runner version: '2.323.0'
+2025-03-31T09:18:41.4301635Z ##[group]Operating System
+2025-03-31T09:18:41.4302860Z Ubuntu
+2025-03-31T09:18:41.4303678Z 24.04.2
+2025-03-31T09:18:41.4304625Z LTS
+2025-03-31T09:18:41.4305484Z ##[endgroup]
+2025-03-31T09:18:41.4306345Z ##[group]Runner Image
+2025-03-31T09:18:41.4307490Z Image: ubuntu-24.04
+2025-03-31T09:18:41.4308330Z Version: 20250323.1.0
+2025-03-31T09:18:41.4310403Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250323.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-03-31T09:18:41.4313098Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250323.1
+2025-03-31T09:18:41.4314666Z ##[endgroup]
+2025-03-31T09:18:41.4315573Z ##[group]Runner Image Provisioner
+2025-03-31T09:18:41.4316637Z 2.0.422.1
+2025-03-31T09:18:41.4317448Z ##[endgroup]
+2025-03-31T09:18:41.4322087Z ##[group]GITHUB_TOKEN Permissions
+2025-03-31T09:18:41.4325514Z Actions: write
+2025-03-31T09:18:41.4326585Z Attestations: write
+2025-03-31T09:18:41.4327653Z Checks: write
+2025-03-31T09:18:41.4328461Z Contents: write
+2025-03-31T09:18:41.4329361Z Deployments: write
+2025-03-31T09:18:41.4330420Z Discussions: write
+2025-03-31T09:18:41.4331296Z Issues: write
+2025-03-31T09:18:41.4332017Z Metadata: read
+2025-03-31T09:18:41.4332929Z Models: read
+2025-03-31T09:18:41.4333660Z Packages: write
+2025-03-31T09:18:41.4334504Z Pages: write
+2025-03-31T09:18:41.4335399Z PullRequests: write
+2025-03-31T09:18:41.4336284Z RepositoryProjects: write
+2025-03-31T09:18:41.4337205Z SecurityEvents: write
+2025-03-31T09:18:41.4338198Z Statuses: write
+2025-03-31T09:18:41.4339046Z ##[endgroup]
+2025-03-31T09:18:41.4342638Z Secret source: Actions
+2025-03-31T09:18:41.4344204Z Prepare workflow directory
+2025-03-31T09:18:41.5155424Z Prepare all required actions
+2025-03-31T09:18:41.5273339Z Getting action download info
+2025-03-31T09:18:42.1165701Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-03-31T09:18:42.1166746Z Version: 4.2.2
+2025-03-31T09:18:42.1167833Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-03-31T09:18:42.1169129Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-03-31T09:18:42.1170069Z ##[endgroup]
+2025-03-31T09:18:42.2024104Z ##[group]Download immutable action package 'actions/setup-java@v3'
+2025-03-31T09:18:42.2025041Z Version: 3.13.0
+2025-03-31T09:18:42.2025874Z Digest: sha256:3b7001eb8593af6933487f7e47cf7082e610b62f8b3c6ce2bc6e5201bb1ad005
+2025-03-31T09:18:42.2027063Z Source commit SHA: 0ab4596768b603586c0de567f2430c30f5b0d2b0
+2025-03-31T09:18:42.2027820Z ##[endgroup]
+2025-03-31T09:18:42.6344482Z Complete job name: build
+2025-03-31T09:18:42.6999454Z ##[group]Run actions/checkout@v4
+2025-03-31T09:18:42.7001489Z with:
+2025-03-31T09:18:42.7002223Z   repository: zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:42.7003472Z   token: ***
+2025-03-31T09:18:42.7004083Z   ssh-strict: true
+2025-03-31T09:18:42.7004730Z   ssh-user: git
+2025-03-31T09:18:42.7005409Z   persist-credentials: true
+2025-03-31T09:18:42.7006169Z   clean: true
+2025-03-31T09:18:42.7006845Z   sparse-checkout-cone-mode: true
+2025-03-31T09:18:42.7007684Z   fetch-depth: 1
+2025-03-31T09:18:42.7008349Z   fetch-tags: false
+2025-03-31T09:18:42.7009030Z   show-progress: true
+2025-03-31T09:18:42.7009919Z   lfs: false
+2025-03-31T09:18:42.7010555Z   submodules: false
+2025-03-31T09:18:42.7011208Z   set-safe-directory: true
+2025-03-31T09:18:42.7012437Z ##[endgroup]
+2025-03-31T09:18:42.8763201Z Syncing repository: zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:42.8765758Z ##[group]Getting Git version info
+2025-03-31T09:18:42.8767174Z Working directory is '/home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor'
+2025-03-31T09:18:42.8769035Z [command]/usr/bin/git version
+2025-03-31T09:18:42.8825779Z git version 2.49.0
+2025-03-31T09:18:42.8859505Z ##[endgroup]
+2025-03-31T09:18:42.8877293Z Temporarily overriding HOME='/home/runner/work/_temp/b569e637-2e4b-4d24-bf17-b05c64b432a6' before making global git config changes
+2025-03-31T09:18:42.8882183Z Adding repository directory to the temporary git global config as a safe directory
+2025-03-31T09:18:42.8902164Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:42.8942572Z Deleting the contents of '/home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor'
+2025-03-31T09:18:42.8948906Z ##[group]Initializing the repository
+2025-03-31T09:18:42.8955333Z [command]/usr/bin/git init /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:42.9028723Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-03-31T09:18:42.9035682Z hint: is subject to change. To configure the initial branch name to use in all
+2025-03-31T09:18:42.9037724Z hint: of your new repositories, which will suppress this warning, call:
+2025-03-31T09:18:42.9039279Z hint:
+2025-03-31T09:18:42.9040542Z hint: 	git config --global init.defaultBranch <name>
+2025-03-31T09:18:42.9041797Z hint:
+2025-03-31T09:18:42.9043018Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-03-31T09:18:42.9045068Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-03-31T09:18:42.9046665Z hint:
+2025-03-31T09:18:42.9047420Z hint: 	git branch -m <name>
+2025-03-31T09:18:42.9050397Z Initialized empty Git repository in /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/.git/
+2025-03-31T09:18:42.9055395Z [command]/usr/bin/git remote add origin https://github.com/zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:42.9093041Z ##[endgroup]
+2025-03-31T09:18:42.9094792Z ##[group]Disabling automatic garbage collection
+2025-03-31T09:18:42.9096510Z [command]/usr/bin/git config --local gc.auto 0
+2025-03-31T09:18:42.9131920Z ##[endgroup]
+2025-03-31T09:18:42.9133104Z ##[group]Setting up auth
+2025-03-31T09:18:42.9140142Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-03-31T09:18:42.9176860Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-03-31T09:18:42.9508542Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-03-31T09:18:42.9545123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-03-31T09:18:42.9791649Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-03-31T09:18:42.9835113Z ##[endgroup]
+2025-03-31T09:18:42.9837532Z ##[group]Fetching the repository
+2025-03-31T09:18:42.9847530Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +417cd2861d62438396e4a5d1f59446fe2cd24bad:refs/remotes/origin/main
+2025-03-31T09:18:43.6398829Z From https://github.com/zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:43.6417538Z  * [new ref]         417cd2861d62438396e4a5d1f59446fe2cd24bad -> origin/main
+2025-03-31T09:18:43.6455619Z ##[endgroup]
+2025-03-31T09:18:43.6461765Z ##[group]Determining the checkout info
+2025-03-31T09:18:43.6475141Z ##[endgroup]
+2025-03-31T09:18:43.6482401Z [command]/usr/bin/git sparse-checkout disable
+2025-03-31T09:18:43.6555524Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-03-31T09:18:43.6603313Z ##[group]Checking out the ref
+2025-03-31T09:18:43.6604887Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-03-31T09:18:43.6687999Z Switched to a new branch 'main'
+2025-03-31T09:18:43.6692945Z branch 'main' set up to track 'origin/main'.
+2025-03-31T09:18:43.6700487Z ##[endgroup]
+2025-03-31T09:18:43.6741021Z [command]/usr/bin/git log -1 --format=%H
+2025-03-31T09:18:43.6765370Z 417cd2861d62438396e4a5d1f59446fe2cd24bad
+2025-03-31T09:18:43.7123356Z ##[group]Run actions/setup-java@v3
+2025-03-31T09:18:43.7124715Z with:
+2025-03-31T09:18:43.7125528Z   distribution: temurin
+2025-03-31T09:18:43.7126485Z   java-version: 17
+2025-03-31T09:18:43.7127357Z   cache: maven
+2025-03-31T09:18:43.7128218Z   java-package: jdk
+2025-03-31T09:18:43.7129110Z   check-latest: false
+2025-03-31T09:18:43.7130281Z   server-id: github
+2025-03-31T09:18:43.7131214Z   server-username: GITHUB_ACTOR
+2025-03-31T09:18:43.7132317Z   server-password: GITHUB_TOKEN
+2025-03-31T09:18:43.7133419Z   overwrite-settings: true
+2025-03-31T09:18:43.7134456Z   job-status: success
+2025-03-31T09:18:43.7135676Z   token: ***
+2025-03-31T09:18:43.7136514Z ##[endgroup]
+2025-03-31T09:18:43.8689810Z ##[group]Installed distributions
+2025-03-31T09:18:43.8731108Z Resolved Java 17.0.14+7 from tool-cache
+2025-03-31T09:18:43.8733070Z Setting Java 17.0.14+7 as the default
+2025-03-31T09:18:43.8744669Z Creating toolchains.xml for JDK version 17 from temurin
+2025-03-31T09:18:43.8823723Z Writing to /home/runner/.m2/toolchains.xml
+2025-03-31T09:18:43.8826618Z 
+2025-03-31T09:18:43.8827771Z Java configuration:
+2025-03-31T09:18:43.8831345Z   Distribution: temurin
+2025-03-31T09:18:43.8832971Z   Version: 17.0.14+7
+2025-03-31T09:18:43.8835148Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:18:43.8837066Z 
+2025-03-31T09:18:43.8838693Z ##[endgroup]
+2025-03-31T09:18:43.8858342Z Creating settings.xml with server-id: github
+2025-03-31T09:18:43.8861878Z Writing to /home/runner/.m2/settings.xml
+2025-03-31T09:18:45.3761347Z Received 54525952 of 72953980 (74.7%), 51.9 MBs/sec
+2025-03-31T09:18:45.6165714Z Received 72953980 of 72953980 (100.0%), 56.0 MBs/sec
+2025-03-31T09:18:45.6172332Z Cache Size: ~70 MB (72953980 B)
+2025-03-31T09:18:45.6206502Z [command]/usr/bin/tar -z -xf /home/runner/work/_temp/0724fad7-01ae-4592-9b42-0a34b850eaf6/cache.tgz -P -C /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:18:46.2305843Z Cache restored successfully
+2025-03-31T09:18:46.2471608Z Cache restored from key: setup-java-Linux-maven-3020c9d9df7c0d5a7df68ec2e5f8af1328fd39c3b940be4cd1cfc24ff6581a08
+2025-03-31T09:18:46.2650172Z ##[group]Run chmod +x ./mvnw
+2025-03-31T09:18:46.2650585Z [36;1mchmod +x ./mvnw[0m
+2025-03-31T09:18:46.2704340Z shell: /usr/bin/bash -e {0}
+2025-03-31T09:18:46.2704669Z env:
+2025-03-31T09:18:46.2705043Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:18:46.2705630Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:18:46.2706082Z ##[endgroup]
+2025-03-31T09:18:46.2911523Z ##[group]Run ./mvnw clean package
+2025-03-31T09:18:46.2912188Z [36;1m./mvnw clean package[0m
+2025-03-31T09:18:46.2963314Z shell: /usr/bin/bash -e {0}
+2025-03-31T09:18:46.2963627Z env:
+2025-03-31T09:18:46.2963979Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:18:46.2964529Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:18:46.2964948Z ##[endgroup]
+2025-03-31T09:18:48.5684158Z [INFO] Scanning for projects...
+2025-03-31T09:18:48.8608990Z [INFO] 
+2025-03-31T09:18:48.8621922Z [INFO] --------------------< softserve.academy:simplecrud >--------------------
+2025-03-31T09:18:48.8670443Z [INFO] Building simplecrud 0.0.1-SNAPSHOT
+2025-03-31T09:18:48.8671167Z [INFO] --------------------------------[ jar ]---------------------------------
+2025-03-31T09:18:49.4741880Z [INFO] 
+2025-03-31T09:18:49.4753264Z [INFO] --- maven-clean-plugin:3.2.0:clean (default-clean) @ simplecrud ---
+2025-03-31T09:18:49.5513713Z [INFO] 
+2025-03-31T09:18:49.5523254Z [INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ simplecrud ---
+2025-03-31T09:18:49.6246327Z [INFO] Copying 1 resource
+2025-03-31T09:18:49.6417378Z [INFO] Copying 1 resource
+2025-03-31T09:18:49.6432782Z [INFO] 
+2025-03-31T09:18:49.6437445Z [INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ simplecrud ---
+2025-03-31T09:18:49.7970723Z [INFO] Changes detected - recompiling the module!
+2025-03-31T09:18:49.7991184Z [INFO] Compiling 14 source files to /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/target/classes
+2025-03-31T09:18:51.7712339Z [INFO] 
+2025-03-31T09:18:51.7714823Z [INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ simplecrud ---
+2025-03-31T09:18:51.7792433Z [INFO] skip non existing resourceDirectory /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/src/test/resources
+2025-03-31T09:18:51.7804584Z [INFO] 
+2025-03-31T09:18:51.7805448Z [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ simplecrud ---
+2025-03-31T09:18:51.7951235Z [INFO] Changes detected - recompiling the module!
+2025-03-31T09:18:51.7952287Z [INFO] Compiling 1 source file to /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/target/test-classes
+2025-03-31T09:18:52.3323075Z [INFO] 
+2025-03-31T09:18:52.3344084Z [INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ simplecrud ---
+2025-03-31T09:18:52.5973535Z [INFO] 
+2025-03-31T09:18:52.5975817Z [INFO] -------------------------------------------------------
+2025-03-31T09:18:52.5978677Z [INFO]  T E S T S
+2025-03-31T09:18:52.5981971Z [INFO] -------------------------------------------------------
+2025-03-31T09:18:53.2736686Z [INFO] Running softserve.academy.simplecrud.SimplecrudApplicationTests
+2025-03-31T09:18:53.4642885Z 09:18:53.460 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [SimplecrudApplicationTests]: using SpringBootContextLoader
+2025-03-31T09:18:53.4663212Z 09:18:53.465 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [softserve.academy.simplecrud.SimplecrudApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2025-03-31T09:18:53.4668634Z 09:18:53.465 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [softserve.academy.simplecrud.SimplecrudApplicationTests]: SimplecrudApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-03-31T09:18:53.4962434Z 09:18:53.494 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [SimplecrudApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+2025-03-31T09:18:53.5804064Z 09:18:53.578 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [/home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/target/classes/softserve/academy/simplecrud/SimplecrudApplication.class]
+2025-03-31T09:18:53.5826347Z 09:18:53.582 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration softserve.academy.simplecrud.SimplecrudApplication for test class softserve.academy.simplecrud.SimplecrudApplicationTests
+2025-03-31T09:18:53.6905086Z 09:18:53.689 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [SimplecrudApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+2025-03-31T09:18:53.6941147Z 09:18:53.692 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [SimplecrudApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+2025-03-31T09:18:54.0970542Z 
+2025-03-31T09:18:54.0990168Z   .   ____          _            __ _ _
+2025-03-31T09:18:54.1000232Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-03-31T09:18:54.1002034Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-03-31T09:18:54.1002492Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-03-31T09:18:54.1003159Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-03-31T09:18:54.1003595Z  =========|_|==============|___/=/_/_/_/
+2025-03-31T09:18:54.1004170Z  :: Spring Boot ::                (v3.0.5)
+2025-03-31T09:18:54.1004489Z 
+2025-03-31T09:18:54.1691847Z 2025-03-31T09:18:54.165Z  INFO 1796 --- [           main] s.a.s.SimplecrudApplicationTests         : Starting SimplecrudApplicationTests using Java 17.0.14 with PID 1796 (started by runner in /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor)
+2025-03-31T09:18:54.1720799Z 2025-03-31T09:18:54.167Z  INFO 1796 --- [           main] s.a.s.SimplecrudApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-03-31T09:18:55.4452106Z 2025-03-31T09:18:55.444Z  INFO 1796 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-31T09:18:55.5112542Z 2025-03-31T09:18:55.510Z  INFO 1796 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+2025-03-31T09:18:56.1324398Z 2025-03-31T09:18:56.130Z  INFO 1796 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-31T09:18:56.1869939Z 2025-03-31T09:18:56.185Z  INFO 1796 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2025-03-31T09:18:56.4473486Z 2025-03-31T09:18:56.445Z  INFO 1796 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-31T09:18:56.6732531Z 2025-03-31T09:18:56.672Z  INFO 1796 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./productsDB user=SA
+2025-03-31T09:18:56.6746179Z 2025-03-31T09:18:56.674Z  INFO 1796 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-31T09:18:56.7103791Z 2025-03-31T09:18:56.709Z  INFO 1796 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2025-03-31T09:18:57.4387959Z 2025-03-31T09:18:57.437Z  INFO 1796 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-03-31T09:18:57.4481953Z 2025-03-31T09:18:57.446Z  INFO 1796 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-31T09:18:58.7006712Z 2025-03-31T09:18:58.700Z  INFO 1796 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:file:./productsDB'
+2025-03-31T09:18:58.7828547Z 2025-03-31T09:18:58.779Z  INFO 1796 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-03-31T09:18:58.8769000Z 2025-03-31T09:18:58.876Z  INFO 1796 --- [           main] s.a.s.SimplecrudApplicationTests         : Started SimplecrudApplicationTests in 5.139 seconds (process running for 6.2)
+2025-03-31T09:18:59.2303295Z [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.905 s - in softserve.academy.simplecrud.SimplecrudApplicationTests
+2025-03-31T09:18:59.2501644Z 2025-03-31T09:18:59.245Z  INFO 1796 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-31T09:18:59.2536660Z 2025-03-31T09:18:59.253Z  INFO 1796 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-31T09:18:59.2592491Z 2025-03-31T09:18:59.258Z  INFO 1796 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-31T09:18:59.4803705Z [INFO] 
+2025-03-31T09:18:59.4814960Z [INFO] Results:
+2025-03-31T09:18:59.4815477Z [INFO] 
+2025-03-31T09:18:59.4815885Z [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+2025-03-31T09:18:59.4816350Z [INFO] 
+2025-03-31T09:18:59.4849094Z [INFO] 
+2025-03-31T09:18:59.4851444Z [INFO] --- maven-jar-plugin:3.3.0:jar (default-jar) @ simplecrud ---
+2025-03-31T09:18:59.6453585Z [INFO] Building jar: /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/target/simplecrud-0.0.1-SNAPSHOT.jar
+2025-03-31T09:18:59.6880532Z [INFO] 
+2025-03-31T09:18:59.6881510Z [INFO] --- spring-boot-maven-plugin:3.0.5:repackage (repackage) @ simplecrud ---
+2025-03-31T09:19:00.2056020Z [INFO] Replacing main artifact with repackaged archive
+2025-03-31T09:19:00.2080508Z [INFO] ------------------------------------------------------------------------
+2025-03-31T09:19:00.2088020Z [INFO] BUILD SUCCESS
+2025-03-31T09:19:00.2092873Z [INFO] ------------------------------------------------------------------------
+2025-03-31T09:19:00.2093768Z [INFO] Total time:  11.664 s
+2025-03-31T09:19:00.2098819Z [INFO] Finished at: 2025-03-31T09:19:00Z
+2025-03-31T09:19:00.2119211Z [INFO] ------------------------------------------------------------------------
+2025-03-31T09:19:00.2433893Z ##[group]Run ./mvnw test
+2025-03-31T09:19:00.2434182Z [36;1m./mvnw test[0m
+2025-03-31T09:19:00.2484013Z shell: /usr/bin/bash -e {0}
+2025-03-31T09:19:00.2484288Z env:
+2025-03-31T09:19:00.2484637Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:19:00.2485223Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:19:00.2485673Z ##[endgroup]
+2025-03-31T09:19:01.5171015Z [INFO] Scanning for projects...
+2025-03-31T09:19:01.8204485Z [INFO] 
+2025-03-31T09:19:01.8206218Z [INFO] --------------------< softserve.academy:simplecrud >--------------------
+2025-03-31T09:19:01.8220384Z [INFO] Building simplecrud 0.0.1-SNAPSHOT
+2025-03-31T09:19:01.8220980Z [INFO] --------------------------------[ jar ]---------------------------------
+2025-03-31T09:19:02.3880032Z [INFO] 
+2025-03-31T09:19:02.3910707Z [INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ simplecrud ---
+2025-03-31T09:19:02.5210762Z [INFO] Copying 1 resource
+2025-03-31T09:19:02.5395057Z [INFO] Copying 1 resource
+2025-03-31T09:19:02.5404506Z [INFO] 
+2025-03-31T09:19:02.5408784Z [INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ simplecrud ---
+2025-03-31T09:19:02.6730520Z [INFO] Nothing to compile - all classes are up to date
+2025-03-31T09:19:02.6734943Z [INFO] 
+2025-03-31T09:19:02.6739474Z [INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ simplecrud ---
+2025-03-31T09:19:02.6800147Z [INFO] skip non existing resourceDirectory /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/src/test/resources
+2025-03-31T09:19:02.6805668Z [INFO] 
+2025-03-31T09:19:02.6830593Z [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ simplecrud ---
+2025-03-31T09:19:02.6910369Z [INFO] Nothing to compile - all classes are up to date
+2025-03-31T09:19:02.6911219Z [INFO] 
+2025-03-31T09:19:02.6911982Z [INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ simplecrud ---
+2025-03-31T09:19:03.0277401Z [INFO] 
+2025-03-31T09:19:03.0285508Z [INFO] -------------------------------------------------------
+2025-03-31T09:19:03.0285994Z [INFO]  T E S T S
+2025-03-31T09:19:03.0286380Z [INFO] -------------------------------------------------------
+2025-03-31T09:19:03.7056733Z [INFO] Running softserve.academy.simplecrud.SimplecrudApplicationTests
+2025-03-31T09:19:03.9096107Z 09:19:03.906 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [SimplecrudApplicationTests]: using SpringBootContextLoader
+2025-03-31T09:19:03.9142504Z 09:19:03.911 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [softserve.academy.simplecrud.SimplecrudApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2025-03-31T09:19:03.9152206Z 09:19:03.914 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [softserve.academy.simplecrud.SimplecrudApplicationTests]: SimplecrudApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-03-31T09:19:03.9477541Z 09:19:03.946 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [SimplecrudApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+2025-03-31T09:19:04.0336217Z 09:19:04.032 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [/home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor/target/classes/softserve/academy/simplecrud/SimplecrudApplication.class]
+2025-03-31T09:19:04.0372304Z 09:19:04.035 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration softserve.academy.simplecrud.SimplecrudApplication for test class softserve.academy.simplecrud.SimplecrudApplicationTests
+2025-03-31T09:19:04.1495742Z 09:19:04.147 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [SimplecrudApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+2025-03-31T09:19:04.1522414Z 09:19:04.151 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [SimplecrudApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+2025-03-31T09:19:04.5322342Z 
+2025-03-31T09:19:04.5343509Z   .   ____          _            __ _ _
+2025-03-31T09:19:04.5343977Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-03-31T09:19:04.5344337Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-03-31T09:19:04.5344687Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-03-31T09:19:04.5345044Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-03-31T09:19:04.5345389Z  =========|_|==============|___/=/_/_/_/
+2025-03-31T09:19:04.5345868Z  :: Spring Boot ::                (v3.0.5)
+2025-03-31T09:19:04.5346155Z 
+2025-03-31T09:19:04.6216372Z 2025-03-31T09:19:04.619Z  INFO 1893 --- [           main] s.a.s.SimplecrudApplicationTests         : Starting SimplecrudApplicationTests using Java 17.0.14 with PID 1893 (started by runner in /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor)
+2025-03-31T09:19:04.6218673Z 2025-03-31T09:19:04.621Z  INFO 1893 --- [           main] s.a.s.SimplecrudApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-03-31T09:19:05.9323729Z 2025-03-31T09:19:05.931Z  INFO 1893 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-31T09:19:05.9980324Z 2025-03-31T09:19:05.997Z  INFO 1893 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+2025-03-31T09:19:06.5974193Z 2025-03-31T09:19:06.593Z  INFO 1893 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-31T09:19:06.6341404Z 2025-03-31T09:19:06.633Z  INFO 1893 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2025-03-31T09:19:06.8778444Z 2025-03-31T09:19:06.877Z  INFO 1893 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-31T09:19:07.1112507Z 2025-03-31T09:19:07.108Z  INFO 1893 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./productsDB user=SA
+2025-03-31T09:19:07.1114123Z 2025-03-31T09:19:07.110Z  INFO 1893 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-31T09:19:07.1451675Z 2025-03-31T09:19:07.144Z  INFO 1893 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2025-03-31T09:19:07.8676957Z 2025-03-31T09:19:07.866Z  INFO 1893 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-03-31T09:19:07.8757242Z 2025-03-31T09:19:07.874Z  INFO 1893 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-31T09:19:09.1415290Z 2025-03-31T09:19:09.137Z  INFO 1893 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:file:./productsDB'
+2025-03-31T09:19:09.2014092Z 2025-03-31T09:19:09.200Z  INFO 1893 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-03-31T09:19:09.3230356Z 2025-03-31T09:19:09.322Z  INFO 1893 --- [           main] s.a.s.SimplecrudApplicationTests         : Started SimplecrudApplicationTests in 5.129 seconds (process running for 6.228)
+2025-03-31T09:19:09.6408577Z [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.891 s - in softserve.academy.simplecrud.SimplecrudApplicationTests
+2025-03-31T09:19:09.6609049Z 2025-03-31T09:19:09.659Z  INFO 1893 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-31T09:19:09.6669170Z 2025-03-31T09:19:09.663Z  INFO 1893 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-31T09:19:09.6760691Z 2025-03-31T09:19:09.670Z  INFO 1893 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-31T09:19:10.1915722Z [INFO] 
+2025-03-31T09:19:10.1916121Z [INFO] Results:
+2025-03-31T09:19:10.1919346Z [INFO] 
+2025-03-31T09:19:10.1929405Z [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+2025-03-31T09:19:10.1930340Z [INFO] 
+2025-03-31T09:19:10.1967845Z [INFO] ------------------------------------------------------------------------
+2025-03-31T09:19:10.1968505Z [INFO] BUILD SUCCESS
+2025-03-31T09:19:10.1969016Z [INFO] ------------------------------------------------------------------------
+2025-03-31T09:19:10.1994492Z [INFO] Total time:  8.702 s
+2025-03-31T09:19:10.1995020Z [INFO] Finished at: 2025-03-31T09:19:10Z
+2025-03-31T09:19:10.1995714Z [INFO] ------------------------------------------------------------------------
+2025-03-31T09:19:10.2261691Z ##[group]Run ls -l target/*.jar
+2025-03-31T09:19:10.2261986Z [36;1mls -l target/*.jar[0m
+2025-03-31T09:19:10.2309282Z shell: /usr/bin/bash -e {0}
+2025-03-31T09:19:10.2309956Z env:
+2025-03-31T09:19:10.2310304Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:19:10.2310889Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:19:10.2311327Z ##[endgroup]
+2025-03-31T09:19:10.2393120Z -rw-r--r-- 1 runner docker 51140966 Mar 31 09:19 target/simplecrud-0.0.1-SNAPSHOT.jar
+2025-03-31T09:19:10.2415895Z ##[group]Run git config --global user.name 'zinchenko-ihor'
+2025-03-31T09:19:10.2416317Z [36;1mgit config --global user.name 'zinchenko-ihor'[0m
+2025-03-31T09:19:10.2416706Z [36;1mgit config --global user.email 'zinchenkoihor757@gmail.com'[0m
+2025-03-31T09:19:10.2417019Z [36;1mgit add .[0m
+2025-03-31T09:19:10.2417395Z [36;1mgit diff --quiet && git diff --staged --quiet || git commit -m 'Automated changes from CI pipeline'[0m
+2025-03-31T09:19:10.2417816Z [36;1mgit push[0m
+2025-03-31T09:19:10.2460803Z shell: /usr/bin/bash -e {0}
+2025-03-31T09:19:10.2461045Z env:
+2025-03-31T09:19:10.2461353Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:19:10.2461865Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+2025-03-31T09:19:10.2462245Z ##[endgroup]
+2025-03-31T09:19:10.5715772Z Everything up-to-date
+2025-03-31T09:19:10.5827803Z Post job cleanup.
+2025-03-31T09:19:10.7053932Z Cache hit occurred on the primary key setup-java-Linux-maven-3020c9d9df7c0d5a7df68ec2e5f8af1328fd39c3b940be4cd1cfc24ff6581a08, not saving cache.
+2025-03-31T09:19:10.7170384Z Post job cleanup.
+2025-03-31T09:19:10.8106561Z [command]/usr/bin/git version
+2025-03-31T09:19:10.8148064Z git version 2.49.0
+2025-03-31T09:19:10.8190558Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/44304928-8b14-4b4d-8e98-c5b84c4da78c/.gitconfig'
+2025-03-31T09:19:10.8201474Z Temporarily overriding HOME='/home/runner/work/_temp/44304928-8b14-4b4d-8e98-c5b84c4da78c' before making global git config changes
+2025-03-31T09:19:10.8203297Z Adding repository directory to the temporary git global config as a safe directory
+2025-03-31T09:19:10.8207937Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/java-app-zinchenko-ihor/java-app-zinchenko-ihor
+2025-03-31T09:19:10.8251825Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-03-31T09:19:10.8288791Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-03-31T09:19:10.8539870Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-03-31T09:19:10.8563511Z http.https://github.com/.extraheader
+2025-03-31T09:19:10.8578402Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-03-31T09:19:10.8614654Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-03-31T09:19:10.8978563Z Cleaning up orphan processes
