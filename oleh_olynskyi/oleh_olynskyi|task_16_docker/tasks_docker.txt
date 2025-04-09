@@ -1,0 +1,40 @@
+[ Task ] Docker
+
+The running web application that displays your name.
+-в Powershell виконав такі команди:
+mkdir Docker1 //cтворення папки Docker1
+cd Docker1 //перехід в папку Docker1
+
+echo "<!DOCTYPE html><html><body><h1>Oleh Olynskyi</h1></body></html>" > index.html //створення файлу index.html і запису в нього <!DOCTYPE html><html><body><h1>Oleh Olynskyi</h1></body></html>
+
+-створив Dockerfile і добавив в нього:
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+
+-в Powershell виконав такі команди:
+docker build -t docker1 . //зібрав Docker образ 
+docker run -d -p 8080:80 docker1 //запустив контейнер
+
+Скріншот: 
+https://drive.google.com/file/d/1onQVMzYueUtk1OogDIgZ1AhMXs_rbNP0/view?usp=sharing
+
+
+
+
+The functionality of the dockerized GitHub application.
+
+-в Powershell виконав такі команди:
+git clone https://github.com/Oleh200/example-app-nodejs-backend-react-frontend.git //для клонування репозиторія з github
+cd example-app-nodejs-backend-react-frontend //перехід в папку example-app-nodejs-backend-react-frontend
+
+-створив Dockerfile //Dockerfile добавлю
+
+-в Powershell виконав такі команди:
+docker build -t example-app . //зібрав Docker образ 
+docker run -p 3030:3030 example-app //запустив контейнер
+
+Скріншот:
+https://drive.google.com/file/d/1K2zEWEODayOwouKJ6_MDdufMMQ6C0B_Y/view?usp=sharing
+ 
+
+
