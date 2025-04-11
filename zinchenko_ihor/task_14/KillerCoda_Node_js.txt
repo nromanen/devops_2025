@@ -1,0 +1,175 @@
+ubuntu $ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+> sudo apt-get install -y nodejs
+2025-03-21 10:47:43 - Installing pre-requisites
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+gnupg set to manually installed.
+The following NEW packages will be installed:
+  apt-transport-https
+The following packages will be upgraded:
+  ca-certificates curl libcurl4
+3 upgraded, 1 newly installed, 0 to remove and 194 not upgraded.
+Need to get 557 kB of archives.
+After this operation, 193 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ca-certificates all 20240203~20.04.1 [159 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 apt-transport-https all 2.0.10 [1704 B]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.25 [162 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcurl4 amd64 7.68.0-1ubuntu2.25 [235 kB]
+Fetched 557 kB in 0s (1778 kB/s) 
+Preconfiguring packages ...
+(Reading database ... 72828 files and directories currently installed.)
+Preparing to unpack .../ca-certificates_20240203~20.04.1_all.deb ...
+Unpacking ca-certificates (20240203~20.04.1) over (20211016~20.04.1) ...
+Selecting previously unselected package apt-transport-https.
+Preparing to unpack .../apt-transport-https_2.0.10_all.deb ...
+Unpacking apt-transport-https (2.0.10) ...
+Preparing to unpack .../curl_7.68.0-1ubuntu2.25_amd64.deb ...
+Unpacking curl (7.68.0-1ubuntu2.25) over (7.68.0-1ubuntu2.14) ...
+Preparing to unpack .../libcurl4_7.68.0-1ubuntu2.25_amd64.deb ...
+Unpacking libcurl4:amd64 (7.68.0-1ubuntu2.25) over (7.68.0-1ubuntu2.14) ...
+Setting up apt-transport-https (2.0.10) ...
+Setting up ca-certificates (20240203~20.04.1) ...
+Updating certificates in /etc/ssl/certs...
+rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+30 added, 11 removed; done.
+Setting up libcurl4:amd64 (7.68.0-1ubuntu2.25) ...
+Setting up curl (7.68.0-1ubuntu2.25) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+Processing triggers for ca-certificates (20240203~20.04.1) ...
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease                                   
+Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease                                 
+Get:4 https://deb.nodesource.com/node_20.x nodistro InRelease [12.1 kB]                          
+Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+Get:6 https://deb.nodesource.com/node_20.x nodistro/main amd64 Packages [10.9 kB]
+Fetched 23.0 kB in 1s (27.1 kB/s)
+Reading package lists... Done
+2025-03-21 10:48:02 - Repository configured successfully.
+2025-03-21 10:48:02 - To install Node.js, run: apt-get install nodejs -y
+2025-03-21 10:48:02 - You can use N|solid Runtime as a node.js alternative
+2025-03-21 10:48:02 - To install N|solid Runtime, run: apt-get install nsolid -y 
+
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  nodejs
+0 upgraded, 1 newly installed, 0 to remove and 194 not upgraded.
+Need to get 32.0 MB of archives.
+After this operation, 199 MB of additional disk space will be used.
+Get:1 https://deb.nodesource.com/node_20.x nodistro/main amd64 nodejs amd64 20.19.0-1nodesource1 [32.0 MB]
+Fetched 32.0 MB in 1s (33.5 MB/s) 
+Selecting previously unselected package nodejs.
+(Reading database ... 72851 files and directories currently installed.)
+Preparing to unpack .../nodejs_20.19.0-1nodesource1_amd64.deb ...
+Unpacking nodejs (20.19.0-1nodesource1) ...
+Setting up nodejs (20.19.0-1nodesource1) ...
+Processing triggers for man-db (2.9.1-1) ...
+ubuntu $ nvm -v
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+> sudo apt-get install -y nodejs
+2025-03-21 10:48:44 - Installing pre-requisites
+Hit:1 https://deb.nodesource.com/node_20.x nodistro InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+ca-certificates is already the newest version (20240203~20.04.1).
+ca-certificates set to manually installed.
+curl is already the newest version (7.68.0-1ubuntu2.25).
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+apt-transport-https is already the newest version (2.0.10).
+0 upgraded, 0 newly installed, 0 to remove and 194 not upgraded.
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:5 https://deb.nodesource.com/node_20.x nodistro InRelease
+Reading package lists... Done
+2025-03-21 10:48:50 - Repository configured successfully.
+2025-03-21 10:48:50 - To install Node.js, run: apt-get install nodejs -y
+2025-03-21 10:48:50 - You can use N|solid Runtime as a node.js alternative
+2025-03-21 10:48:50 - To install N|solid Runtime, run: apt-get install nsolid -y 
+
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+nodejs is already the newest version (20.19.0-1nodesource1).
+0 upgraded, 0 newly installed, 0 to remove and 194 not upgraded.
+ubuntu $ nvm -v
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $ nvm list-remote
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $ node -v
+v20.19.0
+ubuntu $ nvm ls
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $  nvm install v18
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $ nvm ls
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $ nvm use 20
+
+Command 'nvm' not found, but there are 13 similar ones.
+
+ubuntu $ node -v
+v20.19.0
+ubuntu $ mkdir softserve 
+ubuntu $ cd softserve
+ubuntu $ npm init -y
+Wrote to /root/softserve/package.json:
+
+{
+  "name": "softserve",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+ubuntu $ touch index.js
+ubuntu $ nano index.js
+ubuntu $ node index.js
+Server running at http://0.0.0.0:8080/
+
+ubuntu $ curl https://34087bfb-6be2-4569-8f8c-e783c0ee05b5-10-244-4-172-8080.spch.r.killercoda.com/
+  Congratulation!
+ Your server is worked!
+  Your SoftServe on KillerCodeubuntu $ 
+
