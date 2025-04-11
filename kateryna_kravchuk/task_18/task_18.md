@@ -14,7 +14,7 @@ Create your site on wordpress or other CMS in Byet.host / infinityfree.com / Azu
 2. Create a free hosting account, choose a domain name and extension, and provide any additional information when prompted.  
 3. Navigate to the **Control Panel** (*Vista panel*).  
 4. Under *Software*, search for **Softaculous Apps Installer**.  
-5. Use it to install **WordPress**. Configure the site by providing details lsuch as the admin username, password, and site directory. Use the *Advanced Options* to customize  database creation.  
+5. Use it to install **WordPress**. Configure the site by providing details such as the admin username, password, and site directory. Use the *Advanced Options* to customize  database creation.  
 6. Wait for the installation process to complete, then visit this newly created site.  
 
 ---
