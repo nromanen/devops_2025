@@ -1,0 +1,511 @@
+ubuntu $ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+> sudo apt-get install -y nodejs
+2025-03-21 11:19:29 - Installing pre-requisites
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+gnupg set to manually installed.
+The following NEW packages will be installed:
+  apt-transport-https
+The following packages will be upgraded:
+  ca-certificates curl libcurl4
+3 upgraded, 1 newly installed, 0 to remove and 194 not upgraded.
+Need to get 557 kB of archives.
+After this operation, 193 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ca-certificates all 20240203~20.04.1 [159 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 apt-transport-https all 2.0.10 [1704 B]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.25 [162 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcurl4 amd64 7.68.0-1ubuntu2.25 [235 kB]
+Fetched 557 kB in 1s (580 kB/s)  
+Preconfiguring packages ...
+(Reading database ... 72828 files and directories currently installed.)
+Preparing to unpack .../ca-certificates_20240203~20.04.1_all.deb ...
+Unpacking ca-certificates (20240203~20.04.1) over (20211016~20.04.1) ...
+Selecting previously unselected package apt-transport-https.
+Preparing to unpack .../apt-transport-https_2.0.10_all.deb ...
+Unpacking apt-transport-https (2.0.10) ...
+Preparing to unpack .../curl_7.68.0-1ubuntu2.25_amd64.deb ...
+Unpacking curl (7.68.0-1ubuntu2.25) over (7.68.0-1ubuntu2.14) ...
+Preparing to unpack .../libcurl4_7.68.0-1ubuntu2.25_amd64.deb ...
+Unpacking libcurl4:amd64 (7.68.0-1ubuntu2.25) over (7.68.0-1ubuntu2.14) ...
+Setting up apt-transport-https (2.0.10) ...
+Setting up ca-certificates (20240203~20.04.1) ...
+Updating certificates in /etc/ssl/certs...
+rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+30 added, 11 removed; done.
+Setting up libcurl4:amd64 (7.68.0-1ubuntu2.25) ...
+Setting up curl (7.68.0-1ubuntu2.25) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+Processing triggers for ca-certificates (20240203~20.04.1) ...
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Get:2 https://deb.nodesource.com/node_20.x nodistro InRelease [12.1 kB]   
+Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease                    
+Get:4 https://deb.nodesource.com/node_20.x nodistro/main amd64 Packages [10.9 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Fetched 23.0 kB in 1s (33.0 kB/s)
+Reading package lists... Done
+2025-03-21 11:19:45 - Repository configured successfully.
+2025-03-21 11:19:45 - To install Node.js, run: apt-get install nodejs -y
+2025-03-21 11:19:45 - You can use N|solid Runtime as a node.js alternative
+2025-03-21 11:19:45 - To install N|solid Runtime, run: apt-get install nsolid -y 
+
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  nodejs
+0 upgraded, 1 newly installed, 0 to remove and 194 not upgraded.
+Need to get 32.0 MB of archives.
+After this operation, 199 MB of additional disk space will be used.
+Get:1 https://deb.nodesource.com/node_20.x nodistro/main amd64 nodejs amd64 20.19.0-1nodesource1 [32.0 MB]
+Fetched 32.0 MB in 1s (36.1 MB/s) 
+Selecting previously unselected package nodejs.
+(Reading database ... 72851 files and directories currently installed.)
+Preparing to unpack .../nodejs_20.19.0-1nodesource1_amd64.deb ...
+Unpacking nodejs (20.19.0-1nodesource1) ...
+Setting up nodejs (20.19.0-1nodesource1) ...
+Processing triggers for man-db (2.9.1-1) ...
+ubuntu $ node -v
+v20.19.0
+ubuntu $ 
+
+ubuntu $ mkdir webpack-basic
+ubuntu $ cd webpack-basic
+ubuntu $ npm init -y
+Wrote to /root/webpack-basic/package.json:
+
+{
+  "name": "webpack-basic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+ubuntu $ npm install webpack webpack-cli --save-dev
+
+added 118 packages, and audited 119 packages in 11s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ubuntu $ 
+
+ubuntu $ mkdir src
+ubuntu $ nano ./src/index.js
+ubuntu $ cat ./src/index.js 
+function component() { const element = document.createElement('div');
+  // Lodash, currently included via a script, is required for this line to work
+  element.innerHTML = _.join(['Hello', 'world!'], ' '); return element;
+}
+document.body.appendChild(component());
+ubuntu $ nano index.html
+ubuntu $ cat index.html
+<!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <title>Getting Started Use Webpack</title> <script src="https://unpkg.com/lodash@4.17.20"></script> </head> <body> <script src="./src/index.js"></script> </body> </html>
+ubuntu $ 
+
+ubuntu $ nano package.json
+ubuntu $ cat  package.json
+ {
+   "name": "webpack-basics",
+   "version": "1.0.0",
+   "description": "",
+  "private": true,
+   "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "MIT",
+   "devDependencies": {
+     "webpack": "^5.92.1",
+     "webpack-cli": "^5.1.4"
+   }
+ }
+ubuntu $ 
+
+ubuntu $ mkdir dist
+ubuntu $ ll
+total 84
+drwxr-xr-x  5 root root  4096 Mar 21 11:25 ./
+drwx------  8 root root  4096 Mar 21 11:21 ../
+drwxr-xr-x  2 root root  4096 Mar 21 11:25 dist/
+-rw-r--r--  1 root root   225 Mar 21 11:22 index.html
+drwxr-xr-x 93 root root  4096 Mar 21 11:20 node_modules/
+-rw-r--r--  1 root root 53769 Mar 21 11:20 package-lock.json
+-rw-r--r--  1 root root   322 Mar 21 11:23 package.json
+drwxr-xr-x  2 root root  4096 Mar 21 11:21 src/
+ubuntu $ npm install --save lodash
+
+added 1 package, changed 7 packages, and audited 120 packages in 4s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ubuntu $ 
+
+ubuntu $ cat src/index.js
+import _ from 'lodash';
+
+ function component() {
+   const element = document.createElement('div');
+
+  // Lodash, now imported by this script
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+   return element;
+ }
+
+ document.body.appendChild(component());
+ubuntu $ 
+
+ubuntu $ sudo apt update
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [128 kB]
+Hit:4 https://deb.nodesource.com/node_20.x nodistro InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Fetched 128 kB in 1s (178 kB/s)
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+194 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ubuntu $ sudo apt install apache2 -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0 ssl-cert
+Suggested packages:
+  apache2-doc apache2-suexec-pristine | apache2-suexec-custom www-browser openssl-blacklist
+The following NEW packages will be installed:
+  apache2 apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0 ssl-cert
+0 upgraded, 10 newly installed, 0 to remove and 194 not upgraded.
+Need to get 1846 kB of archives.
+After this operation, 8040 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapr1 amd64 1.6.5-1ubuntu1.1 [91.5 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libaprutil1 amd64 1.6.1-4ubuntu2.2 [85.1 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.1-4ubuntu2.2 [10.5 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libaprutil1-ldap amd64 1.6.1-4ubuntu2.2 [8752 B]
+Get:5 http://archive.ubuntu.com/ubuntu focal/main amd64 liblua5.2-0 amd64 5.2.4-1.1build3 [106 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2-bin amd64 2.4.41-4ubuntu3.21 [1189 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2-data all 2.4.41-4ubuntu3.21 [159 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2-utils amd64 2.4.41-4ubuntu3.21 [84.7 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 apache2 amd64 2.4.41-4ubuntu3.21 [95.6 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal/main amd64 ssl-cert all 1.0.39 [17.0 kB]
+Fetched 1846 kB in 1s (1573 kB/s)   
+Preconfiguring packages ...
+Selecting previously unselected package libapr1:amd64.
+(Reading database ... 78214 files and directories currently installed.)
+Preparing to unpack .../0-libapr1_1.6.5-1ubuntu1.1_amd64.deb ...
+Unpacking libapr1:amd64 (1.6.5-1ubuntu1.1) ...
+Selecting previously unselected package libaprutil1:amd64.
+Preparing to unpack .../1-libaprutil1_1.6.1-4ubuntu2.2_amd64.deb ...
+Unpacking libaprutil1:amd64 (1.6.1-4ubuntu2.2) ...
+Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
+Preparing to unpack .../2-libaprutil1-dbd-sqlite3_1.6.1-4ubuntu2.2_amd64.deb ...
+Unpacking libaprutil1-dbd-sqlite3:amd64 (1.6.1-4ubuntu2.2) ...
+Selecting previously unselected package libaprutil1-ldap:amd64.
+Preparing to unpack .../3-libaprutil1-ldap_1.6.1-4ubuntu2.2_amd64.deb ...
+Unpacking libaprutil1-ldap:amd64 (1.6.1-4ubuntu2.2) ...
+Selecting previously unselected package liblua5.2-0:amd64.
+Preparing to unpack .../4-liblua5.2-0_5.2.4-1.1build3_amd64.deb ...
+Unpacking liblua5.2-0:amd64 (5.2.4-1.1build3) ...
+Selecting previously unselected package apache2-bin.
+Preparing to unpack .../5-apache2-bin_2.4.41-4ubuntu3.21_amd64.deb ...
+Unpacking apache2-bin (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package apache2-data.
+Preparing to unpack .../6-apache2-data_2.4.41-4ubuntu3.21_all.deb ...
+Unpacking apache2-data (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package apache2-utils.
+Preparing to unpack .../7-apache2-utils_2.4.41-4ubuntu3.21_amd64.deb ...
+Unpacking apache2-utils (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package apache2.
+Preparing to unpack .../8-apache2_2.4.41-4ubuntu3.21_amd64.deb ...
+Unpacking apache2 (2.4.41-4ubuntu3.21) ...
+Selecting previously unselected package ssl-cert.
+Preparing to unpack .../9-ssl-cert_1.0.39_all.deb ...
+Unpacking ssl-cert (1.0.39) ...
+Setting up libapr1:amd64 (1.6.5-1ubuntu1.1) ...
+Setting up ssl-cert (1.0.39) ...
+Setting up liblua5.2-0:amd64 (5.2.4-1.1build3) ...
+Setting up apache2-data (2.4.41-4ubuntu3.21) ...
+Setting up libaprutil1:amd64 (1.6.1-4ubuntu2.2) ...
+Setting up libaprutil1-ldap:amd64 (1.6.1-4ubuntu2.2) ...
+Setting up libaprutil1-dbd-sqlite3:amd64 (1.6.1-4ubuntu2.2) ...
+Setting up apache2-utils (2.4.41-4ubuntu3.21) ...
+Setting up apache2-bin (2.4.41-4ubuntu3.21) ...
+Setting up apache2 (2.4.41-4ubuntu3.21) ...
+Enabling module mpm_event.
+Enabling module authz_core.
+Enabling module authz_host.
+Enabling module authn_core.
+Enabling module auth_basic.
+Enabling module access_compat.
+Enabling module authn_file.
+Enabling module authz_user.
+Enabling module alias.
+Enabling module dir.
+Enabling module autoindex.
+Enabling module env.
+Enabling module mime.
+Enabling module negotiation.
+Enabling module setenvif.
+Enabling module filter.
+Enabling module deflate.
+Enabling module status.
+Enabling module reqtimeout.
+Enabling conf charset.
+Enabling conf localized-error-pages.
+Enabling conf other-vhosts-access-log.
+Enabling conf security.
+Enabling conf serve-cgi-bin.
+Enabling site 000-default.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+Processing triggers for ufw (0.36-6ubuntu1) ...
+Processing triggers for systemd (245.4-4ubuntu3.18) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+ubuntu $ cp ./dist/* /var/www/html/
+cp: cannot stat './dist/*': No such file or directory
+ubunt
+ubuntu $ 
+ubuntu $ ll
+total 12
+drwxr-xr-x 2 root root 4096 Mar 21 11:30 ./
+drwxr-xr-x 5 root root 4096 Mar 21 11:25 ../
+-rw-r--r-- 1 root root  264 Mar 21 11:27 index.js
+ubuntu $ cd ..
+ubuntu $ ll
+total 88
+drwxr-xr-x  5 root root  4096 Mar 21 11:25 ./
+drwx------  8 root root  4096 Mar 21 11:21 ../
+drwxr-xr-x  2 root root  4096 Mar 21 11:28 dist/
+-rw-r--r--  1 root root   225 Mar 21 11:22 index.html
+drwxr-xr-x 94 root root  4096 Mar 21 11:26 node_modules/
+-rw-r--r--  1 root root 58819 Mar 21 11:26 package-lock.json
+-rw-r--r--  1 root root   378 Mar 21 11:26 package.json
+drwxr-xr-x  2 root root  4096 Mar 21 11:30 src/
+ubuntu $ cp ./dist/* /var/www/html/
+ubuntu $ curl https://1479f123-7be8-40c0-b0bf-7fa8b98d889e-10-244-5-146-80.spch.r.killercoda.com/
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8" />
+     <title>Getting Started</title>
+   </head>
+   <body>
+    <script src="main.js"></script>
+   </body>
+ </html>
+ubuntu $ 
+
+ubuntu $ curl https://1479f123-7be8-40c0-b0bf-7fa8b98d889e-10-244-5-146-80.spch.r.killercoda.com/
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8" />
+     <title>Getting Started</title>
+   </head>
+   <body>
+    <script src="main.js"></script>
+   </body>
+ </html>
+ubuntu $ curl https://1479f123-7be8-40c0-b0bf-7fa8b98d889e-10-244-5-146-80.spch.r.killercoda.com/
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8" />
+     <title>Getting Started</title>
+   </head>
+   <body>
+    <script src="main.js"></script>
+   </body>
+ </html>
+ubuntu $ ll
+total 88
+drwxr-xr-x  5 root root  4096 Mar 21 11:25 ./
+drwx------  8 root root  4096 Mar 21 11:21 ../
+drwxr-xr-x  2 root root  4096 Mar 21 11:28 dist/
+-rw-r--r--  1 root root   225 Mar 21 11:22 index.html
+drwxr-xr-x 94 root root  4096 Mar 21 11:26 node_modules/
+-rw-r--r--  1 root root 58819 Mar 21 11:26 package-lock.json
+-rw-r--r--  1 root root   378 Mar 21 11:26 package.json
+drwxr-xr-x  2 root root  4096 Mar 21 11:30 src/
+ubuntu $ nano webpack.config.js
+ubuntu $ npx webpack --config webpack.config.js
+asset main.js 69.5 KiB [compared for emit] [minimized] (name: main) 1 related asset
+runtime modules 1010 bytes 5 modules
+cacheable modules 532 KiB
+  ./src/index.js 264 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 531 KiB [built] [code generated]
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value.
+Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+webpack 5.98.0 compiled with 1 warning in 3926 ms
+ubuntu $ nano webpack.config.js
+ubuntu $ npx webpack --config webpack.config.js
+asset main.js 69.5 KiB [compared for emit] [minimized] (name: main) 1 related asset
+runtime modules 1010 bytes 5 modules
+cacheable modules 532 KiB
+  ./src/index.js 264 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 531 KiB [built] [code generated]
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value.
+Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+webpack 5.98.0 compiled with 1 warning in 4191 ms
+ubuntu $ nano package.json
+ubuntu $ npm run build
+npm error Missing script: "build"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /root/.npm/_logs/2025-03-21T11_37_33_502Z-debug-0.log
+ubuntu $ nano package.json
+ubuntu $ npm run build
+
+> webpack-basics@1.0.0 build
+> webpack
+
+asset main.js 69.5 KiB [compared for emit] [minimized] (name: main) 1 related asset
+runtime modules 1010 bytes 5 modules
+cacheable modules 532 KiB
+  ./src/index.js 264 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 531 KiB [built] [code generated]
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value.
+Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+webpack 5.98.0 compiled with 1 warning in 5436 ms
+ubuntu $ nano webpack.config.js
+
+
+Use "fg" to return to nano.
+
+[1]+  Stopped                 nano webpack.config.js
+ubuntu $ nano webpack.config.js
+ubuntu $ nano webpack.config.js
+
+
+Use "fg" to return to nano.
+
+[2]+  Stopped                 nano webpack.config.js
+ubuntu $ nano webpack.config.js
+ubuntu $ nano webpack.config.js
+ubuntu
+ubuntu $ nano webpack.config.js
+ubuntu $ npm run build
+
+> webpack-basics@1.0.0 build
+> webpack
+
+asset main.js 554 KiB [emitted] (name: main)
+runtime modules 1.25 KiB 6 modules
+cacheable modules 532 KiB
+  ./src/index.js 264 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 531 KiB [built] [code generated]
+webpack 5.98.0 compiled successfully in 493 ms
+ubuntu $ cp ./dist/* /var/www/html/
+ubuntu $ npm install --save-dev html-webpack-plugin
+
+added 30 packages, and audited 150 packages in 4s
+
+27 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ubuntu $ 
+
+ubuntu $ nano webpack.config.js
+ubuntu $ cat webpack.config.js 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+module.exports = {
+  mode: "development",
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index_bundle.js',
+  },
+  plugins: [new HtmlWebpackPlugin({
+            template: './index.html',
+        })]
+};
+ubuntu $ 
+ubuntu $ nano ./index.html
+ubuntu $ cat ./index.html 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Getting Started Use Webpack  </title>
+  </head>
+  <body>
+  <h2>Getting Started Use Webpack HtmlWebpackPlugin</h2>
+    <script src="index_bundle.js"></script>
+  </body>
+</html>
+ubuntu $ 
+
+ubuntu $ npm run build
+
+> webpack-basics@1.0.0 build
+> webpack
+
+asset index_bundle.js 554 KiB [emitted] (name: main)
+asset index.html 293 bytes [emitted]
+runtime modules 1.25 KiB 6 modules
+cacheable modules 532 KiB
+  ./src/index.js 264 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 531 KiB [built] [code generated]
+webpack 5.98.0 compiled successfully in 757 ms
+ubuntu $ 
+
+ubuntu $ cp ./dist/* /var/www/html/
+ubuntu $ curl https://1479f123-7be8-40c0-b0bf-7fa8b98d889e-10-244-5-146-80.spch.r.killercoda.com/
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Getting Started Use Webpack  </title>
+  <script defer src="index_bundle.js"></script></head>
+  <body>
+  <h2>Getting Started Use Webpack HtmlWebpackPlugin</h2>
+    <script src="index_bundle.js"></script>
+  </body>
+</html>
+ubuntu $ 
+
+
+
