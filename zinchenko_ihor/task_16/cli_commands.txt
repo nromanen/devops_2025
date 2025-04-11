@@ -1,0 +1,533 @@
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ca-certificates is already the newest version (20240203~22.04.1).
+ca-certificates set to manually installed.
+curl is already the newest version (7.81.0-1ubuntu1.20).
+curl set to manually installed.
+software-properties-common is already the newest version (0.99.22.9).
+software-properties-common set to manually installed.
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  apt-transport-https
+0 upgraded, 1 newly installed, 0 to remove and 9 not upgraded.
+Need to get 1,510 B of archives.
+After this operation, 170 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ua.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 apt-transport-https all 2.4.13 [1,510 B]
+Fetched 1,510 B in 0s (12.7 kB/s)
+Selecting previously unselected package apt-transport-https.
+(Reading database ... 111457 files and directories currently installed.)
+Preparing to unpack .../apt-transport-https_2.4.13_all.deb ...
+Unpacking apt-transport-https (2.4.13) ...
+Setting up apt-transport-https (2.4.13) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ca-certificates is already the newest version (20240203~22.04.1).
+curl is already the newest version (7.81.0-1ubuntu1.20).
+software-properties-common is already the newest version (0.99.22.9).
+apt-transport-https is already the newest version (2.4.13).
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ sudo apt update
+Hit:1 http://ua.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://ua.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://ua.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://ua.archive.ubuntu.com/ubuntu jammy-security InRelease
+Get:5 https://download.docker.com/linux/ubuntu jammy InRelease [48.8 kB]
+Hit:6 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 InRelease
+Get:7 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [47.6 kB]
+Fetched 96.5 kB in 1s (177 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+9 packages can be upgraded. Run 'apt list --upgradable' to see them.
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ apt-cache policy docker-ce
+docker-ce:
+  Installed: (none)
+  Candidate: 5:28.0.4-1~ubuntu.22.04~jammy
+  Version table:
+     5:28.0.4-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:28.0.3-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:28.0.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:28.0.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:28.0.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.5.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.5.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.4.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.4.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.3.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.3.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.2.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.2.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.1.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.1.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.1.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.0.3-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.0.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:27.0.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.1.4-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.1.3-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.1.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.1.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.1.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.0.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.0.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:26.0.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:25.0.5-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:25.0.4-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:25.0.3-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:25.0.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:25.0.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:25.0.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.9-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.8-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.7-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.6-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.5-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.4-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.3-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:24.0.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.6-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.5-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.4-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.3-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.2-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.1-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:23.0.0-1~ubuntu.22.04~jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.24~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.23~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.22~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.21~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.20~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.19~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.18~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.17~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.16~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.15~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.14~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+     5:20.10.13~3-0~ubuntu-jammy 500
+        500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ sudo apt install docker-ce
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  containerd.io docker-buildx-plugin docker-ce-cli docker-ce-rootless-extras docker-compose-plugin libltdl7 libslirp0 pigz slirp4netns
+Suggested packages:
+  cgroupfs-mount | cgroup-lite
+The following NEW packages will be installed:
+  containerd.io docker-buildx-plugin docker-ce docker-ce-cli docker-ce-rootless-extras docker-compose-plugin libltdl7 libslirp0 pigz slirp4netns
+0 upgraded, 10 newly installed, 0 to remove and 9 not upgraded.
+Need to get 121 MB of archives.
+After this operation, 442 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ua.archive.ubuntu.com/ubuntu jammy/universe amd64 pigz amd64 2.6-1 [63.6 kB]
+Get:2 https://download.docker.com/linux/ubuntu jammy/stable amd64 containerd.io amd64 1.7.27-1 [30.5 MB]
+Get:3 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libltdl7 amd64 2.4.6-15build2 [39.6 kB]
+Get:4 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 libslirp0 amd64 4.6.1-1build1 [61.5 kB]
+Get:5 http://ua.archive.ubuntu.com/ubuntu jammy/universe amd64 slirp4netns amd64 1.0.1-2 [28.2 kB]
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-buildx-plugin amd64 0.22.0-1~ubuntu.22.04~jammy [35.3 MB]
+Get:7 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-cli amd64 5:28.0.4-1~ubuntu.22.04~jammy [15.8 MB]
+Get:8 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce amd64 5:28.0.4-1~ubuntu.22.04~jammy [19.1 MB]
+Get:9 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-rootless-extras amd64 5:28.0.4-1~ubuntu.22.04~jammy [6,092 kB]
+Get:10 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-compose-plugin amd64 2.34.0-1~ubuntu.22.04~jammy [14.1 MB]
+Fetched 121 MB in 2s (55.7 MB/s)
+Selecting previously unselected package pigz.
+(Reading database ... 111461 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.6-1_amd64.deb ...
+Unpacking pigz (2.6-1) ...
+Selecting previously unselected package containerd.io.
+Preparing to unpack .../1-containerd.io_1.7.27-1_amd64.deb ...
+Unpacking containerd.io (1.7.27-1) ...
+Selecting previously unselected package docker-buildx-plugin.
+Preparing to unpack .../2-docker-buildx-plugin_0.22.0-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-buildx-plugin (0.22.0-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce-cli.
+Preparing to unpack .../3-docker-ce-cli_5%3a28.0.4-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce-cli (5:28.0.4-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../4-docker-ce_5%3a28.0.4-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce (5:28.0.4-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce-rootless-extras.
+Preparing to unpack .../5-docker-ce-rootless-extras_5%3a28.0.4-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:28.0.4-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-compose-plugin.
+Preparing to unpack .../6-docker-compose-plugin_2.34.0-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-compose-plugin (2.34.0-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../7-libltdl7_2.4.6-15build2_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-15build2) ...
+Selecting previously unselected package libslirp0:amd64.
+Preparing to unpack .../8-libslirp0_4.6.1-1build1_amd64.deb ...
+Unpacking libslirp0:amd64 (4.6.1-1build1) ...
+Selecting previously unselected package slirp4netns.
+Preparing to unpack .../9-slirp4netns_1.0.1-2_amd64.deb ...
+Unpacking slirp4netns (1.0.1-2) ...
+Setting up docker-buildx-plugin (0.22.0-1~ubuntu.22.04~jammy) ...
+Setting up containerd.io (1.7.27-1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+Setting up docker-compose-plugin (2.34.0-1~ubuntu.22.04~jammy) ...
+Setting up libltdl7:amd64 (2.4.6-15build2) ...
+Setting up docker-ce-cli (5:28.0.4-1~ubuntu.22.04~jammy) ...
+Setting up libslirp0:amd64 (4.6.1-1build1) ...
+Setting up pigz (2.6-1) ...
+Setting up docker-ce-rootless-extras (5:28.0.4-1~ubuntu.22.04~jammy) ...
+Setting up slirp4netns (1.0.1-2) ...
+Setting up docker-ce (5:28.0.4-1~ubuntu.22.04~jammy) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.9) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2025-04-05 10:48:09 UTC; 6s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 2820 (dockerd)
+      Tasks: 7
+     Memory: 20.3M
+        CPU: 161ms
+     CGroup: /system.slice/docker.service
+             └─2820 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Apr 05 10:48:08 server dockerd[2820]: time="2025-04-05T10:48:08.904179476Z" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.>
+Apr 05 10:48:08 server dockerd[2820]: time="2025-04-05T10:48:08.935024638Z" level=info msg="Creating a containerd client" address=/run/containerd/containerd.sock timeout=1m0s
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.010572849Z" level=info msg="Loading containers: start."
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.181906406Z" level=info msg="Loading containers: done."
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.198742786Z" level=info msg="Docker daemon" commit=6430e49 containerd-snapshotter=false storage-driver=overlay2 version=28.0.4
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.199007551Z" level=info msg="Initializing buildkit"
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.216686679Z" level=info msg="Completed buildkit initialization"
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.223530590Z" level=info msg="Daemon has completed initialization"
+Apr 05 10:48:09 server dockerd[2820]: time="2025-04-05T10:48:09.223779130Z" level=info msg="API listen on /run/docker.sock"
+Apr 05 10:48:09 server systemd[1]: Started Docker Application Container Engine.
+
+
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ sudo usermod -aG docker ${USER}
+4zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ su - ${USER}
+Password:
+zincheis@server:~$ groups
+zincheis adm cdrom sudo dip plugdev lxd docker
+zincheis@server:~$ docker info
+Client: Docker Engine - Community
+ Version:    28.0.4
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.22.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.34.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 28.0.4
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 05044ec0a9a75232cad458027ca83437aae3f4da
+ runc version: v1.2.5-0-g59923ef
+ init version: de40ad0
+ Security Options:
+  apparmor
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 5.15.0-134-generic
+ Operating System: Ubuntu 22.04.5 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 1
+ Total Memory: 1.918GiB
+ Name: server
+ ID: 6dc4ba38-20a1-4c25-8ec1-1c5449069c37
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+zincheis@server:~$
+
+
+
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ mkdir my-web-app
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ ll
+total 16
+drwxrwxr-x  3 zincheis zincheis 4096 Apr  5 10:52 ./
+drwxrwxr-x 15 zincheis zincheis 4096 Apr  5 10:45 ../
+-rw-r--r--  1 root     root     1024 Apr  5 10:49 .cli_commands.txt.swp
+drwxrwxr-x  2 zincheis zincheis 4096 Apr  5 10:52 my-web-app/
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16$ cd my-web-app/
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$ ll
+total 8
+drwxrwxr-x 2 zincheis zincheis 4096 Apr  5 10:52 ./
+drwxrwxr-x 3 zincheis zincheis 4096 Apr  5 10:52 ../
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$ echo "<h1>Ihor Zinchenko</h1>" > index.html
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$ docker run -d -p 8080:80 -v $(pwd)/index.html:/usr/share/nginx/html/index.html nginx:alpine
+Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+f18232174bc9: Pull complete
+ccc35e35d420: Pull complete
+43f2ec460bdf: Pull complete
+984583bcf083: Pull complete
+8d27c072a58f: Pull complete
+ab3286a73463: Pull complete
+6d79cc6084d4: Pull complete
+0c7e4c092ab7: Pull complete
+Digest: sha256:4ff102c5d78d254a6f0da062b3cf39eaf07f01eec0927fd21e219d0af8bc0591
+Status: Downloaded newer image for nginx:alpine
+bd7f8a8644abcb536f89b21388ca6a94b417ad4cedcc77884bbe68509546d25d
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$ docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+bd7f8a8644ab   nginx:alpine   "/docker-entrypoint.…"   7 seconds ago   Up 6 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   infallible_moser
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$ curl http://192.168.0.100:8080
+<h1>Ihor Zinchenko</h1>
+zincheis@server:~/devops_2025/zinchenko_ihor/task_16/my-web-app$
+
+zincheis@server:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ sudo nano Dockerfile
+zincheis@server:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ ll
+total 188
+drwxrwxr-x 4 zincheis zincheis   4096 Apr  5 11:22 ./
+drwxrwxr-x 4 zincheis zincheis   4096 Apr  5 11:11 ../
+-rw-r--r-- 1 root     root        476 Apr  5 11:22 Dockerfile
+drwxrwxr-x 3 zincheis zincheis   4096 Apr  5 11:11 .github/
+-rw-rw-r-- 1 zincheis zincheis     22 Apr  5 11:11 .gitignore
+-rw-rw-r-- 1 zincheis zincheis    441 Apr  5 11:11 package.json
+-rw-rw-r-- 1 zincheis zincheis 153411 Apr  5 11:11 package-lock.json
+-rw-rw-r-- 1 zincheis zincheis   1586 Apr  5 11:11 README.md
+drwxrwxr-x 4 zincheis zincheis   4096 Apr  5 11:11 src/
+-rw-rw-r-- 1 zincheis zincheis    186 Apr  5 11:11 webpack.config.js
+
+
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker build -t test-fullstack-app .
+[+] Building 56.6s (13/13) FINISHED                                                                                                                                                        docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                                                 0.0s
+ => => transferring dockerfile: 827B                                                                                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/node:16                                                                                                                                           1.9s
+ => [internal] load .dockerignore                                                                                                                                                                    0.0s
+ => => transferring context: 2B                                                                                                                                                                      0.0s
+ => [build-stage 1/6] FROM docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b                                                                        17.7s
+ => => resolve docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b                                                                                     0.0s
+ => => sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b 776B / 776B                                                                                                           0.0s
+ => => sha256:1ddc7e4055fdb6f6bf31063b593befda814294f9f904b6ddfc21ab1513bafa8e 7.23kB / 7.23kB                                                                                                       0.0s
+ => => sha256:311da6c465ea1576925360eba391bcd32dece9be95960a0bc9ffcb25fe712017 50.50MB / 50.50MB                                                                                                     1.7s
+ => => sha256:ffd9397e94b74abcb54e514f1430e00f604328d1f895eadbd482f08cc02444e5 51.89MB / 51.89MB                                                                                                     3.2s
+ => => sha256:c94b82f9827cab6e421b350965a9ef11b25b13ffbd1030536203d541f55dcbe2 2.00kB / 2.00kB                                                                                                       0.0s
+ => => sha256:7e9bf114588c05b2df612b083b96582f3b8dbf51647aa6138a50d09d42df2454 17.58MB / 17.58MB                                                                                                     1.2s
+ => => sha256:513d779256048c961239af5f500589330546b072775217272e19ffae1635e98e 191.90MB / 191.90MB                                                                                                   8.7s
+ => => extracting sha256:311da6c465ea1576925360eba391bcd32dece9be95960a0bc9ffcb25fe712017                                                                                                            3.3s
+ => => sha256:ae3b95bbaa61ce24cefdd89e7c74d6fbd7713b2bcae93af47063d06bd7e02172 4.20kB / 4.20kB                                                                                                       1.9s
+ => => sha256:0e421f66aff42bb069dffc26af6d132194b22a1082b08c5ef7cd69c627783c04 34.79MB / 34.79MB                                                                                                     3.1s
+ => => sha256:ca266fd6192108b67fb57b74753a8c4ca5d8bd458baae3d4df7ce9f42dedcc1d 2.27MB / 2.27MB                                                                                                       3.4s
+ => => sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b 450B / 450B                                                                                                           3.4s
+ => => extracting sha256:7e9bf114588c05b2df612b083b96582f3b8dbf51647aa6138a50d09d42df2454                                                                                                            0.7s
+ => => extracting sha256:ffd9397e94b74abcb54e514f1430e00f604328d1f895eadbd482f08cc02444e5                                                                                                            3.2s
+ => => extracting sha256:513d779256048c961239af5f500589330546b072775217272e19ffae1635e98e                                                                                                            6.6s
+ => => extracting sha256:ae3b95bbaa61ce24cefdd89e7c74d6fbd7713b2bcae93af47063d06bd7e02172                                                                                                            0.0s
+ => => extracting sha256:0e421f66aff42bb069dffc26af6d132194b22a1082b08c5ef7cd69c627783c04                                                                                                            1.4s
+ => => extracting sha256:ca266fd6192108b67fb57b74753a8c4ca5d8bd458baae3d4df7ce9f42dedcc1d                                                                                                            0.1s
+ => => extracting sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b                                                                                                            0.0s
+ => [internal] load build context                                                                                                                                                                    0.0s
+ => => transferring context: 158.92kB                                                                                                                                                                0.0s
+ => [build-stage 2/6] WORKDIR /app                                                                                                                                                                   0.1s
+ => [build-stage 3/6] COPY package*.json ./                                                                                                                                                          0.0s
+ => [build-stage 4/6] RUN npm install                                                                                                                                                               33.2s
+ => [production-stage 4/5] RUN npm install --only=production                                                                                                                                        31.0s
+ => [build-stage 5/6] COPY . .                                                                                                                                                                       0.0s
+ => [build-stage 6/6] RUN npm run build                                                                                                                                                              1.4s
+ => [production-stage 5/5] COPY --from=build-stage /app /app                                                                                                                                         0.4s
+ => exporting to image                                                                                                                                                                               0.8s
+ => => exporting layers                                                                                                                                                                              0.8s
+ => => writing image sha256:0a82bf18f76f6c6ce9e73e3d3829b83776eb439af642dd98e8add3e1c3d64a2d                                                                                                         0.0s
+ => => naming to docker.io/library/test-fullstack-app                                                                                                                                                0.0s
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED          SIZE
+test-fullstack-app   latest    0a82bf18f76f   10 seconds ago   965MB
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker run -p 3000:3000 test-fullstack-app:latest
+
+> start
+> node src/server/app.js
+
+Example app listening on port 3000.
+
+Load it in your browser at http://localhost:3000
+
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker build -t zinchenko-fullstack-app .
+[+] Building 54.0s (13/13) FINISHED                                                                                                                                                        docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                                                 0.0s
+ => => transferring dockerfile: 827B                                                                                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/node:16                                                                                                                                           1.8s
+ => [internal] load .dockerignore                                                                                                                                                                    0.0s
+ => => transferring context: 2B                                                                                                                                                                      0.0s
+ => [build-stage 1/6] FROM docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b                                                                        16.3s
+ => => resolve docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b                                                                                     0.0s
+ => => sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b 776B / 776B                                                                                                           0.0s
+ => => sha256:c94b82f9827cab6e421b350965a9ef11b25b13ffbd1030536203d541f55dcbe2 2.00kB / 2.00kB                                                                                                       0.0s
+ => => sha256:311da6c465ea1576925360eba391bcd32dece9be95960a0bc9ffcb25fe712017 50.50MB / 50.50MB                                                                                                     1.7s
+ => => sha256:1ddc7e4055fdb6f6bf31063b593befda814294f9f904b6ddfc21ab1513bafa8e 7.23kB / 7.23kB                                                                                                       0.0s
+ => => sha256:7e9bf114588c05b2df612b083b96582f3b8dbf51647aa6138a50d09d42df2454 17.58MB / 17.58MB                                                                                                     1.2s
+ => => sha256:ffd9397e94b74abcb54e514f1430e00f604328d1f895eadbd482f08cc02444e5 51.89MB / 51.89MB                                                                                                     4.6s
+ => => sha256:513d779256048c961239af5f500589330546b072775217272e19ffae1635e98e 191.90MB / 191.90MB                                                                                                   5.6s
+ => => extracting sha256:311da6c465ea1576925360eba391bcd32dece9be95960a0bc9ffcb25fe712017                                                                                                            4.1s
+ => => sha256:ae3b95bbaa61ce24cefdd89e7c74d6fbd7713b2bcae93af47063d06bd7e02172 4.20kB / 4.20kB                                                                                                       2.0s
+ => => sha256:0e421f66aff42bb069dffc26af6d132194b22a1082b08c5ef7cd69c627783c04 34.79MB / 34.79MB                                                                                                     3.2s
+ => => sha256:ca266fd6192108b67fb57b74753a8c4ca5d8bd458baae3d4df7ce9f42dedcc1d 2.27MB / 2.27MB                                                                                                       3.6s
+ => => sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b 450B / 450B                                                                                                           3.8s
+ => => extracting sha256:7e9bf114588c05b2df612b083b96582f3b8dbf51647aa6138a50d09d42df2454                                                                                                            0.4s
+ => => extracting sha256:ffd9397e94b74abcb54e514f1430e00f604328d1f895eadbd482f08cc02444e5                                                                                                            1.9s
+ => => extracting sha256:513d779256048c961239af5f500589330546b072775217272e19ffae1635e98e                                                                                                            6.3s
+ => => extracting sha256:ae3b95bbaa61ce24cefdd89e7c74d6fbd7713b2bcae93af47063d06bd7e02172                                                                                                            0.0s
+ => => extracting sha256:0e421f66aff42bb069dffc26af6d132194b22a1082b08c5ef7cd69c627783c04                                                                                                            1.3s
+ => => extracting sha256:ca266fd6192108b67fb57b74753a8c4ca5d8bd458baae3d4df7ce9f42dedcc1d                                                                                                            0.1s
+ => => extracting sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b                                                                                                            0.0s
+ => [internal] load build context                                                                                                                                                                    0.0s
+ => => transferring context: 159.02kB                                                                                                                                                                0.0s
+ => [build-stage 2/6] WORKDIR /app                                                                                                                                                                   0.2s
+ => [build-stage 3/6] COPY package*.json ./                                                                                                                                                          0.0s
+ => [build-stage 4/6] RUN npm install                                                                                                                                                               32.1s
+ => [production-stage 4/5] RUN npm install --only=production                                                                                                                                        26.4s
+ => [build-stage 5/6] COPY . .                                                                                                                                                                       0.0s
+ => [build-stage 6/6] RUN npm run build                                                                                                                                                              1.5s
+ => [production-stage 5/5] COPY --from=build-stage /app /app                                                                                                                                         0.4s
+ => exporting to image                                                                                                                                                                               0.8s
+ => => exporting layers                                                                                                                                                                              0.8s
+ => => writing image sha256:da0cdb16383443deed38c1596ee1ad3be47fb16fb8044a47484a73550d80b42e                                                                                                         0.0s
+ => => naming to docker.io/library/zinchenko-fullstack-app                                                                                                                                           0.0s
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker images
+REPOSITORY                TAG       IMAGE ID       CREATED              SIZE
+zinchenko-fullstack-app   latest    da0cdb163834   About a minute ago   965MB
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker run -d -p 3000:3000 zinchenko-fullstack-app:latest
+7d496ee688f4b01125c77922e9237cf21dd64e650d2af0d720a1e5e09a14111f
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$ docker ps -a
+CONTAINER ID   IMAGE                            COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+7d496ee688f4   zinchenko-fullstack-app:latest   "docker-entrypoint.s…"   4 seconds ago   Up 3 seconds   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   festive_blackburn
+zincheis@nginx:~/DevOpsV/example-app-nodejs-backend-react-frontend-master$
+
+
