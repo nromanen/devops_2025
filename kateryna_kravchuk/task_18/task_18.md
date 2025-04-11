@@ -30,7 +30,7 @@ Create a simple site with your name on PaaS platform render.com.
 2. Select *New* -> *Static site*.  
 3. Connect the GitHub account.  
 4. Select the repository created in step 0.  
-5. Fill in the nessessary details -> *Deploy Static Site*.  
+5. Fill in the necessary details -> *Deploy Static Site*.  
 6. Wait for the deployment process to complete, then visit this live website.  
 
 ---
