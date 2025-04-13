@@ -4,5 +4,4 @@
 /task_11/other.md
 /task_12/task_12_other.md
 /task_16/example-app-nodejs-backend-react-frontend/*
-!Dockerfile
 .vagrant/
