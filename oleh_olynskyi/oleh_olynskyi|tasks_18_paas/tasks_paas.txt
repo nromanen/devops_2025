@@ -1,0 +1,22 @@
+[ Task ] PaaS
+
+1) Create your site on wordpress or other CMS in Byet.host /   infinityfree.com /Azure App Services 
+
+Скріншот: 
+https://drive.google.com/file/d/1AJAJca0GT4fG4jS4VI2wbPZGozICCu1J/view?usp=sharing
+
+
+
+2) Create a simple site with your name on PaaS platform render.com
+
+Скріншот: 
+https://drive.google.com/file/d/1ipTJOVp2S2hAFxwCgMAw1F_4WM3-4vP1/view?usp=sharing
+
+
+PaaS Additional Task:
+
+Скріншот:
+https://drive.google.com/file/d/1iMhbJfd7apeYWhKOgLk1nHYvfhF2htcf/view?usp=sharing
+
+
+

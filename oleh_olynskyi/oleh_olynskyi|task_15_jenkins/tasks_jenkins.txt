@@ -1,0 +1,92 @@
+[Task] Jenkins
+
+-Встановив Jenkins:
+sudo apt install jenkins -y 
+Запустив:
+sudo systemctl enable --now Jenkins
+
+Отримав початковий пароль:
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Відкрив в браузері:
+ http://192.168.0.100:8080/
+
+Ввів початковий пароль і встановив плагіни: Git, Pipeline, NodeJS Plugin
+
+Cтворив Jenkinsfile і закинув у GitHub
+
+Налаштував Jenkins для запуску pipeline і запустив через кнопку Build Now
+
+
+
+Посилання на GitHub в якому міститься Jenkinsfile, Jenkinsfile розташований в main гілці:
+https://github.com/Oleh200/DevOps_learn
+
+
+
+Вивід з Console Output:
+Started by user Oleh Olynskyi
+Obtained Jenkinsfile from git https://github.com/Oleh200/DevOps_learn.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/Task Jenkins
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/Task Jenkins/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Oleh200/DevOps_learn.git # timeout=10
+Fetching upstream changes from https://github.com/Oleh200/DevOps_learn.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.45.2'
+ > git fetch --tags --force --progress -- https://github.com/Oleh200/DevOps_learn.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision ce873c1b655640fba47641d2021819604dea1721 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ce873c1b655640fba47641d2021819604dea1721 # timeout=10
+Commit message: "Update Jenkinsfile"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Prepare)
+[Pipeline] echo
+Installing Node.js 22...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ npm --version
+9.2.0
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+JENKINS_URL is: http://192.168.0.100:8080/
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+
+
+
+Скріншот зі Stage Prepare: 
+https://drive.google.com/file/d/1fYQJziuPC4a9B58WVnyLwwtkknTUESgv/view?usp=sharing
+
+Скріншот зі Stage Build: 
+https://drive.google.com/file/d/1-Wvtnrq6iIqozoy5lBN1Jq2wRZczvVfh/view?usp=sharing
+
+Скріншот зі Stage Test: 
+https://drive.google.com/file/d/1ekZRejSlzRl9eH0IflpdHtvjAdl8B1Xa/view?usp=sharing

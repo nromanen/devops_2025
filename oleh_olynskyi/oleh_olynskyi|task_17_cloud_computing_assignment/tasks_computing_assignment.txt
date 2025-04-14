@@ -1,0 +1,17 @@
+[ Task ] Cloud Computing Assignment
+
+Install and deploy on a Virtual Machine in Azure with Linux   the Blood-Bank-Management-System https://github.com/DevOps2-Fundamentals/Blood-Bank-Management-System . The database is another virtual machine or dedicated Azure resources 
+
+Скріншоти: 
+https://drive.google.com/file/d/1JFV85rfagPxqspjQnc7ieV19OjcpK6pC/view?usp=sharing
+https://drive.google.com/file/d/1RV2hpfoAxrHlZ8ha5V5Njccrkn4uRFy8/view?usp=sharing
+https://drive.google.com/file/d/1ul7-ZdsQK_K_8zFgKOCNuzG5qWMB2jbk/view?usp=sharing
+
+
+Additional Task: Create AWS infrastructure and deploy WordPress on it by using this guide:
+
+Скріншоти:
+https://drive.google.com/file/d/1tyBeXcOdnb52OdnRldwh3UMa9sRB0gQX/view?usp=sharing 
+https://drive.google.com/file/d/1KCuj64ja_-RZshDzeAIK_zTOcWedfSv3/view?usp=sharing
+
+

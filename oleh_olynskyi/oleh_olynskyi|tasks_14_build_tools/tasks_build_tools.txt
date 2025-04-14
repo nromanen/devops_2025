@@ -1,0 +1,26 @@
+[Task]. Build Tools
+
+-Склонував GitHub репозиторій https://github.com/DevOps2-Fundamentals/build-tools-Oleh200.git
+
+-зробив зміни для Webpack в конфігураційному файлі webpack.config.js
+
+в Powershell виконав
+cd ui
+npm i
+npm run build
+
+-прописав відповідні налаштування для Gradle у файлі build.gradle.kts
+
+в Powershell виконав
+./gradlew bootRun
+
+
+-відредагованні файли webpack.config.js, build.gradle.kts, додав в GitHub:
+https://github.com/DevOps2-Fundamentals/build-tools-Oleh200.git
+https://github.com/DevOps2-Fundamentals/build-tools-Oleh200/pull/1
+
+перейшов за посиланням
+http://localhost:8080
+
+Скріншот: 
+https://drive.google.com/file/d/1M1epS5QG1bv2cm2ufNWYVZTsA8P_M_tF/view?usp=sharing
