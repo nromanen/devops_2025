@@ -127,7 +127,7 @@ Successfully processed 1 files; Failed processing 0 files
 
 3. Use the PEM key to connect to the VM via **PowerShell** (run as Administrator).  
 
-> To gobtain the VM's IP, go to the Connect [tab](https://drive.google.com/file/d/1Fl5q3DyHhhrHSu-cC4Y4C9aqkkS4Jyyo/view?usp=drive_link) on the Azure portal.  
+> To obtain the VM's IP, go to the Connect [tab](https://drive.google.com/file/d/1Fl5q3DyHhhrHSu-cC4Y4C9aqkkS4Jyyo/view?usp=drive_link) on the Azure portal.  
 
 ```bash
 ssh -i <some-path>/ubuntu-iaas_key.pem azureuser@20.215.33.108
@@ -285,7 +285,7 @@ XAMPP: Starting ProFTPD...ok.
 
 ### (alternative) Azure MySQL Database as IaaS
 
-There are another option to create a SQL database by using dedicated IaaS on Azure Portal, that have additional benefits compared to the DB on the standart VM.  
+There is another option to create a SQL database by using dedicated IaaS on Azure Portal, that have additional benefits compared to the DB on the standart VM.  
 
 1. Go to Azure Portal -> *Azure Database for MySQL* -> *Create MySQL Database*. Provide all the necessary information, create a dedicated SQL server and navigate to it.  
 2. *Set server firewall* -> open **Terminal**, select *Azure CLI*, add the following:  
@@ -327,7 +327,7 @@ sudo /opt/lampp/bin/mysql -u root bloodbank < bloodbank.sql
 ```
 
 **Verify import**:  
-    1. run `sudo /opt/lampp/bin/mysql -u root bloodbank` to go inside DB;  
+    1. run `sudo /opt/lampp/bin/mysql -u root bloodbank` to access the database;  
     2. run SQL query `SHOW TABLES;` to check if everything was imported correctly.  
 
 **Output**:  
