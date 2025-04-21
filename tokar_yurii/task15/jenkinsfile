@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Prepare') {
+            steps {
+                echo 'Install Node 22'
+                sh '''
+                  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+                  sudo apt-get install -y nodejs
+                '''
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Build: npm'
+                sh 'npm --version'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Test: JENKINS_URL'
+                sh 'echo $JENKINS_URL'
+            }
+        }
+    }
+}
