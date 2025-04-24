@@ -1,0 +1,107 @@
+https://drive.google.com/file/d/1woVNYqdL5jcDv48HaZTlTCVYCTjkh9f0/view?usp=drive_link
+https://drive.google.com/file/d/1WiASnwPzOf0DyJcfCV5IbBu5UfzB77-D/view?usp=drive_link
+https://drive.google.com/file/d/1fRxkon7cENa2W6hNi_I4PFPvc3zIEp_R/view?usp=drive_link
+
+Консольний Вивід
+Started by user admin
+Obtained Jenkinsfile from git https://github.com/git-ig/ss-do-task01.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/123pipe
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/git-ig/ss-do-task01.git
+ > git init /var/lib/jenkins/workspace/123pipe # timeout=10
+Fetching upstream changes from https://github.com/git-ig/ss-do-task01.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/git-ig/ss-do-task01.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/git-ig/ss-do-task01.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 69016c8ab66581e7060cef566d86d577a299efb8 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 69016c8ab66581e7060cef566d86d577a299efb8 # timeout=10
+Commit message: "Update Jenkinsfile"
+ > git rev-list --no-walk 69016c8ab66581e7060cef566d86d577a299efb8 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Prepare)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] echo
+Этап подготовки: Установка Node.js уже выполнена с помощью секции tools.
+[Pipeline] sh
++ node --version
+v23.11.0
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] echo
+Этап сборки: Отображаем версию npm...
+[Pipeline] sh
++ npm --version
+10.9.2
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] echo
+Этап тестирования: Отображаем переменную окружения JENKINS_URL...
+[Pipeline] echo
+Jenkins URL: http://10.63.9.213:8080/
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Пайплайн завершен.
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
