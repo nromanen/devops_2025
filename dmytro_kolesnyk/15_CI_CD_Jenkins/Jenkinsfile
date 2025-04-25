@@ -1,34 +1,9 @@
 pipeline {
     agent any
-
     stages {
-        stage('Prepare') {
+        stage('Hello') {
             steps {
-                script {
-                    println 'Installing Node.js version 22...'
-                    nodejs(tool: 'NodeJS 22') {
-                        println "Node.js version ${tool 'node' --version} and npm version ${tool 'npm' --version} are available."
-                    }
-                }
-            }
-        }
-        stage('Build') {
-            steps {
-                script {
-                    println 'Simulating build process...'
-                    sh 'npm --version'
-                }
-            }
-        }
-        stage('Test') {
-            environment {
-                JENKINS_URL = 'http://localhost:8080/' // Замініть на фактичну URL-адресу Jenkins, якщо вона інша
-            }
-            steps {
-                script {
-                    println 'Simulating testing process...'
-                    echo "Jenkins URL: $JENKINS_URL"
-                }
+                echo 'Hello Jenkins!'
             }
         }
     }
