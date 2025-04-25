@@ -1,10 +1,31 @@
 pipeline {
     agent any
+
+    tools {
+        nodejs 'Node22'
+    }
+
     stages {
-        stage('Hello') {
+        stage('Prepare') {
             steps {
-                echo 'Hello Jenkins!'
+                echo '🔧 Встановлюємо Node.js 22...'
+                sh 'node -v'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo '🏗️ Симуляція процесу збирання...'
+                sh 'npm -v'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo '🧪 Симуляція тестування...'
+                sh 'echo JENKINS_URL = $JENKINS_URL'
             }
         }
     }
 }
+
