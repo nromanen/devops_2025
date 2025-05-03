@@ -1,0 +1,19 @@
+https://drive.google.com/file/d/1XQozv6nYtORT6mQNoavBa1qWm1vi4yD7/
+
+$ docker run -dit --name simple-web-application -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:latest
+
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+254e724d7786: Pull complete 
+10d01782dc02: Pull complete 
+4f4fb700ef54: Pull complete 
+4ceeea7b3d76: Pull complete 
+0ff470512d2f: Pull complete 
+ba78a05e3b3c: Pull complete 
+Digest: sha256:c11efd67f6308f2c25965e4e9d13ded15e7c45c0367b95f619a16e03c6c1e2b1
+Status: Downloaded newer image for httpd:latest
+d90bdf03de3171d9d5747a2241da1381bc50f51e800d4218891391f0a4afb42c
+
+$ docker ps
+CONTAINER ID   IMAGE          COMMAND              CREATED          STATUS          PORTS                                     NAMES
+d90bdf03de31   httpd:latest   "httpd-foreground"   17 seconds ago   Up 17 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   simple-web-application

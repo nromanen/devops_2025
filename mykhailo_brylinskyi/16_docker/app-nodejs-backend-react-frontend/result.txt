@@ -1,0 +1,4 @@
+https://drive.google.com/file/d/1HE9uCU7z9s9lwpkHp6iTHAOIVMvf_Zev/
+
+docker build -t my-app .
+docker run -p 3000:3000 my-app
