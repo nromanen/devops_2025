@@ -1,0 +1,77 @@
+Started by user Mykhailo Brylinskyi
+Obtained Jenkinsfile from git https://github.com/brylinskyi/jenkins.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/myjob
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/myjob/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/brylinskyi/jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/brylinskyi/jenkins.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/brylinskyi/jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 917e04631f671b5729b14fe3c189b395fbe22412 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 917e04631f671b5729b14fe3c189b395fbe22412 # timeout=10
+Commit message: "Jenkins v5"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Prepare)
+[Pipeline] echo
+Installing Node.js v22.0.0 locally...
+[Pipeline] sh
++ mkdir -p /var/lib/jenkins/workspace/myjob/.node
++ curl -o node.tar.xz https://nodejs.org/dist/v22.0.0/node-v22.0.0-linux-x64.tar.xz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 26.4M    0 12303    0     0  24457      0  0:18:56 --:--:--  0:18:56 24459 14 26.4M   14 3824k    0     0  2847k      0  0:00:09  0:00:01  0:00:08 2845k 50 26.4M   50 13.3M    0     0  5842k      0  0:00:04  0:00:02  0:00:02 5841k 90 26.4M   90 23.9M    0     0  7333k      0  0:00:03  0:00:03 --:--:-- 7332k100 26.4M  100 26.4M    0     0  7592k      0  0:00:03  0:00:03 --:--:-- 7591k
++ tar -xf node.tar.xz
++ mv node-v22.0.0-linux-x64/CHANGELOG.md node-v22.0.0-linux-x64/LICENSE node-v22.0.0-linux-x64/README.md node-v22.0.0-linux-x64/bin node-v22.0.0-linux-x64/include node-v22.0.0-linux-x64/lib node-v22.0.0-linux-x64/share /var/lib/jenkins/workspace/myjob/.node
+[Pipeline] sh
++ node -v
+v22.0.0
+[Pipeline] sh
++ npm -v
+10.5.1
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+Simulating build with local npm...
+[Pipeline] sh
++ npm -v
+10.5.1
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+JENKINS_URL environment test...
+[Pipeline] sh
++ echo http://192.168.0.103:8080/
+http://192.168.0.103:8080/
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
