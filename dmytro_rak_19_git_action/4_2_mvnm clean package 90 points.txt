@@ -1,0 +1,10 @@
+
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:20 min
+[INFO] Finished at: 2025-04-05T20:11:43+03:00
+[INFO] ------------------------------------------------------------------------
+
+Rak_d@DESKTOP-A2T8N7P MINGW64 /d/rak_dmitry/java-app-Dark3042 (main)
