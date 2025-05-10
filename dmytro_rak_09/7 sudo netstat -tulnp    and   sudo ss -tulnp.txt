@@ -1,0 +1,18 @@
+dark@ubunta:~$ sudo netstat -tulnp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      432/systemd-resolve
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      432/systemd-resolve
+tcp6       0      0 :::22                   :::*                    LISTEN      1/init
+udp        0      0 127.0.0.54:53           0.0.0.0:*                           432/systemd-resolve
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           432/systemd-resolve
+udp        0      0 192.168.1.106:68        0.0.0.0:*                           482/systemd-network
+dark@ubunta:~$ sudo ss -tulnp
+Netid  State    Recv-Q   Send-Q            Local Address:Port     Peer Address:Port  Process
+udp    UNCONN   0        0                    127.0.0.54:53            0.0.0.0:*      users:(("systemd-resolve",pid=432,fd=16))
+udp    UNCONN   0        0                 127.0.0.53%lo:53            0.0.0.0:*      users:(("systemd-resolve",pid=432,fd=14))
+udp    UNCONN   0        0          192.168.1.106%enp0s3:68            0.0.0.0:*      users:(("systemd-network",pid=482,fd=23))
+tcp    LISTEN   0        4096                 127.0.0.54:53            0.0.0.0:*      users:(("systemd-resolve",pid=432,fd=17))
+tcp    LISTEN   0        4096              127.0.0.53%lo:53            0.0.0.0:*      users:(("systemd-resolve",pid=432,fd=15))
+tcp    LISTEN   0        4096                          *:22                  *:*      users:(("sshd",pid=1916,fd=3),("systemd",pid=1,fd=171))
+dark@ubunta:~$
