@@ -1,0 +1,6 @@
+
+Rak_d@DESKTOP-A2T8N7P MINGW64 /d/rak_dmitry
+$ curl -s 'http://localhost:8080/actuator/health'
+{"status":"UP"}
+Rak_d@DESKTOP-A2T8N7P MINGW64 /d/rak_dmitry
+
