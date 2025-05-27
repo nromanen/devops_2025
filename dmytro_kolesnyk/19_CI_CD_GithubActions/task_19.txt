@@ -1,0 +1,2 @@
+https://drive.google.com/drive/folders/1SgKCDmdVnfdzZN2PV3hQsLkXGNXNl_WZ?usp=sharing
+https://github.com/DevOps2-Fundamentals/python-app-dvk2017/blob/main/.github/workflows/ci.yml
